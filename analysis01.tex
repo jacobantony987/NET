@@ -1,0 +1,560 @@
+%Elementary set theory, finite, countable and uncountable sets, Real number system as a complete ordered field, Archimedean property, supremum, infimum
+\section{Algebra of Sets}
+	\begin{definition}
+		\begin{description}
+			\item[set] a well-defined collection of objects
+			\item[subset] set $A$ is a subset of set $B$ if each element of set A is also in set B
+			\item[equal] Two sets A and B equal if they have the same elements
+		\end{description}
+	\end{definition}
+	\begin{remark}
+		$A = B \iff A \subset B \text{ and } B \subset A$
+	\end{remark}
+	\begin{description}	
+		\item[Null set, $\phi$] is the set which contains no elements.
+		\item[Power set, $P(X)$] is the family of all subsets of the set $X$.
+		\item[$\mathbb{N}$] set of all natural numbers
+		\item[$\mathbb{Z}$] set of all integers
+		\item[$\mathbb{Q}$] set of all rationals
+		\item[$\mathbb{R}$] set of all real numbers
+		\item[$\mathbb{C}$] set of all complex numbers
+	\end{description}
+	\begin{definition}
+		Set operations,
+		\begin{description}
+			\item[Union/Join] $A \cup B = \{ x : x \in A \text{ or } x \in B \}$
+			\item[Intersection/Meet] $A \cap B = \{ x : x \in A \text{ and } x \in B \}$
+			\item[Complement/Difference] $A - B = \{ x \in A : x \not\in B \}$
+			\item[Symmetric Difference] $A \Delta B = (A-B) \cup (B-A)$
+		\end{description}
+	\end{definition}
+	\begin{remark}Inclusive property,
+		\begin{enumerate}
+			\item $A \subset A \cup B$
+			\item $A \cap B \subset A$
+			\item $A-B \subset A$
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}
+		$A \subset B \iff A \cap B = A \iff A \cup B = B \iff A - B = \phi$
+	\end{remark}
+	\begin{remark}
+		Union and Intersection are idempotent, commutative, associative and distributive.
+	\end{remark}
+	\begin{description}
+		\item[disjoint] Two sets $A$ and $B$ are disjoint if $A \cap B = \phi$
+	\end{description}
+	\begin{definition}
+		The (cartesian) product, $A \times B =\  \{\ (x,y) : x \in A,\ y \in B\ \}$
+	\end{definition}
+	\begin{theorem} Augustus de Morgan
+		\begin{enumerate}
+			\item $X - (A \cup B) = (X-A) \cap (X-B)$
+			\item $X - (A \cap B) = (X-A) \cup (X-B)$
+		\end{enumerate}
+	\end{theorem}
+\section{Functions}
+	\begin{definition}
+		A function $ f : A \to B$ is a subset of $A \times B$ such that for every $x \in A$ there exists a unique $y \in B$ where $(x,y) \in f$.
+	\end{definition}
+	\begin{description}
+		\item[image of $x$] Let $(x,y) \in f$, then the image of $x$, $ f(x) = y$
+		\item[Inverse image] $f^{-1}(y) = \{ x \in A : y = f(x) \}$ is the fibre of $f$ over $y$\cite{gallian}
+		\item[domain of $f$] is the set A 
+		\item[co-domain of $f$] is the set B
+		\item[range of $f$] is the set $\{ y\in B : \exists x \in A,\ y = f(x) \}$
+	\end{description}
+	\begin{remark}
+		$f(x) = y \implies x \in f^{-1}(y)$
+	\end{remark}
+	\begin{definition}
+		Let functions $f : A \to B$ and $g : B \to C$, then the composition $g \circ f : A \to C$ is function such that $g \circ f (x) = g(f(x))$.
+	\end{definition}
+	\begin{theorem} Let $f : A \to B$ and $g : B \to C$ be functions, then
+		\begin{enumerate}
+			\item domain of $g \circ f$ is the domain of $f$
+			\item co-domain of $g \circ f$ is the co-domain of $g$
+			\item range of $g \circ f$ is the range of image of $A$ 
+		\end{enumerate}
+	\end{theorem}
+	\begin{remark}
+		Function composition is not commutative.
+	\end{remark}
+	\begin{definition} Let $f : A \to B$ be a function, then 
+		\begin{description}
+			\item[injective] $f$ is injective if images of distinct elment of $A$ are distinct.
+			\item[surjective] $f$ is surjective if elements of $B$ are images of some elements of $A$.
+			\item[bijective] = injective + surjective = one-one + onto
+		\end{description}
+	\end{definition}
+	\begin{definition}
+		Let $f : A \to B$ and $g : B \to A$ are both injective functions such that $g = \{ (b,a) \in B \times A : (a,b) \in f \}$, then $g$ is the inverse function of $f$, $f^{-1}$.
+	\end{definition}
+	\begin{remark}
+		$f : X \to Y$ is injective iff
+		\begin{enumerate}
+			\item $f$ has left inverse. ie, $\exists g:Y\to X,\ gf = id_X$
+			\item $C \cap D = \phi \iff f(C) \cap f(D) = \phi$
+		\end{enumerate}
+		$f : X \to Y$ is surjective function iff
+		\begin{enumerate}
+			\item $f$ has right inverse. ie, $\exists g:Y\to X,\ fg = id_Y$
+		\end{enumerate}
+		$f:A \to B$ is a bijection iff 
+		\begin{enumerate}
+			\item $f^{-1}\circ f = id_A$ and $f\circ f^{-1} = id_B$
+		\end{enumerate}
+	\end{remark}
+	\begin{theorem}[Schroder-Bernstein]
+		$\exists$ injective function $f:A \to B,\ \exists$ injective function $g:B \to A$ $\implies$ $\exists$ bijection $h:A \to B$.
+	\end{theorem}
+	\begin{remark} functions \& sets
+		\begin{enumerate}
+		 \item $f^{-1}(A\cup B) = f^{-1}(A) \cup f^{-1}(B)$
+		 \item $f^{-1}(A\cap B) = f^{-1}(A) \cap f^{-1}(B)$
+		 \item $f^{-1}(A-B) = f^{-1}(A)-f^{-1}(B)$
+		 \item $f(A\cup B) = f(A) \cup f(B)$
+		\end{enumerate}
+	\end{remark}
+	\begin{remark} Let $f:A\to B$
+		$$\forall y \in B, |f^{-1}(y)| = \begin{cases}
+			\leq 1, \text{ f is injective }\\
+			= 1, \text{ f is bijection }\\
+			\geq 1, \text{ f is surjective}
+		\end{cases}$$
+	\end{remark}
+	\begin{remark}The following statements are equivalent:
+		\begin{enumerate}
+			\item $f : X \to Y$ is injective
+		 	\item $\forall A,B \subset X,\ f(A\cap B) = f(A) \cap f(B)$ 
+		 	\item $\forall A,B \subset X,\ f(A-B) = f(A)-f(B)$
+		 	\item $\forall A \subset X,\ A = f^{-1}\circ f(A)$
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}The following statements are equivalent:
+		\begin{enumerate}
+			\item $f : X \to Y$ is surjective
+		 	\item $\forall A \subset Y,\ A = f(f^{-1}(A))$
+		\end{enumerate}
+	\end{remark}
+	\begin{remark} Some non-equal sets,
+		\begin{enumerate}
+			 \item $f(A\cap B) \neq f(A) \cap f(B),\qquad \because f(A) \cap f(B) \not\subset f(A\cap B)$
+			 \item $f(A-B) \neq f(A)-f(B),\qquad  \because f(A-B) \not\subset f(A)-f(B)$
+			 \item $A \neq f \circ f^{-1}(A),\qquad \because A \not\subset f \circ f^{-1}(A)$
+			 \item $A \neq f^{-1} \circ f(A),\qquad \because A \not\subset f^{-1}\circ f(A)$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		The restriction of a function $f:A \to B$ into a subset $C \subset A$ is the function $f_{|_C} : C \to B$, such that $\forall x \in C,\ f_{|_C}(x) = f(x)$
+	\end{definition}
+	\begin{definition}
+		An extension of a function $f:A \to B$ into a superset $C \supset A$ is the function $F:C \to B$, such that $\forall x \in A,\ F(x)=f(x)$.
+	\end{definition}
+\section{Partial Order}
+	\begin{definition}
+		A (binary) relation $\leq$ between set $A$ and set $B$
+		is a subset of the cartesian product, $A \times B$.
+		$(x,y) \in\ \leq $ may be written as $x \leq y$.\\
+		A relation on S is a relation from S into S.
+	\end{definition}
+	\begin{description}
+		\item[reflexive] $x \in S \implies xRx $
+		\item[symmetric] $\forall xRy,\ x \neq y \implies yRx$
+		\item[antisymmetric] $\forall xRy,\ x \neq y \implies \neg yRx$
+		\item[transitive] $xRy\ \wedge \ yRz \implies xRz$
+		\item[connex] $\forall x,y \in R \implies (xRy)\ \vee \ (yRx)$
+	\end{description}
+	\begin{remark}
+		Every connex relation is reflexive.\\
+		An equivalence relation R is a reflexive, symmetric and transitive relation.
+	\end{remark}
+	\begin{definition}
+		An order $<$ is a transitive relation such that, 
+		$$\forall x,y \in S,\ x < y \text{ OR } x = y \text{ OR } y < x$$
+		An  order is a reflexive, antisymmetric and transitive relation.
+	\end{definition}
+	\begin{description}
+		\item[ordered set] is a set with an order on it.
+		\item[strict order] is a non-reflexive, antisymmetric and trasitive relation.
+		\item[diagonal] on S is the set $\Delta S = \{ (x,x) \in S \times S\ :\ x \in S\}$
+		\item[total/linear/simple order] is a antisymmetric, trasitive and connex relation.
+	\end{description}
+
+%	\begin{definition}
+%		A poset is a set with a partial order.
+%	\end{definition}
+
+	\begin{remark}
+		For any set $X$, The set inclusion $\subset$ is a partial order on $P(X)$.
+	\end{remark}
+	\begin{axiom}[Choice]
+		If $\{A_i : i \in I\}$ is a non-empty family of sets such that $A_i$ is non-empty for each $i \in I$, then $\prod A_i$ is non-empty
+	\end{axiom}
+	\begin{lemma}[Zorn]
+		If every chain in a partially ordered set $X$ has an upper bound in $X$, then $X$ has a maximal element.
+	\end{lemma}
+	\begin{remark}
+		Zorn's lemma is equivalent to the axiom of choice.\cite{alip1}
+	\end{remark}
+
+\section{Cardinality}
+	\begin{definition}
+		Set A,B are have same cardinality, if there exists a bijection $f:A \to B$.
+	\end{definition}
+	\begin{remark}
+		$card(X) \le card(Y)$ if there exists an injective function, $f:X \to Y$\\
+		$card(Y) \le card(X)$ if there exists an surjective function, $f:X \to Y$
+	\end{remark}
+	\begin{remark}
+		Cardinality is an equivalence relation on the family of all sets.
+	\end{remark}
+	\begin{definition}
+		A set S is finite if $\exists n \in \mathbb{N}$, such that $card(S) = n$.\\
+		A set S is countably infinite if $card(S) = card(\mathbb{N})$.\\
+		A set S is countable if it is finite or countably infinite.\\
+		A set S is uncountable if it neither finite nor countably inifinite.
+	\end{definition}
+	\begin{theorem}
+		Every infinite subset of a countably set is countable.
+	\end{theorem}
+	\begin{remark}
+		Countability is the smallest infinity.
+	\end{remark}
+	\begin{theorem}
+		Every infinite set contains a countable subset.
+	\end{theorem}
+	\begin{theorem}
+		For an infinite set $A$, the following statements are equivalent:\cite{alip1}
+		\begin{enumerate}
+			\item $A$ is countable
+			\item There exists a subset $B\subset\mathbb{N}$ and a surjective function $f:B\to A$
+			\item There exists an injective function $g:A\to \mathbb{N}$
+		\end{enumerate}
+	\end{theorem}
+	\begin{theorem}
+		Every subset of finite(countable) set is finite(countable).
+	\end{theorem}
+	\begin{theorem}
+		Finite union of finite sets is finite. Countable union of countable sets is countable.
+	\end{theorem}
+	\begin{remark}
+		The sets $\mathbb{N},\mathbb{Q}$ are countable.
+		The sets $(0,1)$, $\mathbb{R}$ are uncountable.
+	\end{remark}
+	\begin{theorem}
+		The set of all sequences in $\{0,1\}$ is uncountable.
+	\end{theorem}
+	\begin{remark}
+		The set of all di-adic real numbers is uncountable.\\
+		The set of all integerts is not uncountable ?
+	\end{remark}
+	\begin{theorem}[well-ordering]
+		Every nonempty subset of $\mathbb{N}$ has a smallest element in it.
+	\end{theorem}
+	\begin{theorem}[induction]
+		If $p(1)\ \wedge \ (p(k) \implies p(k+1))$, then $\forall n \in \mathbb{N},\ p(n)$
+	\end{theorem}
+	\begin{remark}
+		Well-ordering \& induction principles are equivalent.
+	\end{remark}
+	\begin{theorem}
+		Countable union of countable sets is countable.
+	\end{theorem}
+	\begin{theorem}
+		Finite product of countable sets is countable.
+	\end{theorem}
+	\begin{remark}
+		Countable product of countable sets is not necessarily countable.
+	\end{remark}
+	\begin{remark}
+		If $card(A) \le card(B)$ and $card(B) \le card(A)$, then there exists a bijection $f:A \to B$. Thus $card(A) = card(B)$.
+	\end{remark}
+	\begin{theorem}[Cantor]
+		If $A$ is a set, then $card(A) \le  card(P(A))$ and $card(A) \ne card(P(A))$.
+	\end{theorem}
+	\begin{remark}
+		Cardinality of the null set is 0.\\
+		$card(\mathbb{N}) = \aleph_0$\\
+		$card(P(\mathbb{N})) = card(\mathbb{R}) = \aleph_1$
+	\end{remark}
+	\begin{remark}[Continuum hypothesis]
+		There is no cardinal number between $\aleph_0$ and $\aleph_1$.
+	\end{remark}
+	\begin{remark}[Generalised Continuum hypothesis]
+		For any infinite cardinal $\aleph_k$, there is no cardinal number between $\aleph_k$ and $\aleph_{k+1}$.
+	\end{remark}
+
+\section{Real Field}
+	\begin{definition}
+		A binary operation on the set A is a function $\star : A \times A \to A$.
+	\end{definition}
+	\begin{remark}
+		$\star(a,b)=c$ may be written as $a\star b = c$ instead of $(a,b)\star c$
+	\end{remark}
+	\begin{axiom}[Field]
+		A set $F$ with two binary operations $+,\times$ is a field if it satifies
+		\begin{enumerate}
+		 	\item $\forall x,y \in F,\ x+y \in F$
+		 	\item $\forall x,y \in F,\ x+y = y+x$
+		 	\item $\forall x,y,z \in F,\ (x+y)+z = x+(y+z)$
+		 	\item $\exists$ a unique $0 \in F,\ \forall x \in F,\ x+0 = x$
+		 	\item $\forall x \in F,\ \exists (-x) \in F,\ x+(-x) = 0$
+		 	\item $\forall x,y \in F,\ x\times y \in F$
+		 	\item $\forall x,y \in F,\ x \times y = y \times x $
+		 	\item $\forall x,y,z \in F,\ (x \times y)\times z = x \times (y \times z)$
+		 	\item $\exists$ a unique $1 \in F,\ \forall x \in F,\ x \times 1 = x$
+		 	\item $\forall x \in F,\ x \neq 0,\ \exists x^{-1} \in F,\ x \times x^{-1} = 1$
+		 	\item $\forall x,y,z \in F,\ x\times(y+z) = (x \times y) + (x \times z)$
+		\end{enumerate}
+	\end{axiom}
+	\begin{remark}
+		Let $0,1$ be additive and multiplicative identities, then $\forall x,y,z \in \mathbb{R}$,
+		\begin{enumerate}
+			\item $x+y = x+z \iff y = z$
+			\item $x+y = x \iff y = 0$
+			\item $x+y = 0 \iff y = -x$
+			\item $x + y = z \iff x = z + (-y)$
+			\item $-(-x) = x$
+			\item For $x \ne 0, xy = xz \iff y = z$
+			\item For $x \ne 0, xy = x \iff y = 1$
+			\item $xy = 1 \iff y = x^{-1}$
+			\item $xy = z \iff x = zy^{-1}$
+			\item $(x^{-1})^{-1} = x$
+			\item $0x = 0$
+			\item $(-1)x = -x$
+			\item $(-1)(-1) = 1$
+			\item $xy = 0 \iff a = 0 \text{ or } b = 0$
+			\item $(-x)(-y) = xy$
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}
+		$\mathbb{Q},\mathbb{R},\mathbb{C}$ are fields.
+	\end{remark}
+	\begin{theorem}
+		There doesn't exist a rational number $r$ such that $r^2 = 2$.
+	\end{theorem}
+	\begin{axiom}[Order]
+		An ordered field $F$ is a field with an order $<$ such that,
+		\begin{enumerate}
+			\item $\forall a,b \in F$ exactly one of the statements $a<b,\ a=b,\ b<a$ is true.
+			\item $\forall x,y,z \in F,\ y<z \implies (x+y)<(x+z)$
+			\item $\forall x,y \in F,\ 0 < x,\ 0 < y \implies 0 < (x \times y)$
+		\end{enumerate}
+	\end{axiom}
+	\begin{remark} Let $x,y,z$ in ordered field $\mathbb{R}$,
+		\begin{enumerate}
+			\item $x < 0 \iff -x > 0$
+			\item $x - y > 0 \iff x > y$
+			\item $x > 0, y < z \implies xy < xz$
+			\item $x < 0, y < z \implies xy > xz$
+			\item $x \ne 0 \implies x^2 > 0$
+			\item $1 > 0$
+			\item $0 < x < y \iff 0 < y^{-1} < x^{-1}$
+			\item $x < y \implies x < \frac{x+y}{2} < y$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		Absolute value of a real number $r$, $|r| = r$ if $r \ge 0$ and $|r| = -r$ if $r < 0$
+	\end{definition}
+	\begin{remark}Properties,
+		\begin{enumerate}
+			\item $|-a| = |a|$
+			\item $|ab| = |a||b|$
+			\item $|a+b| \le |a|+|b|$
+			\item $|a| \le b \iff -b \le a \le b$
+			\item $-|a| \le a \le |a|$
+			\item $|a+b| \le |a| + |b|$
+			\item $(1+a)^n \le 1+na, \forall n \in \mathbb{N}$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		Given $a_j < b_j, \forall j$, the set of all points $\textbf{x} \in \mathbb{R}^n$ such that $a_j \le x_j \le b_j,\ \forall j$ is an $n$-cell.
+	\end{definition}
+	\begin{definition}
+		Let $\textbf{x,y} \in \mathbb{R}^n$, $ \textbf{x} = (x_1, x_2, \cdots, x_n)$, $\textbf{y} = (y_1, y_2, \cdots, y_n)$. Then, $\textbf{x} + \textbf{y} = (x_1 + y_1, x_2 + y_2, \cdots, x_n + y_n),\ c\textbf{x} = (cx_1, cx_2, \cdots, cx_n)$ and
+		$$|\textbf{x}.\textbf{y}| = \sum_{j=1}^n x_j y_j \quad \& \quad | \textbf{x} | = \left( \sum_{j=1}^n |x_j|^2 \right)^\frac{1}{2}$$
+	\end{definition}
+	\begin{remark} Let $\textbf{x,y,z} \in \mathbb{R}^n$,
+		\begin{enumerate}
+			\item For $\textbf{x} \ne \textbf{0}$, $|\textbf{x}| > 0$
+			\item $|c\textbf{x}| = |c||\textbf{x}|$
+			\item $|\textbf{x.y}| \le |\textbf{x}||\textbf{y}|$
+			\item $|\textbf{x+y}| \le |\textbf{x}|+|\textbf{y}|$
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}
+		\begin{align}
+			\text{Lagrange's identity, } & \left( \sum_{j = 1}^n a_jb_j \right)^2 = \sum_{j = 1}^n a_j^2 \sum_{k = 1}^n b_k^2 - \frac{1}{2}\sum_{j,k=1}^n (a_jb_k - b_ka_j)^2\\
+			\text{Cauchy's inequality, } & \left( \sum_{j = 1}^n a_jb_j \right)^2 \le \sum_{ j = 1}^n a_j^2 \sum_{k = 1}^n b_k^2\\
+			\text{Triangular inequality, } & \left( \sum_{j = 1}^n (a_j + b_j)^2 \right)^\frac{1}{2} \le \left( \sum_{j = 1}^n a_j \right)^\frac{1}{2} + \left( \sum_{j = 1}^n b_j^2 \right)^\frac{1}{2}
+		\end{align}
+	\end{remark}
+	\begin{remark}
+		\begin{align}
+			\text{Bernouli's inequality, } & (1+x)^n \ge 1+nx \\
+			\text{by Mean Value Theorem, } & a^r b^{(1-r)} \le ra + (1-r)b,\quad 0 < r < 1, a > 0, b > 0\\
+			& AB \le \frac{A^p}{p} + \frac{B^q}{q},\quad \text{where }\frac{1}{p}+\frac{1}{q} = 1 \\
+			\text{Holder's inequality, } & \sum_{j = 1}^n a_jb_j \le \left( \sum_{j = 1}^n a_j^p \right)^\frac{1}{p} \left( \sum_{j = 1}^n b_j^q \right)^\frac{1}{q} \\
+			\text{Minkowski's inequality, } & \left( \sum_{j = 1}^n (a_j + b_j)^r \right)^\frac{1}{r} \le \left( \sum_{j = 1}^n a_j^r \right)^\frac{1}{r} + \left( \sum_{j = 1}^n b_j^r \right)^\frac{1}{r} \\
+			\text{Chebyshev's inequality, } & \left( \frac{1}{n} \sum_{j = 1}^n a_j^r \right)^\frac{1}{r} \left( \frac{1}{n} \sum_{j = 1}^n b_j^r \right)^\frac{1}{r} \le \left( \frac{1}{n} \sum_{j = 1}^n (a_jb_j)^r \right)^\frac{1}{r},\quad a_j \le a_{j+1},\ b_j \le b_{j+1}
+		\end{align}
+	\end{remark}
+	\begin{definition}
+		A subset $X$ of $\mathbb{R}^n$ is convex if for any two points $\textbf{x,y} \in X$ and real number $\lambda$ such that $0 < \lambda < 1$, every points $\lambda \textbf{x} + (1-\lambda)\textbf{y} \in X$. 
+	\end{definition}
+	\begin{definition} extrema of $A$,
+		\begin{description}
+			\item[maximal] An element $x \in A$ is maximal if $\not\!\exists y \in A$ such that $x<y$.
+			\item[minimal] An element $x \in A$ is minimal if $\not\!\exists y \in A$ such that $y<x$.
+			\item[maximum] An element $x \in A$ is maximum if $\forall y \in A,\ y<x$.
+			\item[minimum] An element $x \in A$ is minimum if $\forall y \in A,\ x<y$.
+		\end{description}
+	\end{definition}
+	\begin{definition}
+		An element x of an ordered set S,R is an upper bound a subset $E \subset S$ if $\forall y \in E,\ \neg xRy$. A subset $E$ of the ordered set S is bounded above if $\exists$ a upper bound of E, x in S.
+	\end{definition}
+	\begin{definition}
+		An element x of an ordered set S,R is a lower bound a subset $E \subset S$ if $\forall y \in E,\ \neg yRx$. A subset E of the ordered set S is bounded below if $\exists$ a lower bound of E, x in S.
+	\end{definition}
+	\begin{definition}
+		The supremum of a subset E, $\sup E$ of an ordered set S is the lower bound of all upper bounds of the set E in S.
+	\end{definition}
+	\begin{definition}
+		The infimum of a subset E, $\inf E$ of an ordered set S is the upper bound of all lower bounds of the set E in S.
+	\end{definition}
+	\begin{remark} $\epsilon$ Characterisation,
+		\begin{enumerate}
+			\item $ x = \sup E \iff \forall \epsilon > 0,\ \exists y \in E$, such that $x-\epsilon < y$
+			\item $ x = \inf E \iff \forall \epsilon > 0,\ \exists y \in E$, such that $y < x+\epsilon$
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}Properties,
+		\begin{enumerate}
+			\item $\sup_{x,y} f(x,y) = \sup_x \sup_y f(x,y) = \sup_y \sup_x f(x,y)$
+			\item $\sup_y \inf_x f(x,y) \le \inf_x \sup_y f(x,y)$
+			\item $\sup (a + f(x)) = a + \sup f(x)$
+			\item $\inf f+g (x) \le \inf f(x) + \inf g(x) \le \sup f(x) + \sup g(x) \le \sup f+g (x)$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		An ordered set S is complete if every nonempty subset $E \subset S$, which is bounded above, has $\sup E \in S$.
+	\end{definition}
+	\begin{theorem}
+		There exists a unique complete ordered field $\mathbb{R}$, that contains $\mathbb{Q}$.
+	\end{theorem}
+	\begin{axiom}[Completeness]
+		A set S is complete, if every nonempty subset $E \subset S$,
+		which is bounded above has a least upper bouned in S.
+	\end{axiom}
+	\begin{remark}
+		Every cachy sequence in a complete space is convergent.
+	\end{remark}
+	\begin{theorem}
+		There exists a complete ordered field $\mathbb{R}$. Moreover $\mathbb{Q} \subset \mathbb{R}$.
+	\end{theorem}
+	\begin{remark}
+		$S\subset T \implies \inf S \le \inf T \le \sup T \le \sup S$\\
+		$\sup A \cup B = \max\{\sup A,\sup B\} \quad \inf A\cup B = \min\{\inf A,\inf B\}$
+	\end{remark}
+	\begin{remark}
+		It is possible for a set to have no maximum and yet be bounded above. But, if a set is not bounded above, it doesn't have a maximum.\\
+		For example : Open interval, $(0,1)$ doesn't have it's extrema.
+	\end{remark}
+	\begin{remark}
+		$\inf \phi = \infty$,and $\sup \phi = -\infty$\\
+		Set E is unbounded above, then $\sup E = \infty$\\
+		Set E is unbounded below, then $\inf E = -\infty$
+	\end{remark}
+	\begin{theorem}
+		$\mathbb{N}$ is not bounded above.
+	\end{theorem}
+	\begin{theorem}[Archimedean]
+		$\forall x,y \in \mathbb{R},\ 0<x,\ \exists n \in \mathbb{N}$ such that $y < nx$
+	\end{theorem}
+	\begin{remark} The following statements are equivalent,
+		\begin{enumerate}
+			\item $\exists n \in \mathbb{N}$ such that $y < nx$
+			\item $\exists n \in \mathbb{N}$ such that $0 < \frac{1}{n} < y$
+			\item $\exists n \in \mathbb{N}$ such that $n-1 \le y < n$
+		\end{enumerate}
+	\end{remark}
+	\begin{theorem}
+		A subset $A$ of $\mathbb{R}$ is open iff it is a countable union of open intervals.
+	\end{theorem}
+	\begin{theorem}
+		For every positive real number $x \in \mathbb{R}$, there exists a unique $y \in R$,
+		such that $y^n = x$. We write, $y = x^\frac{1}{n}$.
+	\end{theorem}
+	\begin{corollary}
+		Let $a,b$ be positive real numbers and $n$ be a positive integer.
+		$$(ab)^\frac{1}{n} = a^\frac{1}{n} b^\frac{1}{n}$$.
+	\end{corollary}
+	\begin{theorem}[nested interval]
+		Let $I_1 \supset I_2 \cdots I_n$ be a sequence of closed, bounded, non-empty intervals, then there exists $x \in \mathbb{R}$ such that $x \in J_k,\ \forall k$
+	\end{theorem}
+	\begin{remark}
+		The family of closed, bounded intervals have countable intersection property.
+		The nested interval theorem fails for open intervals.
+	\end{remark}
+	\begin{theorem}[nested cell]
+		Let $\{ J_n \}$ be a sequence of non-empty, closed nested cells in $\mathbb{R}^k$, then there exists $\textbf{x} \in \mathbb{R}^k$ such that $\textbf{x} \in J_k,\ \forall k$
+	\end{theorem}
+	\begin{theorem}
+		Every nonempty finite subset of $\mathbb{R}$ has its extrema in it.
+	\end{theorem}
+	\begin{theorem}
+		$\mathbb{Q}$ is dense in $\mathbb{R}$.\\ 
+		$\forall x,y \in \mathbb{R},\ \exists q \in \mathbb{Q}$ such that $x < q < y$
+	\end{theorem}
+%Keep connected contents together
+\section{Complex Field}
+	\begin{definition}
+		A complex number $z \in \mathbb{C}$ is an ordered pair of real numbers, $(u,v) \in \mathbb{R} \times \mathbb{R}$.
+	\end{definition}
+	\begin{theorem}
+		The set of all complex numbers is a field with\\
+		addition, $+ : \mathbb{C} \times \mathbb{C} \to \mathbb{C}$, defined by $(a,b)+(c,d) = (a+c,b+d)$ and\\
+		multiplication, $\cdot : \mathbb{C} \times \mathbb{C} \to \mathbb{C}$, defined by $(a,b)(c,d) = (ac-bd,ad+bc)$
+	\end{theorem}
+	\begin{remark}
+		$\mathbb{C}$ is a field on $\mathbb{R}^2$.
+		There doesn't exists a field on $\mathbb{R}^n$ for $n>2$.\footnote{proof reference : not found yet}
+	\end{remark}
+	\begin{definition}
+		$i = (0,1)$
+	\end{definition}
+	\begin{theorem}
+		$i^2 = (-1,0)$, $(a,b) = a + ib$
+	\end{theorem}
+	\begin{definition}
+		The conjugate of a complex number $a+ib$ is $a-ib$.
+	\end{definition}
+	\begin{theorem} If $z,w \in \mathbb{C}$,
+		\begin{enumerate}
+			\item $\overline{z+w} = \bar{z} + \bar{w}$
+			\item $\overline{zw} = \bar{z} \bar{w}$
+			\item $z + \bar{z} = 2\Re{(z)}$
+			\item $z - \bar{z} = 2\Im{(z)}$
+			\item For $z \ne 0,\ z\bar{z}$ is a positive real number
+		\end{enumerate}
+	\end{theorem}
+	\begin{definition}
+		The absolute value $|z|$ is the non-negative square root of $z\bar{z}$.
+	\end{definition}
+	\begin{theorem} Let $z,w \in \mathbb{C}$,
+		\begin{enumerate}
+			\item $|z| = |\bar{z}|$
+			\item $|zw| = |z||w|$
+			\item $|\Re{(z)}| \le |z|$
+			\item $|z+w| < |z| + |w|$
+		\end{enumerate}
+	\end{theorem}
+	\begin{definition}
+		Let $\textbf{z,w} \in \mathbb{C}^n$, $ \textbf{z} = (a_1, a_2, \cdots, a_n)$, $\textbf{w} = (b_1, b_2, \cdots, b_n)$. Then,
+		$$|\textbf{z}.\textbf{w}| = \left|\sum_{j=1}^n a_j \bar{b_j}\right| \quad \& \quad \|\textbf{z}\| = \left(\sum_{j=1}^n |a_j|^2\right)^\frac{1}{2}$$
+	\end{definition}
+	\begin{theorem}[Cauchy-Schwarz-Buniakowsky]
+		$|\textbf{z}.\textbf{w}| \le \|\textbf{z}\| \|\textbf{w}\|$\\
+		$$\left|\sum_{j=1}^n a_j\bar{b_j}\right|^2 \le \sum_{j=1}^n |a_j|^2\ \sum_{j=1}^n |b_j|^2$$
+	\end{theorem}

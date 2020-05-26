@@ -1,0 +1,40 @@
+%Groups, subgroups, normal subgroups, quotient groups, homomorphisms, cyclic groups, permutation groups, Cayley’s theorem, class equations, Sylow theorems
+\section{Group}
+	\begin{definition}
+		A set $G$ together with binary operation $\cdot$ is a group if it satisfies
+		\begin{enumerate}
+			\item $\forall x,y,z \in G,\ x(yz) = (xy)z$
+			\item $\exists e \in G$ such that $\forall x \in G,\ xe = x = ex$
+			\item $\forall x \in G,\ \exists x^{-1}$ such that $xx^{-1} = e$
+		\end{enumerate}
+	\end{definition}
+	\begin{definition}
+		A mapping $\phi : G \to H$ is a homomorphism if $\phi$ preserves every relation?(relevent structure) on $G$.
+		\begin{description}
+			\item[monomorphism] injective, homomorphism
+			\item[epimorphism] surjective, homomorphism
+			\item[isomorphism] bijective, homomorphism
+		\end{description}
+	\end{definition}
+	\begin{definition} Homomorphisms,
+		\begin{description}
+			\item[Group homomorphism] $\phi (xy) = \phi(x) \phi(y)$
+			\item[Field homomorphism] $\phi (x+y) = \phi(x) + \phi(y),\ \phi(xy) = \phi(x)\phi(y)$
+		\end{description}
+	\end{definition}
+
+\section{Subgroup}
+	\begin{definition}
+		A subset $H$ of group $G$ is a subgroup of $G$ if $H$ with $\cdot : H \times H \to H$ is a group.
+	\end{definition}
+	\begin{definition}
+		Let $H$ be a subgroup of $G$, then coset of $G$ are the cells of the equivalence relation $xRy \iff xy^{-1} \in H$\\
+		And coset $Hx$ or $\bar{x}$ is the coset containing $x \in G$.\\
+		And the surjective projection $\phi : G \to G/H$ such that $\phi(x) = \bar{x}$ is the canonical projection of $G$ onto $G/H$.
+	\end{definition}
+	\begin{remark}
+		There is a unique binary relation on $G/H$ such that the canonical projection is a group homomorphism.
+	\end{remark}
+	\begin{definition}
+		Let $H$ be a subgroup of an abelian group $G$, then factor group $G/H$ is the set of all cosets $\{Hx\}$ with $\star: G/H \times G/H \to G/H$, such that $Hx \star Hy = H(xy)$. The unit element of $G/H$ is the subset $H$ of $G$.
+	\end{definition}

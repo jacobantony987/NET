@@ -1,0 +1,141 @@
+%Sequences and series, convergence, limsup, liminf
+\section{Sequences}
+	\begin{definition}
+		A sequence $\{x_n\}$ in set $\mathbb{R}$ is a function $x: \mathbb{N} \to \mathbb{R}$ where $x_n = x(k)$.\footnote{A sequence $\{x_n\}$ on the set $X$ is a function $x:\mathbb{N} \to X$. The kth term $x_k$ of the given sequence is the image $x(k) \in X$.}
+	\end{definition}
+	\begin{definition}
+		The range of a sequence $\{x_n\}$ is the set $\{ x_k : k \in \mathbb{N} \}$. The range of any sequence is countable.
+	\end{definition}
+	\begin{definition}
+		Given a sequence $\{x_n\},\ f:\mathbb{N} \to X,\ x_n = f(n)$ and a monotone function $g:\mathbb{N} \to \mathbb{N},\ n_k = g(k)$, then the sequence $\{y_k\},\ y_k = x_{n_k} = (f \circ g)(k)$ is a subsequence of $\{x_n\}$.
+	\end{definition}
+	\begin{axiom}[Dependent Choice]
+		Let $\le$ be a relation on $X$ such that every element $x \in X$ is related to some element of $X$, then there exists a sequence for each element $x \in X$ such that $x_1 = x$ and $x_k \le x_{k+1}$ for every integer $k \in \mathbb{N}$.\cite{khar1}
+	\end{axiom}
+	\begin{theorem}[Recursive Definition]
+		Given a function $f:X \to X$, for every $x \in X$ there exists a unique sequence $\{x_n\}$ such that $x_1 = x,\ x_{k+1} = f(x_k),\ \forall k \in \mathbb{N}$
+	\end{theorem}
+	\begin{corollary}[Generalised Recursive Definition]
+		Given a sequence of functions $f_n : X^n \to X$, for every $x \in X$ there exists a unique sequence $\{x_n\}$ such that $x_1 = x,\ x_k+1 = f_k(x_1,x_2,\cdots,x_k),\ \forall k \in \mathbb{N}$
+	\end{corollary}
+
+\section{Convergence of Sequences}
+	\begin{definition}
+		A sequence $\{x_n\}$ converges to $x \in \mathbb{R}$ if for every $\epsilon > 0$, there exists $N \in \mathbb{N}$ such that $|x-x_n| < \epsilon$ for every $k \ge N$. The real number $x$ is the limit of the sequence $\{x_n\}$.
+	\end{definition}
+	\begin{definition}
+		A sequence is cauchy if for every $\epsilon > 0$, there exists an integer $N \in \mathbb{N}$ such that for every $n,m > N$, $|x_n-x_m| < \epsilon$
+	\end{definition}
+	\begin{remark}
+		A sequence of real numbers converges iff cauchy.
+	\end{remark}
+	\begin{theorem}
+		Every bounded monotone sequence $\{x_n\}$ in $\mathbb{R}$ converges. If monotone decreasing, limit is $\inf \{x_n\}$. If monotone increasing, limit is $\sup \{x_n\}$.
+	\end{theorem}
+	\begin{definition}
+		A real number $x$ is a limit point (cluster point) of the sequence $\{x_n\}$ if for every $\epsilon > 0$ and every integer $N \in \mathbb{N}$, there exists an integer $k > N$ such that $|x_n - x| < \epsilon$.
+	\end{definition}
+	\begin{remark}
+		A real number $x$ is a limit point of the sequence $\{x_n\}$ iff there is a subsequence converging to $x$.
+	\end{remark}
+	\begin{remark}
+		Every convergent sequence is bounded.
+	\end{remark}
+	\begin{remark}
+		A sequence of real numbers can have atmost one limit.
+	\end{remark}
+	\begin{remark}
+		Suppose $\lim x_n = x,\ \lim y_n = y$
+		\begin{enumerate}
+			\item $x_n \le y_n \implies x \le y$
+			\item $\lim (\alpha x_n + \beta y_n ) = \alpha x + \beta y$
+			\item $\lim x_ny_n = xy$
+			\item $ \text{Suppose } |y_n| \ge \delta \text{ for some } \delta > 0, \text{ then } \lim \frac{x_n}{y_n} = \frac{x}{y}$
+		\end{enumerate}
+	\end{remark}
+	\begin{lemma}[Sandwitch]
+		Suppose $\{x_n\},\ \{y_n\},\ \{z_n\}$ are sequences such that $x_n \le z_n \le y_n,\ \forall n \in \mathbb{N}$. If $\lim x_n = \lim y_n = x$, then $\lim z_n = x$.
+	\end{lemma}
+
+\section{limits superior, limits inferior}
+	\begin{definition}
+		limit inferior, $\varliminf \{x_n\}= \sup \{ \inf\{x_m : m \ge n\}\}$\\
+		limit superior, $\varlimsup \{x_n\}= \inf \{ \sup\{x_m : m \ge n\}\}$
+	\end{definition}
+	\begin{remark}
+		Let $\{x_n\}$ be a bounded sequence, then limit superior and limit inferior are the largest and smallest limit points of it.\cite{alip1}\\
+		$\varliminf \{x_n\} \le \varlimsup \{x_n\}$
+	\end{remark}
+	\begin{remark}
+		For $\{ x_n \},\ \{ y_n \}$ such that $x_n \le y_n$ for every integer $n \in \mathbb{N}$
+		\begin{enumerate}
+			\item $\varlimsup \{x_n\} \le \varlimsup \{y_n\}$
+			\item $\varliminf \{x_n\} \le \varliminf \{y_n\}$
+		\end{enumerate}
+	\end{remark}
+
+\section{Convergence Test by Sandwitch Lemma}
+	Convergence of sequences can be tested using the Sandwitch Lemma.	
+	\begin{remark}
+		$$\varliminf \{ x_n \} + \varliminf \{ y_n \} \le \varliminf \{ x_n + y_n \} \le \varlimsup \{ x_n + y_n \} \le \varlimsup \{ x_n \} + \varlimsup \{ y_n \}$$
+		If $\{ x_n \}$ or $\{ y_n \}$ converges, then $\lim \{ x_n + y_n \} = \lim x_n + \lim y_n$
+	\end{remark}
+	\begin{remark}
+		Let $\{ x_n \}$ such that  $\sqrt{n} = (1+x_n)^n$.\\
+		By Bernouli's inequality, $\sqrt{n} = (1+x_n)^n \ge 1+nx \implies 0<x<\frac{1}{\sqrt{n}}$.
+		$$\varliminf \frac{x_n+1}{x_n} \le \varliminf \sqrt[n]{n} \le \varlimsup \sqrt[n]{n} \le \varlimsup \frac{x_n+1}{x_n}$$
+		And $\lim \frac{x_n+1}{x_n} = 1$. Thus $\lim\sqrt[n]{n} = 1$
+	\end{remark}
+	\begin{definition}
+		Sequence $\{ a_n \}$ such that $a_k = \frac{1}{k} \sum_{n=1}^k x_k$ is the sequence of the averages of a sequence $\{ x_n \}$ 
+	\end{definition}
+	\begin{remark}Let $\{ a_n \}$ be the sequence of averages of the sequence $\{ x_n \}$,
+		\begin{enumerate}	
+		 	\item $\varliminf x_n \le \varliminf a_n \le \varlimsup a_n \le \varlimsup x_n$
+			\item If $\{ x_n \}$ converges, then $\{ a_n \}$ converges.
+			\item If $\{ a_n \}$ diverges, then $\{ x_n \}$ diverges.
+			\item $\{ a_n \}$ converges, then $\{ x_n \}$ need not converge. \footnote{ $\{ x_n \}$ such that $x_n = -1^n$}
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}[Results by Average Sequence]
+		\begin{enumerate}
+			\item $x_{n+1}-x_n \to x \implies \frac{x_n}{n} \to x$
+			\item If $\{ x_n \}$ is bounded and $2x_n \le x_{n+1}+x_{n-1} \implies \{ x_n+1 - x_n \}$ is monotone increasing to 0. pending pp.28 exr 12b\cite{alip2}
+			\item $ 0 < x_1 < 1,\ x_{n+1} = 1-\sqrt{1-x_n}$, then $x_n$ monotone decreasing to 0 and $\frac{x_{n+1}}{x_n}$ convergent to $\frac{1}{2}$.
+			\item $\{ x_n \},\ x_n = \left( 1 + \frac{1}{n} \right)^n$ is convergent
+			\item $\{ x_n \},\ |x_n-x_{n-1}| \le \alpha |x_{n+1}-x_n|,\ 0 < \alpha < 1$ is convergent
+			\item $x_1 = 1,\ x_{n+1} = \frac{1}{3+x_n}$ is convergent to ?
+			\item $x_1 = 1,\ x_{n+1} = 1+ \frac{1}{1+x_n}$ is convergent to $\sqrt{2}$
+			\item $x_1 = 1,\ x_{n+1} = \frac{1}{2} \left( x_n + \frac{2}{x_n} \right)$ is convergent to $\sqrt{2}$
+		\end{enumerate}
+	\end{remark}
+
+\section{Series}
+	\begin{definition}
+		A series $\sum_{n=1}^\infty x_n$ is convergent if the sequence of partial sums $\{y_k\}$ such that $y_k = \sum_{n=1}^k x_n$ is convergent.
+	\end{definition}
+	\begin{definition}
+		A series $\sum_{n=1}^\infty x_n$ is rearrangement invariant if for every bijection $\sigma : \mathbb{N} \to \mathbb{N}$, $\sum_{k=1}^\infty x_{\sigma_k}$ converges and is invariant.
+	\end{definition}
+	\begin{theorem}
+		A series $\sum_{n=1}^\infty x_n$ is rearrangement invariant if for every integer $n \in \mathbb{N}$, $x_n \ge 0$.
+	\end{theorem}
+	\begin{remark}
+		Series that are rearrangement invariant are unconditionally convergent.
+	\end{remark}
+
+\section{Double Series}
+	\begin{definition}
+		A double series $\sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m}$ is $\lim_{k \to \infty} \sum_{n=1}^k \sum_{m=1}^\infty x_{n,m}$.
+	\end{definition}
+	\begin{theorem}
+		If for every $n,m \in \mathbb{N}$, $a_{n,m} \ge 0$, then $\sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m} = \sum_{m=1}^\infty \sum_{n=1}^\infty x_{n,m}$.
+	\end{theorem}
+	\begin{theorem}[double series into single series]
+		If for every $n,m \in \mathbb{N},\ x_{n,m} \ge 0$ and for every bijection $\sigma : \mathbb{N} \to \mathbb{N}\times\mathbb{N}$, $\sum_{k=1}^\infty x_{\sigma_k} = \sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m}$
+	\end{theorem}
+	\begin{corollary}
+		If for every $n,m \in \mathbb{N},\ x_{n,m} \ge 0$ and for every bijection $\sigma : \mathbb{N}\times\mathbb{N} \to \mathbb{N}\times\mathbb{N}$, $\sum_{j=1}^\infty \sum_{k=1}^\infty x_{\sigma_{j,k}} = \sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m}$
+	\end{corollary}
+
+\section{Convergence of series}

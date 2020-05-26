@@ -1,0 +1,143 @@
+%Elementary set theory, finite, countable and uncountable sets, Real number system as a complete ordered field, Archimedean property, supremum, infimum.
+%Sequences and series, convergence, limsup, liminf.
+%Bolzano Weierstrass theorem, Heine Borel theorem.
+%Continuity, uniform continuity, differentiability, mean value theorem.
+%Sequences and series of functions, uniform convergence.
+%Riemann sums and Riemann integral, Improper Integrals.
+%Monotonic functions, types of discontinuity, functions of bounded variation, Lebesgue measure, Lebesgue integral.
+%Functions of several variables, directional derivative, partial derivative, derivative as a linear transformation, inverse and implicit function theorems.
+%Metric spaces, compactness, connectedness. Normed linear Spaces. Spaces of continuous functions as examples
+
+\section{Sets}
+	\begin{definition}
+		Ordered pair $(x,y) = \{ x,\{x,y\} \}$\\
+		n-tuple, $(x_1, x_2, \cdots, x_n) = \{ \{x_1\}, \{x_1, x_2\}, \cdots,\{x_1, x_2, \cdots, x_n\}\}$
+	\end{definition}
+	\begin{remark}A few results\\
+		$A \subset B \iff \forall x \in A,\ x \in B$\\
+		$A = B \iff A \subset B \ \wedge \ B \subset A$\\
+		$A \subset B \implies A \cup B = B,\ A \cap B = A,\ A-B = \phi$\\
+		$A = B \iff (A-B=\phi) \ \wedge (B-A=\phi) \qquad \because A \subset B \implies A-B=\phi$\\
+		$A-B = A \cap \neg B$\\
+		$A-(A-B) = A \cap B$\\
+		$\forall X,\ A \subset B \implies X-B \subset X-A$\\
+		$\forall X,\ A \subset B \implies A-X \subset B-X$\\
+		$(A \cup B) - C = (A-C) \cup (B-C)$\\
+		$(A \cap B) - C = (A-C) \cap (B-C)$
+	\end{remark}
+\section{Functions}
+	\begin{definition}
+		identity function, $id_A:A \to A,\ \forall x \in A,\ id_A(x) = x$
+	\end{definition}
+	\begin{remark}
+		$f:\mathbb{N}\times\mathbb{N}\to\mathbb{N},\ f(m,n)=2^m3^n$ is injective.\cite{bear1}
+	\end{remark}
+	\begin{definition}
+		The graph of a function $f:A \to B$ is the subset $\{(x,f(x)) : x \in A \}$ of the cartesian product $A \times B$.
+	\end{definition}
+	\begin{definition}
+		A function $f:A \to B$ on ordered sets is monotonic/isotonic/order-preserving if partial order is preserved by images under f.\\
+		A function $f:A \to B$ on ordered sets is strictly monotonic/isotonic/order-preserving if strict order is preserved by images under f.
+	\end{definition}
+	\begin{definition}Order Equivalence\cite{josh1}\\
+		A bijection $f:A \to B$ and its inverse $f^{-1}:B \to A$ are both order preserving, then f is an order isomorphism/equivalence.\\
+		$\exists$ order-isomorphism $f:A \to B$, then A,B are order-equivalent.\\
+		Order type of a poset is the class of all posets order-equivalent to it.
+	\end{definition}
+\section{POSET}
+	\begin{remark}Let $f:A \to A$,\\
+		The graph of f is reflexive iff $f = id_A$\\
+		The graph of f is symmetric iff \\
+		The graph of f is antisymmetric iff \\
+		The graph of f is transitive iff \\
+		The graph of f is an order on A iff
+	\end{remark}
+	\begin{remark}
+		Every connex relation is reflexive.\\
+		symmetric $\wedge$ transitive $\not\!\!\!\implies$ reflexive\\
+		every total order is a partial order.\\
+		partial order - diagonal = strict order\\
+		A subset T of poset S,R is a chain/nest/tower if $R$ is a total order in $T$.
+	\end{remark}
+	\begin{definition}\cite{josh1}
+		$R[x]$ is the equivalence class under R containing x.\\
+		The quotient set $S/R$ is the set of all equivalent classes of S under R.\\
+		Projection/Quotient function, $p:S \to S/R$ such that $p(x) = R[x]$.
+	\end{definition}
+\section{Infimum and Supremum}
+\section{Cardinality}
+	\begin{definition}
+		Cardinality, $card(A)$ is the number* of elements in $A$ ?
+	\end{definition}
+	\begin{remark}
+		$card(X)=n \iff card(P(X))=2^n$\\
+		Cantor set, $C = \{ e_n : e_n \in \{0,1\} \},\ card(C)=c$
+	\end{remark}
+	\begin{remark}True or False ?
+		\begin{enumerate}
+		 \item[F] $\exists x \in R,\ \forall y \in R,\ x+y > 0$
+		 \item[T] $\forall x \in R,\ \exists y \in R,\ x+y > 0$
+		 \item[F] $\exists y \in R,\ \forall x \in R,\ y^2 > x$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		$x \in \mathbb{R}$ is algebraic if $\exists n \in \mathbb{Z}^+, \forall i \leq n,\ a_i \in \mathbb{Z}\ \wedge \ \exists i \le n$, such that $a_i \neq 0\ \wedge \ a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n = 0$.
+		$x \in \mathbb{R}$ is transcendental if it is not algebraic.
+	\end{definition}
+	\begin{remark}
+		The set of all algebraic numbers is countable. Thus the set of all transcendental numbers is uncountable since $\mathbb{R}$ is uncountable.
+	\end{remark}
+	\begin{definition}
+		$x \in X$ is a accumulation point of $A \subset X$, if $\forall U \in \mathcal{N}_x$, $A\cap U$ is infinite.\\
+		$x \in X$ is a condensation point\cite{khar2} of $A \subset X$, if $\forall U \in \mathcal{N}_x$, $A\cap U$ is uncountable.
+	\end{definition}
+\section{Field}
+	\begin{remark}
+		$\cup,\cap,-,\Delta$ are binary operations on the family of all subsets of a given set.
+	\end{remark}
+	\begin{remark}For any field $F,\ \forall x,y \in F$\\
+	$0 < 1$\\
+		$x < y \iff x-y < 0$\\
+		$0 < x \iff -x < 0$\\
+		$0 < x \iff 0 < x^{-1}$\\
+		$1 < x \iff x^{-1} < 1,\ x^{-1} \neq 0$
+	\end{remark}
+\section{Real Field}
+	\begin{remark}
+		is there any finite, ordered field ?\\
+		$|x+y| \le |x|+|y| \qquad \& \qquad |x-y| \le |x-z|+|z-y|$
+	\end{remark}
+	\begin{theorem}
+		$\not\!\exists$ smallest positive real number ?.
+	\end{theorem}
+	\begin{theorem}
+		$\forall x \in \mathbb{R},\ \exists n \in \mathbb{Z}$ such that $n < x < n+1$
+	\end{theorem}
+	\begin{remark}
+		$r \in \mathbb{R}, r \not\in \mathbb{Q}, \inf\{ m+nr : m,n \in \mathbb{Z} \} = 0$
+	\end{remark}
+	\begin{remark}
+		$\forall x \in \mathbb{R},\ (x=x^{-1}) \iff (x = 1) \vee (x = -1)$
+	\end{remark}
+\section{Sequences}
+	\begin{theorem}
+		$\{x_n\} \to x \implies \{|x_n|\} \to |x|$
+	\end{theorem}
+	\begin{remark}
+		$\{|x_n|\} \to |x| \implies \{x_n\} \text{ has atmost two limit points } x, -x$
+	\end{remark}
+	\begin{remark}\cite{kham1}
+		$\forall n \in \mathbb{N},\ x_n \le y_n$, sequence $\{x_n\}$ is increasing, and sequence $\{y_n\}$ is decreasing, then sequences $\{x_n\},\{y_n\}$ are convergent and $\lim_{n \to \infty} x_n \le \lim_{n \to \infty} y_n$\\
+		Sequence $\{y_n-x_n\} \to 0 \iff \lim_{n \to \infty} x_n = \lim_{n \to \infty} y_n$
+	\end{remark}
+	\begin{remark}
+		Sequence $\{x_n\}$, where $x_n = \sum_{k=1}^n \frac{1}{n}$ is divergent.
+	\end{remark}
+	\begin{remark}\cite{kham1}
+		$$x_n = \int_1^n \frac{\cos t}{t^2}dt, \text{ then } \{x_n\} \text{ is cauchy ?}$$
+	\end{remark}
+	\cite{kham1} 3.10 onwards pending
+\section{Number Theory}
+	\begin{theorem}[binomial theorem]
+		$$(a+b)^n = \sum_{k=0}^n \binom{k}{n} a^k b^{n-k},\quad \binom{k}{n} = \frac{n!}{k!(n-k)!}$$
+	\end{theorem}

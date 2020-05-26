@@ -1,0 +1,315 @@
+%Vector spaces, subspaces, linear dependence, basis, dimension, algebra of linear transformations
+\section{Vector Space}
+	\begin{axiom}[Field]
+		A set $F$ together with two binary operations $+,\cdot$ is a field if it satisfies
+		\begin{enumerate} 
+			\item Addition is commutative, $\forall x,y,z \in F,\ x+y = y+x$
+			\item Addition is associative, $\forall x,y,z \in F,\ x+(y+z) = (x+y)+z$
+			\item Existence of additive identity, $\exists 0 \in F,\ x+0=x$
+			\item Existence of additive inverses, $\forall x \in F,\ \exists -x \in F,\ x+(-x)=0$
+			\item Multiplication is commutative, $\forall x,y \in F,\ xy = yx$
+			\item Multiplication is associative, $\forall x,y,z \in F,\ x(yz) = (xy)z$
+			\item Existence of multiplicative identity, $\exists 1 \in F,\ \forall x \in F,\ 1x = x$
+			\item Existence of multiplicative inverses, $\forall x \in F,\ x \ne 0,\ \exists x^{-1} \in F,\ xx^{-1} = 1$
+			\item Multiplication is distributive over addition, $\forall x,y,z \in F,\ x(y+z) = xy+xz$
+		\end{enumerate}
+	\end{axiom}
+	\begin{remark}
+		A few fields,
+		\begin{enumerate}
+			\item[$\mathbb{Q}$] field of all rational numbers
+			\item[$\mathbb{R}$] field of all real numbers
+			\item[$\mathbb{C}$] field of all complex numbers
+			\item[$\mathbb{Z}_{p^n}$] Galois field of prime powers
+			\item[$\mathbb{Q}(v)$] algebraic extensions of $\mathbb{Q}$
+			\item[$\mathbb{R}(v)$] algebraic extensions of $\mathbb{R}$
+		\end{enumerate}
+	\end{remark}
+	\begin{axiom}[Vector Space]
+		A set $V$ of vectors and a field $F$ of scalars together with two binary operations, vector addition, $+ : V \times V \to V$ and scalar muliplication $\cdot : F \times V \to V$ is a vector space $V$ over $F$, if it satifies
+		\begin{enumerate}
+			\item Addition is commutative, $\forall u,v \in V,\ u+v = v+u$
+			\item Addition is associtive, $\forall u,v,w \in V,\ u+(v+w) = (u+v)+w$
+			\item Additive identity, $\exists 0 \in V$, such that $\forall v \in V,\ 0+v = v$
+			\item Additive inverses, $\forall v \in V$, there exists $-v \in V$ such that $v+(-v) = 0$
+			\item Scalar Multiplication is associtive, $\forall a,b \in F,\ \forall v \in V,\ a(bv) = (ab)v$
+			\item Scalar Multiplication is distributive over vector addition, $\forall a \in F,\ \forall u,v \in V,\ a(u+v) = au+av$
+			\item Scalar Multiplication is distributive over scalar addition, $\forall a,b \in F,\ \forall v \in V,\ (a+b)v = av + bv$
+			\item Scalar Multiplication identity, $\forall v \in V,\ 1v = v$
+		\end{enumerate}
+	\end{axiom}
+	\begin{remark}
+		Scalar multiplication is trivially commutative. ie, $av = va$
+	\end{remark}
+	\begin{remark}
+		A few vector spaces,
+		\begin{enumerate}
+			\item[$F^n$] $n$-tuple space
+			\item[$F^{m \times n}$] space of all $m \times n$ matrices
+			\item[$F^S$] space of all functions $f : S \to F$
+			\item[$F(x)$] space of all polynomial functions on $F$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		A vector $b$ is a linear combination of	the set of vectors $\{ a_1, a_2, \cdots, a_n\}$ if there exists scalars $c_i \in F$ such that $b = \sum c_ia_i$.
+	\end{definition}
+	\begin{axiom}
+		Let $V$ be a vector space, then inner product of $V$ is a function, $\cdot : V \times V \to \mathbb{R}$ satisfying,
+		\begin{enumerate}
+			\item $\forall x \in V,\ x \cdot x \ge 0$
+			\item $x \cdot x = 0 \iff x = 0$
+			\item Inner product is commutative, $\forall x,y \in V,\ x \cdot y = y \cdot x$
+			\item $\forall x,y,z \in V,\ x \cdot (y + z) = x \cdot y + x \cdot z$ and $(x + y) \cdot z = x \cdot z + y \cdot z$
+			\item $\forall x,y \in V,\ \forall a \in F,\ (ax) \cdot y = a(x \cdot y) = x \cdot (ay)$
+		\end{enumerate}
+	\end{axiom}
+	\begin{definition}
+		A vector space $V$ with inner product is an inner product space.
+	\end{definition}
+	\begin{axiom}
+		Let $V$ be a vector space, then a norm on $V$ is a function $\| \| : V \to \mathbb{R}$ satisfying,
+		\begin{enumerate}
+			\item $\forall x \in V,\ \|x\| \ge 0$
+			\item $\|x\| = 0 \iff x = 0$
+			\item $\forall x \in V,\ \forall a \in F,\ \|ax\| = |a|\|x\|$
+			\item triangular inequality, $\forall x,y \in V,\ \|x+y\| \le \|x\|+\|y\|$
+		\end{enumerate}
+	\end{axiom}
+	\begin{definition}
+		A vector space with a norm is a normed space.
+	\end{definition}
+	\begin{remark}
+		Let $V$ be a vector space with inner product $\cdot$. Then inner product induced norm is given by $\forall x \in V,\ \|x\| = \sqrt{x \cdot x}$
+	\end{remark}
+	\begin{theorem}
+		Let $V$ be a vector space with inner product induced norm, then $x \cdot y \le \|x\| \|y\|$. And equality holds iff $x = cy$.
+	\end{theorem}
+	\begin{corollary}[Cauchy-Schwarz-Buniakowsky]
+		$|x \cdot y| \le \|x\| \|y\|$
+	\end{corollary}
+	\begin{remark}
+		$x = (a,b),\ y = (b,a) \implies $ Geometric Mean $\le$ Arithmetic Mean
+	\end{remark}
+	\begin{remark}[parallelogram identity]
+		$\|x+y\|^2 + \|x-y\|^2 = 2(\|x\|^2 + \|y\|^2)$
+	\end{remark}
+	\begin{remark}[orthogonal]
+		$x,y \in V$ are orthogonal if $x \cdot y = 0$.
+	\end{remark}
+	\begin{theorem}
+		Let $\textbf{x} \in \mathbb{R}^n$, then $|x_j| \le \|\textbf{x}\| \le \sqrt{n} \sup \{ |x_1|, |x_2|, \cdots, |x_n| \}$.
+	\end{theorem}
+\section{Subspace}
+	\begin{definition}
+		Let $V$ be a vector space over $F$ with vector addition, $+$ and scalar multiplication, $\cdot$, then a subspace $W$ of $V$ is a subset $W$ of $V$ if it is a vector space over $F$ with the same operations restricted to $W$.
+	\end{definition}
+	\begin{theorem}
+		A non-empty subset $W$ of $V$ is a subspace of $V$ over the same field $F$ iff for every pair of vectors $u,v \in W$ and every scalar $c \in F$, $cu+v \in W$
+	\end{theorem}
+	\begin{theorem}
+		Let $V$ be a vector space over the field $F$, then the intersection of any collection of subspace of $V$ is a subspace of $V$
+	\end{theorem}
+	\begin{theorem}[Subspace spanned by $W$]
+		Let $V$ be a vector space over the field $F$ and $W \subset V$, then the intersection of all subspace of $V$ that contains $W$ is the subspace spanned/generated by $W$.
+	\end{theorem}	
+	\begin{theorem}
+		The subspace spanned by $W$ is the set of all linear combinations of vectors in $W$.
+	\end{theorem}
+	\begin{definition}
+		The sum of subsets $W_1, W_2, \cdots W_n$ of $V$ is the set of all vectors, $w_1 + w_2 + \cdots + w_n$ where $w_k \in W_k$.
+	\end{definition}
+	\begin{theorem}
+		Let $W_1, W_2, \cdots, W_n$ be subspace of the vector space $V$, then $W_1+W_2+\cdots+W_n$ is the subspace of $V$ containing each of the subspaces $W_k$.
+	\end{theorem}
+	\begin{definition}
+		Let $A$ be an $m \times n$ matrix over the field $F$, then the row space of $A$ is the subspace of $F^n$ spanned by the row vectors of $A$. And the column space of $A$ is the subspace of $F^m$ spanned by the column vectors of $A$.
+	\end{definition}
+	\begin{remark}
+		Every linear combination of zero-sum vectors gives zero-sum. Thus there is unique zero-sum $(n-1)$-dimensional subspace for every $n$-dimensional vector space.\footnote{zero-sum vectors\cite{strang1} : vectors whose components add to zero. eg. $(1,-2,1)$.}
+	\end{remark}
+	\begin{remark}
+		Let a Cube has corners $(x,y,z),\ x,y,z \in \{ 0,1 \}$, then $(0,1,0)-(1,1,0)$ is an edge and $(0,1,0)-(1,1,0)-1,1,1)-(1,1,0)$ is a face.\\
+		There are $\binom{n}{k-1} 2^{n-k+1}$ $k$-dimensional subspaces for such an $n$-cube. ie, $n$-cube has $2^{n}$ corners, $n2^{n-1}$ edges, $n(n-1)2^{n-3}$ faces \dots
+	\end{remark}
+
+\subsection{Basis \& Dimension}
+	\begin{definition}
+		A set of vectors $\{ v_1, v_2, \cdots, v_n \}$ is linearly dependent if there exists scalars $c_1, c_2, \cdots, c_n \in F$, not all of them are zero such that $c_1v_1 + c_2v_2 + \cdots + c_nv_n = 0$.
+	\end{definition}
+	\begin{remark}
+		\begin{enumerate}
+			\item Any set containing the zero vector is linearly dependent.
+			\item Any set containing linearly dependent set is linearly dependent.
+			\item Any subset of a linear independent set is linearly independent.
+			\item $S$ is linearly independent iff every finite subset of $S$ is linearly independent.$\star$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		A basis for $V$ is a linearly independent set of vectors that spans $V$. $V$ is finite dimensional if it has a finite basis.
+	\end{definition}
+	\begin{remark}
+		Let $A$ be an invertible $n \times n$ matrix, then the column vectors of $A$ is a basis for $F^n$.
+	\end{remark}
+	\begin{theorem}
+		Let $V$ be a vector space is spanned by a finite set of $n$ vectors, then any independent set of vectors in $V$ is finite and contains no more than $n$ elements.
+	\end{theorem}
+	\begin{corollary}
+		If $V$ is a finite dimensional vector space, then any two bases of $V$ contains the same number of elements.
+	\end{corollary}
+	\begin{corollary}
+		If $V$ is $n$-dimensional, then any subset of more than $n$ vectors is dependent and no subset with fewer than $n$ vectors can span $V$.
+	\end{corollary}
+	\begin{lemma}
+		Let $S$ be an independent subset of $V$ and $v \in V$ is not in the subspace spanned by $S$, then $S \cup \{v\}$ is an independent subset of $V$.
+	\end{lemma}
+	\begin{theorem}
+		If $W$ is a subspace of a finite dimensional vector space $V$, then every independent subset of $W$ is finite and is part of a basis for $W$.
+	\end{theorem}
+	\begin{corollary}
+		If $W$ is a proper subspace of a finite dimensional vector space $V$, then $W$ is finite dimensional and $\dim W < \dim V$.
+	\end{corollary}
+	\begin{corollary}
+		Let $A$ be an $n \times n$ matrix. If row vectors of $A$ are linearly independent in $F^n$, then $A$ is invertible.
+	\end{corollary}
+	\begin{corollary}
+		If $W_1, W_2$ are finite dimensional subspaces of $V$, then $W_1 + W_2$ is finite dimensional and
+		$\dim W_1+W_2 = \dim W_1 + \dim W_2 - \dim W_1 \cap W_2$
+	\end{corollary}
+\subsection{Change of Basis}
+	\begin{definition}
+		The co-ordinates of a vector $v \in V$ with respect to an ordered basis $B$, $[v]_B$ is the column vector of scalars $c_1, c_2, \cdots, c_n$ such that $v = c_1b_1 + c_2b_2 + \cdots + c_nb_n$ where $b_k \in B$. 
+	\end{definition}
+	\begin{theorem}[Change of Basis]
+		Let $V$ be an $n$-dimensional vector space over the field $F$ and $B,B'$ be two ordered bases for $V$, then there exists an $n \times n$ invertible matrix $P$ such that $[v]_B = P[v]_{B'}$.
+	\end{theorem}
+	\begin{theorem}
+		For every invertible $n \times n$ matrix, $P$ and basis $B$ of the vector $V$ over the field $F$, there exists another basis $B'$ such that $[v]_B = P[v]_{B'}$ for every vector $v \in V$.
+	\end{theorem}
+	\begin{definition}
+		Row rank and Column rank,
+		\begin{description}
+			\item[row rank] dimension of row space of $A$
+			\item[column rank] dimension of column space of $A$
+		\end{description}
+	\end{definition}
+	\begin{theorem}
+		Row-equivalent matrices have the same row space.
+	\end{theorem}
+	\begin{theorem}
+		Non-zero row vectors of a row-reduced echelon matrix, $R$ forms a basis for the row space of $R$.
+	\end{theorem}
+	\begin{theorem}
+		For every subspace $W$ of $F^n$ with $\dim W \le m$, there exists a unique $m \times n$ row-reduced echelon matrix, $R$ such that its row space is $W$.
+	\end{theorem}
+	\begin{theorem}
+		Every $m \times n$ matrix over the field $F$ is row-equivalent to a unique row-reduced echelon matrix.
+	\end{theorem}
+	\begin{theorem}
+		The following statements are equivalent,
+		\begin{enumerate}
+			\item $A,B$ are row-equivalent.
+			\item $A,B$ have same row space.
+			\item There exists an invertible matrix, $P$ such that $A = PB$
+			\item $AX=0, BX=0$ has same solution space.
+		\end{enumerate}
+	\end{theorem}
+
+\section{Linear Transformations}
+	\begin{definition}
+		Let $V,W$ be vector spaces over the same field $F$. A linear transformation $T$ is a function, $T : V \to W$ such that $T(cu+v) = cTu+Tv$ where $u,v \in V$ and $c \in F$.
+	\end{definition}
+	\begin{remark}
+		A few linear transformations,
+		\begin{enumerate}
+			\item The set of all polynomials over the field $\mathbb{C}$ with differentiation.
+			\item $F^{m \times n}$ with matrix multiplication.
+			\item The set of all continuous real functions with integration.
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}
+		Properties of linear transformations,
+		\begin{enumerate}
+			\item $T(0) = 0$
+			\item $T$ preserves linear combinations
+		\end{enumerate}
+	\end{remark}
+	\begin{theorem}
+		Let $B = \{ b_1, b_2, \cdots, b_n \}$ be an ordered basis for an $n$-dimensional vector space $V$ over the field $F$ and $W$ be any vector space over the field $F$ and $b_{1}', b_{2}', \cdots, b_{n}' \in W$, then there exists a unique linear transformation $T : V \to W$ such that $T(b_k) = b_{k}',\ \forall k$.
+	\end{theorem}
+	\begin{remark}
+		A few subspaces from linear transformations,
+		\begin{enumerate}
+			\item $T(V)$ is a subspace of $W$
+			\item $\{ v \in V : Tv = 0 \}$ is a subspace of $V$
+		\end{enumerate}
+	\end{remark}
+	\begin{definition}
+		Subspaces from transformations and their dimensions,
+		\begin{description}
+			\item[Null space/Kernel of $T$] $N(T) = \{ v \in V \ : \ Tv = 0 \}$
+			\item[Nullity of $T$] $nullity(T) = \dim N(T)$
+			\item[Range space of $T$] $R(T) = \{ w \in W \ : \ Tv = w,\ v \in V \}$
+			\item[Rank of $T$] $rank(T) = \dim R(T)$
+		\end{description}
+	\end{definition}
+	\begin{theorem}[rank-nullity]
+		Let $T$ be a linear transformation from a finite dimensional space $V$ into $W$, then $rank(T) + nullity(T) = \dim V$
+	\end{theorem}
+	\begin{theorem}
+		Let $A \in F^{m \times n}$, then $row\ rank(A) = column\ rank(A)$
+	\end{theorem}
+	\begin{theorem}
+		Let $V,W$ be vector spaces over the field $F$, then the set of all linear transformations $T : V \to W$ with addition, $(T+U)v = Tv + Uv$ and multiplication, $(cT)v = c(Tv)$ is a vector space, $L(V,W)$ over the field $F$.
+	\end{theorem}
+	\begin{theorem}
+		Let $\dim V = n,\ \dim W = m$, then $\dim L(V,W) = mn$
+	\end{theorem}
+	\begin{theorem}
+		Let $T \in L(V,W),\ U \in L(W,Z)$, then $UT = \in L(V,Z)$
+	\end{theorem}
+	\begin{remark}
+		A linear operator on $V$ is a linear tranformation, $T : V \to V$.
+	\end{remark}
+	\begin{lemma}[linear algebra with identity]$\star$
+		Let $V$ be a vector space over the field $F$, then the set of all linear operators on $V$, $L(V,V)$ is a linear algebra with identity. Let $U, T_1, T_2 \in L(V,V)$, then
+		\begin{enumerate}
+			\item $\exists I \in L(V,V)$ such that $UI = U = IU$
+			\item $U(T_1 + T_2) = UT_1 + UT_2$ and $(T_1+T_2)U = T_1U + T_2U$
+			\item $c(UT) = (cU)T$
+		\end{enumerate}
+	\end{lemma}
+	\begin{theorem}
+		Linear tranformation $T : V \to W$ is invertible iff $T$ is bijective, then $T^{-1} : W \to V$ is also bijective.
+	\end{theorem}
+	\begin{description}
+		\item[non-singular] $T$ is non-singular if $Tv = 0 \implies v = 0$ ie, $N(T) = \{ 0 \}$
+	\end{description}
+	\begin{theorem}
+		A linear transformation, $T$ is injective iff $T$ is non-singular.
+	\end{theorem}
+	\begin{theorem}
+		Linear transformations preserve indepenedence iff non-singular.$\star$
+	\end{theorem}
+	\begin{remark}
+		Let $V$ be an $n$-dimensional vector space over the field $F$ and $T : V \to V$ be a linear operator. For any basis $B$ of $V$, $B' = \{ Tb_1, Tb_2, \cdots, Tb_n \},\ b_j \in B$ is also a basis for $V$ iff the linear opertor $T : V \to V$ is invertible.
+	\end{remark}
+	\begin{theorem}
+		Let $T : V \to W$ and $U : W \to Z$ be invertible linear transformations, then $UT : V \to Z$ is invertible and $(UT)^{-1} = T^{-1}U^{-1}$
+	\end{theorem}
+	\begin{theorem}
+		Let $V,W$ be finite dimensional vector spaces over the field $F$ such that $\dim V = \dim W$. And $T : V \to W$ be a linear transformation, then the following statements are equivalent,
+		\begin{enumerate}
+			\item $T$ is invertible.
+			\item $T$ is non-singular.
+			\item $T$ is surjective.
+		\end{enumerate}
+	\end{theorem}
+	\begin{theorem}
+		The set of all invertible linear operators with on $V$ with composition is a non-abelian group.
+	\end{theorem}
+	\begin{theorem}
+		Every $n$-dimensional vector space over the field $F$ is isomorphic to $F^n$.
+	\end{theorem}
+	\begin{theorem}
+		Let $U,V$ be vector spaces over the field $F$, $U : V \to W$ be an isomorphism, then $\phi : L(V,V) \to L(W,W),\ \phi(T) = UTU^{-1}$ is an isomorphism.
+	\end{theorem}

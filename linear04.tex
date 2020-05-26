@@ -1,0 +1,114 @@
+%Matrix representation of linear transformations. Change of basis, canonical forms, diagonal forms, triangular forms, Jordan forms
+\section{Trasformation Matrix}
+	\begin{theorem}
+		Let $V,W$ be vector spaces over field $F$ of dimensions $n,m$. Let $B,B'$ be ordered bases for $V,W$, then for each linear transformation $T : V \to W$ there exists an $m \times n$ matrix such that $[Tv]_{B'} = [T]_{BB'}[v]_B$ where the columns of $[T]_{BB'}$ are co-ordinates, $[Tb_j]_{B'}$ for each vector in the ordered basis $B$ of $V$.
+	\end{theorem}
+	\begin{theorem}
+		Let $V,W$ be vector spaces over the field $F$ of dimensions $n,m$ and $B,B'$ be ordered bases for $V,W$. For each such pair of ordered bases, the function $\phi : L(V,W) \to F^{m \times n},\ \phi(T) = [T]_{BB'}$ is an isomorphism.
+	\end{theorem}
+	\begin{theorem}
+		Let $V,W,Z$ be finite dimensional vector spaces over the field $F$ with ordered bases $B,B',B''$ and $T,U$ be linear transformations, $T: V \to W$, $U: W \to Z$, then $[UT]_{BB''} = [U]_{B'B''}[T]_{BB'}$.
+	\end{theorem}
+	\begin{corollary}
+		Let $T : V \to V$ be an invertible linear operator, then $[T^{-1}]_{BB} = [T]_{BB}^{-1}$.
+	\end{corollary}
+	\begin{corollary}
+		Let $T : V \to V$ be a linear operator and $B,B'$ be two ordered bases for $V$, then $[T]_{B'B'} = [I]_{BB'}[T]_{BB}[I]_{B'B}$.
+	\end{corollary}
+	\begin{theorem}
+		Let $T : V \to V$ be a linear operator and $B,B'$ be two ordered bases for $V$, then there exists an invertible linear operator $U : V \to V,\ Ub_j = b_j'$ such that $[T]_{B'B'} = [U]_{BB}^{-1}[T]_{BB}[U]_{BB}$.$\star$
+	\end{theorem}
+	\begin{remark}
+		Let $V$ be a vector space over field $F$ with ordered bases $B,B'$, then there exists a linear operator $U : V \to V,\ Ub_j = b_j'$ such that $[I]_{B'B} = [U]_{BB}$.
+	\end{remark}
+	\begin{definition}
+		Two $n \times n$ matrices $A,B$ are similar if there exists an invertible $n \times n$ matrix $P$ such that $B = P^{-1}AP$.
+	\end{definition}
+	\begin{remark}
+		Let $B,B'$ be ordered bases for $n$-dimensional vector space $V$ over field $F$ and $T : V \to V$ be a linear operator, then $[T]_{BB},[T]_{B'B'}$ are similar.
+	\end{remark}
+	\begin{remark}
+		If linear operator $T : V \to V$ is invertible, then $[T]_{BB}$ is invertible and is similar to $I_{n \times n}$.
+	\end{remark}
+	\begin{remark}
+		Let $V$ be an $n$-dimensional vector space over field $F$ and $A$ be an invertible $n \times n$ matrix over field $F$, then there exists a pair of ordered bases $B,B'$ for $V$ such that $[I]_{BB'} = A$. And there exists an invertible linear operator $U : V \to V,\ Ub_j = b_j'$ such that $[U]_{BB} = A$.
+	\end{remark}
+\section{Linear Functionals}
+	\begin{definition}
+		Let $V$ be a vector space over the field $F$, then linear transformation $f : V \to F$ is a linear functional on $V$.
+	\end{definition}
+	\begin{definition}
+		Let $V$ be a vector space over the field $F$, then the set of all linear functionals on $V$ is a dual space $V^* = L(V,F)$ of $V$.
+	\end{definition}
+	\begin{remark} $\dim V^* = \dim V$
+	\end{remark}
+	\begin{theorem}
+		Let $B = \{ b_1, b_2, \cdots, b_n \}$ be an ordered basis for the vector space $V$ over the field $F$, then $B^* = \{ f_1, f_2, \cdots, f_n \}$ such that $f_i(b_j) = \delta_{ij}$ is a dual basis for $V^*$. And for each $v \in V$, the co-ordinates of $v$ are $f_j(v)$.
+	\end{theorem}
+	\begin{remark}
+		Let $f$ be a non-zero linear functional on the vector space $V$ over the field $F$, then $\dim N(f) = \dim V - 1$. If $V$ is finite-dimensional, then the null space of any non-zero functional on $V$ is a hyperspace of $V$.
+	\end{remark}
+	\begin{definition}
+		Let $S$ be a subset of the vector space $V$ over the field $F$, then the annihilator of $S$, $S^0$ is the set of all linear functionals on $V$ such that $f(v) = 0,\ \forall v \in S$.
+	\end{definition}
+	\begin{remark}
+		$S^0$ is the set of all linear functionals on $V$ such that $S$ is contained in the nullspace of all those functionals. The set of all linear functional that map vectors in $S$ into $0$.
+	\end{remark}
+	\begin{theorem}
+		Let $W$ be a subspace of a finite dimensional vector space $V$ over the field $F$, then $\dim W + \dim W^0 = \dim V$.
+	\end{theorem}
+	\begin{corollary}
+		Let $W$ be a $k$-dimensional subspace of an $n$-dimensional vector space $V$ over the field $F$, then $W$ is the intersection of $(n-k)$ hyperspaces in $V$.
+	\end{corollary}
+	\begin{corollary}
+		Let $W_1, W_2$ be subspaces of a finite dimensional vector space, then $W_1 = W_2$ iff $W_1^0 = W_2^0$.
+	\end{corollary}
+	\begin{definition}
+		Let $V$ be a vector space over the field $F$, then double dual $V^{**}$ of $V$ is the set of all linear functionals on the dual space $V^*$.
+	\end{definition}
+	\begin{theorem}
+		Let $V$ be a finite-dimensional vector space over the field $F$, then $\phi : V \to V^{**},\ \phi(v) = L_v$ such that $\forall f \in V^*,\ L_v(f) = f(v)$ is an isomorphism.
+	\end{theorem}
+	\begin{corollary}
+		Let $V$ be a finite dimensional vector space over the field $F$, then for every linear functional $L \in V^{**}$, there exists a unique vector $v \in V$ such that for every linear function $f \in V^*$, $L(f) = f(v)$.
+	\end{corollary}
+	\begin{corollary}
+		Let $V$ be a finite dimensional vector space over $F$, then each basis for $V^*$ is the dual of some basis for $V$.
+	\end{corollary}
+	\begin{theorem}
+		Let $S$ be a subset of a finite dimensional vector space $V$ over the field $F$, then $S^{0^0}$ is the subspace spanned by $S$.$\star$
+	\end{theorem}
+	\begin{definition}
+		A hyperspace of a vector space is a maximal, proper subspace of it.
+	\end{definition}
+	\begin{theorem}
+		Let $V$ be a vector space over the field $F$, then the null space of a non-zero functional $f$ on $V$ is a hyperspace in $V$. And every hyperspace in $V$ is the null space of some non-zero linear functional on $V$.
+	\end{theorem}
+	\begin{lemma}
+		Let $f,g$ be linear functionals on a vector space $V$ over the field $F$, then $g$ is a scalar multiple of $f$ iff null space of $g$ contains null space of $f$.
+	\end{lemma}
+	\begin{theorem}
+		Let $g, f_1, f_2, \cdots, f_n$ be linear functionals on a vector space $V$ over the field $F$ and $N, N_1, N_2, \cdots, N_n$ be the respective null spaces, then $g$ is a linear combination of $f_j$s iff $N$ contains $\cap_{j=1}^n N_j$.
+	\end{theorem}
+	\begin{theorem}
+		Let $V,W$ be vector spaces over the field $F$, then for each linear transformation, $T : V \to W$ there exists a unique linear transformation, $T^t : W^* \to V^*$ such that for each $v \in V$ and $g \in W^*$, $T^tg (v) = g(Tv)$.
+	\end{theorem}
+	\begin{definition}
+		Let $V,W$ be vector spaces over the field $F$ and $T : V \to W$ be a linear transformation, then the linear transformation, $T^t : W^* \to V^*$ such that $T_tg(v) = g(Tv),\ \forall v \in V,\ \forall g \in W^*$ is the transpose/adjoint of $T$.
+	\end{definition}
+	\begin{theorem}
+		Let $V,W$ be vector spaces over the field $F$ and $T: V \to W$ be a linear transformation, then the null space of $T^t$ is the annihilator of the range of $T$.
+	\end{theorem}
+	\begin{corollary}
+		Let $V,W$ be finite dimensional vector spaces over the field $F$, then $rank(T^t) = rank(T)$ and $R(T^t) = N(T)^0$
+	\end{corollary}
+	\begin{theorem}
+		Let $V,W$ be finite dimensional vector spaces over the field $F$ with ordered bases $B,B'$ and $B^*, B'^*$ are respective dual bases for $V^*,W^*$ and $T: V \to W$ be a linear transformation with transpose of $T$, $T^t : W^* \to V^*$, then $[T]_{BB'}$ is the transpose of the matrix $[T^t]_{B'^*B^*}$.
+	\end{theorem}
+
+
+\section{Canonical Forms}
+
+\subsection{Diagonal Forms}
+\subsection{Triangular Forms}
+\subsection{Jordan Forms}

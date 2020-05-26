@@ -1,0 +1,96 @@
+%Algebra of matrices, rank and determinant of matrices, linear equations
+\section{Matrix}
+	\begin{definition}
+		An $m \times n$ matrix over the field $F$ is a function $A : \{1,2,\cdots,m\} \times \{1,2,\cdots,n\} \to F$.
+	\end{definition}
+	\begin{description}
+		\item[upper triangular] $a_{ij} = 0,\ i>j$
+		\item[lower triangular] $a_{ij} = 0,\ i<j$
+		\item[symmetric] $a_{ij} = a_{ji}$
+		\item[skew-symmetric] $a_{ij} = -a_{ji}$
+		\item[hermitian] $a_{ij} = \overline{a_{ji}}$
+	\end{description}
+	\begin{remark}
+		There are three elementary row operations on an $m \times n$ matrix
+		\begin{enumerate}
+			\item Multiplication of one row by non-zero scalar
+			\item Replacing row r by row r plus c times row r
+			\item Interchanging two rows
+		\end{enumerate}
+	\end{remark}
+	\begin{remark}
+		Elementary row operations on $A$ does not affect the set of solutions of the homogenous system of linear equations, $AX = 0$.\\
+		The inverse of any elementary row operation is of the same kind.
+	\end{remark}
+	\begin{definition}
+		A matrix $B$ is row-equivalent to matrix $A$ if $B$ can be obtained from $A$ by a finite sequence of row operations.\\
+		If $A$ and $B$ are row-equivalent, then the homogeneous systems of linear equations, $AX = 0$ and $BX=0$ have exactly the same solutions.
+	\end{definition}
+	\begin{definition}
+		An $m \times n$ matrix is row-reduced if
+		\begin{enumerate}
+			\item first non-zero entry, pivot of each non-zero row is 1
+			\item each pivot column has all other entries zero 
+		\end{enumerate}
+	\end{definition}
+	\begin{remark}
+		Every $m \times n$ matrix is row-equivalent to a row-reduced $m \times n$ matrix.
+	\end{remark}
+	\begin{definition}
+		An $m \times n$ matrix is an echelon matrix if
+		\begin{enumerate}
+			\item non-zero rows are above every zero-rows
+			\item pivot column of any row is less than pivot column of any row below it
+		\end{enumerate}
+	\end{definition}
+	\begin{theorem}
+		Every $m \times n$ matrix is row-equivalent to a unique $m \times n$ row-reduced echelon matrix.
+	\end{theorem}
+	\begin{theorem}
+		If $A$ is an $m \times n$ matrix and $m < n$, then $AX=0$ has a non-trivial solution.
+	\end{theorem}
+	\begin{theorem}
+		$A$ is row-equivalent to $n \times n$ identity matrix iff $AX=0$ has only the trivial solution.
+	\end{theorem}
+	\begin{definition}
+		$A_{m \times n} \times B_{n \times p} = C_{m \times p},\ c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}$
+	\end{definition}
+	\begin{remark}
+		Matrix multiplication is not commutative.\\
+		Matrix multiplication is associative.
+	\end{remark}
+	\begin{definition}
+		An $n \times n$ matrix is an elementary matrix if it can be obtained from $n \times n$ identity matrix by a single elementary row operation.
+	\end{definition}
+	\begin{remark}
+		An elementary operation is equivalent to the left-multiplication by corresponding elementary matrix.\\
+		Two $m \times n$ matrices are row-equivalent if one can be obtained from the other by left-multiplying a finite number of $m \times m$ elementary matrices. (or by right-multiplying a finite number of $n \times n$ elementary matrices)
+	\end{remark}
+	\begin{definition}
+		Let $A$ be an $n \times n$ matrix over the field $F$. If $BA = I$, then $B$ is the left-inverse of $A$. If $AB = I$, then $B$ is the right-inverse of $A$. If $AB = BA = I$, then $B$ is the inverse of $A$ and $A$ is an invertible matrix.
+	\end{definition}
+	\begin{theorem}
+		If $A,B$ are invertible, then $(AB)^{-1} = B^{-1}A^{-1}$. The product of invertible matrices is invertible.\\
+		Elementary matrices are invertible.
+	\end{theorem}
+	\begin{theorem}
+		The following statements are equivalent:
+		\begin{enumerate}
+			\item $A$ is invertible.
+			\item $A$ is row-equivalent to $I_{n \times n}$.
+			\item $A$ is a product of elementary matrices.
+			\item $AX=0$ has only trivial solution.
+			\item $AX=Y$ has a unique solution $X$ for each $Y$.
+		\end{enumerate}
+	\end{theorem}
+	\begin{corollary}
+		If $A$ is invertible, a sequence of elementary row operations would reduce $A$ to the identity. The same sequence of elementary row operations would convert $I$ to $A^{-1}$.
+	\end{corollary}
+	\begin{corollary}
+		If $A,B$ are row-equivalent $m \times n$ matrices, then $B = PA$ where $P$ is an invertible $m \times m$ matrix and $A = P^{-1}B$.\\
+		An $n \times n$ matrix with either left or right inverse is invertible.\\
+		Let $A = \prod A_k$. $A$ is invertible iff each $A_k$ is invertible.
+	\end{corollary}
+\section{Rank}
+\section{Determinant}
+\section{Linear Equations}
