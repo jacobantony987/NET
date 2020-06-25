@@ -1,109 +1,207 @@
 %Sequences and series, convergence, limsup, liminf
+
+\chapter{Sequences and Series}
 \section{Sequences}
-	\begin{definition}
-		A sequence $\{x_n\}$ in set $\mathbb{R}$ is a function $x: \mathbb{N} \to \mathbb{R}$ where $x_n = x(k)$.\footnote{A sequence $\{x_n\}$ on the set $X$ is a function $x:\mathbb{N} \to X$. The kth term $x_k$ of the given sequence is the image $x(k) \in X$.}
+	\begin{definition}[sequence]
+		A sequence $\sequence{x_n}$ in $\mathbb{R}$ is a function $x: \mathbb{N} \to \mathbb{R}$ where the $n^{th}$ term of the sequence, $x_n = x(k)$.
 	\end{definition}
+
 	\begin{definition}
-		The range of a sequence $\{x_n\}$ is the set $\{ x_k : k \in \mathbb{N} \}$. The range of any sequence is countable.
+		The range of a sequence $\sequence{x_n}$ is the set $\{ x_k : k \in \mathbb{N} \}$.
 	\end{definition}
-	\begin{definition}
-		Given a sequence $\{x_n\},\ f:\mathbb{N} \to X,\ x_n = f(n)$ and a monotone function $g:\mathbb{N} \to \mathbb{N},\ n_k = g(k)$, then the sequence $\{y_k\},\ y_k = x_{n_k} = (f \circ g)(k)$ is a subsequence of $\{x_n\}$.
+
+	\begin{remark}
+		The range of any sequence is countable.
+	\end{remark}
+
+	\begin{definition}[subsequence]
+		Given a sequence $\sequence{x_k},\ x:\mathbb{N} \to X,\ x_k = x(k)$ and a monotone function $N:\mathbb{N} \to \mathbb{N},\ n_k = n(k)$, then the sequence $\sequence{y_k} : \mathbb{N} \to X,\ y_k = x_{n_k} = (x \circ n)(k)$ is a subsequence of $\sequence{x_k}$.
 	\end{definition}
+
 	\begin{axiom}[Dependent Choice]
-		Let $\le$ be a relation on $X$ such that every element $x \in X$ is related to some element of $X$, then there exists a sequence for each element $x \in X$ such that $x_1 = x$ and $x_k \le x_{k+1}$ for every integer $k \in \mathbb{N}$.\cite{khar1}
+		Let $\le$ be a relation on $X$ such that every element $x \in X$ is related to some element of $X$, then there exists a sequence for each element $x \in X$ such that $x_1 = x$ and $x_k \le x_{k+1}$ for every integer $k \in \mathbb{N}$.\cite{kharazishvili}
 	\end{axiom}
+
 	\begin{theorem}[Recursive Definition]
-		Given a function $f:X \to X$, for every $x \in X$ there exists a unique sequence $\{x_n\}$ such that $x_1 = x,\ x_{k+1} = f(x_k),\ \forall k \in \mathbb{N}$
+		Given a function $f:X \to X$, for every $x \in X$ there exists a unique sequence $\sequence{x_n}$ such that $x_1 = x,\ x_{k+1} = f(x_k),\ \forall k \in \mathbb{N}$
 	\end{theorem}
+
 	\begin{corollary}[Generalised Recursive Definition]
-		Given a sequence of functions $f_n : X^n \to X$, for every $x \in X$ there exists a unique sequence $\{x_n\}$ such that $x_1 = x,\ x_k+1 = f_k(x_1,x_2,\cdots,x_k),\ \forall k \in \mathbb{N}$
+		Given a sequence of functions $f_n : X^n \to X$, for every $x \in X$ there exists a unique sequence $\sequence{x_n}$ such that $x_1 = x,\ x_k+1 = f_k(x_1,x_2,\cdots,x_k),\ \forall k \in \mathbb{N}$
 	\end{corollary}
 
 \section{Convergence of Sequences}
-	\begin{definition}
-		A sequence $\{x_n\}$ converges to $x \in \mathbb{R}$ if for every $\epsilon > 0$, there exists $N \in \mathbb{N}$ such that $|x-x_n| < \epsilon$ for every $k \ge N$. The real number $x$ is the limit of the sequence $\{x_n\}$.
+	\begin{definition}[convergence]
+		A sequence $\sequence{x_n}$ converges to $x \in \mathbb{R}$ if for every $\epsilon > 0$, there exists $N \in \mathbb{N}$ such that $|x-x_n| < \epsilon$ for every $k \ge N$. The real number $x$ is the limit of the sequence $\sequence{x_n}$. ie, $\sequence{x_n} \to x$. A sequence $\sequence{x_n}$ is divergent if it is not convergent. ie, $\sequence{x_n} \to \infty$.
 	\end{definition}
-	\begin{definition}
-		A sequence is cauchy if for every $\epsilon > 0$, there exists an integer $N \in \mathbb{N}$ such that for every $n,m > N$, $|x_n-x_m| < \epsilon$
-	\end{definition}
-	\begin{remark}
-		A sequence of real numbers converges iff cauchy.
+	
+	\begin{remark}Examples,\\
+		Convergent sequence, $\sequence{x_n},\ x_n = \frac{1}{n}$, $\sequence{x_n} \to 0$\\
+		Divergent sequence, $\sequence{x_n},\ x_n = -1^n$, $\sequence{x_n} \to \infty$
 	\end{remark}
-	\begin{theorem}
-		Every bounded monotone sequence $\{x_n\}$ in $\mathbb{R}$ converges. If monotone decreasing, limit is $\inf \{x_n\}$. If monotone increasing, limit is $\sup \{x_n\}$.
-	\end{theorem}
-	\begin{definition}
-		A real number $x$ is a limit point (cluster point) of the sequence $\{x_n\}$ if for every $\epsilon > 0$ and every integer $N \in \mathbb{N}$, there exists an integer $k > N$ such that $|x_n - x| < \epsilon$.
-	\end{definition}
-	\begin{remark}
-		A real number $x$ is a limit point of the sequence $\{x_n\}$ iff there is a subsequence converging to $x$.
+
+	\begin{remark}[$\epsilon$-neighbourhood of $x$]
+		A sequence $\sequence{x_n} \to x \iff \forall \epsilon > 0,\\ \exists N \in \mathbb{N} \text{ such that } \forall n \ge N,\ x_n \in (x-\epsilon,x+\epsilon)$.
 	\end{remark}
+
+	\begin{definition}[bounded]
+		A sequence $\sequence{x_n}$ is bounded if $\exists M >0$ such that $\forall n \in \mathbb{N},\ |x_n| \le M$. ie, $\forall n \in \mathbb{N},\ x_n \in [-M,M]$.
+	\end{definition}
+
 	\begin{remark}
 		Every convergent sequence is bounded.
 	\end{remark}
+
+	\begin{theorem}[algebraic limit]
+		Suppose $\sequence{x_n} \to x,\ \sequence{y_n} \to y$, then
+		\begin{enumerate}
+			\item $\forall n \in \mathbb{N},\ x_n \le y_n \implies x \le y$
+			\item $\sequence{\alpha x_n + \beta y_n} \to \alpha x + \beta y$
+			\item $\sequence{x_n y_n} \to xy$
+			\item $\sequence{\frac{x_n}{y_n}} \to \frac{x}{y}$, provided $y \ne 0$.
+		\end{enumerate}
+	\end{theorem}
+
+	\begin{remark}Application 1\\
+		Let $\sequence{x_n},\ x_n = \frac{n+3}{2n} \implies \forall n \in \mathbb{N},\ x_n = \frac{1}{2} + \frac{3}{2n}$\\
+		Thus, $x_n = 0.5y_n + 1.5z_n$, where $\forall n \in \mathbb{N},\ y_n = 1,\ z_n = \frac{1}{n}$\\
+		We have, $\sequence{y_n} \to 1$ and $\sequence{z_n} \to 0$. Thus, $\sequence{x_n} \to 0.5$
+	\end{remark}
+
+	\begin{remark}Application 2\\
+		Let $\sequence{x_n}$ is convergent and given recursive definition, $x_1 = c,\ x_{n+1} = f(x_n)$. Then $\sequence{x_n} \to x$ where $x = f(x)$. In case of multiple solutions, use $x_1$.\\
+		For example, $x_1 = 3,\ x_{n+1} = \frac{1}{4-x_n} \implies x = \frac{1}{4-x} \implies x = 2 \pm \sqrt{3},\ x \ne 4$.\\
+		However, $\forall n \ge 3,\ x_n < 1$. Thus $x = 2 - \sqrt{3}$.
+	\end{remark}
+
+	\begin{theorem}[order limit]
+		Suppose $\sequence{x_n} \to x,\ \sequence{y_n} \to y$, then
+		\begin{enumerate}
+			\item $\forall n \in \mathbb{N},\ x_n \ge 0 \implies x \ge 0$.
+			\item $\forall n \in \mathbb{N},\ x_n \ge y_n \implies x \ge y$.
+			\item $\exists c \in \mathbb{R},\ \forall n \in \mathbb{N},\ x_n \ge c \implies x \ge c$.
+			\item $\exists c \in \mathbb{R},\ \forall n \in \mathbb{N},\ x_n \le c \implies x \le c$.
+		\end{enumerate}
+	\end{theorem}
+
+	\begin{theorem}[Squeeze]
+		Suppose $\sequence{x_n},\ \sequence{y_n},\ \sequence{z_n}$ are sequences. Then \\$\forall n \in \mathbb{N},\ x_n \le z_n \le y_n,\ \sequence{x_n} \to k,\ \sequence{y_n} \to k \implies \sequence{z_n} \to k$.
+	\end{theorem}
+
+	\begin{remark}[shuffled sequence]
+		Let $\sequence{x_n},\sequence{y_n}$ be sequences and $\sequence{z_n}$ be a shuffled sequence given by $\sequence{ x_1,y_1,x_2,y_2,\cdots }$, then\\ $\sequence{z_n} \to k \iff \sequence{x_n} \to k,\ \sequence{y_n} \to k$.
+	\end{remark}
+
+	%This result can be generalised for a shuffled(without any rearrangement) sequence obtained from a finite family of sequences converging to a common point.
+
+	\begin{definition}[absolute convergence]
+		A sequence $\sequence{x_n}$ is absolutely convergent if the sequence $\sequence{|x_n|}$ is convergent.
+	\end{definition}
+
+	\begin{remark}
+		Every convergent sequence is absolutely convergent.\\
+		$\sequence{x_n} \to x \implies \sequence{|x_n|} \to |x|$
+	\end{remark}
+
+	\begin{remark}
+		Suppose $\sequence{x_n}$ is bounded and $\sequence{y_n} \to 0$, then $\sequence{x_n y_n} \to 0$
+	\end{remark}
+	
+	\begin{remark}
+		$\sequence{x_n} \to 0$ and $\forall n \in \mathbb{N},\ |y_n-y| \le x_n$, then $\sequence{y_n} \to y$.
+	\end{remark}
+
+	\begin{definition}[Cesaro Means]
+		The sequence $\sequence{y_n}$ where $y_k = \frac{1}{k} \sum_{n=1}^k x_k$ is the sequence of the averages of a sequence $\sequence{x_n}$.
+	\end{definition}
+
+	\begin{remark}Let $\sequence{y_n}$ be the sequence of averages of the sequence $\sequence{x_n}$,
+		\begin{enumerate}	
+			\item $\sequence{y_n} \to \infty \implies \sequence{x_n} \to \infty$
+			\item $\sequence{x_n} \to k \implies \sequence{y_n} \to k$
+		%	\item $\sequence{y_n}$ converges, then $\sequence{x_n}$ need not converge. \footnote{ $\sequence{x_n}$ such that $x_n = -1^n$}
+		\end{enumerate}
+	\end{remark}
+
+	\begin{definition}[cluster point]
+		A real number $x$ is a cluster point of the sequence $\sequence{x_n}$ if for every $\epsilon > 0$ and every integer $N \in \mathbb{N}$, there exists an integer $k > N$ such that $|x_n - x| < \epsilon$.
+	\end{definition}
+
+	\begin{remark}
+		A real number $x$ is a cluster point of the sequence $\sequence{x_n}$ iff there is a subsequence converging to $x$.
+	\end{remark}
+	
+
+	\begin{definition}[cauchy]
+		A sequence is cauchy if for every $\epsilon > 0$, there exists an integer $N \in \mathbb{N}$ such that for every $n,m > N$, $|x_n-x_m| < \epsilon$.
+	\end{definition}
+
+	\begin{remark}
+		A sequence of real numbers converges iff cauchy.
+	\end{remark}
+
+\section{Monotone Convergence Theorem}
+	\begin{theorem}
+		Every bounded monotone sequence $\sequence{x_n}$ in $\mathbb{R}$ converges.
+	\end{theorem}
+	
+	\begin{remark}
+		If monotone decreasing and bounded below, $\sequence{x_n} \to \inf \sequence{x_n}$.\\
+		If monotone increasing and bounded above, $\sequence{x_n} \to \sup \sequence{x_n}$.
+	\end{remark}
+
+	\begin{remark}
+		Every convergent sequence is bounded.
+	\end{remark}
+
 	\begin{remark}
 		A sequence of real numbers can have atmost one limit.
 	\end{remark}
-	\begin{remark}
-		Suppose $\lim x_n = x,\ \lim y_n = y$
-		\begin{enumerate}
-			\item $x_n \le y_n \implies x \le y$
-			\item $\lim (\alpha x_n + \beta y_n ) = \alpha x + \beta y$
-			\item $\lim x_ny_n = xy$
-			\item $ \text{Suppose } |y_n| \ge \delta \text{ for some } \delta > 0, \text{ then } \lim \frac{x_n}{y_n} = \frac{x}{y}$
-		\end{enumerate}
-	\end{remark}
-	\begin{lemma}[Sandwitch]
-		Suppose $\{x_n\},\ \{y_n\},\ \{z_n\}$ are sequences such that $x_n \le z_n \le y_n,\ \forall n \in \mathbb{N}$. If $\lim x_n = \lim y_n = x$, then $\lim z_n = x$.
-	\end{lemma}
 
-\section{limits superior, limits inferior}
-	\begin{definition}
-		limit inferior, $\varliminf \{x_n\}= \sup \{ \inf\{x_m : m \ge n\}\}$\\
-		limit superior, $\varlimsup \{x_n\}= \inf \{ \sup\{x_m : m \ge n\}\}$
+	\begin{definition}.\\
+		limit inferior, $\varliminf \sequence{x_n}= \sup \sequence{\inf \sequence{x_m : m \ge n} }$\\
+		limit superior, $\varlimsup \sequence{x_n}= \inf \sequence{\sup \sequence{x_m : m \ge n} }$
 	\end{definition}
+
 	\begin{remark}
-		Let $\{x_n\}$ be a bounded sequence, then limit superior and limit inferior are the largest and smallest limit points of it.\cite{alip1}\\
-		$\varliminf \{x_n\} \le \varlimsup \{x_n\}$
+		Let $\sequence{x_n}$ be a bounded sequence, then limit superior and limit inferior are the largest and smallest limit points of it.\cite{aliprantis}\\
+		$\varliminf \sequence{x_n} \le \varlimsup \sequence{x_n}$
 	\end{remark}
+
 	\begin{remark}
-		For $\{ x_n \},\ \{ y_n \}$ such that $x_n \le y_n$ for every integer $n \in \mathbb{N}$
+		For $\sequence{x_n},\ \sequence{y_n}$ such that $\forall n \in \mathbb{N},\ x_n \le y_n$,
 		\begin{enumerate}
-			\item $\varlimsup \{x_n\} \le \varlimsup \{y_n\}$
-			\item $\varliminf \{x_n\} \le \varliminf \{y_n\}$
+			\item $\varlimsup \sequence{x_n} \le \varlimsup \sequence{y_n}$
+			\item $\varliminf \sequence{x_n} \le \varliminf \sequence{y_n}$
 		\end{enumerate}
 	\end{remark}
 
 \section{Convergence Test by Sandwitch Lemma}
 	Convergence of sequences can be tested using the Sandwitch Lemma.	
 	\begin{remark}
-		$$\varliminf \{ x_n \} + \varliminf \{ y_n \} \le \varliminf \{ x_n + y_n \} \le \varlimsup \{ x_n + y_n \} \le \varlimsup \{ x_n \} + \varlimsup \{ y_n \}$$
-		If $\{ x_n \}$ or $\{ y_n \}$ converges, then $\lim \{ x_n + y_n \} = \lim x_n + \lim y_n$
+		\begin{align*}
+			\varliminf \sequence{x_n} + \varliminf \sequence{y_n} & \le \varliminf \sequence{x_n + y_n}\\ & \le \varlimsup \sequence{x_n + y_n}\\ & \le \varlimsup \sequence{x_n} + \varlimsup \sequence{y_n}
+		\end{align*}
 	\end{remark}
+
 	\begin{remark}
-		Let $\{ x_n \}$ such that  $\sqrt{n} = (1+x_n)^n$.\\
+		Let $\sequence{x_n}$ such that  $\sqrt{n} = (1+x_n)^n$.\\
 		By Bernouli's inequality, $\sqrt{n} = (1+x_n)^n \ge 1+nx \implies 0<x<\frac{1}{\sqrt{n}}$.
-		$$\varliminf \frac{x_n+1}{x_n} \le \varliminf \sqrt[n]{n} \le \varlimsup \sqrt[n]{n} \le \varlimsup \frac{x_n+1}{x_n}$$
+		$$\varliminf \sequence{\frac{x_n+1}{x_n}} \le \varliminf \sequence{\sqrt[n]{n}} \le \varlimsup \sequence{\sqrt[n]{n}} \le \varlimsup \sequence{\frac{x_n+1}{x_n}}$$
 		And $\lim \frac{x_n+1}{x_n} = 1$. Thus $\lim\sqrt[n]{n} = 1$
 	\end{remark}
-	\begin{definition}
-		Sequence $\{ a_n \}$ such that $a_k = \frac{1}{k} \sum_{n=1}^k x_k$ is the sequence of the averages of a sequence $\{ x_n \}$ 
-	\end{definition}
-	\begin{remark}Let $\{ a_n \}$ be the sequence of averages of the sequence $\{ x_n \}$,
-		\begin{enumerate}	
-		 	\item $\varliminf x_n \le \varliminf a_n \le \varlimsup a_n \le \varlimsup x_n$
-			\item If $\{ x_n \}$ converges, then $\{ a_n \}$ converges.
-			\item If $\{ a_n \}$ diverges, then $\{ x_n \}$ diverges.
-			\item $\{ a_n \}$ converges, then $\{ x_n \}$ need not converge. \footnote{ $\{ x_n \}$ such that $x_n = -1^n$}
-		\end{enumerate}
+
+	\begin{remark}
+		Let $\sequence{y_n}$ be the sequence of averages of the sequence $\sequence{x_n}$, then $\varliminf x_n \le \varliminf y_n \le \varlimsup y_n  \le \varlimsup x_n$
 	\end{remark}
-	\begin{remark}[Results by Average Sequence]
+
+	\begin{remark}Results by Average Sequence\\
 		\begin{enumerate}
 			\item $x_{n+1}-x_n \to x \implies \frac{x_n}{n} \to x$
-			\item If $\{ x_n \}$ is bounded and $2x_n \le x_{n+1}+x_{n-1} \implies \{ x_n+1 - x_n \}$ is monotone increasing to 0. pending pp.28 exr 12b\cite{alip2}
+			\item If $\sequence{x_n}$ is bounded and $$2x_n \le x_{n+1}+x_{n-1} \implies \sequence{x_n+1 - x_n}$$ is monotone increasing to 0. pending pp.28 exr 12b\cite{alip2}
 			\item $ 0 < x_1 < 1,\ x_{n+1} = 1-\sqrt{1-x_n}$, then $x_n$ monotone decreasing to 0 and $\frac{x_{n+1}}{x_n}$ convergent to $\frac{1}{2}$.
-			\item $\{ x_n \},\ x_n = \left( 1 + \frac{1}{n} \right)^n$ is convergent
-			\item $\{ x_n \},\ |x_n-x_{n-1}| \le \alpha |x_{n+1}-x_n|,\ 0 < \alpha < 1$ is convergent
+			\item $\sequence{x_n},\ x_n = \left( 1 + \frac{1}{n} \right)^n$ is convergent
+			\item $\sequence{x_n},\ |x_n-x_{n-1}| \le \alpha |x_{n+1}-x_n|,\ 0 < \alpha < 1$ is convergent
 			\item $x_1 = 1,\ x_{n+1} = \frac{1}{3+x_n}$ is convergent to ?
 			\item $x_1 = 1,\ x_{n+1} = 1+ \frac{1}{1+x_n}$ is convergent to $\sqrt{2}$
 			\item $x_1 = 1,\ x_{n+1} = \frac{1}{2} \left( x_n + \frac{2}{x_n} \right)$ is convergent to $\sqrt{2}$
@@ -111,31 +209,62 @@
 	\end{remark}
 
 \section{Series}
-	\begin{definition}
-		A series $\sum_{n=1}^\infty x_n$ is convergent if the sequence of partial sums $\{y_k\}$ such that $y_k = \sum_{n=1}^k x_n$ is convergent.
+	\begin{definition}[series]
+		A series is given by $\series{x_n}{n}$.
 	\end{definition}
-	\begin{definition}
-		A series $\sum_{n=1}^\infty x_n$ is rearrangement invariant if for every bijection $\sigma : \mathbb{N} \to \mathbb{N}$, $\sum_{k=1}^\infty x_{\sigma_k}$ converges and is invariant.
+
+	\begin{definition}[convergence]
+		A series $\series{x_n}{n}$ is convergent if the sequence of partial sums $\sequence{y_k}$ such that $y_k = \sum_{n=1}^k x_n$ is convergent. And the limit of the sequence of partial sums is the sum of the series. ie, $\sequence{y_k} \to y$, then $\series{x_n}{n} = y$.
 	\end{definition}
-	\begin{theorem}
-		A series $\sum_{n=1}^\infty x_n$ is rearrangement invariant if for every integer $n \in \mathbb{N}$, $x_n \ge 0$.
+
+	\begin{remark}
+		$\series{\frac{1}{n^2}}{n} = r < 2$
+	\end{remark}
+
+	\begin{remark}[harmonic series]
+		$\series{\frac{1}{n}}{n} = \infty$
+	\end{remark}
+
+	\begin{theorem}[cauchy condensation test]
+		Suppose $\sequence{x_n}$ is decreasing and $x_n \ge 0$.\\
+		$\series{x_n}{n}$ converges iff $\series{2^{n-1}x_{2^{n-1}}}{n}$ converges.
 	\end{theorem}
+
+	\begin{corollary}
+		$\series{\frac{1}{n^p}}{n}$ converges iff $p > 1$.
+	\end{corollary}
+	
+%	\begin{remark}
+%		Every series is not rearrangement invariant.\\
+	%		$S = \series{\frac{-1^{n+1}}{n}}{i} = 1 - \frac{1}{2} + \frac{1}{3} + \cdots = 0.69\cdots$ is not rearrangement invariant.\\
+%		$S + \frac{1}{2}S = S^* = 1 + \frac{1}{3} - \frac{1}{2} + \frac{1}{5} -\frac{1}{4} + \frac{1}{7} + \cdots$
+%	\end{remark}
+
+	\begin{definition}[rearrangement invariant]
+		A series $\series{x_n}{n}$ is rearrangement invariant if for every bijection $\sigma : \mathbb{N} \to \mathbb{N},\ \series{x_{\sigma_k}}{k}$ converges and is invariant.
+	\end{definition}
+
+	\begin{theorem}
+		A series $\series{x_n}{n}$ is rearrangement invariant if for every integer $n \in \mathbb{N}$, $x_n \ge 0$.
+	\end{theorem}
+
 	\begin{remark}
 		Series that are rearrangement invariant are unconditionally convergent.
 	\end{remark}
 
 \section{Double Series}
-	\begin{definition}
-		A double series $\sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m}$ is $\lim_{k \to \infty} \sum_{n=1}^k \sum_{m=1}^\infty x_{n,m}$.
+	\begin{definition}[double series]
+		A double series $$\doubleseries{x_{n,m}}{m}{n} = \lim_{k \to \infty} \sum_{n=1}^k \series{x_{n,m}}{m}$$
 	\end{definition}
-	\begin{theorem}
-		If for every $n,m \in \mathbb{N}$, $a_{n,m} \ge 0$, then $\sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m} = \sum_{m=1}^\infty \sum_{n=1}^\infty x_{n,m}$.
-	\end{theorem}
-	\begin{theorem}[double series into single series]
-		If for every $n,m \in \mathbb{N},\ x_{n,m} \ge 0$ and for every bijection $\sigma : \mathbb{N} \to \mathbb{N}\times\mathbb{N}$, $\sum_{k=1}^\infty x_{\sigma_k} = \sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m}$
-	\end{theorem}
-	\begin{corollary}
-		If for every $n,m \in \mathbb{N},\ x_{n,m} \ge 0$ and for every bijection $\sigma : \mathbb{N}\times\mathbb{N} \to \mathbb{N}\times\mathbb{N}$, $\sum_{j=1}^\infty \sum_{k=1}^\infty x_{\sigma_{j,k}} = \sum_{n=1}^\infty \sum_{m=1}^\infty x_{n,m}$
-	\end{corollary}
 
-\section{Convergence of series}
+	\begin{theorem}[rearrangement invariance]
+		$\forall n,m \in \mathbb{N},\ a_{n,m} \ge 0$, $$\doubleseries{x_{n,m}}{m}{n} = \doubleseries{x_{n,m}}{n}{m}$$
+	\end{theorem}
+
+	\begin{theorem}[rearrangement invariant double series into single series]
+		$\forall n,m \in \mathbb{N},\ x_{n,m} \ge 0,\ \forall \text{ bijection }\sigma : \mathbb{N} \to \mathbb{N}\times\mathbb{N}$, $$\series{x_{\sigma_k}}{k} = \doubleseries{x_{n,m}}{m}{n}$$
+	\end{theorem}
+
+	\begin{corollary}
+		$\forall n,m \in \mathbb{N},\ x_{n,m} \ge 0,\ \forall \text{ bijection }\sigma : \mathbb{N}\times\mathbb{N} \to \mathbb{N}\times\mathbb{N}$, $$\doubleseries{x_{\sigma_{j,k}}}{k}{j} = \doubleseries{x_{n,m}}{m}{n}$$
+	\end{corollary}

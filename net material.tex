@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{book}
+\documentclass[a4paper,12pt,openany]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -14,12 +14,16 @@
 
 \newtheorem{corollary}{Corollary}[definition]
 
+\newcommand{\sequence}[1]{\{#1\}}
+\newcommand{\series}[2]{\sum_{#2=1}^\infty #1}
+\newcommand{\doubleseries}[3]{\sum_{#2=1}^\infty \sum_{#3=1}^\infty #1}
+
 \title{Mathematics CSIR NET}
 \author{P.G. Department of Mathematics\\ kepgmathematics@gmail.com}
 \date{}
 
 \begin{document}
- \chapter{Real Analysis}
+ \part{Real Analysis}
  \input{analysis01.tex}
  \input{analysis02.tex}
  \input{analysis03.tex}
@@ -30,7 +34,7 @@
  \input{analysis08.tex}
  \input{analysis09.tex}
 
- \chapter{Linear Algebra}
+ \part{Linear Algebra}
  \input{linear01.tex}
  \input{linear02.tex}
  \input{linear03.tex}
@@ -38,47 +42,47 @@
  \input{linear05.tex}
  \input{linear06.tex}
 
-%\chapter{Complex Analysis}
+%\part{Complex Analysis}
 %\input{complex01.tex}
 %\input{complex02.tex}
 %\input{complex03.tex}
 %\input{complex04.tex}
 
-%\chapter{Combinatorics}
+%\part{Combinatorics}
 %\input{algebra01.tex}
 
-%\chapter{Number Theory}
+%\part{Number Theory}
 %\input{algebra02.tex}
 
-%\chapter{Abstract Algebra}
+%\part{Abstract Algebra}
 %\input{algebra03.tex}
 %\input{algebra04.tex}
 %\input{algebra05.tex}
 %\input{algebra06.tex}
 %\input{algebra00.tex}
 
-\chapter{Topology}
+\part{Topology}
 \input{topology01.tex}
 
-%\chapter{Ordinary Differential Equations}
+%\part{Ordinary Differential Equations}
 %\input{ode01.tex}
 %\input{ode02.tex}
 
-%\chapter{Partial Differential Equations}
+%\part{Partial Differential Equations}
 %\input{pde01.tex}
 %\input{pde02.tex}
 
-%\chapter{Numerical Analysis}
+%\part{Numerical Analysis}
 %\input{numerical01.tex}
-%\chapter{Calculus of Variations}
+%\part{Calculus of Variations}
 %\input{variation01.tex}
-%\chapter{Linear Integral Equations}
+%\part{Linear Integral Equations}
 %\input{integral01.tex}
-%\chapter{Classical Mechanics}
+%\part{Classical Mechanics}
 %\input{mechanics01.tex}
 
 \bibliography{bibliography}
-\bibliography{../mgu_msc/reference}
+\bibliography{../mathematics/reference}
 \bibliographystyle{ieeetr}
 	
 \end{document}

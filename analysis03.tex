@@ -1,45 +1,135 @@
 %Bolzano Weierstrass theorem, Heine Borel theorem
+\chapter{Bolzano Weierstrass Theorem}
 \section{Bolzano-Weierstrass Theorem}
 	\begin{theorem}
-		Every sequence $\{x_n\}$ in $\mathbb{R}$ has subsequences converging to $\varliminf \{x_n\}$ and $\varlimsup \{x_n\}$.
+		Subsequence of convergent sequences converges to the same limit.
 	\end{theorem}
-	\begin{remark}
-		A sequence $\{x_n\}$ is convergent iff $\varliminf \{x_n\} = \varlimsup \{x_n\}$
+
+	\begin{remark}[Divergence]
+		Suppose $\sequence{x_n}$ has two subsequences converging to distinct real numbers, then $\sequence{x_n}$ is divergent.
 	\end{remark}
+
 	\begin{theorem}
-		Every bounded sequence in $\mathbb{R}$ has a convergent subsequence.\footnote{Every bounded sequence in $\mathbb{R}$ has subsequences converging to $\varliminf$ and $\varlimsup$. \cite{aliprant}}
+		Every sequence $\sequence{x_n}$ in $\mathbb{R}$ has subsequences converging to $\varliminf \sequence{x_n}$ and $\varlimsup \sequence{x_n}$.
 	\end{theorem}
+
+	\begin{remark}
+		A sequence $\sequence{x_n}$ is convergent iff $\varliminf \sequence{x_n} = \varlimsup \sequence{x_n}$
+	\end{remark}
+
+	\begin{theorem}[Bolzano Weierstrass]
+		Every bounded sequence in $\mathbb{R}$ has a convergent subsequence.
+	\end{theorem}
+
+	\begin{remark}
+		Every bounded sequence in $\mathbb{R}$ has subsequences converging to $\varliminf$ and $\varlimsup$. \cite{aliprantis}
+	\end{remark}
+
 	\begin{theorem}
-		Every bounded sequence $\{x_n\}$ in $\mathbb{R}$ converges iff $\varliminf \{ x_n \} = \varlimsup \{ x_n \}$.
+		Every bounded sequence $\sequence{x_n}$ in $\mathbb{R}$ converges iff $\varliminf \sequence{x_n} = \varlimsup \sequence{x_n}$.
 	\end{theorem}
-	\begin{definition}
-		A sequence $<x_k>$ is Cauchy, if $\forall \epsilon > 0,\ \exists N \in \mathbb{N}$ such that $\forall n,m > N,\ |a_n-a_m|<\epsilon$.
+
+	\begin{definition}[cauchy]
+		A sequence $\sequence{x_k}$ is Cauchy, if $\forall \epsilon > 0,\ \exists N \in \mathbb{N}$ such that $\forall n,m > N,\ |a_n-a_m|<\epsilon$.
 	\end{definition}
-	\begin{theorem}[Cauchy]
+
+	\begin{lemma}
+		Cauchy sequences are bounded.
+	\end{lemma}
+
+	\begin{theorem}[cauchy]
 		A sequence in $\mathbb{R}$ is convergent iff it is a Cauchy sequence.
 	\end{theorem}
+
 	\begin{remark}
-		For a sequence $\{ x_n \}$ in $\mathbb{R}$ following statements are equivalent :
+		For a sequence $\sequence{x_n}$ in $\mathbb{R}$ following statements are equivalent :
 		\begin{enumerate} 
-			\item $\{ x_n \}$ converges to $x$
-			\item Every subsequence of $\{ x_n \}$ has a subsequence converging to $x$
-			\item $\{ n_k \}, \{ m_k \}$ be sequences in $\mathbb{N}$, then $\lim x_{n_k} = \lim x_{m_k} = x$
+			\item $\sequence{x_n}$ converges to $x$
+			\item Every subsequence of $\sequence{x_n}$ has a subsequence converging to $x$
+			\item $\sequence {n_k}, \sequence {m_k}$ be sequences in $\mathbb{N}$, then $\lim \sequence{x_{n_k}} = \lim \sequence{x_{m_k}} = x$
 		\end{enumerate}
 	\end{remark}
+
 	\begin{remark}
-		$\lim \{ x_n \} = x$ iff $\lim \{ x_{2n} \} = \lim \{ x_{2n+1}\} = x$
+		$\sequence{x_n} \to x$ iff $\lim \sequence{x_{2n}} = \lim \sequence{x_{2n+1}} = x$
 	\end{remark}
+
 	\begin{theorem}[Bolzano-Weierstrass]
 		Every bounded, infinite subset $A$ of $\mathbb{R}^k$ has a cluster point.
 	\end{theorem}
+
 	\begin{remark}
 		Cluster points of $A \cup B$ are either cluster points of $A$ or of $B$.
 	\end{remark}
+
+	\begin{remark}
+		Completeness axiom, Nested Interval Property, Monotone Convergence Theorem, Bolzano-Weierstrass Theorem and Cauchy Crieterion are equivalent.
+	\end{remark}
+
+\section{Series Convergence Tests}
+	\begin{definition}[convergence]
+		$$\series{x_k}{k} = s \iff \sequence{s_j} \to s,\text{ where } s_j = \sum_{k=1}^j x_j$$
+	\end{definition}
+
+	\begin{theorem}[algebraic limit]
+		$$\series{x_k}{k} = s,\ \series{y_k}{k} = t \implies \series{ax_k+by_k}{k} = as+bt$$
+	\end{theorem}
+
+	\begin{theorem}[cauchy criterion]
+		$$\series{x_k}{k} = s \iff \forall \epsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } |s_n-s_m| < \epsilon$$
+		where $|s_n - s_m| = |x_{m+1}+x_{m+2}+\cdots+x_n|$
+	\end{theorem}
+
+	\begin{theorem}
+		$$\series{x_k}{k} = s \implies \sequence{x_k} \to 0$$
+	\end{theorem}
+
+	\begin{theorem}[comparison test]
+		Suppose $\forall k \in \mathbb{N},\ 0 \le x_k \le y_k$. If $\series{y_k}{k}$ converges then $\series{x_k}{k}$ converges. And if $\series{x_k}{k}$ diverges, then $\series{y_k}{k}$ diverges.
+	\end{theorem}
+
+	\begin{remark}
+		Comparison test holds if $\exists M \in \mathbb{N},\ \forall k > M,\ 0 \le x_k \le y_k$.
+	\end{remark}
+
+	\begin{definition}[geometric series]
+		A series of the form $\series{ar^n}{n}$ is a geometric series.
+	\end{definition}
+
+	\begin{remark}
+		$\series{ar^n}{n} = \frac{a}{1-r}$, provided $|r| < 1$. If $a \ne 0$, it diverges for $|r| \ge 1$ 
+	\end{remark}
+
+	\begin{theorem}[absolute convergence test].\\
+		If a series $\series{|x_k|}{k}$ converges, then $\series{x_k}{k}$ converges.
+	\end{theorem}
+
+	\begin{definition}.\\
+		If $\series{|x_k|}{k}$ converges, then $\series{x_k}{k}$ converges absolutely.\\
+		If $\series{x_k}{k}$ converges but $\series{|x_k|}{k}$ diverges, then $\series{x_k}{k}$ converges conditionally.
+	\end{definition}
+
+	\begin{theorem}[alternating series test].\\
+		If a monotone decreasing sequence $\sequence{x_k} \to 0$, then the alternating series $\series{-1^{k+1}x_k}{k}$ converges.
+	\end{theorem}
+
+	\begin{theorem}[rearrangement]
+		Suppose $\series{x_k}{k}$ converges absolutely, then any rearrangement of it converges to the same limit.
+	\end{theorem}
+
+	\begin{remark}
+		Suppose series $\series{x_k}{k}$ converges absolutely and sequence $\sequence{y_k}$ is bounded, then series $\series{x_ky_k}{k}$ converges.
+	\end{remark}
+	
+	\begin{theorem}[ratio test]
+		Suppose sequence of ratios $\sequence{r_k}$ is absolutely convergent and $\sequence{|r_k|} \to r < 1$ where $r_k = \frac{x_{k+1}}{x_k}$, then series $\series{x_k}{k}$ converges absolutely.
+	\end{theorem}
 
 \section{Heine-Borel Theorem}
 	\begin{theorem}
 		A subset of $\mathbb{R}^p$ is compact iff closed and bounded.
 	\end{theorem}
+
 	\begin{remark}
 		Applications
 		\begin{enumerate}
@@ -49,15 +139,19 @@
 			\item Circumscribing Contour Theorem
 		\end{enumerate}
 	\end{remark}
+
 	\begin{theorem}[Cantor intersection]
 		Let $F_1, F_2, \cdots$ be non-empty, closed, bounded subsets of $\mathbb{R}^p$ such that $F_1 \supset F_2 \supset \cdots$. Then there exists a point $y$ such that $y \in F_k,\ \forall k$.
 	\end{theorem}
+
 	\begin{theorem}[Lebesgue covering]
 		Let $K$ be a compact subset of $\mathbb{R}^p$ and $\mathcal{U}$ be a cover of $K$. There exists a real number $r > 0$ such that $\forall x \in K,\ B(x,r) \subset U$ for some $U \in \mathcal{U}$.
 	\end{theorem}
+
 	\begin{theorem}[Nearest Point]
 		Let $K$ be a compact subset of $\mathbb{R}^p$ and $x \not\in K$, then there exists $y \in K$ such that $|x-y| \le |x-z|,\ \forall z \in K$.
 	\end{theorem}
+
 	\begin{theorem}[Circumscribing contour]
 		Let $K$ be a compact subset of $\mathbb{R}^2$ and $G$ be an open set containing $K$. Then there exists a closed curve contained in $G$ made up of arcs of finite number of circles in $G$ such that $K$ is contained in it. 
 	\end{theorem}
