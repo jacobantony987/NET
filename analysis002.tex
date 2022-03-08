@@ -1,0 +1,57 @@
+\section{Limit of a function}
+\begin{definition}[limit]
+	If $f(x_n) \to L$ as $x_n \to a$, then $\displaystyle \lim_{x \to a} f(x) = L$.
+\end{definition}
+
+\begin{definition}[continuity]
+	A function $f : X \to Y$ is continuous at $a \in X$, if $\displaystyle \lim_{x \to a} f(x) = f(\lim_{x \to a} x) = f(a)$.
+\end{definition}
+
+\begin{theorem}
+	Limit is algebraic.
+\end{theorem}
+	Suppose $\displaystyle \lim_{x \to a} f(x),\ \lim_{x \to a} g(x)$ exists, then
+\begin{eqnarray}
+	\lim_{x \to a} cf(x) = c\lim_{x \to a} f(x) \\
+	\lim_{x \to a} f(x) \pm g(x) = \lim_{x \to a} f(x) \pm \lim_{x \to a}g(x) \\
+	\lim_{x \to a} f(x)g(x) = \lim_{x \to a}f(x) \ \lim_{x \to a}g(x) \\
+	\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\displaystyle \lim_{x \to a}f(x)}{\displaystyle \lim_{x \to a}g(x)} \\
+	\lim_{x \to a} f(x)^{g(x)} = \lim_{x \to a}f(x)^{\displaystyle \lim_{x \to a}g(x)}
+\end{eqnarray}
+
+\begin{remark}[exceptions]
+	\[ \frac{0}{0}, \frac{\pm \infty}{\pm \infty},\ 0 \pm \infty,\ \infty - \infty,\ 0^0,\ \infty^0,\ 1^{\pm\infty} \]
+\end{remark}
+
+\begin{theorem}[L'Hospital/Bernouli]
+	\[ \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} \]
+\end{theorem}
+
+%example problems for each exceptions above can be found at
+%http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/SandS/lHopital/index.html
+
+\begin{remark}[application]
+	\[ \lim_{x \to 0} (2+x)^\frac{1}{x} = \lim_{x \to 0} e^{\frac{1}{x} \log (1+x)} = e^{\displaystyle \lim_{x \to 0} \frac{\log(2+x)}{x}} = e^{\displaystyle \lim_{x \to 0} \frac{1}{2+x}} = \sqrt{e} \]
+\end{remark}
+
+\paragraph{Squeeze theorem}
+	Suppose $f(x) \le g(x) \le h(x)$ for each $x$ in an open interval containing $a$ (except $a$).
+	If $\displaystyle \lim_{x \to a} f(x) = \lim_{x \to a} h(x) = L$,  then
+	\begin{equation}
+		\lim_{x \to a} g(x) = L
+		\label{equ:lim_squeeze}
+	\end{equation}
+
+\begin{theorem}[chain rule]
+	Suppose $\displaystyle \lim_{x \to a} g(x) = b$ and $f$ is continuous at $b$, then
+	\begin{equation}
+		\lim_{x \to a} f(g(x)) = f(\lim_{x \to a} g(x)) = f(b) = c
+	\end{equation}
+\end{theorem}
+
+\begin{remark}
+	The existence of limit $\displaystyle \lim_{y \to b} f(y) = c$ does not imply $f(b) = c$.
+	If $g$ assumes value $b$ in some neighbourhood of $a$, then
+	\[ \lim_{x \to a} g(x) = b,\ \lim_{y \to b} f(x) = c \nimplies \lim_{x \to a} f \circ g(x) = c \]
+\end{remark}
+

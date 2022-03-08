@@ -1,0 +1,52 @@
+\section{Sequence}
+\begin{definition}
+	Sequence $x_n$ in a set $X$ is a function $x : \mathbb{N} \to X$ where $x_n = x(n)$.
+\end{definition}
+
+\begin{definition}
+	Subsequence $x_{n_k}$ of a sequence $x_n$ is a function $x \circ n$ where $n : \mathbb{N}\to \mathbb{N},\ n_k = n(k)$ is a strictly increasing sequence.
+\end{definition}
+
+\subsection{Convergence}
+\begin{definition}[metric]
+	A sequence $x_n$ converges to $x$ if there exists $N \in \mathbb{N}$ such that $\forall n > N,\ d(x_n,x) < \varepsilon$.
+\end{definition}
+
+\begin{definition}[norm]
+	A sequence $x_n$ converges to $x$ if there exists $N \in \mathbb{N}$ such that $\forall n > N, \|x_n-x\| < \varepsilon$.
+\end{definition}
+
+\begin{definition}[neighbourhood]
+	A sequence $x_n$ converges to $x$ if any neighbourhood $N$ of $x$ contains all except finitely many $x_n$'s.
+\end{definition}
+
+\begin{remark}[subsequence]
+	A sequence $x_n$ converges to $x$ if and only if every subsequence has a convergent subsequence.
+\end{remark}
+
+\subsection{Limit Point}
+\begin{definition}
+	$x$ is a limit point of sequence $x_n$ if $x_n$ converges to $x$.
+\end{definition}
+
+\begin{definition}
+	$x$ is a cluster point of sequence $x_n$, there exists a subsequence $x_{n_k}$ converging to $x$.
+\end{definition}
+
+\subsection{Cauchy Criterion}
+\begin{definition}[metric]
+	A sequence $x_n$ is Cauchy if there exists $N \in \mathbb{N}$ such that $\forall n,m > N,\ d(x_n,x_m) < \varepsilon$.
+\end{definition}
+
+\begin{definition}[norm]
+	A sequence $x_n$ is Cauchy if there exists $N \in \mathbb{N}$ such that $\forall n,m >N,\ \|x_n-x_m\| < \varepsilon$.
+\end{definition}
+
+\subsection{Complete Space}
+\begin{definition}[complete]
+	A space is complete if every Cauchy sequence in it converges.
+\end{definition}
+
+\begin{theorem}[Stolz-Cesaro]
+	\[ \liminf_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \le \liminf_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \]
+\end{theorem}
