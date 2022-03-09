@@ -1,2 +1,2 @@
 # NET
-CSIR NET Preparation Notess
+CSIR NET Preparation Notes
