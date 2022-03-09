@@ -10,14 +10,23 @@
 \subsection{Convergence}
 \begin{definition}[metric]
 	A sequence $x_n$ converges to $x$ if there exists $N \in \mathbb{N}$ such that $\forall n > N,\ d(x_n,x) < \varepsilon$.
+\begin{equation}
+	\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n > N,\ d(x_n,x) < \varepsilon
+\end{equation}
 \end{definition}
 
 \begin{definition}[norm]
 	A sequence $x_n$ converges to $x$ if there exists $N \in \mathbb{N}$ such that $\forall n > N, \|x_n-x\| < \varepsilon$.
+\begin{equation}
+	\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n > N,\ \|x_n,x\| < \varepsilon
+\end{equation}
 \end{definition}
 
 \begin{definition}[neighbourhood]
 	A sequence $x_n$ converges to $x$ if any neighbourhood $N$ of $x$ contains all except finitely many $x_n$'s.
+\begin{equation}
+	\forall U \in \mathcal{N}_x,\ \exists N \in \mathbb{N},\ \forall n > N,\ x_n \in U
+\end{equation}
 \end{definition}
 
 \begin{remark}[subsequence]
@@ -46,7 +55,3 @@
 \begin{definition}[complete]
 	A space is complete if every Cauchy sequence in it converges.
 \end{definition}
-
-\begin{theorem}[Stolz-Cesaro]
-	\[ \liminf_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \le \liminf_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \]
-\end{theorem}
