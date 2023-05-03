@@ -1,0 +1,18 @@
+\section{Quadratic Forms}
+\begin{theorem}[QR decomposition]
+	Every matrix $A \in M_n(\mathbb{C})$ has a QR-decomposition. ie, $A = QR$ where $Q$ is unitary and $R$ is upper triangular.
+\end{theorem}
+\begin{note}
+	QR-decomposition unique if $R$ has positive diagonal entries.
+\end{note}
+
+\begin{definition}[definite]
+	Symmetric matrix $A \in M_n(\mathbb{R})$ is positive definite if all its eigenvalues are positive.
+	$A$ is positive semidefinite if if all its eigenvalues are non-negative.
+\end{definition}
+
+\begin{definition}[definite]
+	Let $A \in M_n(\mathbb{C})$ be a hermitian matrix.
+	The matrix $A$ is \textbf{positive definite} matrix if it satisfies $x'Ax > 0,\ \forall x \in \mathbb{C}^{n \times 1}$.
+	$A$ is \textbf{positive semidefinite} matrix if it satisfies $x'Ax \ge  0,\ \forall x \in \mathbb{C}^{n \times 1}$.
+	$A$ is \textbf{negative definite} matrix if it satisfies $x'Ax < 0,\ \forall x \in \mathbb{C}^{n \times 1}$.

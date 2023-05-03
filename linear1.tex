@@ -1,0 +1,50 @@
+\section{Vector Space}
+\begin{definition}[vector space]
+	A vector space $V(F)$ or $\entity{V,F,+,\cdot}$ satisfies
+	\begin{enumerate}
+		\item $F$ is a field
+		\item $\entity{V,+}$ is an abelian group.
+		\item $1\alpha=\alpha,\ \forall v \in V$
+		\item $(c_1c_2)\alpha = c_1 (c_2\alpha),\ \forall c_1,c_2 \in F, \alpha \in V$.
+		\item Scalar multiplicaiton $\cdot$ is left as well as right distributive over vectror addition $+$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[subspace]
+	Let $V(F)$ be a vector space with $\entity{V,F,+,\cdot}$ and $W \subset V$.
+	Then $W(F)$ is a subspace of $V(F)$ if $\entity{W,F,+,\cdot}$ is a vector space.
+	ie, $W \le V$.
+\end{definition}
+
+\paragraph{Results}
+\begin{enumerate}
+	\item $c0 = 0$, $0\alpha = 0$, $(-1)\alpha = -\alpha$
+\end{enumerate}
+
+\subsection{Basis}
+\begin{definition}[linearly independent]
+	A set of vectors $W \subset V$ is linearly independent if $W$ has a non-trivial linear combination representation of the zero vector.
+\end{definition}
+\begin{note}
+	Linear combinations are of finite length (if not mentioned otherwise).
+\end{note}
+
+\begin{definition}[basis]
+	A basis of a vector space $V(F)$ is a linear independent, spanning subset of the set of vectors $V$.
+\end{definition}
+\begin{definition}[dimension]
+	Any two basis of a vector space $V(F)$ are of the same cardinality.
+	The cardinality of basis of $V(F)$ is the dimension of $V(F)$.
+\end{definition}
+\begin{note}
+	The linear combinations of a set of vectors $W \subset V$ generates a subspace of $V(F)$.
+	The zero vector always has the trivial linear combination representation for any subset $W$ of $V$.
+\end{note}
+\begin{note}
+	Even infinite dimensional vector spaces demands an infinite basis with a finite linear combination representation for each of its vectors.
+\end{note}
+
+\begin{definition}[change of basis]
+	Let $B_1,B_2$ be two bases for $V(F)$.
+	The change of basis matrix $P = [B_1,B_2]$ satisfies $[\alpha]_{B_2} = [B_1,B_2] \cdot [\alpha]_{B_1}$ where $[\alpha]_B$ is the co-ordinate of $\alpha \in V$ with respect to a basis $B$ of $V(F)$ and $[B_1,B_2]$ is the change of basis from $B_1$ to $B_2$.
+\end{definition}

@@ -1,0 +1,195 @@
+\section{System of Equations}
+\subsection{Row reduced echelon matrix}
+\begin{definition}[equivalent]
+	Two system of equations are equivalent if they have the same solution space.
+	And, two matrices are equivalent if the respective systems of equations are equivalent.
+\end{definition}
+
+\begin{definition}[row operations]
+	A row operation is a function $f : F^{n \times m} \to F^{n \times m}$ that preserves equivalence.
+	There are three elementary row operations,
+	\begin{enumerate}
+		\item multiplication of a row by a scalar
+		\item addition of a row to another
+		\item interchanging two rows
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[elementary matrix]
+	Matrix corresponding to an elementary row operation.
+\end{definition}
+\begin{note}
+	Any row operation can be performed by the multiplication of a matrix which is a finite product of elementary matrices.
+\end{note}
+
+\begin{note}
+	Every matrix has a unique row reduced echelon form.
+	A matrix $A$ is invertible if and only if its row reduced echelon form is the identity matrix.
+\end{note}
+
+\begin{note}
+	Gauss Elimination method with augmented matrix to solve system of equations.
+\end{note}
+
+\section{Matrices}
+\begin{definition}[matrix]
+	A matrix $A_{m \times n}$ over the field $F$ is a function $A : \mathbb{Z}_m \times \mathbb{Z}_n \to F$.
+\end{definition}
+
+\begin{definition}[square]
+	A square matrix of order $n$ is matrix $A_{n \times n}$.
+	And $M_n(F)$ is the set of all square matrices of order $n$ over the field $F$. ie, $A_{n \times n} \in M_n(F)$.
+\end{definition}
+
+\begin{note}
+	The entries of $A_{m \times n}$ are represented by $a_{ij}$ where $a_{ij} = A(i,j)$.
+\end{note}
+
+\begin{definition}[identity]
+	The identity matrix of order $n$, $I_{n \times n}$ is given by $I(i,j) = \delta_{i,j}$.
+\end{definition}
+
+\begin{definition}[diagonals]
+	The \textbf{diagonal} entries are $a_{ij}$ with $i=j$.
+	The \textbf{superdiagonal} entries are $a_{ij}$ with $i=j+1$.
+	The \textbf{subdiagonal} entries are $a_{ij}$ with $i=j-1$.
+\end{definition}
+
+\begin{definition}[diagonal]
+	A diagonal matrix all its entries zero except for the diagonal entries.
+\end{definition}
+
+\begin{definition}[Jordan normal]
+	A Jordan normal matrix has all entries zero except for diagonal and superdiagonal entries.
+	All its non-zero superdiagonal entries are $1$.
+\end{definition}
+
+\begin{definition}[submatrix]
+	$A(i|j)$ is the submatrix obtained from the matrix $A$ by deleting $i$th row and $j$th column.
+\end{definition}
+
+\begin{definition}[normal]
+	A complex matrix $A$ is normal if it commutes with its conjugate transpose. ie, $AA^\ast = A^\ast A$.
+\end{definition}
+
+\subsection{Operations}
+\begin{definition}[trace]
+	The trace of a square matrix is the sum of its diagonal entries.
+	\begin{equation}
+		tr : M_n(F) \to F,\ tr(A) = \sum_{k=1}^n A(k,k)
+	\end{equation}
+\end{definition}
+
+\begin{definition}[$n$-linear]
+	A function $f : M_n(F) \to F$ is $n$-linear if$f$ is linear function of the $i$th row when other rows are fixed.
+\end{definition}
+
+\begin{definition}[alternating]
+	A function $f : M_n(F) \to F$ is alernating if
+	\begin{enumerate}
+		\item $f(A) = 0$  if two rows are equal.
+		\item $f(A') = -f(A)$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[determinant]
+	The determinant of a square matrix $det : M_n(F) \to F$ is an $n$-linear, alternating function with $D(I) = 1$.
+\end{definition}
+\begin{note}
+	Matrix $A$ with $det(A) = 0$ is singular.
+\end{note}
+
+\begin{definition}[scalar multiplication]
+	Let $k \in F$ and $A_{m \times n}$ over the field $F$.
+	The scalar product $k \cdot A_{m \times n}$ is $kA$ given by $kA(i,j) = k \cdot A(i,j)$.
+\end{definition}
+
+\begin{definition}[transposition]
+	The \textbf{transpose} of a matrix $A_{m \times n}$ is the matrix $A'_{n \times m}$ given by $A' : n \times m \to F,\ A'(i,j) = A(j,i)$.
+\end{definition}
+
+\begin{definition}[complex conjugation]
+	The \textbf{complex conjugate} of a matrix $A_{m \times n}$ is the matrix $\bar{A}_{n \times m}$ given by $\bar{A} : n \times m \to F,\ \bar{A}(i,j) = \overline{A(j,i)}$.
+\end{definition}
+\begin{note}
+	Conjugates and Complex Conjugate are different notions.
+\end{note}
+
+\begin{definition}[addition]
+	Two matrices $A,B$ are compatible for additon if they are of the same size.
+	The sum of two matrices $A,B$ is the matrix $C$ of the same size with entries $c_{ij} = a_{ij} + b_{ij}$.
+\end{definition}
+
+\begin{definition}[mulitplication]
+	Two matrices $A,B$ are compatible for multiplication if the number of columns of the first matrix and the number of rows of the second matrix are the same.
+	The product of two matrices $A_{m \times n},B_{n \times p}$ is the matrix $C_{m \times p}$ with entries
+	$$ c_{ij} = \sum_{k=1}^n a_{ik}b_{kj} $$
+\end{definition}
+\begin{note}
+	Matrix multiplication is associative and non-commutative.
+	Every non-singular matrix has a multiplicative inverse.
+\end{note}
+
+\subsection{Types}
+\begin{definition}[idempotent]
+	A idempotent matrix $A$ is a square matrix $A_{n \times n}$ which satisfies $A^2 = A$.
+\end{definition}
+
+\begin{definition}[involutary]
+	A involutary matrix $A$ is a square matrix $A_{n \times n}$ which satisfies $A^2 = I$.
+\end{definition}
+
+\begin{definition}[scalar]
+	A scalar matrix $A$ is a square matrix $A_{n \times n}$ which satisfies $a_{ij} = k \cdot \delta_{i,j}$. ie, $A_{n \times n} = k \cdot I_{n \times n}$
+\end{definition}
+
+\begin{definition}[nilpotent]
+	A square matrix is nilpotent of index $p$ if $A^p = 0$ and $A^k \ne 0,\ \forall k < p$.
+\end{definition}
+
+\begin{definition}[periodic]
+	A square matrix is nilpotent of period $p$ if $A^p = I$ and $A^k \ne I,\ \forall k < p$.
+\end{definition}
+
+\begin{definition}[symmetric]
+	A symmetric matrix $A_{n \times n}$ satisfies $a_{ij} = a_{ji}$. ie, $A' = A$.
+	A skew-symmetric matrix satisfies $a_{ij} = -a_{ji}$. ie, $A' = -A$.
+\end{definition}
+
+\begin{definition}[hermitian]
+	A hermitian matrix $A_{n \times n}$ satisfies $\overline{a_{ij}} = {a_{ji}}$. ie, $A^\ast = A,\ A^\ast = \bar{A}'$.
+	A skew-hermitian matrix satisfies $\overline{a_{ij}} = -a_{ji}$. ie, $A^\ast = -A$.
+\end{definition}
+
+\begin{note}
+	Every matrix $A$ has a decomposition $A=P+Q$ where $P = \frac{A+A'}{2}$ is symmetric and $Q = \frac{A-A'}{2}$ is skew-symmetric.
+	And $A$ has a decomposition $A = P + Q$ where $P = \frac{A+A^\ast}{2}$ is hermitian and $Q = \frac{A-A^\ast}{2}$ is skew-hermitian.
+\end{note}
+
+\begin{definition}[orthogonal]
+	An orthogonal matrix $A$ satisfies $A \in M_n(\mathbb{R})$ and $AA' = I$.
+\end{definition}
+
+\begin{definition}[unitary]
+	A unitary matrix $A$ satisfies $A \in M_n(\mathbb{C})$ and $AA^\ast = I$.
+\end{definition}
+
+\paragraph{Results} Let $A_{m \times n} \in \mathbb{R}^{m \times n}$.
+\begin{enumerate}
+	\item $tr(AA') = 0 \iff A = 0$.
+\end{enumerate}
+
+\paragraph{Result}
+	\begin{enumerate}
+		\item Let $D$ be a diagonal matrix.
+			Then $AD = DA \iff A$ is a block diagonal matrix.
+	\end{enumerate}
+
+\subsection{Invariants}
+\begin{definition}[conjugation]
+	Two square matrices $A,B$ are \textbf{conjugates} if there exists an invertible matrix $P$ such that $A = PBP^{-1}$.
+\end{definition}
+
+\begin{theorem}
+	If $A_{m \times n}$, then $Rank(A) + Nullity(A) = n$
+\end{theorem}

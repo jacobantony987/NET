@@ -1,0 +1,99 @@
+\section{Sequence}
+\begin{definition}
+	Sequence $x_n$ in a set $X$ is a function $x : \mathbb{N} \to X$ where $x_n = x(n)$.
+\end{definition}
+
+\begin{definition}
+	Subsequence $x_{n_k}$ of a sequence $x_n$ is a function $x \circ n$ where $n : \mathbb{N}\to \mathbb{N},\ n_k = n(k)$ is a strictly increasing sequence.
+\end{definition}
+
+\subsection{Convergence}
+\begin{definition}[norm]
+	A sequence $x_n$ converges to $x$ if there exists $N \in \mathbb{N}$ such that $\forall n > N, \|x_n-x\| < \varepsilon$.
+\begin{equation}
+	\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n > N,\ \|x_n,x\| < \varepsilon
+\end{equation}
+\end{definition}
+
+\begin{remark}[subsequence]
+	A sequence $x_n$ converges to $x$ if and only if every subsequence has a convergent subsequence.
+\end{remark}
+
+\subsection{Limit Point}
+\begin{definition}
+	$x$ is a limit point of sequence $x_n$ if $x_n$ converges to $x$.
+\end{definition}
+
+\begin{definition}
+	$x$ is a cluster point of sequence $x_n$, there exists a subsequence $x_{n_k}$ converging to $x$.
+\end{definition}
+
+\subsection{Cauchy Criterion}
+\begin{definition}[norm]
+	A sequence $x_n$ is Cauchy if there exists $N \in \mathbb{N}$ such that $\forall n,m >N,\ \|x_n-x_m\| < \varepsilon$.
+\end{definition}
+
+\subsection{Complete Space}
+\begin{definition}[complete]
+	A space is complete if every Cauchy sequence in it converges.
+\end{definition}
+
+\paragraph{Properties of Convergent Sequences}
+\begin{enumerate}
+	\item The limit of a convergent real sequence is unique.
+	\item 
+		\[ x_n \to x,\ y_n \to y \implies x_n \pm y_n \to x \pm y \]
+		\[ x_n \to x,\ y_n \to y \implies x_n y_n \to xy \]
+		\[ x_n \to x,\ y_n \to y,\ y_n \ne 0,\ y \ne 0 \implies x_n/y_n \to x/y \]
+	\item
+		\[ x_n \to x,\ y_n \to y,\ x_n \le y_n \implies x \le y \]
+		\[ \text{Squeeze : } x_n \le y_n \le z_n,\ x_n \to l,\ z_n \to l \implies y_n \to l \]
+	\item 
+		\[ |x_n| \to |x| \nimplies x_n \to x \]
+		\[ x_ny_n \to xy, \ x_n \to x \nimplies y_n \to y \]
+	\item Every convergent sequence is absolute convergent.
+		\[ x_n \to x \implies |x_n| \to |x| \]
+	\item Sequences converging to $0$
+		\[ |x_n| \to 0 \iff x_n \to 0 \]
+	\item Continuity of $\sqrt{}$.
+		\[ x_n \to x \implies \sqrt{x_n} \to \sqrt{x}, \quad (x_n > 0) \]
+\end{enumerate}
+
+\paragraph{Properties of Numbers}
+\begin{enumerate}
+	\item Greatest integer function
+		\[ \forall x \in \mathbb{R},\quad x-1 < \lfloor x \rfloor < x \] %greatest integer/floor
+	\item Arithmetic vs Geometric mean
+		\[ \forall a,b \in \mathbb{R},\quad \frac{a+b}{2} \ge \sqrt{ab} \]
+	\item Exponential function
+		\[ \lim_{n \to \infty} \left(1+\frac{x}{n}\right)^n = e^x \]
+	\item Archimedian Property
+		\[ \forall x \in \mathbb{R},\ \exists n \in \mathbb{N} : x < n \]
+	\item Dense Subset
+		\[ \forall x,y \in \mathbb{R},\ \exists r \in \mathbb{Q} : x < r < y \quad (x<y) \]
+	\item 
+		\[ \left| |a|-|b| \right|  \le |a-b| \]
+\end{enumerate}
+
+\paragraph{Topological Results}
+\begin{enumerate}
+	\item If space $X$ is $T_2$, then limit of convergent sequence in $X$ is unique.
+	\item Derived Set $A' = \{ x \in X : \forall N \in \mathcal{N}_x, N-\{x\} \cap A \ne \phi \}$.
+		\[ \bar{A} = A \cup A' \]
+	\item Every function on $\mathbb{N}$ is continuous.
+\end{enumerate}
+
+\subsection{Techniques}
+\begin{enumerate}
+	\item Ratio
+		\[ \lim_{n \to \infty} \frac{x_{n+1}}{x_n} = l \]
+		If $l < 1,\ x_n \to 0$ and $l > 1,\ x_n \to \infty$.
+	\item Root
+		\[ \lim_{n \to \infty} (x_n)^{\frac{1}{n}} = l \]
+		If $l < 1,\ x_n \to 0$ and $l > 1,\ x_n \to \infty$.
+	\item Stolz Theorem
+		\[ \lim_{n \to \infty} \frac{x_1+x_2+\dots+x_n}{y_1+y_2+\dots+y_n} = \lim_{n \to \infty} \frac{x_n-x_{n-1}}{y_n-y_{n-1}} \qquad (y_n \uparrow^\infty) \]
+	\item Riemann Sum
+		\[ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^\infty f(k/n) = \int_0^1 f(x)\ dx \]
+\end{enumerate}
+

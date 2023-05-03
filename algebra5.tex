@@ -1,0 +1,55 @@
+\section{Fields}
+\subsection{Finite Fields}
+\begin{definition}
+	For every prime power $p^n$, there exists a unique Galois field $GF(p^n)$ of order $p^n$.
+\end{definition}
+\subsection{Field Extensions}
+\begin{theorem}[Kronecker]
+	Let $F$ be a field and $f(x)$ be a nonconstant polynomial in $F[x]$.
+	Then there exists an extension field $E$ of $F$ and an $\alpha \in E$ such that $f(\alpha) = 0$.
+\end{theorem}
+
+\begin{definition}
+	Let field $E$ be an extension of field $F$.
+	A number $\alpha \in E$ is algebraic over $F$ if there exists $f(x) \in F[x]$ such that $f(\alpha) = 0$.
+\end{definition}
+	If $F = \mathbb{Q}$, then $\alpha$ is an algebraic number.
+
+\paragraph{Simple Extensions of $\mathbb{Q}$}
+	Let $\alpha$ be an algebraic number. Then there exists a polynomial $f(x) \in F[x]$ such that $f(\alpha) = 0$.
+	From $f(x)$, we may obtain a monic polynomial $p(x) \in \mathbb{Q}[x]$ such that $p(\alpha) = 0$.
+	By division algorithm, such monic irreducible polynomials are unique.
+	Thus, we may refer $p(x) = irr(\alpha,\mathbb{Q})$.
+	By Kronecker`s theorem, field $\mathbb{Q}$ has an algebraic extension $\mathbb{Q}(\alpha)$.
+	
+\par
+%\subparagraph{$\mathbb{Q}(\sqrt[n]{1})$}
+	Let $\omega$ be a primitive $n$th root of unity. 
+	Then $\mathbb{Q}(\omega)$ is a simple extension of $\mathbb{Q}$.
+	%Then field $\mathbb{Q}(\omega)$ is ? dimensional over $\mathbb{Q}$.
+
+%\subparagraph{$\mathbb{Q}(\sqrt[n]{m})$}
+\par
+	Let $r = \sqrt[n]{m}$ where $n \in \mathbb{N}, m \in \mathbb{Q}$.
+	Let $\omega$ be a primitive $n$th root of unity.
+	Then $\mathbb{Q}(\omega)(r) \cong \mathbb{Q}(\sqrt[n]{m}) \cong \mathbb{Q}(r)(\omega)$.
+
+\begin{definition}
+	An extension $E$ of a field $F$ is simple if $E \cong F(\alpha)$ for some $\alpha$ algebraic over $F$.
+\end{definition}
+
+
+\paragraph{Constructible Numbers}
+\begin{definition}
+	A number $\alpha$ is constructible if you can draw a line of $\alpha$ length in a finite number of steps using a straightedge and a compass (given a line of unit length).
+\end{definition}
+	The constructible numbers form a field. And a number $\alpha$ is constructible iff the degree of the monic, irreducible polynomial of $\alpha$ over $\mathbb{Q}$ is a power of the prime $2$. The classical problems like trisecting an angle, squaring a circle and doubling a cube are thus impossible.\\
+
+	The constructible numbers fields is an infinite extension of $\mathbb{Q}$.
+
+\begin{definition}
+	Field $\mathbb{C}$ is algebraically closed.
+\end{definition}
+
+	Field $\mathbb{C}$ does not have any algebraic extensions. However, the field of all rational functions $\mathbb{C}(x)$ is a transcendental extension of $\mathbb{C}$.
+\subsection{Galois Theory}

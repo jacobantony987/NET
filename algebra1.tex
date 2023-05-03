@@ -1,0 +1,122 @@
+\section{Binary Algebra}
+\subsection{Binary Relation}
+\begin{definition}[binary relation]
+	A binary relation on $A$ is a relation between $A \times A$ and $A$.
+\end{definition}
+
+\begin{definition}[associative]
+	An associative binary relation $\ast$ on $A$ satisfies
+	\begin{equation}
+		(x \ast y),(y \ast z) \in A \implies (x \ast y) \ast z, x \ast (y \ast z) \in A,\ (x \ast y) \ast z = x \ast (y \ast z)
+	\end{equation}
+\end{definition}
+
+\begin{definition}[commutative]
+	A commutative binary relation $\ast$ on $A$ satisfies
+	\begin{equation}
+		x \ast y \in A \implies y \ast x \in A,\ x \ast y = y \ast x
+	\end{equation}
+\end{definition}
+
+\subsection{Binary Operations}
+\begin{definition}[binary operation]
+	A binary operation on $A$ is a function $\ast : A \times A \to A$.
+\end{definition}
+
+\begin{definition}[associative]
+	An associative binary operation $\ast$ on $A$ satisfies
+	\begin{equation}
+		(x \ast y) \ast z = x \ast (y \ast z)
+	\end{equation}
+\end{definition}
+
+\begin{definition}[commutative]
+	A commutative binary operation $\ast$ on $A$ satisfies
+	\begin{equation}
+		x \ast y = y \ast x
+	\end{equation}
+\end{definition}
+
+
+\paragraph{Results}
+Let $|A|=n$.
+\begin{enumerate}
+	\item Number of binary operations on $A = n^{n^2}$
+\end{enumerate}
+
+\subsection{Algebraic Structures}
+\begin{definition}[algebra]
+	A binary algebra is $\entity{A,\ast}$ where $A$ is a set and $\ast : A \times A \to A$ is a function.
+\end{definition}
+
+\begin{definition}[magma]
+	A magma is a binary algebra $\entity{A,\ast}$ where $\ast$ is a binary operation on $A$.
+	By the definition of binary operation, $\ast$ is well-defined(closed) on $A \times A$.
+\end{definition}
+
+\begin{definition}[semigroup]
+	A semigroup is a magma $\entity{A,\ast}$ where $\ast$ is associative.
+\end{definition}
+
+\begin{definition}[identity]
+	A left identity $e'$ of an algebra $\entity{A,\ast}$ satisfies $e' \ast x = x,\ \forall x \in A$.
+	And right identity $e'$ satisfies $x \ast e' = x,\ \forall x \in A$.
+	An identity element $e$ of $\entity{A,\ast}$ satisfies both.
+\end{definition}
+
+\begin{definition}[monoid]
+	A monoid is a semigroup $\entity{A,\ast}$ where $\ast$ has an identity $e \in A$.
+\end{definition}
+
+\begin{definition}[inverse]
+	Let $x \in A$.
+	An inverse $x^{-1}$ of $x$ in an algebra $\entity{A,\ast}$ satisfies $xx^{-1} = x^{-1}x$.
+	Let $e$ be the identity of a monoid $\entity{A,\ast}$.
+	Then, $x^{-1}$ satisfies $xx^{-1} = x^{-1}x = e$.	
+\end{definition}
+
+\begin{definition}[group]
+	A group is a monoid $\entity{A,\ast}$ where every element $x \in A$ has an inverse $x^{-1}$.
+\end{definition}
+
+
+\begin{figure}[h]
+	\centering
+\begin{tikzpicture}
+	\node (a) at (0,0) {$Magma$};
+	\node (b)[below=of a]{$Semigroup$};
+	\node (c)[below=of b]{$Monoid$};
+	\node (d)[below=of c]{$Group$};
+	\node (e)[below=of d]{$Abelian\ Group$};
+	\node (f)[left=of e]{$Cyclic\ Group$};
+
+	\node (h)[right=of b]{$Semigroupoid$};
+	\node (i)[below=of h]{$Small\ Category$};
+	\node (j)[below=of i]{$Groupoid$};
+	\node (g)[above=of h]{$Partial\ Algebra$};
+
+	\draw (g) -- (h) -- (i) -- (j);
+	\draw (g) -- (a) node[midway,above]{$+totality$}(a) -- (b) node[midway,right]{$+associative$} -- (c) node[midway,right]{$+identity$} -- (d) node[midway,right]{$+inverses$} -- (e) node[midway,right]{$+commutative$} -- (f);
+	\draw (d) -- (f) node[midway,left]{$+generator$};
+\end{tikzpicture}
+	\caption{Binary Algebraic Structures}
+\end{figure}
+
+\subsection{Operations}
+\begin{definition}[sum]
+	The sum of two subsets $A$ and $B$ of any magma $\entity{X,+}$ is $A+B = \{ a+b : a \in A, b \in B \}$.
+\end{definition}
+
+\subsection{Types of Operations}
+\begin{definition}[linear]
+	Let $\entity{R,+,\cdot},\entity{R',+',\cdot'}$ be two commutative rings with identity.
+	A function $f : R \to R'$ is linear if $f(k \cdot x+y) = k \cdot' f(x) +' f(y)$.
+\end{definition}
+
+\begin{definition}[$n$-linear]
+	A function $f : R^n \to R'$ is $n$-linear if
+	\begin{equation}
+		f(a_1,a_2,\dots,ka_i+a'_i,\dots,a_n) = kf(a_1,a_2,\dots,a_i,\dots,a_n) + f(a_1,a_2,\dots,a'_i,\dots,a_n)
+	\end{equation}
+\end{definition}
+

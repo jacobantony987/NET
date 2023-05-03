@@ -1,0 +1,31 @@
+\begin{note}
+	For every square matrix $A$ has a conjugate matrix of the Jordan normal form which unique upto block permutations.
+\end{note}
+
+\begin{definition}[diagonalisable]
+	A diagonalisable matrix has a diagonal matrix as its Jordan normal form.
+\end{definition}
+
+\begin{note}
+	Jordan normal form determines the minimal polynomial.
+	The set of all polynomials that annihilate $A$ form a principal ideal domain in $\mathbb{C}[x]$ with minimal polynomial as its generator.
+\end{note}
+
+\begin{definition}[multiplicity]
+	Algebraic multiplicity of an eigenvalue $\alpha$ of $A \in M_n(F)$ is the degree of $(\lambda-\alpha)$ in its characteristic equation.
+	Geometric multiplicity of $\alpha$ is the number of blocks in Jordan normal form with diagonal entry $\alpha$.
+\end{definition}
+
+\paragraph{Results}
+\begin{enumerate}
+	\item If $A \in M_n(F)$ with Jordan normal form $J = P^{-1}AP$, then $A^n = PJ^nP^{-1}$.
+	\item Eigenvalues, their algebraic and geometric multiplicities, characteristic polynomial, minimal polynomial, trace, determinant, rank and nullity are invaint under conjugation.
+	\item A matrix is normal if and only if its diagonalisable by a unitary matrix.
+		Thus, real symmetric matrices are diagonalisable over $\mathbb{R}$.
+		And hermitian, skew-hermitian matrices are diagonalisable over $\mathbb{C}$.
+	\item real skew-symmetric matrices are not diagonalisable over $\mathbb{R}$.
+	\item Rotation matrices are non-diagonalisable over $\mathbb{R}$ but diagonalisable over $\mathbb{C}$.
+	\item Non-zero nilpotent matrices are non-diagonalisable over any field $F$.
+	\item Sum of diagonalisable matrices need not be diagonalisable.
+\end{enumerate}
+

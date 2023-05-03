@@ -1,0 +1,42 @@
+\section{Group}
+\begin{definition}[group]
+	A group is a binary algebraic structure $\entity{G,\ast}$ which satisfies
+	\begin{enumerate}
+		\item $\ast$ is closed, $x \ast y \in G,\ \forall x,y \in G$
+		\item $\ast$ is associative, $(x \ast y) \ast z = x \ast (y \ast z)$.
+		\item $\ast$ has an identity element, $\exists e \in G,\ \forall x \in G,\ e \ast x = x = x ;\ast e$.
+		\item $\ast$ has inverses for every element of $G$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[homomorphism]
+	Let $\entity{G,\ast_1,\ast_2,\dots,\ast_r}$ and $\entity{H,\star_1,\star_2,\dots,\star_r}$ be two algebraic structures.
+	A function $f : G \to H$ is a homomorphism if $f(x \ast_k y) = f(x) \star_k f(y)$ for $k=1,2,\dots,r$.
+\end{definition}
+
+\begin{definition}[isomorphism]
+	An isomorphism is a bijective, homomorphism.
+\end{definition}
+
+\begin{note}
+	For each natural number $n$, there exists a unique cyclic group $\entity{\mathbb{Z}_n,+_n}$ of order $n$.
+\end{note}
+
+\begin{theorem}[Cayley]
+	Every group is isomorphic to a subgroup of a symmetric group.
+\end{theorem}
+
+\begin{theorem}[Lagrange]
+	The order of a subgroup $H$ of a finite group $G$  divides the order of $G$.
+\end{theorem}
+\begin{note}
+	Finite group $G$ not necessarity have subgroups for each divisor of its order.
+	For example, the alternating group $A_5$ of order $12$ does not have a subgroup of order $6$.
+\end{note}
+
+\begin{definition}[structure]
+	The structure of a permuation $\sigma \in S_n$ is $1^{n_1} 2^{n_2} \dots r^{n_r}$ where $n_j$ is the number of cycles of length $j$.
+\end{definition}
+\begin{note}
+	For example, the structure of $(1\ 2)(4\ 5\ 6)(9\ 10) \in S_{10}$ is $1^3 2^2 3^1$.
+\end{note}
