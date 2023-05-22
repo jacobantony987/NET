@@ -103,16 +103,7 @@
 \end{note}
 
 
-\paragraph{Results}
-\begin{definition}[cyclotomic field]
-	The $n$th cyclotomic field is $\mathbb{Q}(\alpha)$ where $\alpha$ is a primitive $n$th root of unity.
-\end{definition}
-
-\begin{definition}[cyclotomic polynomial]
-	The $n$th cyclotomic polynomial $\Phi_n(x)$ is the monic irreducible polynomial with primitive $n$th roots of unity as its zeroes.
-	$$ \Phi_n(x) = \prod_{\substack{1 \le k \le n \\ \gcd(k,n)=1}} \!\!\!\!\!\left(x-\zeta_k\right)$$
-\end{definition}
-	The $n$th cyclotomic polynomial has degree $\phi(n)$.
+\subsection{Important Notions}
 
 \begin{definition}[Euler Characteristic]
 	$\chi = V - E + F$
@@ -120,76 +111,3 @@
 \begin{remark}
 	Every convex polyhedron has Euler characteristic, $\chi = 2$.
 \end{remark}
-
-\begin{lemma}[B\'ezout]
-	Let $gcd(a,b) = d$. Then there exists integers $x,y$ such that $ax+by = d$. And integers of the form $as+bt$ are exactly the multiples of $d$.
-\end{lemma}
-
-	The integers $x,y$ are the B\'ezout coefficients for $(a,b)$. B\'ezout coefficients are not unique.
-	B\'ezout identity implies Euclid's lemma, and chinese remainder theorem.
-
-\begin{lemma}[Euclid]
-	Let $p$ be a prime. If $p$ divides $ab$, then $p$ divides either $a$ or $b$.
-\end{lemma}
-\begin{proof}
-	By B\'ezout's identity or By induction using Euclidean algorithm.
-\end{proof}
-
-\begin{theorem}[chinese remainder theorem]
-
-\end{theorem}
-
-\begin{definition}[B\'ezout Domain]
-	A B\'ezout Domain is an integral domain which satisfyies B\'ezout's identity.
-\end{definition}
-	Every PID is a B\'ezout Domain.
-
-\begin{definition}[Gaussian Integers]
-	Gaussian integers, $\mathbb{Z}[i]$ are complex numbers of the form $a+ib$, $a,b \in \mathbb{Z}$.
-\end{definition}
-
-	Let $x,y$ are Gaussian integers. $x$ divides $y$ if there exists a Gaussian integer $z$ such that $y = xz$.
-	The Gaussian integers not divisible by any non-unit Gaussian integer is a Gaussian prime.
-\paragraph{Properties}
-	\begin{enumerate}
-		\item $\mathbb{Z}[i]$ is a subring of $\mathbb{C}$
-		\item $\mathbb{Z}[i]$ is an integral domain.
-		\item $\mathbb{Z}[i]$ is a principal ideal domain (PID).
-		\item $\mathbb{Z}[i]$ i s a Unique factorisation domain (UFD).
-		\item $\mathbb{Z}[i]$ with norm $N(a+ib) = a^2+b^2$ is a Euclidean Domain.
-		\item $\mathbb{Z}[i]$ is a B\'ezout Domain.
-	\end{enumerate}
-
-\paragraph{Previous Results}
-\begin{enumerate}
-	\item Every PID is a UFD.
-	\item If $D$ is a UFD, then $D[x]$ is a UFD.
-\end{enumerate}
-
-\begin{definition}[Eisenstein Integers]
-	Eisenstein Integers, $\mathbb{Z}[w]$ are complex numbers of the form $a+wb$, $a,b \in \mathbb{Z}$ and $w = e^{i2\pi/3}$.
-\end{definition}
-	The units in $\mathbb{Z}[w]$ are $\pm 1, \pm w, \pm w^2$.
-	Let $x,y$ be Eisenstein integers. $x$ divides $y$ if there exists a Eisenstein integer $z$ such that $y = xz$.
-	The Eisenstein integers not divisible by any other non-unit Eisenstein integer is an Eisenstein prime.
-	\begin{enumerate}
-		\item $\mathbb{Z}[w]$ is a subring of $\mathbb{Q}(w)$, the third cyclotomic field.
-	\end{enumerate}
-	The ring of Eisenstein integers form an Eulerian domain with norm $N(a+wb) = a^2-ab+b^2$.
-	The quotient $\mathbb{C}/\mathbb{Z}[w]$ is a complex torus.
-
-\begin{theorem}[Reciprocity(Gauss)]
-	For $k = 2,3,4$, $\forall p,q \in \mathbb{P}$, there exists an integer $p^\ast$ such that $x^k \equiv q \pmod{p}$ is solvable iff $x^k \equiv p^\ast \pmod{q}$ is solvable.
-\end{theorem}
-
-\begin{definition}[Legedre Symbol]
-	$$\left(\frac{a}{p}\right) = \begin{cases} 0 & a \equiv 0 \pmod{p} \\ 1 & a \not\equiv 0 \pmod{p}, \exists x, a \equiv x^2 \pmod{p} \\ -1 & a \not\equiv 0 \pmod{p}, \forall x, a \not\equiv x^2 \pmod{p} \end{cases}$$
-\end{definition}
-	Legendre symbol gives $p^\ast$ for $k=2$.
-	Jacobi symbol and Hilbert symbol are extensions of Legendre symbol.
-
-\paragraph{Amazing Results}
-\begin{enumerate}
-	\item If a soccer ball(Goldberg polyhedra) is made by stiching pentagonal and hexgonal pieces, then how many pentagonal pieces are used ? \textbf{Ans : 12} \\Reference Image : Adidas Telstar\\
-		$V - E + F = \frac{5P+6H}{3} - \frac{5P+6H}{2} + P + H = 2 \implies P = 12$
-\end{enumerate}

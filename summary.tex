@@ -1,14 +1,31 @@
-\documentclass[a4paper,10pt,openany]{book}
+\documentclass[a4paper,12pt,openany]{book}
 
 \usepackage{glimpse}
+%\geometry{ paperheight=11.75in, paperwidth=8.25in, top=1in, bottom=1in, right=1in, left=1in, layoutsize={7.75in,11.25in}, layoutoffset={0.5in,0.5in}, showcrop, }
+\geometry{top=1in, bottom=1in, right=1in, left=1in,}
+
+\usetikzlibrary{shapes, arrows, calc, arrows.meta, fit, positioning}
 
 \title{M.Sc. Mathematics}
 \author{Jacob Antony\\jacobantony987@gmail.com}
 
 \begin{document}
 
-\input{algebra.tex}
+\input{basics.tex}
+\part{Mathematics 1}
 \input{analysis.tex}
+\input{linear.tex}
+
+\part{Mathematics 2}
+%\input{complex.tex}
+\input{algebra.tex}
+\input{topology.tex}
+
+%\part{Calculus}
+%\input{ode.tex}
+%\input{pde.tex}
+%\input{numerical.tex}
+%\input{variations.tex}
 
 %\bibliographystyle{ieeetr}
 \bibliographystyle{apalike}

@@ -1,0 +1,50 @@
+\section{Ring Theory}
+\begin{lemma}[B\'ezout]
+	Let $gcd(a,b) = d$. Then there exists integers $x,y$ such that $ax+by = d$. And integers of the form $as+bt$ are exactly the multiples of $d$.
+\end{lemma}
+
+	The integers $x,y$ are the B\'ezout coefficients for $(a,b)$. B\'ezout coefficients are not unique.
+	B\'ezout identity implies Euclid's lemma, and chinese remainder theorem.
+
+\begin{lemma}[Euclid]
+	Let $p$ be a prime. If $p$ divides $ab$, then $p$ divides either $a$ or $b$.
+\end{lemma}
+\begin{proof}
+	By B\'ezout's identity or By induction using Euclidean algorithm.
+\end{proof}
+
+\begin{theorem}[chinese remainder theorem]
+
+\end{theorem}
+
+\begin{definition}[B\'ezout Domain]
+	A B\'ezout Domain is an integral domain which satisfyies B\'ezout's identity.
+\end{definition}
+	Every PID is a B\'ezout Domain.
+
+\begin{definition}[Gaussian Integers]
+	Gaussian integers, $\mathbb{Z}[i]$ are complex numbers of the form $a+ib$, $a,b \in \mathbb{Z}$.
+\end{definition}
+
+	Let $x,y$ are Gaussian integers. $x$ divides $y$ if there exists a Gaussian integer $z$ such that $y = xz$.
+	The Gaussian integers not divisible by any non-unit Gaussian integer is a Gaussian prime.
+\paragraph{Properties}
+	\begin{enumerate}
+		\item $\mathbb{Z}[i]$ is a subring of $\mathbb{C}$
+		\item $\mathbb{Z}[i]$ is an integral domain.
+		\item $\mathbb{Z}[i]$ is a principal ideal domain (PID).
+		\item $\mathbb{Z}[i]$ i s a Unique factorisation domain (UFD).
+		\item $\mathbb{Z}[i]$ with norm $N(a+ib) = a^2+b^2$ is a Euclidean Domain.
+		\item $\mathbb{Z}[i]$ is a B\'ezout Domain.
+	\end{enumerate}
+
+\subsection{Important Notions}
+\begin{enumerate}
+	\item Every PID is a UFD.
+	\item If $D$ is a UFD, then $D[x]$ is a UFD.
+\end{enumerate}
+
+\begin{definition}[Eisenstein Integers]
+	Eisenstein Integers, $\mathbb{Z}[w]$ are complex numbers of the form $a+wb$, $a,b \in \mathbb{Z}$ and $w = e^{i2\pi/3}$.
+\end{definition}
+	The units in $\mathbb{Z}[w]$ are $\pm 1, \pm w, \pm w^2$.

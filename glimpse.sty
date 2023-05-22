@@ -1,14 +1,20 @@
 \RequirePackage[utf8]{inputenc}
+\RequirePackage{geometry}
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{amsfonts}
 \RequirePackage{mathrsfs}
 \RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{mathdots}
+
 \RequirePackage{tikz}
 \RequirePackage[inline,shortlabels]{enumitem}
+
 %\RequirePackage{pythontex}
 \RequirePackage{pythonhighlight}
 %\RequirePackage{xcolor}
+\RequirePackage{tensor}
 
 \newtheorem{definition}{Definitions}[chapter]
 \newtheorem{axiom}[definition]{Axiom}
@@ -24,3 +30,5 @@
 
 \newcommand{\sequence}[1]{\ensuremath{\{#1\}}}
 \newcommand{\nimplies}{\ensuremath{\;\not\nobreak\!\!\!\!\implies}}
+\newcommand{\perms}[2]{\tensor[^{#1}]P{_{#2}}}
+\newcommand{\entity}[1]{\ensuremath{\left\langle #1 \right\rangle}}

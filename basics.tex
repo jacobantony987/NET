@@ -3,82 +3,76 @@
 \textbf{Set} is a collection of points which satisfies ZFC-axioms.
 And the points are the elements of $A$, $x \in A$.
 
-\begin{definition}[cardinality]
-	Cardinality $|A|$ is the number of elements of the set $A$.
+\begin{definition}
+	\textbf{Cardinality} $|A|$ is the number of elements of the set $A$.
 \end{definition}
 
-\begin{definition}[subset]
-	A set $B$ is a subset of a set $A$, $B \subset A$ if $x \in B \implies x \in A$.
+\begin{definition}
+	A set $B$ is a \textbf{subset} of a set $A$, $B \subset A$ if $x \in B \implies x \in A$.
 \end{definition}
 
-\begin{definition}[power set]
-	The power set $\mathcal{P}(A)$ of a set $A$ is the family of all subsets of $A$.
+\begin{definition}
+	The \textbf{power set} $\mathcal{P}(A)$ of a set $A$ is the family of all subsets of $A$.
 \end{definition}
 
-\begin{definition}[equal]
-	Two sets $A,B$ are equal, $A = B$ if $A \subset B$ and $B \subset A$.
+\begin{definition}
+	Two sets $A,B$ are \textbf{equal}, $A = B$ if $A \subset B$ and $B \subset A$.
 \end{definition}
 
-\begin{definition}[union]
-	The union of two sets $A,B$ is the set $A \cup B = \{ x : x \in A \text{ or } x \in B\}$.
+\begin{definition}
+	The \textbf{union} of two sets $A,B$ is the set $A \cup B = \{ x : x \in A \text{ or } x \in B\}$.
 \end{definition}
 
-\begin{definition}[intersection]
-	The intersection of two sets $A,B$ is the set $A \cap B = \{ x : x \in A \text{ and } x \in B\}$.
+\begin{definition}
+	The \textbf{intersection} of two sets $A,B$ is the set $A \cap B = \{ x : x \in A \text{ and } x \in B\}$.
 \end{definition}
 
-\begin{definition}[complement]
-	The complement of a set $A$ with respect to a set $B$ is the set $A-B = \{ x \in A : x \notin B\}$.
+\begin{definition}
+	The \textbf{complement} of a set $A$ with respect to a set $B$ is the set $A-B = \{ x \in A : x \notin B\}$.
 \end{definition}
 
-\begin{definition}[symmetric difference]
-	The symmetric difference of two sets $A,B$ is the set $A \Delta B = (A-B) \cup (B-A)$.
+\begin{definition}
+	The \textbf{symmetric difference} of two sets $A,B$ is the set $A \Delta B = (A-B) \cup (B-A)$.
 \end{definition}
 
 \subsection{Relation}
-\begin{definition}[product]
-	The product of $A$ and $B$, $A \times B = \{ (a,b) : a \in A,\ b \in B\}$.
+\begin{definition}
+	The cartesian \textbf{product} of $A$ and $B$, $A \times B = \{ (a,b) : a \in A,\ b \in B\}$.
 \end{definition}
 
-\begin{definition}[relation]
-	A relation from $A$ to $B$ is a subset of $A \times B$.
+\begin{definition}
+	A \textbf{relation} from $A$ to $B$ is a subset of $A \times B$.
 	And $xRy \implies (x,y) \in R \subset A \times B$.
 	A relation on $A$ is $R \subset A \times A$.
 \end{definition}
 
-\begin{definition}[reflexive]
-	A reflexive relation $R$ on $A$ satisfies $xRx,\ \forall x \in A$.
+\begin{definition}
+	A \textbf{reflexive} relation $R$ on $A$ satisfies $xRx,\ \forall x \in A$.
 \end{definition}
 
-\begin{definition}[symmetric]
-	A symmetric relation $R$ on $A$ satisfies $xRy \iff yRx$.
+\begin{definition}
+	A \textbf{symmetric} relation $R$ on $A$ satisfies $xRy \iff yRx$.
 \end{definition}
 
-\begin{definition}[antisymmetric]
-	An antisymmetric relation $R$ on $A$ satisfies $(x,y) \in R \implies (y,x) \notin R$.
+\begin{definition}
+	An \textbf{antisymmetric} relation $R$ on $A$ satisfies $(x,y) \in R \implies (y,x) \notin R$.
 \end{definition}
 
-\begin{definition}[transitive]
-	A transitive relation $R$ on $A$ satisfies $xRy,\ yRz \implies xRz,\ \forall x,y,z \in A$.
+\begin{definition}
+	A \textbf{transitive} relation $R$ on $A$ satisfies $xRy,\ yRz \implies xRz,\ \forall x,y,z \in A$.
 \end{definition}
 
-\begin{figure}[h]
-	\centering
-	\[ \begin{pmatrix} 0 & 1 & 2 & 3 \\ 4 & 0 & 5 & 6 \\ 7 & 8 & 0 & 9 \\ 10 & 11 & 12 & 0 \end{pmatrix} \qquad \begin{pmatrix} 1 & 2 & 4 & 7 \\ \bar{2} & 3 & 5 & 8 \\ \bar{4} & \bar{5} & 6 & 9 \\ \bar{7} & \bar{8} & \bar{9} & 10 \end{pmatrix} \qquad \begin{pmatrix} 1 & \textcolor{red}{1} & \textcolor{red}{2} & \textcolor{red}{3} \\ \textcolor{red}{\bar{1}} & 2 & \textcolor{red}{4} & \textcolor{red}{5} \\ \textcolor{red}{\bar{2}} & \textcolor{red}{\bar{4}} & 3 & \textcolor{red}{6} \\ \textcolor{red}{\bar{3}} & \textcolor{red}{\bar{4}} & \textcolor{red}{\bar{6}} & 4 \end{pmatrix} \]
-	\caption{Enumerating Relations - Reflexive, Symmetric, and Total}
-\end{figure}
-
-\begin{definition}[equivalence]
-	An equivalence relation $R$ on $A$ is a reflexive, symmetric, and trasitive relation.
+\begin{definition}
+	An \textbf{equivalence} relation $R$ on $A$ is a reflexive, symmetric, and trasitive relation.
 \end{definition}
 
-\begin{definition}[equivalence class]
+\begin{definition}
 	Let $x \in A$.
-	An equivalence class of a set $A$ containining $x$ is the subset $\hat{x} = \{ y \in A : xRy \}$.
+	An \textbf{equivalence class} of a set $A$ containining $x$ is the subset $\hat{x} = \{ y \in A : xRy \}$.
 \end{definition}
 
-\begin{definition}[partition]
-	A partition $\{\hat{x},\hat{y},\dots\}$ of $A$ is a family of subsets $\hat{x}$ of $A$ which satisfies
+\begin{definition}
+	A \textbf{partition} $\{\hat{x},\hat{y},\dots\}$ of $A$ is a family of subsets $\hat{x}$ of $A$ which satisfies
 	\begin{enumerate}
 		\item $x \in \hat{x},\ \forall x \in A$.
 		\item $\hat{x} \cap \hat{y} \iff \hat{x} = \hat{y}$.
@@ -86,73 +80,37 @@ And the points are the elements of $A$, $x \in A$.
 	\end{enumerate}
 \end{definition}
 
-\begin{definition}[total]
-	A total relation $R$ on $A$ satisfies either $xRy \text{ or } yRx,\ \forall x,y \in A,\ (x \ne y)$.
+\begin{definition}
+	A \textbf{total} relation $R$ on $A$ satisfies either $xRy \text{ or } yRx,\ \forall x,y \in A,\ (x \ne y)$.
 \end{definition}
 
-
-\paragraph{Results}
-	Let $|A|=n$.
-	\begin{enumerate}
-		\item Number of relations on $A = 2^{n^2}$.
-		\item Number of reflexive relations on $A = 2^{n^2-n}$.
-		\item Number of symmetric relatons on $A = 2^{\frac{n(n+1)}{2}}$.
-		\item \textcolor{red}{Number of equivalence relations on $A = B(n)$, $n^{th}$ Bell's number.}
-		\item Number of total relations on $A = 2^n \textcolor{red}{3^{\frac{n(n-1)}{2}}}$.
-	\end{enumerate}
-
-\begin{figure}[h]
-	\centering
-	\begin{tabular}{ccccc}
-		1 & & & & \\
-		1 & 2 & & & \\
-		2 & 3 & 5 & & \\
-		5 & 7 & 10 & 15 & \\
-		15 & 20 & 27 & 37 & 52\\
-	\end{tabular}
-	\caption{Bell's Triangle}
-\end{figure}
-\begin{definition}[Function]
-	A function from $A$ to $B$ is relation which has a unique element $(a,b)$ for every $a \in A$.
+\begin{definition}
+	A \textbf{function} from $A$ to $B$ is relation which has a unique element $(a,b)$ for every $a \in A$.
 \end{definition}
 
-\begin{definition}[injection]
-	An injection $f : A \to B$ satisfies $f(x) = f(y) \implies x = y$.
+\begin{definition}
+	An \textbf{injection} $f : A \to B$ satisfies $f(x) = f(y) \implies x = y$.
 \end{definition}
 
-\begin{definition}[surjection]
-	A surjection $f : A \to B$ satisfies $y = f(x),\ \forall y \in B$.
+\begin{definition}
+	A \textbf{surjection} $f : A \to B$ satisfies $y = f(x),\ \forall y \in B$.
 \end{definition}
 
-\begin{definition}[bijection]
-	A bijection $f : A \to B$ is both injective and surjective.
+\begin{definition}
+	A \textbf{bijection} $f : A \to B$ is both injective and surjective.
 \end{definition}
-
-\begin{note}
 	There exists a bijection from the set of all equivalence relations on $A$ to the set of all partitions of $A$.
-\end{note}
 
-\paragraph{Results}
-Let $|A|=m$, $|B|=n$.
-\begin{enumerate}
-	\item Number of functions $f : A \to B $ = $n^m$.
-	\item Number of injections $f : A \to B = \perms{n}{m} \qquad (n \geq m)$.
-	\item \textcolor{red}{Number of surjections $\displaystyle f : A \to B = n^m - \sum_{r=1}^n (-1)^{r+1}\binom{n}{r} (n-r)^m \qquad (n \leq m)$}
-	\item Number of bijections $f : A \to B = n! \qquad (n = m)$
-\end{enumerate}
-
-\begin{definition}[finite]
-	A set $A$ is finite if there exists a natural number $N$ and a bijection $f : A \to \{1,2,\dots,N\}$.
+\begin{definition}
+	A set $A$ is \textbf{finite} if there exists a natural number $N$ and a bijection $f : A \to \{1,2,\dots,N\}$.
 \end{definition}
-\begin{note}
 	$A$ is finite if and only if there does not exists a bijection from $A$ into any proper subset of $A$.
-\end{note}
 
-\begin{definition}[countable]
-	A set $A$ is countably infinite if there exists a bijection $f : A \to \mathbb{N}$.
+\begin{definition}
+	A set $A$ is \textbf{countably infinite} if there exists a bijection $f : A \to \mathbb{N}$.
 \end{definition}
 
-\paragraph{Results}
+\paragraph{}
 \begin{enumerate}
 	\item Let $f:X \to Y$, $g:Y \to X$ and $g \circ f = id_X$. Then $f \circ g$ is idempotent.
 \end{enumerate}

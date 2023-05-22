@@ -1,42 +1,745 @@
-\section{Group}
-\begin{definition}[group]
-	A group is a binary algebraic structure $\entity{G,\ast}$ which satisfies
+\section{Group Theory}
+\begin{definition}
+	An \textbf{algebra} is $\entity{\mathcal{S},\mathcal{F}}$ where $\mathcal{S}$ is a collection of sets and $\mathcal{F}$ is a collection of functions/relations defined on them.
+\end{definition}
+
+\begin{definition}
+	A \textbf{binary relation} on a set $A$ is a relation between $A \times A$ and $A$.
+\end{definition}
+
+\begin{definition}
+	An \textbf{associative} binary relation $\ast$ on $A$ satisfies
+	\begin{equation}
+		(x \ast y),(y \ast z) \in A \implies (x \ast y) \ast z, x \ast (y \ast z) \in A,\ (x \ast y) \ast z = x \ast (y \ast z)
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	A \textbf{commutative} binary relation $\ast$ on $A$ satisfies
+	\begin{equation}
+		x \ast y \in A \implies y \ast x \in A,\ x \ast y = y \ast x
+	\end{equation}
+\end{definition}
+	A commutative algebra is also called abelian.
+
+\begin{definition}
+	A binary \textbf{operation} on $A$ is a function $\ast : A \times A \to A$.
+\end{definition}
+
+\begin{definition}
+	An \textbf{associative} binary operation $\ast$ on $A$ satisfies
+	\begin{equation}
+		(x \ast y) \ast z = x \ast (y \ast z)
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	A \textbf{commutative} binary operation $\ast$ on $A$ satisfies
+	\begin{equation}
+		x \ast y = y \ast x
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	A binary \textbf{algebra} $\entity{A,\ast}$ is an algebra with a set $A$ together with a binary operation $\ast$ on $A$.
+\end{definition}
+
+\begin{definition}
+	A \textbf{magma} is a binary algebra $\entity{A,\ast}$ where $\ast$ is a binary operation on $A$.
+	By the definition of binary operation, $\ast$ is well-defined(closed) on $A \times A$.
+\end{definition}
+
+\begin{definition}
+	A \textbf{semigroup} is a magma $\entity{A,\ast}$ where $\ast$ is associative.
+\end{definition}
+
+\begin{definition}
+	A \textbf{left identity} $e'$ of an algebra $\entity{A,\ast}$ satisfies $e' \ast x = x,\ \forall x \in A$.
+	And \textbf{right identity} $e'$ satisfies $x \ast e' = x,\ \forall x \in A$.
+	An \textbf{identity} element $e$ of $\entity{A,\ast}$ satisfies both.
+\end{definition}
+	A binary algebra has at most one identity element.
+	Homomorphisms map identity elements into identity elements.
+
+\begin{definition}
+	A \textbf{monoid} is a semigroup $\entity{A,\ast}$ where $\ast$ has an identity $e \in A$.
+\end{definition}
+
+\begin{definition}
+	Let $x \in A$.
+	An \textbf{inverse} $x^{-1}$ of $x$ in an algebra $\entity{A,\ast}$ satisfies $xx^{-1} = x^{-1}x$.
+	Let $e$ be the identity of a monoid $\entity{A,\ast}$.
+	Then, $x^{-1}$ satisfies $xx^{-1} = x^{-1}x = e$.
+\end{definition}
+
+\begin{definition}
+	A \textbf{group} is a monoid $\entity{A,\ast}$ where every element $x \in A$ has an inverse $x^{-1}$.
+\end{definition}
+
+\begin{definition}
+	An algebra $\entity{R,+,\times}$ is a \textbf{ring} if
 	\begin{enumerate}
-		\item $\ast$ is closed, $x \ast y \in G,\ \forall x,y \in G$
-		\item $\ast$ is associative, $(x \ast y) \ast z = x \ast (y \ast z)$.
-		\item $\ast$ has an identity element, $\exists e \in G,\ \forall x \in G,\ e \ast x = x = x ;\ast e$.
-		\item $\ast$ has inverses for every element of $G$.
+		\item $\entity{R,+}$ is an abelian group.
+		\item $\entity{R,\times}$ is a semigroup.
+		\item $\times$ is distributive over $+$.
 	\end{enumerate}
 \end{definition}
 
-\begin{definition}[homomorphism]
+\begin{definition}
+	A commutative ring with unity $\entity{D,+,\times}$ is an \textbf{integral domain} if
+	\begin{enumerate}
+		\item $\entity{D^\ast,\times}$ has no zero divisors.
+		\item $\times$ is distributive over $+$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	An integral domain $\entity{F,+,\times}$ is a \textbf{field} if
+	\begin{enumerate}
+		\item $\entity{F^\ast,\times}$ is an abelian group.
+		\item $\times$ is distributive over $+$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	An algebra $\entity{V,F,+,\times}$ is a linear algebra if
+	\begin{enumerate}
+		\item $\entity{F}$ is a field.
+		\item $\entity{V,+}$ is an abelian group.
+		\item $\entity{V,\times}$ is a semigroup.
+		\item $\times$ is distributive over $+$.
+	\end{enumerate}
+\end{definition}
+
+\begin{figure}[h]
+	\centering
+\begin{tikzpicture}
+	\node (a) at (0,0) {$Magma$};
+	\node (b)[below=of a]{$Semigroup$};
+	\node (c)[below=of b]{$Monoid$};
+	\node (d)[below=of c]{$Group$};
+	\node (e)[below=of d]{$Abelian\ Group$};
+	\node (f)[left=of e]{$Cyclic\ Group$};
+
+	\node (h)[right=of b]{$Semigroupoid$};
+	\node (i)[below=of h]{$Small\ Category$};
+	\node (j)[below=of i]{$Groupoid$};
+	\node (g)[above=of h]{$Partial\ Algebra$};
+
+	\draw (g) -- (h) -- (i) -- (j);
+	\draw (g) -- (a) node[midway,above]{$+totality$}(a) -- (b) node[midway,right]{$+associative$} -- (c) node[midway,right]{$+identity$} -- (d) node[midway,right]{$+inverses$} -- (e) node[midway,right]{$+commutative$} -- (f);
+	\draw (d) -- (f) node[midway,left]{$+generator$};
+\end{tikzpicture}
+	\caption{Binary Algebraic Structures}
+\end{figure}
+
+\begin{definition}
+	The \textbf{sum} of two subsets $A$ and $B$ of a magma $\entity{X,+}$ is 
+	$$A+B = \{ a+b : a \in A, b \in B \}$$
+\end{definition}
+
+\begin{definition}
+	Let $\entity{R,+,\cdot},\entity{R',+',\cdot'}$ be two commutative rings with identity.
+	A function $f : R \to R'$ is \textbf{linear} if $f(k \cdot x+y) = k \cdot' f(x) +' f(y)$.
+\end{definition}
+
+\begin{definition}
+	A function $f : R^n \to R'$ is \textbf{$n$-linear} if for $1 \le k \le n$,
+	\begin{equation*}
+		f(a_1,a_2,\dots,ka_i+a'_i,\dots,a_n) = kf(a_1,a_2,\dots,a_i,\dots,a_n) + f(a_1,a_2,\dots,a'_i,\dots,a_n)
+	\end{equation*}
+\end{definition}
+
+\begin{definition}
 	Let $\entity{G,\ast_1,\ast_2,\dots,\ast_r}$ and $\entity{H,\star_1,\star_2,\dots,\star_r}$ be two algebraic structures.
-	A function $f : G \to H$ is a homomorphism if $f(x \ast_k y) = f(x) \star_k f(y)$ for $k=1,2,\dots,r$.
+	A function $f : G \to H$ is a \textbf{homomorphism} if $\forall \ast_k,\ f(x \ast_k y) = f(x) \star_k f(y)$.
 \end{definition}
 
-\begin{definition}[isomorphism]
-	An isomorphism is a bijective, homomorphism.
+\begin{definition}
+	An \textbf{isomorphism} is a bijective, homomorphism.
 \end{definition}
 
-\begin{note}
-	For each natural number $n$, there exists a unique cyclic group $\entity{\mathbb{Z}_n,+_n}$ of order $n$.
-\end{note}
+\begin{enumerate}
+	\item Number of relations on $A = 2^{n^2}$.
+	\item Number of reflexive relations on $A = 2^{n^2-n}$.
+	\item Number of symmetric relatons on $A = 2^{\frac{n(n+1)}{2}}$.
+	\item \textcolor{red}{Number of equivalence relations on $A = B(n)$, $n^{th}$ Bell number\footnote{$B(n)= \sum S(n,k)$ where $S(n,k)$ are Stirling numbers of second kind.}}
+	\item Number of total relations on $A = 2^n \textcolor{red}{3^{\frac{n(n-1)}{2}}}$.
+	\begin{figure}[hbt]
+	\centering
+		\[ \begin{bmatrix} 0 & 1 & 2 & 3 \\ 4 & 0 & 5 & 6 \\ 7 & 8 & 0 & 9 \\ 10 & 11 & 12 & 0 \end{bmatrix} \qquad \begin{bmatrix} 1 & 2 & 4 & 7 \\ \bar{2} & 3 & 5 & 8 \\ \bar{4} & \bar{5} & 6 & 9 \\ \bar{7} & \bar{8} & \bar{9} & 10 \end{bmatrix} \qquad \begin{bmatrix} 1 & \textcolor{red}{1} & \textcolor{red}{2} & \textcolor{red}{3} \\ \textcolor{red}{\bar{1}} & 2 & \textcolor{red}{4} & \textcolor{red}{5} \\ \textcolor{red}{\bar{2}} & \textcolor{red}{\bar{4}} & 3 & \textcolor{red}{6} \\ \textcolor{red}{\bar{3}} & \textcolor{red}{\bar{4}} & \textcolor{red}{\bar{6}} & 4 \end{bmatrix} \]
+	\caption{Enumerating Relations - Reflexive, Symmetric, and Total}
+	\end{figure}
+	\item Let $|A|=m$, $|B|=n$. Number of functions $f : A \to B $ = $n^m$.
+	\item Number of injections $f : A \to B = \perms{n}{m} \qquad (n \geq m)$.
+	\item \textcolor{red}{Number of surjections $\displaystyle f : A \to B = \sum_{r=0}^{n-1} (-1)^r \binom{n}{r} (n-r)^m \qquad (n \leq m)$}
+	\item Number of bijections $f : A \to B = n! \qquad (n = m)$
+	\begin{figure}[hbt]
+	\centering
+	\begin{tabular}{ccccc}
+		1 & & & & \\ %1 from right of previous row
+		1 & 2 & & & \\  % 2 = 1+1
+		2 & 3 & 5 & & \\%3 = 2+1, 5 = 3+2
+		5 & 7 & 10 & 15 & \\ %7 = 5+2, 10=7+3, 15= 10+5
+		15 & 20 & 27 & 37 & 52\\
+	\end{tabular}
+	\caption{Bell Triangle}
+	\end{figure}
+	\item Number of binary operations on $A = n^{n^2}$ where $|A|=n$.
+\end{enumerate}
+
+
+
+
+
+
+%Fraleigh Part I, Chapters 1-7
+\subsection{Groups and Subgroups}
+\begin{definition}
+	A \textbf{group} is a binary algebraic structure $\entity{G,\ast}$ which satisfies
+	\begin{enumerate}
+		\item $\ast$ is closed, $\forall x,y \in G,\ x \ast y \in G$
+		\item $\ast$ is associative, $\forall x,y,z \in G,\ (x \ast y) \ast z = x \ast (y \ast z)$.
+		\item $\ast$ has an identity element, $\exists e \in G,\ \forall x \in G,\ e \ast x = x = x \ast e$.
+		\item $\ast$ has inverses for every element of $G$, $\forall x \in G,\ \exists x^{-1} \in G,\ x \ast x^{-1} = e = x^{-1} \ast x$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	The \textbf{order} of a group is the number of elements in it.
+	The \textbf{order} of an element $g \in G$ is the order of the smallest subgroup of $G$ containing $g$.
+\end{definition}
+
+\begin{definition}
+	An element $g \in G$ is a \textbf{generator} if the smallest subgroup of $G$ containing $g$ is $G$ itself.
+	A group $G$ is \textbf{cyclic} if it has a generator.
+\end{definition}
+
+\subsection*{Important Notions}
+\paragraph{Strange Groups}
+\begin{enumerate}
+	\item Smallest non-abelian group is $S_3$.
+	Smallest non-cyclic group is the Klein $4$-group, $K_4 \cong \mathbb{Z}_2 \times \mathbb{Z}_2$.
+	Smallest non-abelian simple group is $A_5$. Thus, $A_5$ is the smallest perfect group.
+	\item $D_p, D_4, Q_8, A_4$ are non-abelian groups with every proper subgroup abelian. 
+	\item $\mathbb{C}^\ast$ is a multiplicative group with identity $1$.
+	Unit circle is a subgroup of $\mathbb{C}^\ast$.
+	Unit circle has a unique cyclic subgroup for any order.
+	The $n$th roots of unity is the cyclic subgroup of unit circle with order $n$.
+	\item $ \entity{\left\{ \begin{bmatrix} a & a \\ a & a \end{bmatrix} : a \ne 0 \right\},\times}$ is a group with identity $\begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \end{bmatrix}$.
+	\item $ \entity{\left\{ \begin{bmatrix} a & 0 \\ 0 & 0 \end{bmatrix} : a \ne 0 \right\},\times}$ is a group with identity $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$.
+	\item $\entity{\mathbb{Q}^+,a \ast b = \frac{ab}{5},\times}$ is a group with idenity $5$.
+	\item $\entity{\{5,15,20,25,30,35\},\times_{40}}$ is a group with identity $25$.
+	\item Convergent sequences under addition is a group.
+	\item Group of rigid motions(rotations) of the cube is a group of order $\binom{8}{1}\binom{3}{1}=24$ under permutation multiplication.
+\end{enumerate}
+
+\paragraph{Group Representations}
+\begin{enumerate}
+	\item The function $\phi : G \to S_G,\ \phi(x)=\lambda_x,\ \lambda_x(g) = xg$ is the \textbf{left regular representation} of $G$.
+	\item Let $G$ be a finite group with a generating set $S$. The \textbf{Cayley digraph} of $G$ has elements of $G$ as its vertices and generators from $S$ as its arcs.\\
+	The Cayley digraph for an abelian graph is symmetric.
+	\item A \textbf{permutation matrix} is obtained by reordering rows of an identity matrix.\\
+	The permutation matrices $P_{n \times n}$ under matrix multiplication forms a group which is isomorphic to $S_n$. By Cayley`s theorem, every group $G$ is isomorphic to a group of permutation matrices where left regular representation corresponds to left multiplication.
+	\item The \textbf{set theoretic group representation} using generators and their relations.\\
+	The dihedral group with generators $y=R_{2\pi/n}$, rotation by $2\pi/n$ radians and $x=\mu$, reflection (about the line through the center and a fixed vertex) of a regular $n$-gon.
+	$$D_n = \{ x^iy^j : x^2=y^n=1, (xy)^2=1 \}$$
+	The symmetric group with generators $x=(1,2)$ and $y=(1,2,\dots,n)$. 
+	$$S_n = \{ x^iy^j : x^2=y^n=1,(yx)^{n-1}=1 \}$$
+	The alternating group with the set of all three cycles of the form $x_j = (1,2,j)$ as generating set $S$.
+	$$A_n = \left\{ \prod_{j=3}^n x_j^{n_j} : x_j^3=1,\ (x_ix_j)^2=1\right\}$$
+\end{enumerate}
+\paragraph{Counter Examples}
+\begin{enumerate}
+	\item $\entity{\mathbb{R}^\ast,\ast}$ where $a \ast b = a/b$ is not associative.
+	\item $\entity{\mathbb{C},\ast}$ where $a \ast b = |ab|$ has no identity element.
+	%What is the nature of a inverses in a group over a piecewise connected subset of $\mathbb{R}$ in relation to the fixed points and boundaries ?
+	\item $\entity{C[0,1]-\{0\},\times}$ is a not closed. There exists a pair of functions with product $0$.
+\end{enumerate}
+
+\paragraph{Group Homomorphisms}
+\begin{enumerate}
+	\item $\phi : \mathbb{Z} \to \mathbb{Z}$ where $\phi(n)=2n$ with $\ker(\phi) = 0$ and $\phi[\mathbb{Z}] = 2\mathbb{Z}$.
+	\item $\phi : \mathbb{Q} \to \mathbb{Q}$ where $\phi(x)=2x$ with $\ker(\phi) = 0$ and $\phi[\mathbb{Q}] = \mathbb{Q}$.
+	\item $\phi : \mathbb{R} \to \entity{\mathbb{R}^+,\times}$ where $\phi(x)=0.5^x$ with $\ker(\phi) = 0$ and $\phi[\mathbb{R}] = \mathbb{R}^+$.
+	\item $\phi : \mathbb{Z} \to \entity{\mathbb{Z},\ast}$ where $m \ast n = m+n-1 $ is a group with $\ker(\phi) = 0$ and $\phi[\mathbb{Z}] = \mathbb{Z}$.
+		(hint : $\phi(n) = n+1$, $\phi(0) = 1,\ x^{-1} = -x-2$)
+	\item $\phi : \mathbb{Q} \to \entity{\mathbb{Q},\ast}$ where $x \ast y =  x+y+1$ is a group with $\ker(\phi) = 0$ and $\phi[\mathbb{Q}] = \mathbb{Q}$.
+		(hint : $\phi(x) = 3x-1,\ \phi(0) = -1,\ x^{-1} = -x-2$)
+	\item $\phi : \mathbb{Q}^\ast \to \entity{\mathbb{Q}-\{-1\},\ast}$ where $x \ast y =  \frac{(x+1)(y+1)}{3}-1$ is a group with $\ker(\phi) = 1$ and $\phi[\mathbb{Q}^\ast] = \mathbb{Q}-\{-1\}$.
+		(hint : $\phi(x) = 3x-1,\ \phi(1)=2$,\ $x^{-1} = \frac{8-x}{x+1}$)
+	\item The field $\entity{\left\{\begin{bmatrix} a & -b \\ b & a \end{bmatrix} : a,b \in \mathbb{R} \right\},+,\times} \cong \mathbb{C}$ where $\phi\left(\begin{bmatrix} a & -b \\ b & a \end{bmatrix}\right) = a+ib$.\\
+\end{enumerate}
+
+\paragraph{Cyclic Groups}
+\begin{enumerate}
+	\item Every cyclic group is abelian.
+	\begin{proof}
+		$G = \entity{g} \implies \forall a,b \in G,\ ab = g^ng^m = g^mg^n = ba$.
+	\end{proof}
+	\item Subgroup of cyclic group is cyclic. Let $G$ be a cyclic group of order $n$. The order of the subgroup generated by $g^m$ is $n/\gcd(n,m)$. For each divisor $d$ of $n$, there exists unique cyclic subgroup of order $n/d$.\\
+
+	The multiplicative group $\mathbb{Z}_{25}^\times \cong \mathbb{Z}_{20}$ has generator $3$.
+	We have $\gcd(20,5) = \gcd(20,15)$.
+	Clearly, $3^5 \cong 18 \pmod{25}$ and $3^{15} \cong 7 \pmod{25}$. Thus, $\entity{7} \cong \entity{18} \cong \mathbb{Z}_4$.
+	\item Every proper subgroup of the Klein 4-group, $K_4 \cong \mathbb{Z}_2 \times \mathbb{Z}$ is cyclic. However, $K_4$ is not cyclic.
+	\item For any natural number $n$, there exists a cyclic group of order $n$. Two cyclic group of same order are isomorphic.
+	\begin{proof}
+		The finite group $\entity{\mathbb{Z}_n,+_n}$ is cyclic with order $n \in \mathbb{N}$ and the infinite group $\mathbb{Z}$ is cyclic.
+		Let $G,H$ be cyclic groups of the same order with generators $g,h$ respectively.
+		Then $\phi : G \to H,\ g \overset{\phi}{\to} h$ is an isomorphism.
+	\end{proof}
+	\item An automorphism of a cyclic group is well defined by the image of a generator.
+		Clearly, $\mathbb{Z}_{12}$ has $\phi(12)=4$ generators and there are four distinct automorphisms.
+	\item For finite cyclic group $\mathbb{Z}_n$, a generator is an element with the same order as the group. However, this is not the case for inifinite cyclic group $\mathbb{Z}$.
+		$$o(g) = o(G) \nimplies \entity{g} \cong G$$
+	\item Every finite cyclic group, $\mathbb{Z}_n$ has $\phi(n)$ generators which are relatively prime to $n$.
+	Clearly, $\mathbb{Z}_{20}$ has a non-prime generator, say $9$.
+	\item \textcolor{red}{The equation $x^m = e$ has $m$ solutions in any finite cyclic group $\mathbb{Z}_n$ where $m|n$.}
+	\item Let $G$ be an abelian group and $H,K$ are cyclic subgroups of $G$ with generators $h,k$ respectively. Then $\entity{hk}$ is a cyclic subgroup of order $lcm(r,s)$.
+	\item $\mathbb{Q}^\ast$ is not cyclic.
+	\begin{proof}
+		Suppose $\mathbb{Q}^\ast$ is cyclic.
+		Then $\mathbb{Q}^\ast \cong \mathbb{Z}$.
+		But, $o(-1) = 2$ and $\mathbb{Z}$ don't have any element of order two.
+	\end{proof}
+	\item $\mathbb{Q},\mathbb{R}$ are not cyclic.
+	\begin{proof}
+		Suppose $\mathbb{Q} \cong \entity{p/q}$. Then $p/2q \notin \entity{p/q}$.
+		Thus, $\mathbb{Q}$ is not cyclic.
+		Since $\mathbb{Q} \ge \mathbb{R}$, $\mathbb{R}$ is not cyclic.
+	\end{proof}
+	\item The subgroup generated by $n$th primite root of unity is a cyclic subgroup of $\mathbb{C}^\ast$ isomorphic to $\mathbb{Z}_n$.
+		Clearly, $\entity{(1+i)/\sqrt{2}} \cong \mathbb{Z}_8$.
+	\item The subgroup generated by any complex number which is a non-root of unity is a cyclic subgroup of $\mathbb{C}^\ast$ isomorphic to $\mathbb{Z}$.
+		Clearly $\entity{1+i} \cong \mathbb{Z}$.
+\end{enumerate}
+
+\paragraph{Number Groups}
+\begin{enumerate}
+	\item $\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}, n\mathbb{Z}, \mathbb{Z}_n, \mathbb{Q}_c, \mathbb{R}_c, \mathbb{Q}^+, \mathbb{R}^+, \mathbb{Q}^\ast, \mathbb{R}^\ast, \mathbb{C}^\ast, \mathbb{Z}_n^\times$ are groups with a suitable arithmetic operators from $\{ +,\times,+_c,\times_c,+_n,\times_n\}$.
+	%$U(n)$ in Fraleigh is $\mathbb{Z}_n^\times$
+	%$U_n$ in Fraleigh is primitive $n$th roots of unity 
+	%$U$ in Fraleigh is the unit circle in $\mathbb{C}$
+	\item Any nontrivial subgroup of $\mathbb{Q}$ is an infinite cyclic group.
+	\item $\entity{\mathbb{R}-\{-1\},\ast}$ where $a \ast b = a+b+ab$ is a group with identity $0$ and $o(-2)=2$.
+	\item The cyclic group, $\mathbb{Z}_n \cong \mathbb{Z}/n\mathbb{Z} = \{ g^n : n \in \mathbb{N}\}$. $\mathbb{Z}_n$ has $\phi(d)$ elements of order $d$ for every divisor $d$ of $n$.
+	$$a^{-1}b \in Z_n \iff \gcd(a,n)|b$$
+	\item Group $\mathbb{Z}_n^\times$ is the multiplicative group of natural numbers less than $n$ that are relatively prime to $n$. Thus $|\mathbb{Z}_n^\times| = \phi(n)$.
+	Clearly, $\mathbb{Z}_n^\times$ are abelian.
+\end{enumerate}
+
+\paragraph{Linear Groups}
+\begin{enumerate}
+	\item $M_{m \times n}(F)$ is the additive group of all matrices of order $m \times n$ with entries from the field $F$.
+	When $m=n$, we may write $M_n(F)$.
+	$Z(M_n(F)) = \{ aI : a \in F \}$.
+	\item General Linear Group, $GL(n,F)$ is the multiplicative group of all invertible matrices of order $n$ with entries from field $F$.
+	$$|GL(n,F_q)| = \prod_{r=0}^{n-1} (q^n-q^r)$$
+	$Z(GL(n,F)) = \{ aI : a \in F,\ a \ne 0 \}$.
+	\item Special Linear Group, $SL(n,F)$ is the multiplicative group of all matrices of order $n$ and determinant $1$ with entries from field $F$.
+	$Z(SL(n,F)) = \{ aI : a \in F,\ a^n = 1 \}$.
+	\item The determinant, $det : GL(n,F) \to F^\ast$ is a homomorphism with $\ker(det) = SL(n,F)$.
+	$$|SL(n,F_q)| = \frac{|GL(n,F_q)|}{q-1} \text{ since } GL(n,F_q)/SL(n,F_q) \cong F_q^\ast$$
+	\item The trace, $Tr : M(n,F) \to F$. Then $\ker(Tr)$ is $n^2-1$ dimensional over $F$.
+\end{enumerate}
+
+%Fraleigh Part II, Chapter 8-12
+\subsection{Permutations, Cosets \& Direct Products}
+\begin{definition}
+	The \textbf{symmetric group} $S_n$ is the set of all permutation on a set $\{1,2,\dots,n\}$ together with the function composition operation.
+\end{definition}
+
+	The cycle $f: (1,2,3) \in S_5$ maps $1 \to 2 \to 3 \to 1$ and fixes $4,5$. And cycle $g:(1,2,5) \in S_5$ maps $1 \to 2 \to 5 \to 1$ and fixes $3,4$.
+	For example $f(g(1)) = f(2) = 3$, and $f(g(3)) = f(3) = 5$..
+	Thus by function composition $f \circ g : (1,2,3)(1,2,5) = (1,3)(2,5)$.
+	$$ \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 3 & 1 & 4 & 5 \end{pmatrix} \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 5 & 3 & 4 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 3 & 2 & 1 & 4 & 5 \end{pmatrix} \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 5 & 3 & 4 & 2 \end{pmatrix}$$
 
 \begin{theorem}[Cayley]
 	Every group is isomorphic to a subgroup of a symmetric group.
 \end{theorem}
+\begin{proof}
+	The function $\phi : G \to S_G$ defined by $\phi(x) = \lambda_x$ where $g \overset{\lambda_x}{\to} xg$ is an homomorphism.
+\end{proof}
+
+\begin{definition}
+	Let $\sigma$ be a bijection/permutation on a set $A$.
+	The \textbf{orbits} of the permutation $\sigma$ are the equivalent classes of the relation 
+	$$a \sim_\sigma b \iff \exists n \in \mathbb{N},\ a = \sigma^n(b)$$
+\end{definition}
+
+\begin{definition}
+	A permutation $\sigma$ is a \textbf{cycle} if it has at most one orbit containing more than one element.
+	The \textbf{length} of a cycle $\sigma$ is the number of elements in its largest orbit. 
+\end{definition}
+	The multiplication of disjoint cycles is commutative.
+
+\begin{theorem}
+	Every permutation of a finite set has a unique cycle decomposition.
+\end{theorem}
+\begin{proof}
+	construct cycles corresponding to each orbit under the permutation
+\end{proof}
+$$ \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 3 & 5 & 2 & 4 & 1 & 7 & 6 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 3 & 5 \\ 3 & 5 & 2 & 1 \end{pmatrix} \begin{pmatrix}4 \\ 4\end{pmatrix} \begin{pmatrix} 6 & 7 \\ 7 & 6 \end{pmatrix}$$
+	In short, we may write $(1,3,2,5)(6,7)$ ignoring those which are left fixed by the permutation.
+	And $(1,3,2,5)(6,7) = (1,5)(1,2)(1,3)(6,7)$ is an even permutation.	
+
+\begin{definition}
+	The alternating group $A_n$ is the subgroup of all even permutations in the symmetric group $S_n$.
+\end{definition}
+
+\begin{definition}
+	Let $H$ be a subgroup of group $G$.
+	The \textbf{left coset}, $gH$ of $H$ containing $g \in G$ is the set of all element of the form $gh$ where $h \in H$.
+	The \textbf{right coset} $Hg$ of $H$ containing $g \in G$ is the set of all element of the form $hg$ where $h \in H$.
+\end{definition}
 
 \begin{theorem}[Lagrange]
 	The order of a subgroup $H$ of a finite group $G$  divides the order of $G$.
 \end{theorem}
-\begin{note}
-	Finite group $G$ not necessarity have subgroups for each divisor of its order.
-	For example, the alternating group $A_5$ of order $12$ does not have a subgroup of order $6$.
-\end{note}
+\begin{proof}
+	The left cosets of $H$ in $G$ are disjoint and covers $G$. Thus $|H|$ must divide $|G|$.
+\end{proof}
 
-\begin{definition}[structure]
-	The structure of a permuation $\sigma \in S_n$ is $1^{n_1} 2^{n_2} \dots r^{n_r}$ where $n_j$ is the number of cycles of length $j$.
+\begin{definition}
+	\textbf{Index} of $H$ in $G$, $(G:H)$ is the number of left cosets of $H$ in $G$.
 \end{definition}
-\begin{note}
-	For example, the structure of $(1\ 2)(4\ 5\ 6)(9\ 10) \in S_{10}$ is $1^3 2^2 3^1$.
-\end{note}
+\begin{theorem}
+	The number right cosets of $H$ in $G$ is same as the number of left cosets of $H$ in $G$.
+\end{theorem}
+\begin{proof}
+	$aH = bH \iff ah_1 = bh_2 \iff (ah_1)^{-1} = (bh_2)^{-1} \iff h_1^{-1}a^{-1} = h_2^{-1}b^{-1} \iff Ha^{-1} = Hb^{-1}$.
+	Thus, $aH \overset{\phi}{\to} Ha^{-1}$ is bijective.
+\end{proof}
+
+\begin{theorem}
+	Let $K \le H \le G$.
+	Then $(G:K) = (G:H)(H:K)$.
+\end{theorem}
+
+\begin{definition}
+	Let $G,H$ be two groups.
+	The \textbf{direct product} $G \times H$ is defined as the group $\entity{G \times H,\ast}$ where $\ast : (G \times H) \times (G \times H) \to (G \times H)$ such that $(g_1,h_1) \ast (g_2,h_2) = (g_1g_2,h_1h_2)$.
+\end{definition}
+
+\begin{theorem}
+	Let $G$ be a finitely generated group.
+	Then $G \cong \mathbb{Z}_{p_1^{r_1}} \times \mathbb{Z}_{p_2^{r_2}} \times \dots \times \mathbb{Z}_{p_k^{r_k}} \times \mathbb{Z} \times \dots \times \mathbb{Z}$ where the number of $\mathbb{Z}$ is its \text{Betti number}.
+\end{theorem}
+
+\begin{theorem}
+	$\mathbb{Z}_n \times \mathbb{Z}_m \cong \mathbb{Z}_{n \times m} \iff \gcd(m,n)=1$.
+\end{theorem}
+\begin{proof}
+	$(1,1) \in Z_n \times Z_m$ has order $mn$.
+	Thus, $Z_n \times Z_m$ is cyclic.
+\end{proof}
+
+\begin{theorem}
+	Let $(a_1,\dots,a_n) \in G_1 \times \dots G_n$ and $o(a_i) = r_i$.\\
+	Then $o((a_1,\dots,a_n)) = lcm(r_1,\dots,r_n)$.
+\end{theorem}
+
+\begin{definition}
+	The \textbf{center} of a group $G$ is the set of all elements that commutes with every element in $G$.
+\end{definition}
+\begin{theorem}
+	Center $Z(G)$ is a subgroup of $G$.
+\end{theorem}
+
+\begin{definition}
+	A subgroup $H$ of group $G$ is \textbf{normal} if $gH = Hg$ for every element $g \in G$.
+\end{definition}
+
+\begin{definition}
+	Let $N$ be a normal subgroup of $G$.
+	The \textbf{quotient group} $G/N$ is the set of all left cosets of $N$ with binary operation $g_1N \ast g_2N = (g_1g_2)N$.
+\end{definition}
+
+\begin{definition}
+	An element $g \in G$ is a \textbf{commutator} if $g=aba^{-1}b^{-1}$ for some $a,b \in G$.
+\end{definition}
+
+\begin{theorem}
+	Let $G$ be a group.
+	Then the set $C$ of all commutators in $G$ is the smallest normal subgroup of $G$ such that $G/C$ is abelian.
+\end{theorem}
+
+\paragraph{Isomorphism Theorems}
+\begin{theorem}
+	Let $g \in G$.
+	The function $i_g : G \to G$ defined by $i_g(x) = gxg^{-1}$ is an automorphism of the group $G$.
+\end{theorem}
+\begin{definition}
+	The automorphism $x \to gxg^{-1}$ is the \textbf{inner automorphism} of $G$ by $g$.
+\end{definition}
+
+\begin{definition}
+	The \textbf{conjugacy class} of $x$, $Cl(x) = \{ gxg^{-1} : g \in G\}$.
+\end{definition}
+
+\begin{definition}
+	Let $G$ be a group and $H,K$ be subgroups of $G$.
+	Subgroup $H$ is a \textbf{conjugate} of $K$ if $H = i_g[K]$ for some $g \in G$.
+\end{definition}
+
+	Conjugacy is an equivalence relation on the set of all subgroups of $G$.
+\begin{theorem}
+	Let $G$ be group and $N$ be a normal subgroup of $G$.
+	Then $g \overset{\phi}{\to} gN$ is a group homomorphism.
+\end{theorem}
+
+\begin{theorem}
+	Let $\phi : G \to G'$ be a group homomorphism.
+	Then $\ker(\phi)$ is a normal subgroup of $G$.
+	And $\phi[G] \cong G/\ker(\phi)$.
+\end{theorem}
+
+\subsection*{Important Notions}
+\paragraph{Consequences of Lagrange`s theorem}
+\begin{enumerate}
+	\item By Lagrange`s theorem, every group of prime order is cyclic.
+	\item If $|G|=pq$, then every proper subgroup of $G$ is cyclic.
+	\item The quotient group $\mathbb{Z}_n/\entity{g} \cong \mathbb{Z}_d$ where $d = n/o(g)$.
+\end{enumerate}
+\paragraph{Order of Elements in a product of Cyclic groups}
+	Let $(g_1,g_2,\dots,g_k) \in G_1 \times G_2 \times \dots \times G_k$. Then $o(g_1,g_2,\dots,g_k) = lcm(o(g_1),o(g_2),\dots,o(g_k))$. And element $k \in \mathbb{Z}_n$ has order $\frac{n}{\gcd(n,k)}$.\\
+
+	For example, an element of $(g,h)$ of $\mathbb{Z}_{12} \times \mathbb{Z}_{10}$ has order $4$ only if $o(g)=4$ and $o(h)$ is either $1$ or $2$. Clearly, an element $k \in \mathbb{Z}_{12}$ is of order $4$ iff $\frac{12}{\gcd(12,k)}=4$. For $\gcd(12,k)=3$, we have $k = 3$ or $9$. For $\gcd(10,k)=5$, we have $k=5$. For $\gcd(10,k)=10$, we have $k=0$. Thus, the elements are $(3,0),(3,5),(9,0)$ and $(9,5)$.\\
+
+	In other words, $\phi(4)\phi(2)+\phi(4)\phi(1)=4$ elements of order four in $\mathbb{Z}_{12} \times \mathbb{Z}_{10}$.\\
+
+	To enumerate elements of order $9$ in $\mathbb{Z}_{12} \times \mathbb{Z}_{18} \times \mathbb{Z}_{27}$, being cyclic there are $\phi(1),\phi(3),\phi(9)$ elements of order $1,3,9$ (if any). There are $3 \times 9 \times 9$ elements out of which precisely $3 \times 3 \times 3$ of them are of order less than $9$. Thus $216$ elements of order $9$.
+
+\paragraph{$\mathbb{Z}_n^\times$}
+	$\mathbb{Z}_{10}^\times=\{1,3,7,9\}$ and $\phi(10)=\phi(2)\phi(5)=4$.
+		And $\mathbb{Z}_{10}^\times \cong \mathbb{Z}_4$ as $\entity{3} = \mathbb{Z}_{10}^\times$.
+		$$\mathbb{Z}_{st}^\times \cong \mathbb{Z}_s^\times \times \mathbb{Z}_t^\times \iff \gcd(st) = 1$$
+		$$\forall n \in \mathbb{N},\ \mathbb{Z}_{2^{n+2}}^\times \cong \mathbb{Z}_2 \times \mathbb{Z}_{2^n}$$
+		$$\forall p > 2,\ \forall n \in \mathbb{N},\ \mathbb{Z}_{p^n}^\times \cong \mathbb{Z}_{p^n-p^{n-1}}$$
+
+		Thus, $\mathbb{Z}_4^\times = \mathbb{Z}_2,\ \mathbb{Z}_8^\times = \mathbb{Z}_2 \times \mathbb{Z}_2,\ \mathbb{Z}_{16}^\times \cong \mathbb{Z}_2 \times \mathbb{Z}_4,\ \dots$
+		Clearly, $\phi(40) = \phi(8)\phi(5)$ and $\mathbb{Z}_{40}^\times \cong (\mathbb{Z}_2 \times \mathbb{Z}_2) \times \mathbb{Z}_4$.
+		And $\mathbb{Z}_{1000}^\times \cong \mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_{100}$.
+
+\paragraph{Order of an element in a direct product}
+	What is the order of $(\mathbb{Z}_{12} \times \mathbb{Z}_{30})/\entity{(g,h)}$ where $o(g) = 6$ and $o(h)=10$ ?\\
+		$\mathbb{Z}_{12} \times \mathbb{Z}_{30} \cong (\mathbb{Z}_{2^2} \times \mathbb{Z}_3) \times (\mathbb{Z}_2 \times \mathbb{Z}_3 \times \mathbb{Z}_5)$ and $g = (g_1,g_2)$ where $o(g_1) = 2$ and $o(g_2)=3$. Similarly, $h = (h_1,h_2,h_3)$ where $o(h_1)=2$, $o(h_2)=1$ and $o(h_3) = 5$.
+		$$ (\mathbb{Z}_4 \times \mathbb{Z}_3) \times (\mathbb{Z}_2 \times \mathbb{Z}_3 \times \mathbb{Z}_5)/\entity{(g_1,g_2,h_1,h_2,h_3)} \cong \mathbb{Z}_4 \times \mathbb{Z}_1 \times \mathbb{Z}_1 \times \mathbb{Z}_3 \times \mathbb{Z}_1 \cong \mathbb{Z}_4 \times \mathbb{Z}_3$$
+		since $(\mathbb{Z}_4 \times \mathbb{Z}_2) /\entity{(g_1,h_1)} \cong \mathbb{Z}_4$.
+
+\paragraph{Finitely Generated Groups}
+\begin{enumerate}
+	\item The dihedral group $D_n$ has $\phi(d)$ elements of order $d$ for every divisor $d$ of $n$, except $d=2$. There are either $n$ or $n+1$ elements of order two.
+	The center of the dihedral group $Z(D_n)$ is trivial when $n$ is odd.
+	$Z(D_n) = \{ 0,R_{180}\} \cong Z_2$ if $n$ is even.
+	The number of subgroup of $D_n = \tau(n)+\sigma(n)$.
+	\item The center of a symmetric group $Z(S_n)$ is trivial for $n \ge 3$.
+	\item The center of an alternating group $Z(A_n)$ is trivial for $n \ge 4$.
+\end{enumerate}
+
+\begin{definition}
+	The \textbf{structure} of a permuation $\sigma \in S_n$ is $1^{n_1} 2^{n_2} \dots r^{n_r}$ where $n_j$ is the number of cycles of length $j$.
+\end{definition}
+	The number of permutations of the structure $1^{n_1} 2^{n_2} \dots r^{n_r}$ in $S_n$ is
+	$$ \frac{n!}{\prod_{k=1}^r n_k!\ k^{n_k}}$$
+
+	There are $\frac{10!}{3!\ 2!\ 1!\ 2^2\ 3}$ elements of the structure $1^3 2^2 3^1$.
+
+	%To enumerate elements of order $12$ in $S_7 \times D_4 \times A_5 \times Z_{30}$.
+
+\paragraph{Non-abelian Groups}
+	There are a few classes of non-abelian groups which has every proper subgroup abelian : 
+	1) every nonabelian group of order $pq$ where $p|q$, and
+	2) two non-abelian groups of order $p^3$.
+
+\begin{enumerate}
+	\item $o(a)=o(a^{-1})$
+	\begin{proof}
+		$a^n = e \iff (a^{-1})^n a^n = (a^{-1})^n \iff e = (a^{-1})^n$
+	\end{proof}
+	\item $o(xax^{-1}) = o(a) = o(x^{-1}ax)$
+	\begin{proof}
+		$(xax^{-1})^n = e \iff  xa^nx^{-1} = e \iff a^n = x^{-1}x \iff a^n = e$
+	\end{proof}
+	\item $o(ab) = o(ba)$
+	\begin{proof}
+		$(ab)^n = e \iff b(ab)^nb^{-1} = e \iff (ba)^n = e$
+	\end{proof}
+\end{enumerate}
+
+\begin{enumerate}
+	\item $\forall a \in G,\ a^{-1} = a \implies G$ is abelian.
+	\begin{proof}
+		$ab = a^{-1}b^{-1} = (ba)^{-1} = ba$
+	\end{proof}
+	\item $\forall a,b \in G,\ (ab)^2 = a^2b^2 \iff G$ is abelian.
+	\begin{proof}
+		$abab = aabb \iff bab = abb \iff ba = ab$
+	\end{proof}
+	\item $\forall a,b \in G,\ (ab)^{-1} = a^{-1}b^{-1} \iff G$ is abelian
+	\begin{proof}
+		$(ab)^{-1} = a^{-1}b^{-1} \iff (ab)^{-1} = (ba)^{-1} \iff ab = ba$
+	\end{proof}
+	\item Group $G$ has precisely one element $g$ of order two, then $g$ commutes with every element of $G$.
+	\begin{proof}
+		Let $x \in G$.
+		$o(xgx^{-1}) = o(g) = 2 \implies xgx^{-1} = g \implies xg = gx$
+	\end{proof}
+\end{enumerate}
+
+\paragraph{Additional Structures}
+\begin{definition}
+	The set of all elements of an abelian group $G$ of finite order forms a normal subgroup called \textbf{torsion} subgroup of $G$.
+\end{definition}
+
+\begin{definition}
+	A \textbf{torsion free} group has only one element of finite order in it.
+\end{definition}
+
+\begin{enumerate}
+	\item The torsion subgroup of $\mathbb{C}^\ast$ is the set of all roots of unity.
+	The cyclic group generated by $z$ where $|z| \ne 1$ is a torsion free subgroup of $\mathbb{C}^\ast$.
+	The cyclic group generated by $e^{2 \pi i x},\ x \in \mathbb{R}-\mathbb{Q}$ is a torsion free subgroup of the unit circle.
+	\item Any finite group is a torsion group. The subgroups and quotient groups of any torsion group is also a torsion group. 
+	\item Every infinite group has a nontrivial torsion freee subgroup. The subgroups of a torsion free group is always torsion free.
+	\item Let $T$ be the torsion subgroup of an abelian group $G$. Then the quotient group $G/T$ is torsion free.\\
+
+	The group $\mathbb{Q}^\ast$ has only two elements of finite order, say $1$ and $-1$.
+	The torsion subgroup of $\mathbb{Q}^\ast \cong \mathbb{Z}_2$.
+	Thus $\mathbb{Q}^+ \cong \mathbb{Q}^\ast / \{ 1,-1 \}$ is torsion free.
+	Similarly, $\mathbb{R}^+$ is torsion free.
+	\item Suppose normal subgroup $H$ contains the torsion subgroup of a group $G$. Then $G/H$ is torsion free.
+	Thus $\mathbb{C}^\ast/U \cong \mathbb{R}^+$ is torsion free.
+	\item There is no bound for the order of elements in this torsion group.
+		The quotient group $\mathbb{Q}/\mathbb{Z} \cong \mathbb{Q}_1$ is a torsion group since every rational number $0 \le p/q < 1$ is of the finite order $q$. And $\mathbb{Q}_\pi$ is torsion free.
+\end{enumerate}
+
+
+
+\paragraph{Semidirect Product}
+\begin{definition}
+	Let $\phi : H \to Aut(N)$ be a group homomorphism where $N,H$ are two group.
+	Then the \textbf{semidirect product} $N \rtimes H$ is defined as the group $\entity{N \rtimes H,\ast}$ where $\ast : (N \times H) \times (N \times H) \to (N \times H)$ such that $(n_1,h_1) \ast (n_2,h_2) = (n_1 \phi_{h_1}(n_2),h_1h_2)$.
+\end{definition}
+
+	The dihedral group, $D_n \cong \mathbb{Z}_n \rtimes \mathbb{Z}_2$.
+
+	Let $G$ be a group with nontrivial subgroups $N,H$ such that $N,H$ are normal and $N \cap H = \{ 1 \}$. Then $G \cong N \times H$.\\
+
+	We can extend the notion direct product as follows.
+	Let $G$ be a group with nontrivial subgroups $N,H$ such that $N$ is normal and $N \cap H = \{ 1 \}$. Then $G \cong N \rtimes H$ except for $G \cong \mathbb{Z}_4$ and $Q_8$.\\
+
+	No simple group $G$ can be expressed as a semidirect product as $G$ does not have a normal subgroup.
+	
+\begin{definition}
+	The \textbf{fundamental group} of a topological space is the group of equivalent classes under homotopy of the loops contained in the space.
+\end{definition}
+
+	The fundamental group of the Klein bottle is $\mathbb{Z} \rtimes \mathbb{Z}$.\\
+
+\paragraph{The converse of Lagrange`s theorem} Finite group $G$ not necessarity have subgroups for each divisor of its order.
+	For example, the alternating group $A_5$ of order $12$ does not have a subgroup of order $6$.
+
+\begin{theorem}
+	If $G/Z(G)$ is cyclic, then $G$ is abelian.
+\end{theorem}
+\begin{proof}
+	Let $gZ(G)$ be a generator of $G/Z(G)$. Let $g_1,g_2 \in G$. Then $g_1 = g^{n_1}z_1$ and $g_2 = g^{n_2}z_2$ where $z_1,z_2 \in Z(G)$.
+	Thus, $g_1g_2 = g_2g_1$. Therefore, $G$ is abelian.
+\end{proof}
+
+\begin{enumerate}
+	\item If $G$ is non-abelian, then $G/Z(G)$ is not cyclic.
+	\item If $G$ is non-abelian, finite group then $|Z(G)| \le \frac{1}{4}|G|$. Otherwise $G/Z(G)$ is a group of order $1,2$ or $3$. And groups of order $1,2,3$ are cyclic.
+	\item If $G$ is non-abelian, then $Z(G)$ is not a maximal subgroup of $G$.
+	\begin{proof}
+		Suppose $Z(G)$ is a maximal subgroup of $G$.
+		Then $G/Z(G)$ has no nontrivial subgroups.
+		That is, $G/Z(G)$ is of prime order and thus cyclic which is not possible as $G$ is non-abelian.
+	\end{proof}
+\end{enumerate}
+
+	For $A_5,S_3,\dots$, the group $G/Z(G)$ is non-abelian.
+
+	Number of abelian groups of order $n = p_1^{r_1}p_2^{r_2}\dots p_k^{r_k}$ is $\prod_k B(r_k)$.
+
+\begin{enumerate}
+	\item By Burnside`s theorem, $p$-Groups have non-trivial center. And $Q_8$ is the smallest non-abelian $p$-group.
+	\item Every group $G$ of order $p$ is cyclic and $G \cong Z_p$. The number of generators is $\phi(n)$.
+	\item Every group $G$ of order $p^2$ is abelian. There are two groups $Z_{p^2}$ and $Z_p \times Z_p$.
+	\item There are exactly five groups of order $p^3$.
+	\begin{proof}
+		Three abelian groups -- $Z_{p^3}, Z_{p^2} \times Z_p, \text{ and } Z_p \times Z_p \times Z_p$ and two non-abelian groups -- $(Z_p \times Z_p) \rtimes Z_p, \text{ and } Z_{p^2} \rtimes Z_p$ except for $p =2$. For $p=2$, $Z_4 \rtimes Z_2 \cong (Z_2 \times Z_2) \rtimes Z_2 \cong D_4$. However we have $Q_8$, which is another nonabelian group of order $8$.
+	\end{proof}
+	\item No group $G$ of order $p^3$ is simple.
+	\begin{proof}
+		Every group of order $p^3$ is a semidirect product except $\mathbb{Z}_4$ and $Q_8$. However, $\mathbb{Z}_4$ is abelian and has normal subgroups isomorphic to $\mathbb{Z}_2$. And $Q_8$ has normal subgroups isomorphic to $\mathbb{Z}_4$.
+	\end{proof}
+	\item Every non-abelian group $G$ of order $p^3$ has center $Z(G)$ of order $p$. Since $G$ is a $p$-group, $G$ has non trivial center. Suppose $|Z(G)| = p^2$, then $G/Z(G)$ is a cyclic group of order $p$. But $G$ is non-abelian.
+	\item Every non-abelian group $G$ of order $p^3$ has $p^2+p-1$ distinct conjugacy classes.
+	\item Every group $G$ of order $pq$ has precisely four subgroups of order $1,p,q,pq$ (by first Sylow theorem).
+		Suppose $p<q$.
+		Then subgroup $H$ of order $p$ is normal.
+		If $p$ does not divide $q-1$, then subgroup $K$ of order $q$ is normal.
+		Clearly, $|H \cap K| = 1$ and $G \cong HK = Z_p \times Z_q$.
+		Thus $G$ is cyclic since $gcd(p,q)=1$.
+	\item Every non-abelian group $G$ of order $pq$ has trivial center. Suppose nonabelian group $G$ has a nontrivial center of order $p$ (wlog), then $G/Z(G)$ is a cyclic group of order $q$.
+		But $G$ is non-abelian. Thus $Z(G)$ is trivial.
+	\item Every group of square free order is supersolvable. And thus solvable.
+		\begin{proof}
+			Suppose $|G| = p_1 p_2 \dots p_k$ where $p_1 > p_2 > \dots p_k$. Then there exists a normal series $G_1 \triangleleft G_2 \triangleleft \dots \triangleleft G_k \triangleleft G$ such that $|G_1| = p_1$, $|G_2| = p_1p_2$ and $|G_k|=p_1p_2\dots p_k$.
+		\end{proof}
+	\item Every group $G$ of order $pqr$ is
+	\item Every group $G$ of order $p^2q$ is 
+	\item Every group $G$ of order $p^3q$ is 
+\end{enumerate}
+
+$$K \triangleleft H \triangleleft G \nimplies K \triangleleft G \text{ hint } G = D_4$$
+
+\paragraph{Simple Groups}
+\begin{theorem}
+	$M$ is maximal normal subgroup of $G$ iff $G/M$ is simple.
+\end{theorem}
+
+\begin{theorem}
+	Let $N$ be a normal subgroup of $G$.
+	$G/N$ is abelian iff $C \le N$.
+\end{theorem}
+
+\paragraph{Group Action}
+\begin{definition}
+	An \textbf{action} of group $G$ on a set $X$ is a function $\ast : G \times X \to X$ such that
+	\begin{enumerate}
+		\item $\forall x \in X,\ ex = x$
+		\item $\forall x \in X,\ \forall g_1,g_2 \in G,\ (g_1g_2)x = g_1(g_2x)$
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	Let $X$ be a $G$-set.
+	Then $\phi : G \to S_X$ defined by $\phi(g) = \sigma_g$ where $x \overset{\sigma_g}{\to} gx$.
+\end{theorem}
+
+\begin{definition}
+	Let $X$ be a $G$-set and $x \in X$.
+	The \textbf{isotropy} subgroup $G_x$ is the subgroup of $G$ containing all elements that fix $x$.
+\end{definition}
+	The set $X_g$ is the subset of $X$ fixed by $g \in G$.
+
+\begin{theorem}
+	Let $X$ be a $G$-set and $g \in G$.
+	Then the relation $x_1 \sim_g x_2 \iff gx_1=x_2$ is an equivalence relation on $X$.
+\end{theorem}
+
+\begin{definition}
+	The equivalence class of $\sim_g$ containing $x$ is the \textbf{orbit} of $x$, say $Gx$.
+\end{definition}
+
+\begin{theorem}
+	$|Gx| = (G:G_x)$
+\end{theorem}
+
+\begin{theorem}[Burside's Formula]
+	$\displaystyle r |G| = \sum_{g \in G}|X_g|$
+\end{theorem}

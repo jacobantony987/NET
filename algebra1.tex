@@ -1,122 +1,114 @@
-\section{Binary Algebra}
-\subsection{Binary Relation}
-\begin{definition}[binary relation]
-	A binary relation on $A$ is a relation between $A \times A$ and $A$.
-\end{definition}
+\section{Number Theory}
+\begin{lemma}[Euclid]
+	Let $p$ be a prime. If $p$ divides $ab$, then either $p$ divides $a$ or $p$ divides $b$.
+\end{lemma}
 
-\begin{definition}[associative]
-	An associative binary relation $\ast$ on $A$ satisfies
-	\begin{equation}
-		(x \ast y),(y \ast z) \in A \implies (x \ast y) \ast z, x \ast (y \ast z) \in A,\ (x \ast y) \ast z = x \ast (y \ast z)
-	\end{equation}
-\end{definition}
-
-\begin{definition}[commutative]
-	A commutative binary relation $\ast$ on $A$ satisfies
-	\begin{equation}
-		x \ast y \in A \implies y \ast x \in A,\ x \ast y = y \ast x
-	\end{equation}
-\end{definition}
-
-\subsection{Binary Operations}
-\begin{definition}[binary operation]
-	A binary operation on $A$ is a function $\ast : A \times A \to A$.
-\end{definition}
-
-\begin{definition}[associative]
-	An associative binary operation $\ast$ on $A$ satisfies
-	\begin{equation}
-		(x \ast y) \ast z = x \ast (y \ast z)
-	\end{equation}
-\end{definition}
-
-\begin{definition}[commutative]
-	A commutative binary operation $\ast$ on $A$ satisfies
-	\begin{equation}
-		x \ast y = y \ast x
-	\end{equation}
-\end{definition}
-
-
-\paragraph{Results}
-Let $|A|=n$.
+\paragraph{Greatest Common Divisor}
 \begin{enumerate}
-	\item Number of binary operations on $A = n^{n^2}$
+	\item B\'ezout`s Identity : If $\gcd(n,m)= d$, then $\exists s,t \in \mathbb{Z}$ such that $d = sn+tm$.
+	\item Euclid`s Division Algorithm : If $b > 0$, then $\forall a \in \mathbb{Z}$, $\exists q \in \mathbb{Z}$ and $\exists r \in \mathbb{Z}$ such that $a = qb+r$ where $0 \le r < b$.
+	\item Euclid`s Algorithm : $\gcd(a,b) = \gcd(b,r) = \dots = \gcd(d,1)$ where $a = bq+r$.
+	\item The linear equation $ax+by=c$ has integer solutions if $\gcd(a,b)$ divides $c$.\\ If $(x,y)$ is a solution, then $(x-b/d,y-a/d)$ is also a solution.
+	\item Chinese Remainder Theorem : Let $x \cong a_j \pmod{n_j}$ be a system of congruences where $\gcd(n_j,n_k) = 1,\ (j \ne k)$. Then there exists a solution.\\ If $x_1,x_2$ is are two solutions, then $x_1 \cong x_2 \pmod{N}$ where $N = \prod n_j$.
+		$$x \cong \sum a_j M_j N_j \pmod{N} \text{ where } N_j = \frac{N}{n_j} \text{ and } M_j \cong N_j^{-1} \pmod{n_j}$$
 \end{enumerate}
 
-\subsection{Algebraic Structures}
-\begin{definition}[algebra]
-	A binary algebra is $\entity{A,\ast}$ where $A$ is a set and $\ast : A \times A \to A$ is a function.
+\paragraph{Congruences}
+\begin{definition}
+	The congruence is a relation on $\mathbb{Z}$ defined by
+	$$a \cong b \pmod{n} \iff n | (a-b)$$
+\end{definition}
+\begin{enumerate}
+	\item The relation $\cong$ is an equivalence relation.
+	\item $a \cong b \pmod{n} \implies \forall k,\ a^k \cong b^k \pmod{n}$.
+	\item If $\gcd(a,n) = 1$, then $a^{-1} \pmod{n}$ exists.
+	\item Linear congruence equation $ax \cong b \pmod{n}$ has a solution if $\gcd(a,n)$ divides $b$.
+\end{enumerate}
+
+\paragraph{Euler`s phi function}
+	The function $\phi : \mathbb{N} \to \mathbb{N}$ is defined as $\phi(n) = $ the cardinality of the set $\{k \in \mathbb{N} : k \le n,\ \gcd(n,k)=1\}$.
+
+	\begin{enumerate}
+		\item $\phi$ is multiplicative. That is, $\phi(mn) = \phi(m)\phi(n),\ \gcd(m,n)=1$.
+		\item $\phi(p^n) = p^n-p^{n-1}$ where $p$ is a prime.
+		\item $\phi(n)$ is even for $n > 2$.
+		\item The sum of $\phi(d)$ for all divisors of $n$ is $n$.
+		\item The sum of all natural numbers $k \le n$ that are relatively prime to $n$ is $n\phi(n)/2$.
+	\end{enumerate}
+
+\begin{theorem}[Fermat]
+	$a^p \cong a \pmod{p}$
+\end{theorem}
+\begin{definition}
+	A number $x$ such that $a^x \cong a \pmod{x}$ is a (fermat) \textbf{pseudoprime} for base $a$ where $\gcd(a,x) = 1$.
+\end{definition}
+Number $341$ is the smallest pseudoprime for base $2$.
+
+\begin{definition}
+	A number $x$ is a \textbf{Carmichael} number if $a^x \cong a \pmod{x}$ whenever $\gcd(a,x)=1$.
 \end{definition}
 
-\begin{definition}[magma]
-	A magma is a binary algebra $\entity{A,\ast}$ where $\ast$ is a binary operation on $A$.
-	By the definition of binary operation, $\ast$ is well-defined(closed) on $A \times A$.
+\subsection{Arithmetical Functions}
+\begin{definition}
+	A function $f : \mathbb{N} \to \mathbb{C}$ is an \textbf{arithmetical} (number theoretic) function.
 \end{definition}
 
-\begin{definition}[semigroup]
-	A semigroup is a magma $\entity{A,\ast}$ where $\ast$ is associative.
+\begin{definition}
+	An arithmetical function $f$ is multiplicative iff $f(mn) = f(m)f(n)$ whenever $\gcd(m,n) = 1$.
+	And completely multiplicative iff $f(mn) = f(m)f(n)$ always.
 \end{definition}
 
-\begin{definition}[identity]
-	A left identity $e'$ of an algebra $\entity{A,\ast}$ satisfies $e' \ast x = x,\ \forall x \in A$.
-	And right identity $e'$ satisfies $x \ast e' = x,\ \forall x \in A$.
-	An identity element $e$ of $\entity{A,\ast}$ satisfies both.
+\begin{definition}
+	The \textbf{Dirichlet convolution}
+	$$ f \ast g = \sum_{d|n} f(d)g\left(\frac{n}{d}\right)$$
+\end{definition}
+	Clearly, Dirichlet convolution is commutative and associative.\\
+	And Dirichlet convolution of multiplicative functions in multiplicative. However, Dirichlet convolution of completely multiplicative functions is not completely multiplicative.
+\begin{definition}
+	Every artithmetical function $f$ with $f(1) \ne 0$ has a unique \textbf{Dirichlet inverse} $f^{-1}$.
+	$$ f^{-1}(n) = \begin{cases} \frac{1}{f(1)} & n = 1 \\ \frac{-1}{f(1)} \displaystyle \sum_{\substack{d|n \\ d < n}} f(n/d)f^{-1}(d) & n > 1 \end{cases} $$
 \end{definition}
 
-\begin{definition}[monoid]
-	A monoid is a semigroup $\entity{A,\ast}$ where $\ast$ has an identity $e \in A$.
-\end{definition}
+	Clearly, $(f \ast g)^{-1} = g^{-1} \ast f^{-1}$ provided $f^{-1}$ and $g^{-1}$ exists.
 
-\begin{definition}[inverse]
-	Let $x \in A$.
-	An inverse $x^{-1}$ of $x$ in an algebra $\entity{A,\ast}$ satisfies $xx^{-1} = x^{-1}x$.
-	Let $e$ be the identity of a monoid $\entity{A,\ast}$.
-	Then, $x^{-1}$ satisfies $xx^{-1} = x^{-1}x = e$.	
-\end{definition}
-
-\begin{definition}[group]
-	A group is a monoid $\entity{A,\ast}$ where every element $x \in A$ has an inverse $x^{-1}$.
-\end{definition}
-
-
-\begin{figure}[h]
-	\centering
-\begin{tikzpicture}
-	\node (a) at (0,0) {$Magma$};
-	\node (b)[below=of a]{$Semigroup$};
-	\node (c)[below=of b]{$Monoid$};
-	\node (d)[below=of c]{$Group$};
-	\node (e)[below=of d]{$Abelian\ Group$};
-	\node (f)[left=of e]{$Cyclic\ Group$};
-
-	\node (h)[right=of b]{$Semigroupoid$};
-	\node (i)[below=of h]{$Small\ Category$};
-	\node (j)[below=of i]{$Groupoid$};
-	\node (g)[above=of h]{$Partial\ Algebra$};
-
-	\draw (g) -- (h) -- (i) -- (j);
-	\draw (g) -- (a) node[midway,above]{$+totality$}(a) -- (b) node[midway,right]{$+associative$} -- (c) node[midway,right]{$+identity$} -- (d) node[midway,right]{$+inverses$} -- (e) node[midway,right]{$+commutative$} -- (f);
-	\draw (d) -- (f) node[midway,left]{$+generator$};
-\end{tikzpicture}
-	\caption{Binary Algebraic Structures}
-\end{figure}
-
-\subsection{Operations}
-\begin{definition}[sum]
-	The sum of two subsets $A$ and $B$ of any magma $\entity{X,+}$ is $A+B = \{ a+b : a \in A, b \in B \}$.
-\end{definition}
-
-\subsection{Types of Operations}
-\begin{definition}[linear]
-	Let $\entity{R,+,\cdot},\entity{R',+',\cdot'}$ be two commutative rings with identity.
-	A function $f : R \to R'$ is linear if $f(k \cdot x+y) = k \cdot' f(x) +' f(y)$.
-\end{definition}
-
-\begin{definition}[$n$-linear]
-	A function $f : R^n \to R'$ is $n$-linear if
-	\begin{equation}
-		f(a_1,a_2,\dots,ka_i+a'_i,\dots,a_n) = kf(a_1,a_2,\dots,a_i,\dots,a_n) + f(a_1,a_2,\dots,a'_i,\dots,a_n)
-	\end{equation}
-\end{definition}
-
+\begin{theorem}
+	Let $f$ be multiplicative.
+	Then $f$ is completely multiplicative iff $f^{-1} = \mu f$.
+\end{theorem}
+\paragraph{Arithmetical Functions and their Dirichlet products}
+\begin{enumerate}
+	\item \textbf{Identity function}, $I(n) = \left[\frac{1}{n}\right]$ vanishes everywhere except at $n = 1$, $I(1) = 1$.
+	Clearly, $I$ is completely multiplicative.
+	\item \textbf{M\"obius function}, $\mu(n)$ gives the parity of the number of prime factors of a square free number and vanishes for numbers which are contains a square.\\
+	For example, $\mu(1) = 1,\ \mu(30) = -1,\ \mu(12) = 0$.
+	Clearly, $\mu$ is multiplicative.
+\item \textbf{Riemann Zeta function}, $\zeta(n) = 1$ is completely multiplicative.\\
+	Thus $\zeta^{-1} = \mu \zeta = \mu$.
+	%M\"obius function is the inverse of Riemann zeta function. 
+	%Apostol $\zeta(n) = u(n)$.
+	\item \textbf{Power function}, $N^\alpha(n) = n^\alpha$ is completely multiplicative.\\
+	Thus, $(N^\alpha)^{-1} = \mu N^\alpha$. And $N^0 = \zeta$.
+	\item \textbf{Characteristic function}, $\chi_S$ is the membership indicator function.
+	$$\chi_S(n) = \begin{cases} 1 & n \in S \\ 0 & n \notin S \end{cases}$$
+	$\chi_S$ is not multiplicative.
+	\item \textbf{Euler totient function}, $\phi(n)$ gives the number of positive integers less than $n$ which are relatively prime to $n$. And \textcolor{red}{$\phi = \mu \ast N$}. Thus, $\phi^{-1} = \zeta \ast \mu N$.
+	\item \textbf{Liouville function} $\lambda(n)$ gives the parity of sum of prime powers of $n$.\\
+	For example, $\lambda(1) = 0,\ \lambda(30)=-1,\ \lambda(12)=-1$.\\
+	Clearly, $\lambda$ is completely multiplicative and $\lambda^{-1} = \mu \lambda$.\\
+	And $\lambda = \mu \ast \chi_{Sq}$ where $Sq$ is the set of all squares.
+	\item \textbf{Divisor function} $\sigma_\alpha(n)$ is the sum of $\alpha$th powers of divisors of $n$.\\ Clearly, $\sigma_\alpha = \zeta \ast N^\alpha$. And $\sigma_\alpha^{-1} = \mu \ast \mu N^\alpha$.
+	\item $\tau(n)$ gives the number of divisors of $n$.\\
+	Clearly, $\tau = \sigma_0 = \zeta \ast \zeta$.\\
+	%\tau(n) = d(n)$
+	We have, $\sigma \ast \phi = \zeta \ast N \ast \mu \ast N =  N \ast N = N \tau$ since,
+		$$ N \ast N(n)= \sum_{d|n} N(d)N(n/d) = \sum_{d|n} n = N(n) \tau(n)$$
+	and $\tau \ast \phi = \zeta \ast \zeta \ast \mu \ast N = \zeta \ast N = \sigma$
+	\item $\omega(n)$ gives the number of distinct prime factors of $n$.\\
+	Clearly $\omega = \zeta \ast \chi_\mathbb{P}$ where $\mathbb{P}$ is the set of all primes.
+	\item $\Omega(n)$ gives the number of prime factors of $n$.\\
+	Clearly, $\Omega = \zeta \ast \chi_\mathcal{P}$ where $\mathcal{P}$ is the set of all prime powers 
+\end{enumerate}
+\paragraph{Strange Functions}
+\begin{enumerate}
+	\item $\sin : \mathbb{N} \to [-1,1]$ is an injection since $\sin (x) = \sin (y) \implies 2\pi | (x-y)$.
+\end{enumerate}
