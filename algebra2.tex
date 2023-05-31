@@ -134,7 +134,7 @@
 \end{figure}
 
 \begin{definition}
-	The \textbf{sum} of two subsets $A$ and $B$ of a magma $\entity{X,+}$ is 
+	The \textbf{sum} of two subsets $A$ and $B$ of a magma\footnote{Instead of magma, the name groupoid is used in many texts that don't study groupoid in detail} $\entity{X,+}$ is 
 	$$A+B = \{ a+b : a \in A, b \in B \}$$
 \end{definition}
 
@@ -215,23 +215,116 @@
 	A group $G$ is \textbf{cyclic} if it has a generator.
 \end{definition}
 
+\begin{definition}
+	The \textbf{center} of a group, $Z(G)$ is the set of all elements that commutes with every element in $G$.
+\end{definition}
+\begin{definition}
+	The \textbf{centralizer} of an element $g$, $C(g)$ is the set of all elements that commute with $g$.
+\end{definition}
+\paragraph{Properties of Center}
+\begin{enumerate}
+	\item The center $Z(G)$ of a group $G$ is a normal subgroup of $G$. The centralizer of $g$, $C(g)$ is a subgroup of $G$.
+	\item $Z(G) \le C(g) \le C(g^k)$.
+	\item \textcolor{red}{$C(g) = C(g^k) \iff \gcd(k,n) = 1$ where $o(g)=n$.}
+	\item $Z(S_n)$ is trivial for $n \ge 3$.
+	\item $Z(D_n)$ is trivial when $n$ is odd.
+	\item $Z(A_n)$ is trivial for $n \ge 4$.
+	\item $Z(M_n(F)) = \{ aI : a \in F \}$.
+	\item $Z(GL(n,F)) = \{ aI : a \in F,\ a \ne 0 \}$.
+	\item $Z(SL(n,F)) = \{ aI : a \in F,\ a^n = 1 \}$.
+	\item $Z(Q_8) = \{ 1,-1 \} \cong \mathbb{Z}_2$.
+	\item Center of a direct product is the direct product of centers.
+	\item Center of a simple group is either trivial(nonabelian) or the whole group(abelian).
+	\item Gr\"un`s Lemma : If $G$ is perfect, then $Z(G/Z(G))$ is trivial.
+\end{enumerate}
+
 \subsection*{Important Notions}
+\paragraph{Properties of Groups}
+\begin{enumerate}
+	\item $o(a)=o(a^{-1})$
+	\begin{proof}
+		$a^n = e \iff (a^{-1})^n a^n = (a^{-1})^n \iff e = (a^{-1})^n$
+	\end{proof}
+	\item $o(xax^{-1}) = o(a) = o(x^{-1}ax)$
+	\begin{proof}
+		$(xax^{-1})^n = e \iff  xa^nx^{-1} = e \iff a^n = x^{-1}x \iff a^n = e$
+	\end{proof}
+	\item $o(ab) = o(ba)$
+	\begin{proof}
+		$(ab)^n = e \iff b(ab)^nb^{-1} = e \iff (ba)^n = e$
+	\end{proof}
+	\item $\forall a \in G,\ a^{-1} = a \implies G$ is abelian.
+	\begin{proof}
+		$ab = a^{-1}b^{-1} = (ba)^{-1} = ba$
+	\end{proof}
+	\item $\forall a,b \in G,\ (ab)^2 = a^2b^2 \iff G$ is abelian.
+	\begin{proof}
+		$abab = aabb \iff bab = abb \iff ba = ab$
+	\end{proof}
+	\item $\forall a,b \in G,\ (ab)^{-1} = a^{-1}b^{-1} \iff G$ is abelian
+	\begin{proof}
+		$(ab)^{-1} = a^{-1}b^{-1} \iff (ab)^{-1} = (ba)^{-1} \iff ab = ba$
+	\end{proof}
+\item \textcolor{red}{If $\forall a,b \in G,\ a^3b^3 = (ab)^3$, then every commutator is of order $3$.}
+	\begin{proof}
+	$a^3b^3 = (ab)^3 \implies a^2b^2 = (ba)^2$.
+	$$(aba^{-1}b^{-1})^2 = (a^{-1}b^{-1})^2(ab)^2 = b^{-2}(a^{-2}b^2)a^2 = b^{-2}(ba^{-1})^2a^2 = b^{-1}a^{-1}ba$$
+		$(aba^{-1}b^{-1})^4 = (b^{-1}a^{-1}ba)^2 = aba^{-1}b^{-1} \implies (aba^{-1}b^{-1})^3 = e$
+	\end{proof}
+	\item \textcolor{red}{$a^n = 1,\ aba^{-1} = b^2 \implies b^{2^n-1} = e$.}
+	\begin{proof}
+		$(aba^{-1})^2 = ab^2a^{-1} = b^4 \implies a^2ba^{-2} = b^4 \implies a^nba^{-n}=b^{2^n}$.
+	\end{proof}
+	\item Let $a,b$ be elements of fintie order, then $ab$ is not necessarily of finite order.
+	\item If $x$ commutes with $y$, then
+		\subitem $x$ commutes with $y^{-1}$, since $y^{-1}(xy)y^{-1} = y^{-1}(yx)y^{-1}$
+		\subitem $x^{-1}$ commutes with $y$, since $x^{-1}(xy)x^{-1} = x^{-1}(yx)x^{-1}$.
+		\subitem $x^{-1}$ commutes with $y^{-1}$, since $(xy)^{-1} = (yx)^{-1}$.
+	\item Group $G$ has precisely one element $g$ of order two, then $g$ commutes with every element of $G$.
+	\begin{proof}
+		Let $g \in G$ such that $o(g) = 2$.\\
+		$\forall x \in G,\ o(xgx^{-1}) = o(g) = 2 \implies xgx^{-1} = g \implies xg = gx$
+	\end{proof}
+\end{enumerate}
+
+\paragraph{Subgroups}
+\begin{enumerate}
+	\item Group $G$ has a element of order $n$ iff $G$ has a \texttt{cyclic} subgroup of order $n$. 
+	\item Let $G$ be an \texttt{abelian} group. The set $\{ g \in G : g^p = e \}$ is a subgroup of $G$.
+	However, it is not true for nonabelian groups.
+	$\{ g \in D_4 : g^2 = e \}$ is not a subgroup of $D_4$.
+	\item Let $G$ be an \texttt{abelian} group of order $n$. If $d|n$, then $G$ has a subgroup of order $d$. If $d$ is square-free, then $G$ has an element of order $d$.
+	\item Every cyclic group of order $n$ has $\phi(n)$ elements of order $n$.
+		Suppose $G$ has $n_m$ elements of order $m$, then $G$ has $n_m/\phi(m)$ cyclic subgroups of order $m$.
+		\subitem If a finite abelian group $G$ has $24$ elements of order $6$, then $G$ has $24/\phi(6) = 12$ subgroups of order $6$ as abelian group of order $6$ are cyclic.
+	\item The dihedral group $D_n$ has $\phi(d)$ elements of order $d$ for every divisor $d$ of $n$, except $d=2$. There are either $n$ or $n+1$ elements of order $2$ depending on the parity of $n$.
+	The number of subgroup of $D_n = \tau(n)+\sigma(n)$.
+	\item $H,K \le G \implies H \cap K \le G$. And $H \cup K \subset HK \le G$.
+		\subitem $|HK| = |H| |K| / |H \cap K|$.
+		\subitem $m\mathbb{Z} \cap n\mathbb{Z} = k\mathbb{Z}$ where $k = lcm(m,n)$.
+		\subitem $m\mathbb{Z} + n\mathbb{Z} = k\mathbb{Z}$ where $k = \gcd(m,n)$.
+\end{enumerate}
+
 \paragraph{Strange Groups}
 \begin{enumerate}
 	\item Smallest non-abelian group is $S_3$.
-	Smallest non-cyclic group is the Klein $4$-group, $K_4 \cong \mathbb{Z}_2 \times \mathbb{Z}_2$.
+	Smallest non-cyclic group is the Klein $4$-group, $V \cong \mathbb{Z}_2 \times \mathbb{Z}_2$.
 	Smallest non-abelian simple group is $A_5$. Thus, $A_5$ is the smallest perfect group.
-	\item $D_p, D_4, Q_8, A_4$ are non-abelian groups with every proper subgroup abelian. 
+	\item \textcolor{red}{$D_p, D_4, Q_8, A_4,\dots$ are non-abelian groups with every proper subgroup abelian}. 
 	\item $\mathbb{C}^\ast$ is a multiplicative group with identity $1$.
 	Unit circle is a subgroup of $\mathbb{C}^\ast$.
 	Unit circle has a unique cyclic subgroup for any order.
 	The $n$th roots of unity is the cyclic subgroup of unit circle with order $n$.
+	\item $\mathbb{Q}/\mathbb{Z}$ is torsion group which has a unique cyclic subgroup of any finite order.
+	And every proper subgroup of $\mathbb{Q}/\mathbb{Z}$ is finite and cyclic.
 	\item $ \entity{\left\{ \begin{bmatrix} a & a \\ a & a \end{bmatrix} : a \ne 0 \right\},\times}$ is a group with identity $\begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \end{bmatrix}$.
 	\item $ \entity{\left\{ \begin{bmatrix} a & 0 \\ 0 & 0 \end{bmatrix} : a \ne 0 \right\},\times}$ is a group with identity $\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$.
 	\item $\entity{\mathbb{Q}^+,a \ast b = \frac{ab}{5},\times}$ is a group with idenity $5$.
 	\item $\entity{\{5,15,20,25,30,35\},\times_{40}}$ is a group with identity $25$.
+	\item \textcolor{red}{The multiplicative group $\mathbb{Z}_n^\times = \{ m \in \mathbb{Z}_n : \gcd(m,n)=1 \}$ has $\phi(\phi(n))$ generators.}
 	\item Convergent sequences under addition is a group.
 	\item Group of rigid motions(rotations) of the cube is a group of order $\binom{8}{1}\binom{3}{1}=24$ under permutation multiplication.
+	This group is isomorphic to $S_4$.
 \end{enumerate}
 
 \paragraph{Group Representations}
@@ -255,6 +348,8 @@
 	\item $\entity{\mathbb{C},\ast}$ where $a \ast b = |ab|$ has no identity element.
 	%What is the nature of a inverses in a group over a piecewise connected subset of $\mathbb{R}$ in relation to the fixed points and boundaries ?
 	\item $\entity{C[0,1]-\{0\},\times}$ is a not closed. There exists a pair of functions with product $0$.
+	\item Let $G$ be a group and $\mathscr{P}(G)$ be the power set of $G$. Define $A \ast B = \{ ab : a \in A,\ b \in B \}$. Then $\entity{\mathscr{P}(G),\ast}$ is a monoid with identity $\{ e \}$. The units are the left cosets of the trivial subgroup.
+	\item $\entity{GL(n,F),+}$ is not closed as $I_n+(-I_n) \notin GL(n,F)$.
 \end{enumerate}
 
 \paragraph{Group Homomorphisms}
@@ -268,7 +363,6 @@
 		(hint : $\phi(x) = 3x-1,\ \phi(0) = -1,\ x^{-1} = -x-2$)
 	\item $\phi : \mathbb{Q}^\ast \to \entity{\mathbb{Q}-\{-1\},\ast}$ where $x \ast y =  \frac{(x+1)(y+1)}{3}-1$ is a group with $\ker(\phi) = 1$ and $\phi[\mathbb{Q}^\ast] = \mathbb{Q}-\{-1\}$.
 		(hint : $\phi(x) = 3x-1,\ \phi(1)=2$,\ $x^{-1} = \frac{8-x}{x+1}$)
-	\item The field $\entity{\left\{\begin{bmatrix} a & -b \\ b & a \end{bmatrix} : a,b \in \mathbb{R} \right\},+,\times} \cong \mathbb{C}$ where $\phi\left(\begin{bmatrix} a & -b \\ b & a \end{bmatrix}\right) = a+ib$.\\
 \end{enumerate}
 
 \paragraph{Cyclic Groups}
@@ -282,7 +376,7 @@
 	The multiplicative group $\mathbb{Z}_{25}^\times \cong \mathbb{Z}_{20}$ has generator $3$.
 	We have $\gcd(20,5) = \gcd(20,15)$.
 	Clearly, $3^5 \cong 18 \pmod{25}$ and $3^{15} \cong 7 \pmod{25}$. Thus, $\entity{7} \cong \entity{18} \cong \mathbb{Z}_4$.
-	\item Every proper subgroup of the Klein 4-group, $K_4 \cong \mathbb{Z}_2 \times \mathbb{Z}$ is cyclic. However, $K_4$ is not cyclic.
+	\item Every proper subgroup of the Klein 4-group, $V \cong \mathbb{Z}_2 \times \mathbb{Z}$ is cyclic. However, $V$ is not cyclic.
 	\item For any natural number $n$, there exists a cyclic group of order $n$. Two cyclic group of same order are isomorphic.
 	\begin{proof}
 		The finite group $\entity{\mathbb{Z}_n,+_n}$ is cyclic with order $n \in \mathbb{N}$ and the infinite group $\mathbb{Z}$ is cyclic.
@@ -297,18 +391,12 @@
 	Clearly, $\mathbb{Z}_{20}$ has a non-prime generator, say $9$.
 	\item \textcolor{red}{The equation $x^m = e$ has $m$ solutions in any finite cyclic group $\mathbb{Z}_n$ where $m|n$.}
 	\item Let $G$ be an abelian group and $H,K$ are cyclic subgroups of $G$ with generators $h,k$ respectively. Then $\entity{hk}$ is a cyclic subgroup of order $lcm(r,s)$.
-	\item $\mathbb{Q}^\ast$ is not cyclic.
-	\begin{proof}
-		Suppose $\mathbb{Q}^\ast$ is cyclic.
-		Then $\mathbb{Q}^\ast \cong \mathbb{Z}$.
-		But, $o(-1) = 2$ and $\mathbb{Z}$ don't have any element of order two.
-	\end{proof}
-	\item $\mathbb{Q},\mathbb{R}$ are not cyclic.
-	\begin{proof}
-		Suppose $\mathbb{Q} \cong \entity{p/q}$. Then $p/2q \notin \entity{p/q}$.
-		Thus, $\mathbb{Q}$ is not cyclic.
-		Since $\mathbb{Q} \ge \mathbb{R}$, $\mathbb{R}$ is not cyclic.
-	\end{proof}
+	\item $\mathbb{Q}/\mathbb{Z}$ is not cyclic.\\
+		proof : $o(\frac{1}{2} + \mathbb{Z}) = 2$, where the infinite cyclic group $\mathbb{Z}$ has no such element.
+	\item $\mathbb{Q}^\ast$ is not cyclic.\\
+		proof : $o(-1) = 2$, where $\mathbb{Z}$ don't have any element of order two.
+	\item $\mathbb{Q},\mathbb{R},\mathbb{C}$ are not cyclic.\\
+		proof : If $\mathbb{Q}$ is cyclic, then $\mathbb{Q}/\mathbb{Z}$ is a cyclic quotient group. But $\mathbb{Q}/\mathbb{Z}$ is not.
 	\item The subgroup generated by $n$th primite root of unity is a cyclic subgroup of $\mathbb{C}^\ast$ isomorphic to $\mathbb{Z}_n$.
 		Clearly, $\entity{(1+i)/\sqrt{2}} \cong \mathbb{Z}_8$.
 	\item The subgroup generated by any complex number which is a non-root of unity is a cyclic subgroup of $\mathbb{C}^\ast$ isomorphic to $\mathbb{Z}$.
@@ -333,15 +421,8 @@
 \begin{enumerate}
 	\item $M_{m \times n}(F)$ is the additive group of all matrices of order $m \times n$ with entries from the field $F$.
 	When $m=n$, we may write $M_n(F)$.
-	$Z(M_n(F)) = \{ aI : a \in F \}$.
 	\item General Linear Group, $GL(n,F)$ is the multiplicative group of all invertible matrices of order $n$ with entries from field $F$.
-	$$|GL(n,F_q)| = \prod_{r=0}^{n-1} (q^n-q^r)$$
-	$Z(GL(n,F)) = \{ aI : a \in F,\ a \ne 0 \}$.
 	\item Special Linear Group, $SL(n,F)$ is the multiplicative group of all matrices of order $n$ and determinant $1$ with entries from field $F$.
-	$Z(SL(n,F)) = \{ aI : a \in F,\ a^n = 1 \}$.
-	\item The determinant, $det : GL(n,F) \to F^\ast$ is a homomorphism with $\ker(det) = SL(n,F)$.
-	$$|SL(n,F_q)| = \frac{|GL(n,F_q)|}{q-1} \text{ since } GL(n,F_q)/SL(n,F_q) \cong F_q^\ast$$
-	\item The trace, $Tr : M(n,F) \to F$. Then $\ker(Tr)$ is $n^2-1$ dimensional over $F$.
 \end{enumerate}
 
 %Fraleigh Part II, Chapter 8-12
@@ -423,121 +504,108 @@ $$ \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 3 & 5 & 2 & 4 & 1 & 7 & 6 \end{p
 \end{definition}
 
 \begin{theorem}
-	Let $G$ be a finitely generated group.
-	Then $G \cong \mathbb{Z}_{p_1^{r_1}} \times \mathbb{Z}_{p_2^{r_2}} \times \dots \times \mathbb{Z}_{p_k^{r_k}} \times \mathbb{Z} \times \dots \times \mathbb{Z}$ where the number of $\mathbb{Z}$ is its \text{Betti number}.
-\end{theorem}
-
-\begin{theorem}
 	$\mathbb{Z}_n \times \mathbb{Z}_m \cong \mathbb{Z}_{n \times m} \iff \gcd(m,n)=1$.
 \end{theorem}
 \begin{proof}
 	$(1,1) \in Z_n \times Z_m$ has order $mn$.
 	Thus, $Z_n \times Z_m$ is cyclic.
 \end{proof}
+	Suppose $\gcd(m,n) = 1$.
+	The canonical isomorphism $\phi : \mathbb{Z}_{mn} \to \mathbb{Z}_m \times \mathbb{Z}_n$ is given by
+	$$ a\!\!\!\!\! \pmod{mn} \overset{\phi}{\to} \left(a\!\!\!\!\! \pmod{m}, a\!\!\!\!\! \pmod{n}\right) $$
 
 \begin{theorem}
 	Let $(a_1,\dots,a_n) \in G_1 \times \dots G_n$ and $o(a_i) = r_i$.\\
 	Then $o((a_1,\dots,a_n)) = lcm(r_1,\dots,r_n)$.
 \end{theorem}
 
-\begin{definition}
-	The \textbf{center} of a group $G$ is the set of all elements that commutes with every element in $G$.
-\end{definition}
 \begin{theorem}
-	Center $Z(G)$ is a subgroup of $G$.
-\end{theorem}
-
-\begin{definition}
-	A subgroup $H$ of group $G$ is \textbf{normal} if $gH = Hg$ for every element $g \in G$.
-\end{definition}
-
-\begin{definition}
-	Let $N$ be a normal subgroup of $G$.
-	The \textbf{quotient group} $G/N$ is the set of all left cosets of $N$ with binary operation $g_1N \ast g_2N = (g_1g_2)N$.
-\end{definition}
-
-\begin{definition}
-	An element $g \in G$ is a \textbf{commutator} if $g=aba^{-1}b^{-1}$ for some $a,b \in G$.
-\end{definition}
-
-\begin{theorem}
-	Let $G$ be a group.
-	Then the set $C$ of all commutators in $G$ is the smallest normal subgroup of $G$ such that $G/C$ is abelian.
-\end{theorem}
-
-\paragraph{Isomorphism Theorems}
-\begin{theorem}
-	Let $g \in G$.
-	The function $i_g : G \to G$ defined by $i_g(x) = gxg^{-1}$ is an automorphism of the group $G$.
-\end{theorem}
-\begin{definition}
-	The automorphism $x \to gxg^{-1}$ is the \textbf{inner automorphism} of $G$ by $g$.
-\end{definition}
-
-\begin{definition}
-	The \textbf{conjugacy class} of $x$, $Cl(x) = \{ gxg^{-1} : g \in G\}$.
-\end{definition}
-
-\begin{definition}
-	Let $G$ be a group and $H,K$ be subgroups of $G$.
-	Subgroup $H$ is a \textbf{conjugate} of $K$ if $H = i_g[K]$ for some $g \in G$.
-\end{definition}
-
-	Conjugacy is an equivalence relation on the set of all subgroups of $G$.
-\begin{theorem}
-	Let $G$ be group and $N$ be a normal subgroup of $G$.
-	Then $g \overset{\phi}{\to} gN$ is a group homomorphism.
+	Let $G$ be a finitely generated group.
+	Then $G \cong \mathbb{Z}_{p_1^{r_1}} \times \mathbb{Z}_{p_2^{r_2}} \times \dots \times \mathbb{Z}_{p_k^{r_k}} \times \mathbb{Z} \times \dots \times \mathbb{Z}$ where the number of $\mathbb{Z}$ is its \text{Betti number}.
 \end{theorem}
 
 \begin{theorem}
-	Let $\phi : G \to G'$ be a group homomorphism.
-	Then $\ker(\phi)$ is a normal subgroup of $G$.
-	And $\phi[G] \cong G/\ker(\phi)$.
+	Let $G$ be a finite abelian group with order $n$. If $m|n$, then $G$ has a subgroup $H$ of order $m$.
 \end{theorem}
+\begin{proof}
+	We have, $n = \prod P_j^{r_j}$ and $m = \prod P_j^{s_j}$ where $0 \le s_j \le r_j$.
+	From the structure of finitely generated abelian group $G$, we may derive the structure of its subgroup $H$ of order $m$ by diminishing the powers of primes as required.
+\end{proof}
+	%What is the weakest sufficient condition for the converse of Lagrange`s theorem to hold ?
+
 
 \subsection*{Important Notions}
+\begin{definition}
+	Let $H,K \le G$.
+	The equivalent classes of the equivalence relation $aRb \iff a = hbk,\ h \in H,\ k \in K$ are the \textbf{double cosets} of $G$.
+\end{definition}
+
+\begin{definition}
+	A group $G$ is \textbf{decomposable} if $G \cong H \times K$ where $H,K$ are proper, nontrivial subgroups of $G$.
+	Otherwise, $G$ is indecomposable.
+\end{definition}
+	Finite indecomposable groups are $\mathbb{Z}_p$.
+
 \paragraph{Consequences of Lagrange`s theorem}
 \begin{enumerate}
 	\item By Lagrange`s theorem, every group of prime order is cyclic.
 	\item If $|G|=pq$, then every proper subgroup of $G$ is cyclic.
-	\item The quotient group $\mathbb{Z}_n/\entity{g} \cong \mathbb{Z}_d$ where $d = n/o(g)$.
+	\item The quotient group $\mathbb{Z}_n/\entity{g} \cong \mathbb{Z}_\frac{n}{m}$ where $o(g)=m$.
 \end{enumerate}
-\paragraph{Order of Elements in a product of Cyclic groups}
-	Let $(g_1,g_2,\dots,g_k) \in G_1 \times G_2 \times \dots \times G_k$. Then $o(g_1,g_2,\dots,g_k) = lcm(o(g_1),o(g_2),\dots,o(g_k))$. And element $k \in \mathbb{Z}_n$ has order $\frac{n}{\gcd(n,k)}$.\\
 
-	For example, an element of $(g,h)$ of $\mathbb{Z}_{12} \times \mathbb{Z}_{10}$ has order $4$ only if $o(g)=4$ and $o(h)$ is either $1$ or $2$. Clearly, an element $k \in \mathbb{Z}_{12}$ is of order $4$ iff $\frac{12}{\gcd(12,k)}=4$. For $\gcd(12,k)=3$, we have $k = 3$ or $9$. For $\gcd(10,k)=5$, we have $k=5$. For $\gcd(10,k)=10$, we have $k=0$. Thus, the elements are $(3,0),(3,5),(9,0)$ and $(9,5)$.\\
+\paragraph{Finite Abelian Groups}
+\begin{enumerate}
+	\item Finite abelian groups are finitely generated.
+	\item Number of abelian groups of order $n = p_1^{r_1}p_2^{r_2}\dots p_k^{r_k}$ is $\prod_k B(r_k)$.
+	\item Order of an abelian group $G$ is square free, then $G$ is cyclic.
+	\item Order of an element in a cyclic group\\
+	Let $m \in \mathbb{Z}_n$.
+	Then it has order $$o(m) = \frac{n}{\gcd(n,m)}$$
+	\item Order of an element in a product of Cyclic groups\\
+	Let $(g_1,g_2,\dots,g_k) \in G_1 \times G_2 \times \dots \times G_k$. Then 
+	$$o(g_1,g_2,\dots,g_k) = lcm(o(g_1),o(g_2),\dots,o(g_k))$$
+	\item Enumerating the elements of same order in a finite abelian group.
+	\subitem Enumerate elements of order $4$ in $\mathbb{Z}_{12} \times \mathbb{Z}_{10}$ ? 
 
-	In other words, $\phi(4)\phi(2)+\phi(4)\phi(1)=4$ elements of order four in $\mathbb{Z}_{12} \times \mathbb{Z}_{10}$.\\
+	Let $(g,h) \in \mathbb{Z}_{12} \times \mathbb{Z}_{10}$ has order $o(g,h)= 4 \iff o(g)=4,\ o(h) = 1 \text{ or } 2$. Clearly, an element $k \in \mathbb{Z}_{12}$ is of order $4$ iff $\frac{12}{\gcd(12,k)}=4$. For $\gcd(12,k)=3$, we have $k = 3$ or $9$. For $\gcd(10,k)=5$, we have $k=5$. For $\gcd(10,k)=10$, we have $k=0$. Thus, the elements are $(3,0),(3,5),(9,0)$ and $(9,5)$.  
+	In other words, $\phi(4)\phi(2)+\phi(4)\phi(1)=4$ elements of order four in $\mathbb{Z}_{12} \times \mathbb{Z}_{10}$.
+	\subitem Enumerate elements of order $9$ in $\mathbb{Z}_{12} \times \mathbb{Z}_{18} \times \mathbb{Z}_{27}$?
 
-	To enumerate elements of order $9$ in $\mathbb{Z}_{12} \times \mathbb{Z}_{18} \times \mathbb{Z}_{27}$, being cyclic there are $\phi(1),\phi(3),\phi(9)$ elements of order $1,3,9$ (if any). There are $3 \times 9 \times 9$ elements out of which precisely $3 \times 3 \times 3$ of them are of order less than $9$. Thus $216$ elements of order $9$.
+	There are $\phi(1),\phi(3),\phi(9)$ elements of order $1,3,9$ respectively(if any\footnote{We know that, $\mathbb{Z}_{12}$ don't have any element of order $9$.}).
+	There are $1+2+6$ elements of order either $1,3$ or $9$ in both $\mathbb{Z}_{18}$ and $\mathbb{Z}_{27}$.
+	There are $3 \times 9 \times 9$ elements out of which precisely $3 \times 3 \times 3$ of them are of order either $1$ or $3$.
+	Thus, there are $216$ elements of order $9$.
+	\item Let $g \in \mathbb{Z}_n$ with $o(g) = m$ where $n=p_1^{r_1}p_2^{r_2}\dots p_k^{r_k}$ and $m = p_1^{s_1}p_2^{s_2}\dots p_k^{s_k}$ such that $0 \le s_j \le r_j$.
+	Then $g = (g_1,g_2,\dots,g_k) \in \mathbb{Z}_{p_1^{r_1}} \times \mathbb{Z}_{p_2^{r_2}} \times \dots \mathbb{Z}_{p_k^{r_k}}$ with $o(g_j) = s_j$.
+		For example, $o(15) = 12$ in $\mathbb{Z}_{36}$. The isomorphism $\phi : \mathbb{Z}_{36} \to \mathbb{Z}_4 \times \mathbb{Z}_9$ where $\phi(a) = (a\pmod{4},a\pmod{9})$.
+	Clearly $15 \to (3,6)$. And $o(3) = 4$ and $o(6)=3$.
+	\item Let $(g,h) \in \mathbb{Z}_{p^{r_1}} \times \mathbb{Z}_{p^{r_2}}$ with $o(g,h) = p^{r_3}$ where $r_1 \ge r_2$. Then, $(\mathbb{Z}_{p^{r_1}} \times \mathbb{Z}_{p^{r_2}})/\entity{(g,h)} \cong $
+		\subitem $\mathbb{Z}_{p^{r_1}} \times \mathbb{Z}_{p^{r_2-r_3}}$ when $o(h) = o(g,h)$.
+		\subitem $\mathbb{Z}_{p^{r_1-r_3}} \times \mathbb{Z}_{p^{r_2}}$ when $o(h) < o(g,h)$.
 
-\paragraph{$\mathbb{Z}_n^\times$}
+		For example, $(\mathbb{Z}_8 \times \mathbb{Z}_4)/\entity{(2,1)} \cong \mathbb{Z}_8$ and $(\mathbb{Z}_8 \times \mathbb{Z}_4)/\entity{(2,2)} \cong \mathbb{Z}_2 \times \mathbb{Z}_4$.
+	\item Order of an element in $S_n$
+		Let $\sigma \in S_n$ be a permutation with structure $1^{n_1}2^{n_2}\dots r^{n_r}$.
+		Then $o(\sigma) = lcm(\{k : n_k \ge 1 \})$.
+		Order of an element in $A_n$ can be found using the same rule as above. Parity of permutation is the parity of $\sum (j-1)n_j$.\\
+		Maximum order of an element in $A_{10}$ is $3 \times 7 = 21$. And maximum order of an element in $S_{10}$ is $2 \times 3 \times 5 = 30$ where $2^13^15^1$ is an odd permutation, $\because (1+2+4)$.
+		\subitem $A_7$ has a element of order $6$ with structure $2^2 3^1$, since $2+2 = 4$ is even parity.
+	\item Maximal abelian subgroup of $S_n$\\
+		$S_{10}$ has maximal abelian subgroup of order $36$ which is isomorphic to $\mathbb{Z}_6 \times \mathbb{Z}_6$ and is generated by $\{ (1,2),(3,4,5),(6,7),(8,9,10)\}$. It is abelian as the cycles are disjoint.
+	\item \textcolor{red}{Direct product form of the multiplicative group of units, $\mathbb{Z}_n^\times$}\\
 	$\mathbb{Z}_{10}^\times=\{1,3,7,9\}$ and $\phi(10)=\phi(2)\phi(5)=4$.
 		And $\mathbb{Z}_{10}^\times \cong \mathbb{Z}_4$ as $\entity{3} = \mathbb{Z}_{10}^\times$.
-		$$\mathbb{Z}_{st}^\times \cong \mathbb{Z}_s^\times \times \mathbb{Z}_t^\times \iff \gcd(st) = 1$$
+		$$\mathbb{Z}_{mn}^\times \cong \mathbb{Z}_m^\times \times \mathbb{Z}_n^\times \iff \gcd(m,n) = 1$$
 		$$\forall n \in \mathbb{N},\ \mathbb{Z}_{2^{n+2}}^\times \cong \mathbb{Z}_2 \times \mathbb{Z}_{2^n}$$
 		$$\forall p > 2,\ \forall n \in \mathbb{N},\ \mathbb{Z}_{p^n}^\times \cong \mathbb{Z}_{p^n-p^{n-1}}$$
 
 		Thus, $\mathbb{Z}_4^\times = \mathbb{Z}_2,\ \mathbb{Z}_8^\times = \mathbb{Z}_2 \times \mathbb{Z}_2,\ \mathbb{Z}_{16}^\times \cong \mathbb{Z}_2 \times \mathbb{Z}_4,\ \dots$
 		Clearly, $\phi(40) = \phi(8)\phi(5)$ and $\mathbb{Z}_{40}^\times \cong (\mathbb{Z}_2 \times \mathbb{Z}_2) \times \mathbb{Z}_4$.
 		And $\mathbb{Z}_{1000}^\times \cong \mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_{100}$.
-
-\paragraph{Order of an element in a direct product}
-	What is the order of $(\mathbb{Z}_{12} \times \mathbb{Z}_{30})/\entity{(g,h)}$ where $o(g) = 6$ and $o(h)=10$ ?\\
-		$\mathbb{Z}_{12} \times \mathbb{Z}_{30} \cong (\mathbb{Z}_{2^2} \times \mathbb{Z}_3) \times (\mathbb{Z}_2 \times \mathbb{Z}_3 \times \mathbb{Z}_5)$ and $g = (g_1,g_2)$ where $o(g_1) = 2$ and $o(g_2)=3$. Similarly, $h = (h_1,h_2,h_3)$ where $o(h_1)=2$, $o(h_2)=1$ and $o(h_3) = 5$.
-		$$ (\mathbb{Z}_4 \times \mathbb{Z}_3) \times (\mathbb{Z}_2 \times \mathbb{Z}_3 \times \mathbb{Z}_5)/\entity{(g_1,g_2,h_1,h_2,h_3)} \cong \mathbb{Z}_4 \times \mathbb{Z}_1 \times \mathbb{Z}_1 \times \mathbb{Z}_3 \times \mathbb{Z}_1 \cong \mathbb{Z}_4 \times \mathbb{Z}_3$$
-		since $(\mathbb{Z}_4 \times \mathbb{Z}_2) /\entity{(g_1,h_1)} \cong \mathbb{Z}_4$.
-
-\paragraph{Finitely Generated Groups}
-\begin{enumerate}
-	\item The dihedral group $D_n$ has $\phi(d)$ elements of order $d$ for every divisor $d$ of $n$, except $d=2$. There are either $n$ or $n+1$ elements of order two.
-	The center of the dihedral group $Z(D_n)$ is trivial when $n$ is odd.
-	$Z(D_n) = \{ 0,R_{180}\} \cong Z_2$ if $n$ is even.
-	The number of subgroup of $D_n = \tau(n)+\sigma(n)$.
-	\item The center of a symmetric group $Z(S_n)$ is trivial for $n \ge 3$.
-	\item The center of an alternating group $Z(A_n)$ is trivial for $n \ge 4$.
 \end{enumerate}
 
+
+\paragraph{Structure of a Permutation}
 \begin{definition}
 	The \textbf{structure} of a permuation $\sigma \in S_n$ is $1^{n_1} 2^{n_2} \dots r^{n_r}$ where $n_j$ is the number of cycles of length $j$.
 \end{definition}
@@ -548,47 +616,6 @@ $$ \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 3 & 5 & 2 & 4 & 1 & 7 & 6 \end{p
 
 	%To enumerate elements of order $12$ in $S_7 \times D_4 \times A_5 \times Z_{30}$.
 
-\paragraph{Non-abelian Groups}
-	There are a few classes of non-abelian groups which has every proper subgroup abelian : 
-	1) every nonabelian group of order $pq$ where $p|q$, and
-	2) two non-abelian groups of order $p^3$.
-
-\begin{enumerate}
-	\item $o(a)=o(a^{-1})$
-	\begin{proof}
-		$a^n = e \iff (a^{-1})^n a^n = (a^{-1})^n \iff e = (a^{-1})^n$
-	\end{proof}
-	\item $o(xax^{-1}) = o(a) = o(x^{-1}ax)$
-	\begin{proof}
-		$(xax^{-1})^n = e \iff  xa^nx^{-1} = e \iff a^n = x^{-1}x \iff a^n = e$
-	\end{proof}
-	\item $o(ab) = o(ba)$
-	\begin{proof}
-		$(ab)^n = e \iff b(ab)^nb^{-1} = e \iff (ba)^n = e$
-	\end{proof}
-\end{enumerate}
-
-\begin{enumerate}
-	\item $\forall a \in G,\ a^{-1} = a \implies G$ is abelian.
-	\begin{proof}
-		$ab = a^{-1}b^{-1} = (ba)^{-1} = ba$
-	\end{proof}
-	\item $\forall a,b \in G,\ (ab)^2 = a^2b^2 \iff G$ is abelian.
-	\begin{proof}
-		$abab = aabb \iff bab = abb \iff ba = ab$
-	\end{proof}
-	\item $\forall a,b \in G,\ (ab)^{-1} = a^{-1}b^{-1} \iff G$ is abelian
-	\begin{proof}
-		$(ab)^{-1} = a^{-1}b^{-1} \iff (ab)^{-1} = (ba)^{-1} \iff ab = ba$
-	\end{proof}
-	\item Group $G$ has precisely one element $g$ of order two, then $g$ commutes with every element of $G$.
-	\begin{proof}
-		Let $x \in G$.
-		$o(xgx^{-1}) = o(g) = 2 \implies xgx^{-1} = g \implies xg = gx$
-	\end{proof}
-\end{enumerate}
-
-\paragraph{Additional Structures}
 \begin{definition}
 	The set of all elements of an abelian group $G$ of finite order forms a normal subgroup called \textbf{torsion} subgroup of $G$.
 \end{definition}
@@ -597,12 +624,13 @@ $$ \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 3 & 5 & 2 & 4 & 1 & 7 & 6 \end{p
 	A \textbf{torsion free} group has only one element of finite order in it.
 \end{definition}
 
+\paragraph{Torsion and Torsion Free Groups}
 \begin{enumerate}
 	\item The torsion subgroup of $\mathbb{C}^\ast$ is the set of all roots of unity.
 	The cyclic group generated by $z$ where $|z| \ne 1$ is a torsion free subgroup of $\mathbb{C}^\ast$.
 	The cyclic group generated by $e^{2 \pi i x},\ x \in \mathbb{R}-\mathbb{Q}$ is a torsion free subgroup of the unit circle.
 	\item Any finite group is a torsion group. The subgroups and quotient groups of any torsion group is also a torsion group. 
-	\item Every infinite group has a nontrivial torsion freee subgroup. The subgroups of a torsion free group is always torsion free.
+	\item Every infinite group has a nontrivial torsion free subgroup. The subgroups of a torsion free group is always torsion free.
 	\item Let $T$ be the torsion subgroup of an abelian group $G$. Then the quotient group $G/T$ is torsion free.\\
 
 	The group $\mathbb{Q}^\ast$ has only two elements of finite order, say $1$ and $-1$.
@@ -612,45 +640,375 @@ $$ \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 3 & 5 & 2 & 4 & 1 & 7 & 6 \end{p
 	\item Suppose normal subgroup $H$ contains the torsion subgroup of a group $G$. Then $G/H$ is torsion free.
 	Thus $\mathbb{C}^\ast/U \cong \mathbb{R}^+$ is torsion free.
 	\item There is no bound for the order of elements in this torsion group.
-		The quotient group $\mathbb{Q}/\mathbb{Z} \cong \mathbb{Q}_1$ is a torsion group since every rational number $0 \le p/q < 1$ is of the finite order $q$. And $\mathbb{Q}_\pi$ is torsion free.
+		\subitem $\mathbb{Q}/\mathbb{Z} \cong \mathbb{Q}_1$ is a torsion group and $o(p/q+\mathbb{Z}) = q$.
+		\subitem $\mathbb{Q}_\pi$ is torsion free.
+\end{enumerate}
+
+%Fraleigh Part III, Chapters 13-17 
+\subsection{Homomorphisms \& Factor Groups}
+%Also contains Group Action and its Applications
+\begin{definition}
+	Let $\phi : G \to G'$ be a homomorphism.
+	Then $\phi[G]$ is the range of $\phi$.
+\end{definition}
+	Compositions of group homomorphisms is again a group homomorphism.
+
+\begin{definition}
+	Let $\phi : G \to G'$ be a group homomorphism.
+	Then, the \textbf{kernel} of $\phi$, 
+	$$ \ker(\phi) = \phi^{-1}[e'] = \{ g \in G : \phi(g) = e' \} $$
+\end{definition}
+
+\paragraph{Properties of Homomorphisms}
+Let $\phi : G \to G'$.
+\begin{enumerate}
+	\item $\phi(e) = e'$.
+	\item $\phi(a^{-1}) = \phi(a)^{-1}$.
+	\item $H \le G \implies \phi[H] \le \phi[G] \le G'$.
+	\item $K' \le \phi[G] \implies \phi^{-1}[K'] \le G$.
+	\item Let $N = \ker(\phi)$. Then $\phi^{-1}(\phi(a)) = aN$. And $\phi$ is injective iff $N$ is trivial.
+	\item Let $\phi : G \to G'$ with $\ker(\phi)=N$.
+		\subitem Rule for Kernel : $G/N \cong \phi[G] \implies o(G)/o(N) = o(\phi[G]) \implies o(G) | o(N)o(G')$
+		\subitem Rule for Generators : $(gh)^n = e \implies \phi(gh^n) = e' \implies o(\phi(g) \phi(h))|o(G)$,
+	\item $T : \mathbb{Z}_8 \to \mathbb{Z}_{12}$ where $T(x)=4x$ is not a homomorphism (by Rule of generators).
+		\subitem \textcolor{red}{Number of surjection homomorphisms $\phi : \mathbb{Z}_n \to \mathbb{Z}_m$ is $\phi(m)$ where $m|n$.}
+	\item Given $G,G'$ and normal subgroup $N$. The homomorphism $\phi : G \to G'$ with $\ker(\phi)=N$ exists only if $o(G)/o(N) < o(G')$. (Rule of Kernel)\\
+	proof : $\not\!\exists \phi : S_4 \to S_3$ with $\ker(\phi) = \mathbb{Z}_2$ as $S_4/\mathbb{Z}_2$ is too big to be a subgroup of $S_3$.
+	\item If $\phi : G \to G'$ is surjective and $G$ is cyclic(abelian), then $G'$ is cyclic(abelian).
+	\item If $\phi : G \to G'$ is injective, then $G \cong \phi[G] \le G'$.
+		\subitem There does not exists an injective homomorphism, $\phi : S_n \to \mathbb{C}^\ast$ as $\phi : S_n \to \phi[S_n]$ where $\phi[S_n] \le \mathbb{C}^ast$ is an isomorphism. However, subgroups of $\mathbb{C}^\ast$ is abelian.
+	\item $\phi : G \to G$ where $\phi(x)=x^m$ is an automorphism iff $\gcd(m,n) = 1$.
+\end{enumerate}
+
+\begin{definition}
+	Let $H \le G$. $H$ is \textbf{normal} in $G$ if $gH = Hg$ for every element $g \in G$.
+\end{definition}
+\begin{definition}
+	Let $H \le G$. $H$ is a \textbf{characteristic subgroup} if $\phi[H] \subset H$ for every automorphism $\phi$ on $G$.
+\end{definition}
+\begin{enumerate}
+	\item Intersection of normal subgroups are again normal.
+	\item For every subset $S$ of a group $G$, there exists a minimal normal subgroup of $G$ containing $S$.
+	\item Subgroup of index two is normal (if exists).
+	\item Subgroups of the center $Z(G)$ are normal.\\
+		$H = \{ I_3,2I_3,4I_3 \} \trianglelefteq GL(3,F_{11})$ as $H \le Z(GL(3,F_{11})) = \{ aI_3 : a \in F^\ast_{11} \}$
+	\item \textcolor{red}{$\forall k|n,\ \{ m \in \mathbb{Z}_n^\times : m \cong 1 \pmod{k} \} \trianglelefteq \mathbb{Z}_n^\times$}\\
+		$\{ 1,7,13,19 \} \trianglelefteq \mathbb{Z}_{30}^\times$ where $k = 6$.
+		%$U_k(n) \cong \{ m \in \mathbb{Z}_n^\times : m \cong 1 \pmod{k} \} $ where $k|n$ in AIM Notes
+	\item \textcolor{red}{Characteristic subgroups are normal.}
+	\item Let $\phi : G \to G'$ be a homomorphism. Then $\ker(\phi) = N$ is normal subgroup of $G$.
+	\item Let $\phi : G \to G'$.  If $N \trianglelefteq G$, then $\phi[N] \trianglelefteq \phi[G]$.  If $N' \trianglelefteq G'$, then $\phi^{-1}(N') \trianglelefteq G$.
+	\item Intermediate subgroup condition : Let $K \le H \le G$ and $K \trianglelefteq G$ then $K \trianglelefteq H$.
+	\item Let $K \le H \le G$. If $H,K$ are normal subgroups of $G$, then $G/H \trianglelefteq G/K$.
+	\item $K \trianglelefteq H \trianglelefteq G \nimplies K \trianglelefteq G$
+		\begin{proof}
+			$D_5 \trianglelefteq D_{10} \trianglelefteq D_{20}$. But $D_5 \not\trianglelefteq D_{20}$.
+		\end{proof}
+	\item Let $H \le G$ and $N \trianglelefteq G$. Then $HN = \{ hn : h \in H, n \in N\}$ is the smallest subgroup of $G$ containing both $N$ and $H$.
+	\item Let $H,K$ be normal subgroups of $G$, then $HK$ is normal in $G$.
+	\item Let $H,K$ be normal subgroups of $G$ such that $H \cap K = \{ e \}$. Then $hk = kh$.
+	\item $Z(G) \trianglelefteq G$ and $Z(G/Z(G)) \trianglelefteq G/Z(G)$.
+	\item Let $\gamma : G \to G/Z(G),\ \gamma(g) = gZ(G)$. Then $\gamma^{-1}(Z(G/Z(G))) \trianglelefteq G$.
+\end{enumerate}
+
+\begin{definition}
+	Let $N$ be a normal subgroup of $G$.
+	The \textbf{quotient group} $G/N$ is the set of all left cosets of $N$ with binary operation $g_1N \ast g_2N = (g_1g_2)N$.
+\end{definition}
+
+\begin{theorem}
+	Let $N \trianglelefteq G$. $\gamma : G \to G/N$ where $\gamma(g) = gN$ is canonical homomorphism with $\ker(\gamma)=N$.
+\end{theorem}
+
+\begin{theorem}
+	Let $\phi : G \to G'$ be a homomorphism with $\ker(\phi)=N$. Then there exists a canonical homomorphism $\gamma : G \to G/N$ where $\gamma(g) = gN$ such that $G/N \cong \phi[G]$.
+\end{theorem}
+
+\begin{theorem}
+	Let $G,G'$ be groups with normal subgroups $H,H'$. Let $\phi : G \to G'$ be a homomorphism with $\phi[H] \le H'$.
+	Then there exists an induced canonical homomorphism $\phi_\ast : G/H \to G'/H'$ where $\phi_\ast(gH) = \phi(g)H'$.
+\end{theorem}
+
+\begin{definition}
+	The map $x \to gxg^{-1}$ is the \textbf{inner automorphism} of $G$ by $g$.
+\end{definition}
+\begin{enumerate}
+	\item The set of all inner automorphisms on $G$ is a group, say $Inn(G)$.
+	\item \textcolor{red}{$Inn(G) \cong G/Z(G)$.}
+	\item $Inn(G) \trianglelefteq Aut(G)$.
+	\item Let $G$ be a finite cyclic group of order $n$. Then $Aut(G) \cong \mathbb{Z}_n^\times$.
+		\subitem $Aut(V) \cong S_3$.
+		\subitem $Aut(Q_8) \cong S_4$.
+		\subitem $Aut(F \times F \times \dots F) \cong GL(n,F)$.
+		\subitem $Aut(A_n) \cong Aut(S_n) \cong S_n$, $n \ne 6,\ n > 2$
+		\subitem $Aut(A_6) \cong Aut(S_6) \cong S_6 \rtimes Z_2$
+	\item Outer automorphism group is the quotient group, $Out(G) \cong Aut(G)/Inn(G)$.
+	\item A group $G$ is complete if both center $Z(G)$ and outer automorphism group $Out(G)$ are trivial.
+		\subitem $S_n$ is complete, $n \ge 3,\ n \ne 6$.
+		\subitem If $G$ is a nonabelian simple group, then $Aut(G)$ is complete.
+	\item $G \cong Aut(G) \nimplies G$ is complete.
+	\begin{proof}
+		$D_4 \cong Aut(D_4)$, $D_4$ is not complete.
+	\end{proof}
+\end{enumerate}
+
+\begin{definition}
+	The \textbf{conjugacy class} of $x$, $Cl(x) = \{ gxg^{-1} : g \in G\}$.
+\end{definition}
+
+\begin{definition}
+	Let $H,K \le G$. The subgroups are conjugates if $\exists g \in G,\ K=i_g[H]$.
+\end{definition}
+\begin{enumerate}
+	\item Conjugacy is an equivalence relation on the set of all subgroups of $G$.
+	\item Normal subgroups are alone in their conjugacy equivalence class.
+\end{enumerate}
+
+\begin{definition}
+	A group $G$ is simple if it does not have a proper, nontrivial, normal subgroup.
+\end{definition}
+
+\begin{enumerate}
+	\item $M$ is a maximal normal subgroup of $G$ iff $G/M$ is simple.
+	\item Abelian simple groups are cyclic groups of prime order, say $\mathbb{Z}_p$.
+	\item $G/Z(G)$ is cyclic iff $G$ is abelian.
+	\begin{proof}
+		Let $gZ(G)$ be a generator of $G/Z(G)$. Let $g_1,g_2 \in G$. Then $g_1 = g^{n_1}z_1$ and $g_2 = g^{n_2}z_2$ where $z_1,z_2 \in Z(G)$.
+		Thus, $g_1g_2 = g_2g_1$. Therefore, $G$ is abelian.
+		If $G$ is abelian, then $Z(G) \cong G$ and $G/Z(G)$ is trivial, thus cyclic.
+	\end{proof}
+\end{enumerate}
+
+\begin{definition}
+	An element $g \in G$ is a \textbf{commutator} if $g=aba^{-1}b^{-1}$ for some $a,b \in G$.
+\end{definition}
+\begin{enumerate}
+	\item The set of all commutators in a group $G$ is a subgroup of $G$, say \textbf{commutator subgroup} $C$.
+	\item Commutator subgroup $C$ is the smallest normal subgroup of $G$ such that $G/C$ is abelian.
+	\item Let $N \trianglelefteq G$. $G/N$ is abelian iff $C \le N$.
+	\item Commutator subgroup of a simple group is either trivial(abelian) or the whole group(nonabelian).
+	\item Commutator subgroup of $S_n$ is $A_n$.
+\end{enumerate}
+\begin{definition}
+	A group is \textbf{perfect} if the commutator subgroup is the whole group.
+\end{definition}
+\begin{enumerate}
+	\item Any nonabelian, simple group is perfect. 
+	\item Direct product of nonabelian simple groups in perfect but not simple.
+	\item $SL(2,F_5)$ is a perfect group which is not simple.
+\end{enumerate}
+
+\begin{definition}
+	An \textbf{action} of group $G$ on a set $X$ is a function $\ast : G \times X \to X$ where
+	\begin{enumerate}
+		\item $\forall x \in X,\ ex = x$
+		\item $\forall x \in X,\ \forall g_1,g_2 \in G,\ (g_1g_2)x = g_1(g_2x)$
+	\end{enumerate}
+\end{definition}
+	The set $X$ is $G$-set if $G$ acts on $X$.
+	Let $S \subset G$ such that $\forall s \in S,\ Gs \subset S$. Then $S$ is a sub $G$-set.
+
+\begin{theorem}
+	Let $X$ be a $G$-set.
+	Then $\phi : G \to S_X$ where $\phi(g) = \sigma_g,\ \sigma_g(x) = gx$ is the group action induced homomorphism.
+	% with $\ker(\phi) = ?$.
+\end{theorem}
+
+\begin{enumerate}
+	\item $\phi$ is the permutation representation of $G$ induced by the group action of $G$ on $X$.
+	\item Group action is \textbf{faithful} if $e \in G$ is the only element that fixes every $x \in X$.
+		\subitem For a faithful group action, the kernel of the induced homomorphism is trivial.
+	\item Group action is \textbf{transitive} if $\forall x_1,x_2 \in X,\ \exists g \in G,\ gx_1 = x_2$.
+	\item Every group $G$ is a $G$-set where the action is both faithful and transitive. 
+	\item Let $H \le G$. 
+		\subitem Conjugation is an action of $G$ on $H$, say $(g,h) \to ghg^{-1}$. 
+		\subitem Left multiplication is an action of $G$ on $H$, say $(g,h) \to gh$. 
+	\item Let $H \le G$ and $L_H$ be the set of left cosets of $H$. 
+		\subitem $L_H$ is a $G$-set under conjugation, say $(g,aH) \to g(aH)g^{-1}$.
+	\item Let $V(F)$ be a vector space. Then $V$ is an $F^\ast$-set.
+	\item Disjoint union of $G$-sets is also a $G$-set.
+	\item $G_x$ is the \textbf{isotropy subgroup} of $G$ containing all elements that fix $x$.
+	\item $X_g$ is the subset of $X$ fixed by $g \in G$.
+	\item The relation $x_1 \sim_g x_2 \iff gx_1=x_2$ is an equivalence relation on $X$.
+	\item The equivalence classes of the above relation, $Gx$ is the \textbf{orbit} of $x$ in a $G$-set $X$, 
+	\item Orbit Stabiliser theorem : $|Gx| = (G:G_x)$
+	\item Burnside's Formula, $r |G| = \sum_{g \in G}|X_g|$
+\end{enumerate}
+
+\subsection*{Important Notions}
+\paragraph{Group Homomorphisms}
+\begin{enumerate}
+	\item $\phi : S_n \to \mathbb{Z}_2$ where $\phi(\sigma) = 1$ if the $\sigma$ is an odd permutation and $\phi(\sigma) = 2$ otherwise. Then $\ker(\phi)=A_n$.
+	\item Evaluation Homomorphism, $\phi_c : F \to \mathbb{R}$ where $\phi_c(f) = f(c)$ where $F$ is the additive group of all functions $f : \mathbb{R} \to \mathbb{R}$.
+	\item $\phi : \mathbb{R}^n \to \mathbb{R}^m$ where $\phi(v) = Av,\ A \in M_{m \times n}(\mathbb{R})$.
+	\item The trace, $tr : M_n(\mathbb{R}) \to \mathbb{R}$.
+	\item The trace, $tr : M(n,F) \to F$. Then $\ker(tr)$ is $n^2-1$ dimensional over $F$.
+	\item Determinant $\det : GL(n,\mathbb{R}) \to \mathbb{R}^\ast$ where $\det(A)=|A|$ with $\ker(\det) = SL(n,\mathbb{R})$ and $\det[GL(n,\mathbb{R})] \cong \mathbb{R}^\ast$.
+	\item Determinant $\det : GL(n,F_q) \to F_q^\ast$ where $\det(A)=|A|$ with $\ker(\det) = SL(n,F_q)$ and $\det[GL(n,F_q)] \cong F_q^\ast$.
+	$$|GL(n,F_q)| = \prod_{r=0}^{n-1} (q^n-q^r)$$
+	$$|SL(n,F_q)| = \frac{|GL(n,F_q)|}{q-1} \text{ since } GL(n,F_q)/SL(n,F_q) \cong F_q^\ast$$
+	\item $\phi : \mathbb{Z}_n^\times \to \mathbb{Z}_k^\times$ with $\ker(\phi) = \{ m \in \mathbb{Z}_n^\times : m \cong 1 \pmod{k} \}$.
+	\item $\phi_r : \mathbb{Z} \to \mathbb{Z}$ where $\phi_r(n) = rn$. $\phi_0$ is trivial, $\phi_1$ is identity, $\phi_{-1}$ is surjective.
+	\item Projection map $\pi_i : \prod G_j \to G_i$ where $\pi_i(g_1,g_2,\dots,g_n) = g_i$.
+	\item $\sigma : F \to \mathbb{R}$ where $\sigma(f) = \int_0^1 f(x)\ dx$ and $F$ is the additive group of all continuous functions $f : [0,1] \to \mathbb{R}$.
+	\item $\gamma : \mathbb{Z} \to \mathbb{Z}_n$ where $\gamma(m) = r,\ m =qn+r,\ 0 \le r < n$.
+	\item $\phi : \mathbb{C}^\ast \to \mathbb{R}^\ast$ where $\phi(z) = |z|$.
+	Left cosets $aN$ are circles of radius $a$ about origin.
+	\item Let $D$ be the set of all differentiable function. Define $\phi : D \to F$ where $\phi(f) = f'$.
+	Left cosets $fN$ are $f(x)+C$.
+	\item $\phi : \mathbb{Z} \to \mathbb{R}$ where $\phi(n) = n$.
+	\item $\phi : \mathbb{R} \to \mathbb{Z}$ where $\phi(x) = [x]$ with $\ker(\phi)=[0,1)$.
+	\item $\phi : \mathbb{R}^\ast \to \mathbb{R}^\ast$ where $\phi(x) = |x|$ with $\ker(\phi) = \{1,-1\} \cong \mathbb{Z}_2$.
+	\item $\phi : \mathbb{Z}_6 \to \mathbb{Z}_2$ where $\phi(n) \cong n \pmod{2}$ with $\ker(\phi)=\{0,2,4\} \cong \mathbb{Z}_3$.
+	\item $\phi : \mathbb{R} \to \mathbb{R}^\ast$ where $\phi(x) = 2^x$ with $\ker(\phi) = \{0\}$.
+	\item Injection map, $\phi_i : G_i \to \prod G_j$ where $\phi_i(g)=(e_1,e_2,\dots,ge_i,\dots,e_n)$ with $\ker(\phi)=\{e_i\}$.
+	\item $\phi : G \to G$ where $\phi(g) = g^{-1}$ with $\ker(\phi)=\{e\}$.
+	\item $\phi : F \to F$ where $\phi(f) = f^{\prime\prime}$ where $F$ is the set of all functions $f$ having derivatives of all orders with $\ker(\phi)=\{ax+b : a,b \in \mathbb{R}\}$.
+	\item $\phi : F \to F$ where $\phi(f) = \int_0^4 f(x)\ dx$ where $F$ is the set of all continuous functions $f : \mathbb{R} \to \mathbb{R}$.
+	\item $\phi : F \to F$ where $\phi(f) = 3f$ with $\ker(\phi)=\{0\}$.
+	\item $\phi : F \to \mathbb{R}^\ast$ wherer $\phi(f) = \int_0^1 f(x)\ dx$ where $F$ is the multiplicative group of continuous functions $f : \mathbb{R} \to \mathbb{R}$ such that $f(x) \ne 0$.
+	\item $\phi : \mathbb{Z} \to \mathbb{Z}_7$ where $\phi(1) = 4$ with $\ker(\phi) = 7\mathbb{Z}$.
+	\item $\phi : \mathbb{Z} \to \mathbb{Z}_{10}$ where $\phi(1) = 6$ with $\ker(\phi) = 5\mathbb{Z}$.
+	\item $\phi : \mathbb{Z} \to S_8$ where $\phi(1) = (1,4,2,6)(2,5,7)$ with $\ker(\phi) = 12\mathbb{Z}$.
+	\item $\phi : \mathbb{Z}_{10} \to \mathbb{Z}_{20}$ where $\phi(1) = 8$ with $\ker(\phi) = \{0,5\} \cong \mathbb{Z}_2$.
+	\item $\phi : \mathbb{Z}_{24} \to S_8$ where $\phi(1) = (1,4,6,7)(2,5)$ with $\ker(\phi) = \{0,4,8,12,16,20\} \cong \mathbb{Z}_6$.
+	\item $\phi : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ where $\phi(1,0)=3$, $\phi(0,1)=-5$ with $\ker(\phi)=\entity{(5,3)} \cong \mathbb{Z}$.
+	\item $\phi : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z} \times \mathbb{Z}$ where $\phi(1,0)=(2,-3)$ and $\phi(0,1) = (-1,5)$ with $\ker(\phi) = \{ (0,0) \}$.
+	\item $\phi : \mathbb{Z} \times \mathbb{Z} \to S_{10}$ where $\phi(1,0) = (3,5)(2,4)$ and $\phi(0,1) = (1,7)(6,10,8,9)$ with $\ker(\phi)= \entity{(2,4)} \cong \mathbb{Z}$.
+	 %Remember : $2\mathbb{Z} \times 4\mathbb{Z} \not\cong \entity{(2,4)} \cong \mathbb{Z}$
+	\item $\phi : \mathbb{Z}_{12} \to \mathbb{Z}_5$ where $\phi(1)=0$ with $\ker{\phi}=\mathbb{Z}_{12}$.
+	\item $\phi : \mathbb{Z}_{12} \to \mathbb{Z}_4$ where
+		\subitem $\phi(1)=0$ with $\ker(\phi)=\mathbb{Z}_{12}$
+		\subitem $\phi(1)=1$ with $\ker(\phi)=\{0,4,8\} \cong \mathbb{Z}_3$
+		\subitem $\phi(1)=2$ with $\ker(\phi)=\{ 0,6 \} \cong \mathbb{Z}_2$
+		\subitem $\phi(1)=3$ with $\ker(\phi)=\{ 0,4,8\} \cong \mathbb{Z}_3$
+	\item $\phi : \mathbb{Z}_2 \times \mathbb{Z}_4 \to \mathbb{Z}_2 \times \mathbb{Z}_5$ where
+		\subitem $\phi(1,0) = (0,0) ,\ \phi(0,1) = (0,0)$ with $\ker(\phi) = \mathbb{Z}_2 \times \mathbb{Z}_4$
+		\subitem $\phi(1,0) = (1,0) ,\ \phi(0,1) = (0,0)$ with $\ker(\phi) = \{ 0 \} \times \mathbb{Z}_4$
+		\subitem $\phi(1,0) = (0,0) ,\ \phi(0,1) = (1,0)$ with $\ker(\phi) = \mathbb{Z}_2 \times \{ 0,2 \} \cong V$
+		\subitem $\phi(1,0) = (1,0) ,\ \phi(0,1) = (1,0)$ with $\ker(\phi) = \{ 0 \} \times \{ 0,2 \}$
+	\item $\phi : \mathbb{Z}_3 \to \mathbb{Z}$ where $\phi(1) = 0$
+	\item $\phi : \mathbb{Z}_3 \to S_3$ where 
+		\subitem $\phi(1) = ()$ with $\ker(\phi) = \mathbb{Z}_3$
+		\subitem $\phi(1) = (1,2,3)$ with $\ker(\phi) = \{ 0 \}$
+		\subitem $\phi(1) = (1,3,2)$ with $\ker(\phi) = \{ 0 \}$
+	\item $\phi : \mathbb{Z} \to S_3$ where $\phi(1) = ()$ with $\ker(\phi) = \mathbb{Z}$.
+	\item $\phi : \mathbb{Z} \times \mathbb{Z} \to 2\mathbb{Z}$ where $\phi(1,0) = 2s ,\ \phi(0,1)= 2t $ with $\ker(\phi) = \{ 0 \},\ s,t \ne 0 $.
+	\item $\phi : 2\mathbb{Z} \to \mathbb{Z} \times \mathbb{Z}$ where $\phi(2) = (s,t)$ with $\ker(\phi)= \{ 0 \},\ s,t \ne 0$.
+	\item $\phi : D_4 \to S_3$ where 
+		\subitem $\phi(R_{90}) =(),\ \phi(\mu) =()$ with $\ker(\phi) = D_4$.
+		\subitem $\phi(R_{90}) =(i,j),\ \phi(\mu) =()$ with $\ker(\phi) = \{ 0,R_{180},\mu, R_{180}\mu \}$.
+		\subitem $\phi(R_{90}) =()$ or $\phi(\mu) =(i,j)$ with $\ker(\phi) = \{ 0,R_{90},R_{180},R_{270} \}$.
+		\subitem $\phi(R_{90}) =(i,j)$ or $\phi(\mu) =(i,j)$ with $\ker(\phi) = \{ 0,R_{90}\mu,R_{180},R_{270}\mu \}$.
+		\subitem $\phi : D_4 \to S_3,\ \ker(\phi) \not\cong \mathbb{Z}_2$ since $S_3$ don't have a subgroup isomorphic to $D_4/\mathbb{Z}_2$
+	\item $\phi : S_3 \to S_4$ where
+		\subitem $\phi(1,2)=(),\ \phi(1,2,3)= () $ with $\ker(\phi) = S_3$.
+		\subitem $\phi(1,2)=(i,j),\ \phi(1,2,3)= () $ with $\ker(\phi) = \{ (),(1,2,3),(1,3,2) \}$.
+		\subitem $\phi(1,2)=(),\ \phi(1,2,3)= (i,j,k) $ with $\ker(\phi) =k \{ (),(1,2) \} $.
+		\subitem $\phi(1,2)=(i,j),\ \phi(1,2,3)= (i,j,k) $ with $\ker(\phi) = \{ () \} $.
+		\subitem $\phi(1,2)=(i,j)(k,l),\ \phi(1,2,3)= () $ with $\ker(\phi) = \{(),(1,2,3),(1,3,2)\} $.
+	\item $\phi : S_4 \to S_3$ where
+		\subitem $\phi(1,2)=(),\ \phi(1,2,3,4)= () $ with $\ker(\phi) = S_4$.
+		\subitem $\phi(1,2)=(i,j),\ \phi(1,2,3,4)= (i,j) $ with $\ker(\phi) = A_4$.
+		\subitem $\phi(1,2)=(i,j),\ \phi(1,2,3,4)= (i,k) $ is surjective with \\$\ker(\phi) = \{ (), (1,3)(2,4), (1,2)(3,4), (1,4)(2,3) \} \cong \mathbb{Z}_2 \times \mathbb{Z}_2 \cong V$.
+\end{enumerate}
+
+\paragraph{Counter Examples}
+\begin{enumerate}
+	\item $\phi : \mathbb{Z}_9 \to \mathbb{Z}_2$ where $\phi(n) \cong n \pmod{2}$. But, $\phi(2+8) \ne \phi(2)+\phi(8)$.
+	\item $\phi : M_n(\mathbb{R}) \to \mathbb{R}$ where $\phi(A) = \det(A)$. However, $\det(A+B) \ne \det(A) + \det(B)$.
+	\item $\phi : GL(n,\mathbb{R}) \to \mathbb{R}^\ast$ where $\phi(A) = tr(A)$. However, $tr(AB) \ne tr(A) tr(B)$.
+	\item $\phi : S_3 \to S_4$ where $\phi(1,2)=(1,2),\ \phi(1,2,3)= (1,3,4)$ is not a homomorphism.\\ Let $\sigma = (1,2)(1,2,3) = (2,3)$, $\phi(\sigma) = \phi(1,2)\phi(1,2,3)=(1,3,4,2)$ and $\phi(\sigma^2) \ne ()$.
+	\item $\phi : S_3 \to S_4$ where $\phi(1,2)=(1,2)(3,4),\ \phi(1,2,3)= (1,2,3)$ is not as well.\\ Let $\sigma = (1,2)(1,2,3) = (2,3)$, $\phi(\sigma) = \phi(1,2)\phi(1,2,3)=(2,4,3)$ and $\phi(\sigma^2) \ne ()$.
+	\item $\phi(1,2)=(i,j),\ \phi(1,2,3,4)= () $.\\
+	Let $\sigma = (2,3,4) = (1,2)(1,2,3,4)$. Then $\phi(\sigma)=(i,j)$ and $\phi(\sigma^3) \ne ()$.
+	\item $\phi(1,2)=(),\ \phi(1,2,3,4)= (1,2)$.\\
+	Let $\sigma = (1,2)(1,2,3,4) = (2,3,4)$. $\phi(\sigma) = (1,2)$ and $\phi(\sigma^3) \ne ()$.
+\end{enumerate}
+
+\paragraph{Special Homomorphisms}
+\begin{enumerate}
+	\item There are  two homomorphisms of $\mathbb{Z}$ onto $\mathbb{Z}$. $\phi_1(n) = n$ and $\phi_2(n) = -n$.
+	%$\phi : \mathbb{Z} \to \mathbb{Z}_2$ where $\phi(n) = n^2 \pmod{3}$ is not well-defined as $1 \in \mathbb{Z}_2 \ne 1 \in \mathbb{Z}_3$.
+	\item There are countably many homomorphisms of $\mathbb{Z}$ into $\mathbb{Z}$. $\phi_r(n) = rn,\ r \in \mathbb{Z}$.
+	\item There is a unique homomorphisms of $\mathbb{Z}$ into $\mathbb{Z}_2$. $\phi(n) \cong n \pmod{2}$.
+	\item $\phi_g : G \to G$ where $\phi_g(x) = gx$ is a homomorphism only when $g = e$.
+	\item $\phi_g : G \to G$ where $\phi_g(x) = gxg^{-1}$ is a homomorphism with $\ker(\phi_g) = \{ e \}$.
+	\item There exists exactly 24 surjective homomorphisms from $S_4$ onto $S_3$. However, the $\ker(\phi) = \mathbb{Z}_2 \times \mathbb{Z}_2$ as it is the only normal subgroup of $S_4$ with order $4$.
+	\item The field $\entity{\left\{\begin{bmatrix} a & -b \\ b & a \end{bmatrix} : a,b \in \mathbb{R} \right\},+,\times} \cong \mathbb{C}$ where $\phi\left(\begin{bmatrix} a & -b \\ b & a \end{bmatrix}\right) = a+ib$.
+\end{enumerate}
+
+\paragraph{Quotient Groups}
+\begin{enumerate}
+	\item $\mathbb{R}/n\mathbb{R} \cong \{ e \}$ where $n\mathbb{R} = \{ nr : r \in \mathbb{R} \}$.
+	\item $S_n/A_n \cong \mathbb{Z}_2$, $n>1$.
+	\item $A_4/V  = \left\{ [V],\ (1,2)[V],\ (1,2,3,4)[V] \right\} \cong \mathbb{Z}_3$.
+	\item $(\mathbb{Z}_4 \times \mathbb{Z}_6)/\entity{(0,1)} \cong \mathbb{Z}_4$.
+	\item $(\mathbb{Z}_4 \times \mathbb{Z}_6)/\entity{(0,2)} \cong \mathbb{Z}_4 \times \mathbb{Z}_2$.
+	\item $(\mathbb{Z}_4 \times \mathbb{Z}_6)/\entity{(2,3)} \cong \mathbb{Z}_4 \times \mathbb{Z}_3$.
+	\item $D_n/\mathbb{Z}_n \cong \mathbb{Z}_2$, $n>2$. And $D_n \cong \mathbb{Z}_n \rtimes \mathbb{Z}_2$.
+	\item \textcolor{red}{$\mathbb{Z}_n^\times/N \cong \mathbb{Z}_k^\times$ where $N = \{ m \in \mathbb{Z}_n^\times : m \cong 1 \pmod{k} \}$.}
+	\item Factor groups of cyclic groups are cyclic. $\mathbb{Z}_n/\mathbb{Z}_d \cong \mathbb{Z}_{n/d}$, $d|n$.
+	\item $F/K \le F$ where $F$ is the additive group of all continuous functions $f : \mathbb{R} \to \mathbb{R}$ and $K$ is the subgroup of all constant functions.
+	\item $F^\ast/K^\ast \le F^\ast$ where $F^\ast$ is the multiplicative group of all continuous functions $f : \mathbb{R} \to \mathbb{R}$ such that $f(x) \ne 0$ and $K^\ast$ is the subgroup of all nonzero constant functions.
+\end{enumerate}
+
+\paragraph{Maximal \textcolor{blue}{Normal} Subgroups}
+\begin{enumerate}
+	\item $S_n$ : \textcolor{blue}{$A_n$}, $n > 5$
+		\subitem $S_4$ : \textcolor{blue}{$A_4,\ \mathbb{Z}_2 \times \mathbb{Z}_2$}
+	\item $A_4$ : \textcolor{blue}{$\mathbb{Z}_2 \times \mathbb{Z}_2$}
+		\subitem $A_n$ is simple, $n > 4$.
+	\item $D_n$ : \textcolor{blue}{$D_{n/2},\ \mathbb{Z}_n$}, $D_d$ where $d|n,\ n>2$.
+		\subitem $D_4$ is the only dihedral group in which $\mathbb{Z}_2 \times \mathbb{Z}_2$ is normal. (index $2$)
 \end{enumerate}
 
 
-
-\paragraph{Semidirect Product}
-\begin{definition}
-	Let $\phi : H \to Aut(N)$ be a group homomorphism where $N,H$ are two group.
-	Then the \textbf{semidirect product} $N \rtimes H$ is defined as the group $\entity{N \rtimes H,\ast}$ where $\ast : (N \times H) \times (N \times H) \to (N \times H)$ such that $(n_1,h_1) \ast (n_2,h_2) = (n_1 \phi_{h_1}(n_2),h_1h_2)$.
-\end{definition}
-
-	The dihedral group, $D_n \cong \mathbb{Z}_n \rtimes \mathbb{Z}_2$.
-
-	Let $G$ be a group with nontrivial subgroups $N,H$ such that $N,H$ are normal and $N \cap H = \{ 1 \}$. Then $G \cong N \times H$.\\
-
-	We can extend the notion direct product as follows.
-	Let $G$ be a group with nontrivial subgroups $N,H$ such that $N$ is normal and $N \cap H = \{ 1 \}$. Then $G \cong N \rtimes H$ except for $G \cong \mathbb{Z}_4$ and $Q_8$.\\
-
-	No simple group $G$ can be expressed as a semidirect product as $G$ does not have a normal subgroup.
-	
-\begin{definition}
-	The \textbf{fundamental group} of a topological space is the group of equivalent classes under homotopy of the loops contained in the space.
-\end{definition}
-
-	The fundamental group of the Klein bottle is $\mathbb{Z} \rtimes \mathbb{Z}$.\\
-
-\paragraph{The converse of Lagrange`s theorem} Finite group $G$ not necessarity have subgroups for each divisor of its order.
-	For example, the alternating group $A_5$ of order $12$ does not have a subgroup of order $6$.
-
-\begin{theorem}
-	If $G/Z(G)$ is cyclic, then $G$ is abelian.
-\end{theorem}
-\begin{proof}
-	Let $gZ(G)$ be a generator of $G/Z(G)$. Let $g_1,g_2 \in G$. Then $g_1 = g^{n_1}z_1$ and $g_2 = g^{n_2}z_2$ where $z_1,z_2 \in Z(G)$.
-	Thus, $g_1g_2 = g_2g_1$. Therefore, $G$ is abelian.
-\end{proof}
-
+\paragraph{Order of Quotient Groups}
 \begin{enumerate}
-	\item If $G$ is non-abelian, then $G/Z(G)$ is not cyclic.
+	\item $\mathbb{Z}_6/\entity{3}$.
+	We have $|H| = o(3) = 6/\gcd(6,3) = 2$ and $|G/H| = |G|/|H| = 6/2 = 3$
+	\item $(\mathbb{Z}_4 \times \mathbb{Z}_{12})/(\entity{2} \times \entity{2})$.
+	We have, $o(2)=4/\gcd(4,2) = 2$ and $o(2) = 12/\gcd(12,2) = 6$. And $|G|/|H| = 48/12 = 4$.
+	\item $(\mathbb{Z}_4 \times \mathbb{Z}_2)/\entity{(2,1)}$.
+	We have, $o(2,1) = lcm(o(2),o(1)) = lcm(2,2) = 2$. And $|G/H| = 8/2 = 4$.
+	\item $(\mathbb{Z}_3 \times \mathbb{Z}_5)/\{0\} \times \mathbb{Z}_5$.
+	Clearly, $|G/H| = 15/5 = 3$.
+	\item $(\mathbb{Z}_2 \times \mathbb{Z}_4)/\entity{(1,1)}$.
+	We have, $o(1,1) = lcm(o(1),o(1)) = lcm(2,4) = 4$. And $|G/H| = 8/4 = 2$.
+	\item $(\mathbb{Z}_{12} \times \mathbb{Z}_{18})/\entity{(4,3)}$.
+	We have $o(4,3) = lcm(o(4),o(3)) = lcm(3,6) = 6$. And $|G/H| = 12 \times 18/6 = 36$.
+	\item $(\mathbb{Z}_2 \times S_3)/\entity{(1,\rho_1)}$ where $\rho_1 = (1,2,3)$.
+	We have $o(1,\rho_1) = lcm(o(1),o(\rho_1)) = lcm(2,3) = 6$. And $|G/H| = 12/6 = 2$.
+	\item $(\mathbb{Z}_{11} \times \mathbb{Z}_{15})/\entity{(1,1)}$.
+	Clearly $o(1,1) = 11 \times 15$. And $|G/G| = 1$.
+\end{enumerate}
+
+\paragraph{Order of an element in the quotient group}
+\begin{enumerate}
+	\item $5+\entity{4} \in \mathbb{Z}_{12}/\entity{4}$.
+	$4 \times 5+\entity{4} = 0+\entity{4}$.
+	\item $26+\entity{12} \in \mathbb{Z}_{60}/\entity{12}$.
+	$6 \times (2+24)+\entity{12} = 0 + \entity{12}$.	
+	\item $(2,1)+\entity{(1,1)} \in (\mathbb{Z}_3 \times \mathbb{Z}_6)/\entity{(1,1)}$.
+	$3 \times [(1,0)+(1,1)+\entity{(1,1)}] = (0,0) + \entity{(1,1)}$.
+	\item $(3,1)+\entity{(1,1)} \in (\mathbb{Z}_4 \times \mathbb{Z}_4)/\entity{(1,1)}$.
+	$2 \times [(2,0)+(1,1)+\entity{(1,1)} = (0,0) + \entity{(1,1)}$.
+	\item $(3,3) + \entity{(1,2)} \in (\mathbb{Z}_4 \times \mathbb{Z}_8)/\entity{(1,2)}$.
+	$8 \times [(2,1) + (1,2)+\entity{(1,2)}] = (0,0) + \entity{(1,2)}$.
+	\item $(2,0) + \entity{(4,4)} \in (\mathbb{Z}_6 \times \mathbb{Z}_8)/\entity{(4,4)}$.
+	$3 \times [(2,0)+\entity{(4,4)}] = (0,0) + \entity{(4,4)}$.
+\end{enumerate}
+
+\paragraph{Conjugate Subgroups}
+\begin{enumerate}
+	\item $i_{\rho_1}[H]$ where $H = \{ \rho_0, \mu_1 \}$ and $\mu_1 = (2,3)$.\\
+	We have, $i_{\rho_1}(\mu) = (1,2,3)(2,3)(1,3,2)=(1,3) = \mu_2$.
+	Thus, $i_{\rho_1}[H] = \{ \rho_0, \mu_u \}$.
+\end{enumerate}
+
+\paragraph{Group $G$ characterised by $G/Z(G)$}
+\begin{enumerate}
 	\item If $G$ is non-abelian, finite group then $|Z(G)| \le \frac{1}{4}|G|$. Otherwise $G/Z(G)$ is a group of order $1,2$ or $3$. And groups of order $1,2,3$ are cyclic.
 	\item If $G$ is non-abelian, then $Z(G)$ is not a maximal subgroup of $G$.
 	\begin{proof}
@@ -658,88 +1016,190 @@ $$ \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 3 & 5 & 2 & 4 & 1 & 7 & 6 \end{p
 		Then $G/Z(G)$ has no nontrivial subgroups.
 		That is, $G/Z(G)$ is of prime order and thus cyclic which is not possible as $G$ is non-abelian.
 	\end{proof}
+	\item For $A_5,S_3,\dots$, the group $G/Z(G)$ is non-abelian.
 \end{enumerate}
 
-	For $A_5,S_3,\dots$, the group $G/Z(G)$ is non-abelian.
+\paragraph{Group Actions}
+\begin{enumerate}
+	\item 
+\end{enumerate}
 
-	Number of abelian groups of order $n = p_1^{r_1}p_2^{r_2}\dots p_k^{r_k}$ is $\prod_k B(r_k)$.
+\begin{definition}
+	Let $G$ be a group. The dual group of $G$, $\hat{G}$ is the abelian group of all homomorphisms $\phi : G \to \mathbb{C}^\ast$.
+\end{definition}
+	$\widehat{A \times B} \cong \hat{A} \times \hat{B}$
+
+%Fraleigh Part VII - Chapters 34-40
+\subsection{Advanced Group Theory}
+\paragraph{Isomorphism Theorems}
+\begin{enumerate}
+	\item $\forall \phi : G \to G',\ \exists \gamma_N : G \to G/N,\ \phi = \mu \gamma$ where $N = \ker(\phi)$ and $\phi[G] \overset{\mu}{\to} G/N$.
+	\item Let $H \le G$ and $N \trianglelefteq G$. Then $(HN)/N \cong H/(H \cap N)$.
+		\subitem $|HN| = |H| |N| / |H \cap N|$.
+		\subitem If $H \cap N = \{ e \}$, then $|HN| = |H| |N|$.
+	\item Let $K \le H \le G$ and $H,K$ are normal subgroups of $G$. Then $G/H \cong (G/K)/(H/K)$.
+\end{enumerate}
+
+\begin{definition}
+	A \textbf{subnormal series} of a group $G$ is a finite sequence $\{ H_i \}_{i=0}^n$ such that $H_i \trianglelefteq H_{i+1},\ H_0 = \{ e \}$ and $H_n = G$.
+\end{definition}
+
+\begin{definition}
+	A \textbf{normal series} of a group $G$ is a finite sequence $\{ H_i \}_{i=0}^n$ such that $H_i \trianglelefteq G,\ H_0 = \{ e \}$ and $H_n = G$.
+\end{definition}
+
+\begin{definition}
+	A subnormal(normal) series of a group $G$ is a \textbf{composition(principal) series} of group $G$ if every quotient group $H_{i+1}/H_i$ is simple.
+\end{definition}
+
+\begin{definition}
+	A composition series of a group $G$ is \textbf{solvable} if every quotient group $H_{i+1}/H_i$ is abelian.
+\end{definition}
+
+\begin{definition}
+	The ascending central series of the group $G$ is $\{ e \} \le Z(G) \le Z_1(G) \le Z_2(G) \dots$ where $Z_1(G) = \gamma^{-1}(Z(G/Z(G)))$, $Z_i(G) = \gamma_1^{-1}(Z(G/Z_1(G))) \dots$ and $\gamma : G \to G/Z(G),\ \gamma(g) = gZ(G)$ and $\gamma_1 : G \to G/Z_1(G),\ \gamma_1(g) = gZ_1(G),\dots$.
+\end{definition}
 
 \begin{enumerate}
+	\item Zassenhaus Lemma (Butterfly Lemma) : Let $H^\ast \trianglelefteq H$ and $K^\ast \trianglelefteq K$. Then 
+	\subitem $H^\ast(H \cap K^\ast) \trianglelefteq H^\ast(H \cap K)$,
+	\subitem $K^\ast(H^\ast \cap K) \trianglelefteq K^\ast(H \cap K)$,
+	\subitem $(H^\ast \cap K)(H \cap K^\ast) \trianglelefteq (H \cap K)$, and 
+		$$ H^\ast(H \cap K)/H^\ast(H \cap K^\ast) \cong K^\ast(H \cap K)/K^\ast(H^\ast \cap K) \cong (H \cap K)/(H^\ast \cap K)(H \cap K^\ast) $$
+	\item Schreier Theorem : Any two subnormal series of a group $G$ have isomorphic refinements.
+	\item Jordan-H\"older Theorem : Any two composition(principal) series of a group $G$ are isomorphic.
+	\item Every normal subgroup $N$ of $G$ belongs to some composition series of the group $G$.
+	\item Finite product of solvable groups is solvable.
+\end{enumerate}
+
+\begin{definition}
+	If every element of $G$ has order a power of prime $p$, then $G$ is a \textbf{$p$-group}.
+	Let $H \le G$ and $H$ is a $p$-group, then $H$ is a \textbf{$p$-subgroup} of $G$.
+\end{definition}
+\begin{definition}
+	Let $G$ be a group and $H \le G$. The \textbf{normaliser} $N[H]$ of $H$ is the largest subgroup of $G$ such that $H \trianglelefteq N[H]$.
+\end{definition}
+\begin{definition}
+	Maximal $p$-subgroup is a \textbf{Sylow $p$-subgroup} of $G$.
+\end{definition}
+\begin{definition}
+	The \textbf{class equation} of $G$ is $|G| = c + n_{c+1} + \dots + n_r$ where $n_j$ is the length of $j$th orbit in the partition of $G$ under conjugation and $c = |Z(G)|$ is the number of element that are alone in their conjugacy class.
+\end{definition}
+\begin{enumerate}
+	\item The set of all Sylow $p$-subgroups of $G$, $Syl_p(G)$ is a $G$-set with conjugation action.
+	\item Let $X$ be a finite $G$-set and $|G|=p^n$. Then $|X| \cong |X_G| \pmod{p}$.
+	\item Cauchy's theorem : Let $G$ be a finite group and $p$ divides the order of $G$, then $G$ has element $g$ of order $p$.
+	\item Let $H$ be a $p$-subgroup of a finite group $G$. Then $(N[H]:H) \cong (G:H) \pmod{p}$.
+		\subitem If $p$ divides the index of $H$ in $G$, $(G:H)$, then $N[H] \ne H$.
+		\subitem $N[H]$ is isomorphic to the group of all inner automorphisms $G$ that map $H$ onto itself.
+	\item The class equation of various groups,
+		\subitem $G :  n = n$, if $G$ is abelian.
+		\subitem $G : p^3 = p + p + \dots + p$, if $G$ non-abelian.
+		\subitem $S_3 : 6 = 1 + 2 + 3$.
+		\subitem $S_4 : 24 = 1 + 3 + 8 + 6 + 6$.
+		\subitem $S_5 : 120 = 1+ 10 + 15 + 20 + 20 + 24 + 30$.
+		\subitem $A_4 : 12 = 1 + 3 + 4 + 4$.
+		\subitem $A_5 : 60 = 1 + 20 + 12 + 12 + 15$.
+		\subitem $D_4 : 8 = 2 + 2 + 2 + 2$.
+		\subitem $D_5 : 10 = 1 + 2 + 2 + 5$.
+		\subitem $D_6 : 12 = 2 + 2 + 2 + 3 + 3$.
+		\subitem $Q_8 : 8 = 2 + 2 + 2 + 2$.
+	\item Distinct groups can have the same class equation.
+\end{enumerate}	
+
+\paragraph{Sylow Theorems}
+\begin{enumerate}
+	\item If $|G|=p^nm$, then $\{ H_i \}_{i=0}^n$ is a subnormal series such that $|H_i| = p^i$ and $H_i \le G$.
+	\item Let $P_1,P_2$ be Sylow $p$-subgroups of a finite group $G$. Then $P_1,P_2$ are conjugate subgroups of $G$.
+	\item Let $G$ be a finite group and $p$ divides the order of $G$.
+	Then the number of Sylow $p$-subgroups, $n_p \cong 1 \pmod{p}$ and $n_p|o(G)$.
+\end{enumerate}
+
+\paragraph{Applications of Sylow theorems}
+\begin{enumerate}
+	\item Wilson`s theorem : $(p-1)! \cong -1 \pmod{p}$.\\
+	$S_p$ has $(p-2)!$ Sylow $p$-subgroups.
+	Clearly, $(p-2)! \cong 1 \pmod{p}$ and theorem holds.
+	\item Nonabelian group of order $pq$ is isomorphic to $\mathbb{Z}_q \rtimes \mathbb{Z}_p$. It has $q$ Sylow-$p$ subgroups.
+	\item Sylow $p$-subgroups are conjugates.
+		Suppose $|G|=36$ with four Sylow $3$-subgroups (of order $9$). Then either they are isomorphic to $\mathbb{Z}_9$ or $\mathbb{Z}_3 \times \mathbb{Z}_3$.
+\end{enumerate}
+
+\subsection*{Important Notions}
+\paragraph{$HN$ subgroups}
+\begin{enumerate}
+	\item $G = \mathbb{Z}_{24},\ H = \entity{4},\ N = \entity{6}$. $HN = \entity{2}$.
+	\item $G = \mathbb{Z}_{36},\ H = \entity{6},\ N = \entity{9}$. $HN = \entity{3}$.
+\end{enumerate}
+\paragraph{Third Isomorphism Theorem}
+\begin{enumerate}
+	\item $G = \mathbb{Z}_{24},\ H = \entity{4},\ N = \entity{8}$. 
+	$G/K = \{ \entity{8}, 1 + \entity{8}, \dots, 7+\entity{8} \}$.\\
+	$H/K = \{ \entity{8}, 4+\entity{8} \}$.
+	$G/H = \{ \entity{4}, 1+\entity{4}, 2+\entity{4}, 3+\entity{4} \}$.
+\end{enumerate}
+\paragraph{Non-abelian Groups}
+	There are a few classes of non-abelian groups which has every proper subgroup abelian : 
+	1) every nonabelian group of order $pq$ where $p|q$, and
+	2) two non-abelian groups of order $p^3$.
+
+\subsection*{Important Notions}
+\paragraph{Semidirect Product}
+\begin{definition}
+	Let $\phi : H \to Aut(N)$ be a group homomorphism where $N,H$ are two group.
+	Then the \textbf{semidirect product} $N \rtimes H$ is defined as the group $\entity{N \rtimes H,\ast}$ where $\ast : (N \times H) \times (N \times H) \to (N \times H)$ such that $(n_1,h_1) \ast (n_2,h_2) = (n_1 \phi_{h_1}(n_2),h_1h_2)$.
+\end{definition}
+
+	Let $G$ be a group with nontrivial normal subgroups $N,H \le G$ such that $N \cap H = \{ 1 \}$ and $N \vee H = G$. Then $G/N \cong H$ and $G/H \cong N$. Thus $G \cong N \times H$.\\
+
+	We can extend the notion direct product as follows.
+	Let $G$ be a group with nontrivial subgroups $N,H$ such that $N$ is normal and $N \cap H = \{ 1 \}$. Then $G \cong N \rtimes H$ except for $G \cong \mathbb{Z}_4$ and $Q_8$.
+	
+\begin{definition}
+	The \textbf{fundamental group} of a topological space is the group of equivalent classes under homotopy of the loops contained in the space.
+\end{definition}
+
+\paragraph{Semidirect Products}
+\begin{enumerate}
+	\item The dihedral group, $D_n \cong \mathbb{Z}_n \rtimes \mathbb{Z}_2$.
+	\item No simple group $G$ can be expressed as a semidirect/direct product.
+		\subitem Simple groups are indecomposable.
+	\item The fundamental group of the Klein bottle is $\mathbb{Z} \rtimes \mathbb{Z}$.\\
+\end{enumerate}
+
+
+\paragraph{The converse of Lagrange`s theorem} Finite group $G$ not necessarity have subgroups for each divisor of its order.
+	For example, the alternating group $A_5$ of order $12$ does not have a subgroup of order $6$.
+
+\paragraph{Classification of Finite Groups}
+\begin{enumerate}
 	\item By Burnside`s theorem, $p$-Groups have non-trivial center. And $Q_8$ is the smallest non-abelian $p$-group.
+	\item By Sylow first theorem, no group of prime power order is simple.
+	\item Every group of prime power order is solvable.
 	\item Every group $G$ of order $p$ is cyclic and $G \cong Z_p$. The number of generators is $\phi(n)$.
 	\item Every group $G$ of order $p^2$ is abelian. There are two groups $Z_{p^2}$ and $Z_p \times Z_p$.
 	\item There are exactly five groups of order $p^3$.
 	\begin{proof}
 		Three abelian groups -- $Z_{p^3}, Z_{p^2} \times Z_p, \text{ and } Z_p \times Z_p \times Z_p$ and two non-abelian groups -- $(Z_p \times Z_p) \rtimes Z_p, \text{ and } Z_{p^2} \rtimes Z_p$ except for $p =2$. For $p=2$, $Z_4 \rtimes Z_2 \cong (Z_2 \times Z_2) \rtimes Z_2 \cong D_4$. However we have $Q_8$, which is another nonabelian group of order $8$.
 	\end{proof}
-	\item No group $G$ of order $p^3$ is simple.
+	\item Every non-abelian group $G$ of order $p^3$ has center $Z(G)$ of order $p$.
 	\begin{proof}
-		Every group of order $p^3$ is a semidirect product except $\mathbb{Z}_4$ and $Q_8$. However, $\mathbb{Z}_4$ is abelian and has normal subgroups isomorphic to $\mathbb{Z}_2$. And $Q_8$ has normal subgroups isomorphic to $\mathbb{Z}_4$.
+		Since $G$ is a $p$-group, $G$ has nontrivial center. Suppose $|Z(G)| = p^2$, then $G/Z(G)$ is a cyclic group of order $p$. But $G$ is non-abelian.
 	\end{proof}
-	\item Every non-abelian group $G$ of order $p^3$ has center $Z(G)$ of order $p$. Since $G$ is a $p$-group, $G$ has non trivial center. Suppose $|Z(G)| = p^2$, then $G/Z(G)$ is a cyclic group of order $p$. But $G$ is non-abelian.
 	\item Every non-abelian group $G$ of order $p^3$ has $p^2+p-1$ distinct conjugacy classes.
-	\item Every group $G$ of order $pq$ has precisely four subgroups of order $1,p,q,pq$ (by first Sylow theorem).
-		Suppose $p<q$.
-		Then subgroup $H$ of order $p$ is normal.
-		If $p$ does not divide $q-1$, then subgroup $K$ of order $q$ is normal.
-		Clearly, $|H \cap K| = 1$ and $G \cong HK = Z_p \times Z_q$.
-		Thus $G$ is cyclic since $gcd(p,q)=1$.
-	\item Every non-abelian group $G$ of order $pq$ has trivial center. Suppose nonabelian group $G$ has a nontrivial center of order $p$ (wlog), then $G/Z(G)$ is a cyclic group of order $q$.
+	\item Abelian group of order $pq$ is cyclic. Non-abelian group of order $pq$ exists and is isomorphic to $\mathbb{Z}_q \rtimes \mathbb{Z}_p$ provided $q \cong 1 \pmod{p}$.
+	\item Every non-abelian group $G$ of order $pq$ has trivial center.
+	\begin{proof}
+		Suppose nonabelian group $G$ has a nontrivial center of order $p$ (wlog), then $G/Z(G)$ is a cyclic group of order $q$.
 		But $G$ is non-abelian. Thus $Z(G)$ is trivial.
+	\end{proof}
 	\item Every group of square free order is supersolvable. And thus solvable.
 		\begin{proof}
-			Suppose $|G| = p_1 p_2 \dots p_k$ where $p_1 > p_2 > \dots p_k$. Then there exists a normal series $G_1 \triangleleft G_2 \triangleleft \dots \triangleleft G_k \triangleleft G$ such that $|G_1| = p_1$, $|G_2| = p_1p_2$ and $|G_k|=p_1p_2\dots p_k$.
+			Suppose $|G| = p_1 p_2 \dots p_k$ where $p_1 > p_2 > \dots p_k$. Then there exists a normal series $G_1 \trianglelefteq G_2 \trianglelefteq \dots \trianglelefteq G_k \trianglelefteq G$ such that $|G_1| = p_1$, $|G_2| = p_1p_2$ and $|G_k|=p_1p_2\dots p_k$.
 		\end{proof}
-	\item Every group $G$ of order $pqr$ is
-	\item Every group $G$ of order $p^2q$ is 
-	\item Every group $G$ of order $p^3q$ is 
-\end{enumerate}
+	%\item Every group $G$ of order $pqr$ is
+	%\item Every group $G$ of order $p^2q$ is 
+	%\item Every group $G$ of order $p^3q$ is 
+\end{enumerate}	
 
-$$K \triangleleft H \triangleleft G \nimplies K \triangleleft G \text{ hint } G = D_4$$
 
-\paragraph{Simple Groups}
-\begin{theorem}
-	$M$ is maximal normal subgroup of $G$ iff $G/M$ is simple.
-\end{theorem}
-
-\begin{theorem}
-	Let $N$ be a normal subgroup of $G$.
-	$G/N$ is abelian iff $C \le N$.
-\end{theorem}
-
-\paragraph{Group Action}
-\begin{definition}
-	An \textbf{action} of group $G$ on a set $X$ is a function $\ast : G \times X \to X$ such that
-	\begin{enumerate}
-		\item $\forall x \in X,\ ex = x$
-		\item $\forall x \in X,\ \forall g_1,g_2 \in G,\ (g_1g_2)x = g_1(g_2x)$
-	\end{enumerate}
-\end{definition}
-
-\begin{theorem}
-	Let $X$ be a $G$-set.
-	Then $\phi : G \to S_X$ defined by $\phi(g) = \sigma_g$ where $x \overset{\sigma_g}{\to} gx$.
-\end{theorem}
-
-\begin{definition}
-	Let $X$ be a $G$-set and $x \in X$.
-	The \textbf{isotropy} subgroup $G_x$ is the subgroup of $G$ containing all elements that fix $x$.
-\end{definition}
-	The set $X_g$ is the subset of $X$ fixed by $g \in G$.
-
-\begin{theorem}
-	Let $X$ be a $G$-set and $g \in G$.
-	Then the relation $x_1 \sim_g x_2 \iff gx_1=x_2$ is an equivalence relation on $X$.
-\end{theorem}
-
-\begin{definition}
-	The equivalence class of $\sim_g$ containing $x$ is the \textbf{orbit} of $x$, say $Gx$.
-\end{definition}
-
-\begin{theorem}
-	$|Gx| = (G:G_x)$
-\end{theorem}
-
-\begin{theorem}[Burside's Formula]
-	$\displaystyle r |G| = \sum_{g \in G}|X_g|$
-\end{theorem}

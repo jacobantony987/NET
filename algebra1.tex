@@ -97,16 +97,19 @@ Number $341$ is the smallest pseudoprime for base $2$.
 	Clearly, $\lambda$ is completely multiplicative and $\lambda^{-1} = \mu \lambda$.\\
 	And $\lambda = \mu \ast \chi_{Sq}$ where $Sq$ is the set of all squares.
 	\item \textbf{Divisor function} $\sigma_\alpha(n)$ is the sum of $\alpha$th powers of divisors of $n$.\\ Clearly, $\sigma_\alpha = \zeta \ast N^\alpha$. And $\sigma_\alpha^{-1} = \mu \ast \mu N^\alpha$.
-	\item $\tau(n)$ gives the number of divisors of $n$.\\
-	Clearly, $\tau = \sigma_0 = \zeta \ast \zeta$.\\
+	\item $\tau(n)$ gives the number of divisors of $n$.And $d(n)$ gives the sum of divisors of $n$.\\
+		Clearly, $\tau = \sigma_0 = \zeta \ast \zeta$. And $d = \sigma = \sigma_1 = \zeta \ast N$.\\
 	%\tau(n) = d(n)$
 	We have, $\sigma \ast \phi = \zeta \ast N \ast \mu \ast N =  N \ast N = N \tau$ since,
 		$$ N \ast N(n)= \sum_{d|n} N(d)N(n/d) = \sum_{d|n} n = N(n) \tau(n)$$
 	and $\tau \ast \phi = \zeta \ast \zeta \ast \mu \ast N = \zeta \ast N = \sigma$
 	\item $\omega(n)$ gives the number of distinct prime factors of $n$.\\
 	Clearly $\omega = \zeta \ast \chi_\mathbb{P}$ where $\mathbb{P}$ is the set of all primes.
-	\item $\Omega(n)$ gives the number of prime factors of $n$.\\
+	\item $\Omega(n)$ gives the number of prime factors of $n$ counted with multiplicity.
 	Clearly, $\Omega = \zeta \ast \chi_\mathcal{P}$ where $\mathcal{P}$ is the set of all prime powers 
+	\item $p$-adic valuation $\nu_p(n)$ is the exponent of highest power of prime $p$ that divides $n$.
+	$$ \omega(2^n3^m) = 2,\ \Omega(2^n 3^m)=n+m,\ \nu_2(2^n3^m)=n$$
+	$$\nu_p(n!) = \left[\frac{n}{p}\right] + \left[\frac{n}{p^2}\right] + \dots$$
 \end{enumerate}
 \paragraph{Strange Functions}
 \begin{enumerate}

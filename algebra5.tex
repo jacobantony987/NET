@@ -1,31 +1,32 @@
 \section{Fields}
-\subsection{Finite Fields}
+
+%Fraleigh Part VI - Chapters 29-33
+\subsection{Extension Fields}
 \begin{definition}
-	For every prime power $p^n$, there exists a unique Galois field $GF(p^n)$ of order $p^n$.
+	There exists a unique \textbf{Galois field} $GF(p^n)$ of order $p^n$.
 \end{definition}
 
-\subsection{Field Extensions}
 \begin{theorem}[Kronecker]
 	Let $F$ be a field and $f(x)$ be a nonconstant polynomial in $F[x]$.
 	Then there exists an extension field $E$ of $F$ and an $\alpha \in E$ such that $f(\alpha) = 0$.
 \end{theorem}
 
 \begin{definition}
-	A field $E$ is an extension field of field $F$ if $F$ is containined in $E$.
+	A field $E$ is an \textbf{extension field} of field $F$ if $F$ is containined in $E$.
 \end{definition}
 
 \begin{definition}
-	A field $E$ is a simple extension of field $F$ if there exists some $\alpha \in E$ such that $E$ is the minimal extension field of $F$ containing $\alpha$.
+	A field $E$ is a \textbf{simple extension} of field $F$ if there exists some $\alpha \in E$ such that $E$ is the minimal extension field of $F$ containing $\alpha$.
 \end{definition}
 
 \begin{definition}
 	Let field $E$ be an extension of field $F$.
-	A number $\alpha \in E$ is algebraic over $F$ if there exists $f(x) \in F[x]$ such that $f(\alpha) = 0$.
+	A number $\alpha \in E$ is \textbf{algebraic over $F$} if there exists $f(x) \in F[x]$ such that $f(\alpha) = 0$.
 \end{definition}
 
-	Then $\alpha$ is algebraic over the field $F$.
-	Otherwise $\alpha$ is transcendental over the field $F$.
-	If $F = \mathbb{Q}$, then $\alpha$ is an algebraic number.
+	Then $\alpha$ is \textbf{algebraic over the field $F$.}
+	Otherwise $\alpha$ is \textbf{transcendental over the field $F$}.
+	If $F = \mathbb{Q}$, then $\alpha$ is an \textbf{algebraic number}.
 
 \begin{definition}
 	An extension $E$ of a field $F$ is \textbf{algebraic} if $E \cong F(\alpha)$ for some $\alpha$ algebraic over $F$.
@@ -34,7 +35,9 @@
 	And $\mathbb{Q}(i)$ is a simple, algebraic extension of $\mathbb{Q}$ as $f(x):\ x^2+1 \in \mathbb{Q}[x]$ and $f(i) = 0$.
 
 \begin{definition}
-	Let field $E$ be an $n$-dimensional vector space over field $F$. Then $E$ is a finite extension of $F$. And $[E:F] = n$.
+	Let field $E$ be an $n$-dimensional vector space over field $F$.
+	Then $E$ is a \textbf{finite extension} of $F$.
+	And $[E:F] = n$.
 \end{definition}
 
 \begin{theorem}[Fundamental Theorem of Algebra]
@@ -42,13 +45,17 @@
 \end{theorem}
 \begin{proof}
 	Every non-constant polynomial has a linear factorisation.
-	Let $f(z)$ be a non-constant polynomial which has no zero in $\mathbb{C}$. Then $1/f(z)$ is entire. Clearly $f(z) \to \infty$ as $z \to \infty$. Thus, $1/f(z) \to 0$ as $z \to \infty$. Therefore, $f$ is bounded. However, by Liouville`s theorem, the bounded, entire function $1/f(z)$ is constant.
+	Let $f(z)$ be a non-constant polynomial which has no zero in $\mathbb{C}$.
+	Then $1/f(z)$ is entire.
+	Clearly $f(z) \to \infty$ as $z \to \infty$.
+	Thus, $1/f(z) \to 0$ as $z \to \infty$.
+	Therefore, $f$ is bounded.
+	However, by Liouville`s theorem, the bounded, entire function $1/f(z)$ is constant.
 \end{proof}
 
 	Field $\mathbb{C}$ does not have any algebraic extensions. However, the field of all rational functions $\mathbb{C}(x)$ is a transcendental extension of $\mathbb{C}$.
 
-
-\subsection{Important Notions}
+\subsection*{Important Notions}
 	\par The binary algebra, $\entity{\mathbb{Z}_n,+_n,\times_n}$ is a commutative ring with unity. 
 
 	\begin{theorem}
@@ -57,8 +64,6 @@
 	\begin{proof}
 		A number $a \in \mathbb{Z}_n$ is not a zero divisor(and has an inverse) iff $\gcd(a,n) = 1$.
 	\end{proof}
-
-
 
 \paragraph{Simple Extensions of $\mathbb{Q}$}
 	Let $\alpha$ be an algebraic number. Then there exists a polynomial $f(x) \in F[x]$ such that $f(\alpha) = 0$.
@@ -76,21 +81,23 @@
 	$$ \Phi_n(x) = \prod_{\substack{1 \le k \le n \\ \gcd(k,n)=1}} \!\!\!\!\!\left(x-\zeta_k\right)$$
 \end{definition}
 
-	The $n$th cyclotomic polynomial has degree $\phi(n)$.
-
-\paragraph{Constructible Numbers}
-	\begin{definition}
-		A number $\alpha$ is constructible if you can draw a line of $\alpha$ length in a finite number of steps using a straightedge and a compass (given a line of unit length).
-	\end{definition}
-
-	The constructible numbers form a field. And a number $\alpha$ is constructible iff the degree of the monic, irreducible polynomial of $\alpha$ over $\mathbb{Q}$ is a power of the prime $2$. The classical problems like trisecting an angle, squaring a circle and doubling a cube are thus impossible.\\
-
-	The constructible numbers fields is an infinite extension of $\mathbb{Q}$.
+\begin{definition}
+	A number $\alpha$ is \textbf{constructible} if you can draw a line of $\alpha$ length in a finite number of steps using a straightedge and a compass (given a line of unit length).
+\end{definition}
 
 \begin{enumerate}
-	\item $[E:F]$
-	\item $\{E:F\}$
-	\item $(E:F)$
+	\item The $n$th cyclotomic polynomial has degree $\phi(n)$.
+	\item The constructible numbers form a field.
+	\item A number $\alpha$ is constructible iff the degree of the monic, irreducible polynomial of $\alpha$ over $\mathbb{Q}$ is a power of the prime $2$.
+	\item The constructible numbers field is an infinite extension of $\mathbb{Q}$.
 \end{enumerate}
+	The classical problems like trisecting an angle, squaring a circle and doubling a cube are thus impossible.
 
-\subsection{Galois Theory}
+%\begin{enumerate}
+%	\item $[E:F]$
+%	\item $\{E:F\}$
+%	\item $(E:F)$
+%\end{enumerate}
+
+%Fraleigh Part X - Chapters 48-56
+\subsection{Automorphisms \& Galois Theory}
