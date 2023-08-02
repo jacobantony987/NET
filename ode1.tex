@@ -1,0 +1,182 @@
+\section{Basic Calculus}
+\subsection{Differentiation}
+\begin{enumerate}
+	\item Linearity : $[f(x)+g(x)]' = f'(x) \pm g'(x)$ and $[cf(x)]' = cf'(x)$.
+	\item Product rule : $[f(x)g(x)]' = f(x)g'(x) + f'(x)g(x)$.
+	\item Quotient rule : $[f(x)/g(x)]' = [f'(x)g(x) - f(x)g'(x)]/g^2(x)$.
+	\item Chain rule : $[f(g(x)]' = f'(g(x)) g'(x)$.
+	\item $[x^r]' = rx^{r-1}$ where $r \in \mathbb{R}$.
+	\item $[a^x]' = a^x \ln a$ where $a \in \mathbb{R}^+$.
+	\item $[\sin x]' = \cos x$, $[\cos x]' = -\sin x$, $[\tan x]' = \sec^2 x$, $[\csc x]' = -\csc x \cot x$,\\ $[\sec x]' = \sec x \tan x$ and $[\cot x]' = -\csc^2 x$.
+	\item $[\sin^{-1}x]' = \frac{1}{\sqrt{1-x^2}}$, $[\tan^{-1}x]' = \frac{1}{1+x^2}$, and $[\sec^{-1}x]' = \frac{1}{x\sqrt{x^2-1}}$.\\ Hint : $y = f^{-1}(x) \implies f(y) = x \implies f'(y) = 1$.
+\end{enumerate}
+
+\subsection{Integration}
+\begin{enumerate}
+	\item Linearity : $\int [f(x) \pm g(x)]\ dx = \int f(x)\ dx \pm \int g(x)\ dx$ and $\int cf(x)\ dx = c \int f(x)\ dx$.
+	\item Product rule : $\int [f(x)g(x)]\ dx = f(x)\int g(x)\ dx - \int f'(x) \left[\int g(x)\ dx\right]\ dx$.
+		{\color{blue}
+		$$\int fg\ dx = f\int g - f'\iint g + f''\iiint g + \dotsb $$
+		}
+	\item $\int \tan x\ dx = -\log \cos x$ and $\int \cot x\ dx = \log \sin x$.
+	\item \textcolor{red}{$\int \csc x\ dx = \log (\csc x - \cot x)$ and $\int \sec x\ dx = \log (\sec x + \tan x)$.}
+\end{enumerate}
+
+\section{Ordinary Differential Equation}
+\begin{enumerate}
+	\item An equation involving derivatives with respect to an independent variable and involving dependent variable is called an \textbf{ordinary differential equation}(ODE).
+	\item  The \textbf{order} and \textbf{degree} of an ODE is the order and degree of its highest derivative.
+	\item An ODE is \textbf{linear} if it does not contain product of dependent variable and its derivatives.
+	\item A \textbf{solution} of a differential equationis a relation between the dependent variable and the independent variable. Solution has the general form : $f(x,y) = 0$.
+		\subitem A \textbf{general solution} is of the form $\sum c_jy_j(x)$ where $c_j$s are arbitrary constants and the number of arbitrary constants is equal to the order of the differential equation.
+		\subitem A \textbf{particular solution} is obtained from general solution by giving particular values to its arbitrary constants.
+		\subitem A \textbf{singular solution} is a solution which cannot be obtained from a general solution by a choice of arbitrary constants.
+	\item There are two major type of problems :
+		\subitem An \textbf{initial value problem} is a differential equation together with values of dependent variable and its derivatives for a particular value of independent variable. 
+		\subitem A \textbf{boundary value problem} is a differential equation together with functions of dependent variable and its derivatives at different values of independent variable.
+\end{enumerate}
+
+%	Existence, Uniqueness of Solutions
+\subsection{Solving first order ordinary differential equations}
+\begin{enumerate}
+	\item Variable Separable : $f(x)dx = g(y)dy$\\ 
+	\textcolor{blue}{$\int f(x) dx = \int g(y) dy$.}
+	\item Homogeneous : $x^k f(y/x,y')$ \\ 
+	\textcolor{blue}{$y= vx \implies dy = vdx + xdv$. Then $g(x)dx = h(v)dv$.}
+	\item Exact : $Mdx + Ndy = 0$ where $M_y = N_x$ and $M,N,M_y,N_x$ are continuous.\\
+	\textcolor{blue}{$\int M\ dx + \int N^\star\ dy = C$ where $N^\star$ is the part of $N(x,y)$ not containing $x$.}
+	\item Almost Exact : $Mdx + Ndy = 0$ but $M_y \ne N_x$. \\
+		\textcolor{blue}{Case 1 : $(M_y - N_x)/N = f(x)$, Case 2 : $(M_y-N_x)/-M = g(y)$ and\\ Case 3 : $(M_y - N_x)/(N_y - M_x) = h(z)$ where $z = xy$.
+		Suppose Case 1 is true,\\ then $I\!F = e^{\int f(x)\ dx}$ and $\int M\ I\!F\ dx + \int (N\ I\!F)^\star\ dy = C$.}
+	\item Inspection Method - Use known results to simply the ODE.
+		{\color{blue}
+		\subitem $[y/x]' = (xdy - ydx)/x^2$.
+		\subitem $[x/y]' = (ydx - y^2dx)/y^2$.
+		\subitem $[y^2/x]' = (2xydy - y^2dx)/x^2$.
+		\subitem $[\ln(xy)]' = (xdy+ydx)/xy$.
+		\subitem $[xy]' = xdy + ydx$.
+		\subitem $[x^2+y^2]' = 2(xdx + ydy)$.
+		\subitem $[\tan^{-1} (x/y)]' = (ydx-xdy)/(x^2+y^2)$.
+		\subitem $[\sin^{-1} (x/y)]' = (ydx-xdy)/y\sqrt{y^2-x^2}$.
+		\subitem $[\sec^{-1} (x/y)]' = (ydx-xdy)/\sqrt{x^2-y^2}$.
+		\subitem $[\ln(x/y)]' = (ydx-xdy)/xy$.
+		}
+	\item Leibnitz`s Method : $y'+P(x)y = Q(x)$.\\ 
+	\textcolor{blue}{The solution is : $y\ I\!F = \int I\!F\ Q(x)\ dx$ where $I\!F = e^{\int P(x)\ dx}$.}
+	\item Bernouli`s Method : $y'+P(x)y = Q(x)y^n$ where $n \ne 0,1$.\\ 
+	\textcolor{blue}{The solution is : $y^{1-n}\ I\!F = \int I\!F\ Q(x)(1-n)\ dx$ where $I\!F = e^{\int P(x)(1-n)\ dx}$.\footnote{In an intermediate step, we replace $y^{1-n}$ with $u$ and solve using Leibnitz`s method.}}
+\end{enumerate}
+\subsection*{Problems}
+\begin{enumerate}
+	\item Computing $M$ from $N$ in an exact differential equation\\
+		Suppose $g(x,y)dx + (x+y)dy = 0$ is exact and $g(x,0) = x^2$.\\
+		Exact $\implies g_y = N_x = 1 \implies g(x,y) = y+f(x)$\\ And $g(x,0) = f(x) = x^2 \implies g(x,y) = x^2+y$.
+	\item Set $S = \{ \frac{2}{x+1} : x \in (-1,1) \}$.\\
+		$-1 < x < 1 \implies 0 < x+1 < 2 \implies \infty > 1/(x+1) > 1/2$\\
+		$\implies \infty > 2/(x+1) > 1 \implies S = (1,\infty) \implies S' = [1,\infty)$.
+	\item $S$ is union of disjoint bounded intervals.\\
+		$S$ is compact only if each interval is closed. $\sup S \in S$ if right most interval is right closed and $\inf S \in S$ if left most interval is left closed. If $S$ has more than one interval in it, then $S$ being compact is a different story.
+	\item Let $A \subset \mathbb{R}$. Then $I(A)$ is an open set. Thus, either $I(A)$ is empty or uncountable.
+\end{enumerate}
+
+\subsection{Existence \& Uniqueness}
+\begin{enumerate}
+	\item A function $f(x,y)$ such that $|f(x,y_1)-f(x,y_2)| \le k|y_1-y_2|$ is a \textbf{Lipschitz} function with Lipschitz constant $k$. If the function is differentiable, then condition reduces to the form $|\partial f/\partial y| \le k$.
+	\item Peano`s Theorem : Consider an initial value problem $y' = f(x,y),\ y(x_0) = y_0$. If $f(x,y)$ is continuous and is bounded, say $|f(x,y)| \le M$, in the rectangle $|x-x_0| \le h$ and $|y-y_0|\le k$. Then there exists at least one solution $\phi$ such that $\frac{d\phi}{dx} = f(x,y)$ on the interval $|x-x_0| \le \min\{ h,k/M \}$. %Existence, Uniqueness of Solutions
+	\item Picard`s Theorem : Consider an initial value problem $y' = f(x,y),\ y(x_0) = y_0$. If $f(x,y)$ is continous and is bounded in the rectangle $|x-x_0| \le h$ and $|y-y_0| \le k$ and $f(x,y)$ satisfies Lipschitz condition, then the there exists a unique solution.
+	\item Types of IVP,
+	\begin{enumerate} 
+		\item No Solution. The general solution reduces to an contradictory statement with given initial values. Or Peano's theorem hypotheses donot hold.
+		\item Unique Solution. Unique particular solution is obtained. Or Picard's theorem hypotheses hold.
+		\item Uncountably many solutions. Particular solutions together with zero function and other variants.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Solving First Order ODEs of Degree $n > 1$}
+\begin{enumerate}
+	\item Solutions are of the form \begin{enumerate*} \item Cartesian Form (Equation containing $x,y$ and constants.) \item Parametric Form, $x = f_1(P,c)$ and $y = f_2(P,c)$. \item $x = g(x,P)G(x,P,c)$ and $y = f(x,P)F(x,P,c)$. \end{enumerate*}
+	\item General Form : $p_0P^n + p_1 P^{n-1} + \dots + p_{n-1}P + p_n = 0$ where $P = y'$ and $p_k$`s are functions of $x$ and $y$. If we can factorise it into linear factors, say $(P-f_1)(P-f_2)\dotsm(P-f_n) = 0$. Then we can solve each one of those factor $P-f_k = 0$ into some $F_k(x,y,c_k) = 0$. And the general solution is $F_1(x,y,c)F_2(x,y,c)\dotsm F_n(x,y,c) = 0$.
+	\item Solvable for $x$. That is, $x = f(y,P)$ where $P = dy/dx$.\\
+		$x = f(y,P) \implies 1/P = F(y,P,dP/dy) \implies \psi(y,P,c) = 0 \implies y = g(P,c)$.
+	\begin{enumerate}
+		\item Case 1: $x = f(P) \implies 1/P = F(P,dP/dy) \implies y = g(P,c)$.
+	\end{enumerate}
+	\item Solvable for $y$.\\
+		$y = f(x,P) \implies P = F(x,P,dP/dx) \implies \psi(x,P,c) = 0 \implies x = g(P,c)$.
+	\begin{enumerate}
+		\item Case 1: $y = f(P) \implies P = F(P,dP/dx) \implies x = g(P,c)$.
+		\item Case 2: Lagrange`s Equation : $y = xF(P) + f(P)$.\\
+			$y = xF(P)+f(P) \implies P = \psi(x,y,P,dP/dx) \implies dx/dP + g(P)x = h(p)$.\\
+		Solve Leibnitz Equation.
+		\item Case 3 : Clairut`s Equation : $y = xP + f(P)$.\\
+			$y = xc + f(c)$.
+	\end{enumerate}
+\end{enumerate}
+\subsection{Orthogonal Trajectory}
+\begin{enumerate}
+	\item If a family of curves $f(x,y,c) = 0$ satisfies differential equation $F(x,y,P) = 0$. Then the differential equation of their orthogonal trajectory is $F(x,y,-1/P) = 0$.
+\end{enumerate}
+\subsection{Solving ordinary differential equations for a singular solution}
+\begin{definition}
+	If a family of curves $f(x,y,c) = 0$ represented by $F(x,y,P) = 0$ and it has an envelope. Then the envelope is the\footnote{It is possible to have multiple singular solutions ?} singular solution of $F(x,y,P) = 0$.
+\end{definition}
+\begin{enumerate}
+	\item Method 1 : $P$ discriminant.\\
+		Let $f(x,y,P) = 0$.
+		From $\frac{\partial f}{\partial P} = 0$ obtain a $P$-discriminant\footnote{relation not containing $P$} relation, $F(x,y) = 0$. Then $F(x,y)$ or its factors satisfying $f(x,y,P) = 0$ are the singular solutions.
+	\item Method 2 : $c$-discriminant.\\
+		Let $\phi(x,y,c) = 0$ be a solution for $f(x,y,P) = 0$.
+		From $\frac{\partial \phi}{\partial c}$ obtain a $c$-discriminant relation $F(x,y) = 0$.
+		Then $F(x,y)$ or its factors satisfying $f(x,y,P) = 0$ are the singular solutions.
+	\item Method 3 : Quadratic Relation in $P$.\\
+		Let $AP^2 + BP + C = 0$.
+		Then $F(x,y) = B^2-4AC$ is the respective $P$-discriminant relation.
+		And $F(x,y)$ or its factors satisfying $f(x,y,P) = 0$ are the singular solutions.
+\end{enumerate}
+
+\subsection{Solving second order ordinary differential equaitons}
+\begin{enumerate}
+	\item Linear Differential Equations with Constant Coefficients
+	\begin{equation} D^n y + a_1 D^{n-1} y + \dots + a_n y = R(x) \end{equation}
+		Solution is of the form : Complementary function + Particular Integral where Complementary function is the solution of the respective homogenous equation.
+	\item We may write $f(D)y = R(x)$ where $f(D) = D^n + a_1 D^{n-1} + \dots + a_n$ is the respective auxiliary equation.
+		Let $m_1,m_2,\dots$ be solutions of the auxiliary equation. 
+		Then $e^{m_i x}$ is solution of the homogenous equation. 
+		If $m_i$ is a root of multiplicity $n$ then $x^ke^{m_i},\ k = 0,1,2,\dots, n-1$ are the respective solutions.
+	\begin{enumerate}
+		\item Case 1 : Real Distinct Roots.\\
+			Let $m = m_1, m_2$. Then $y = c_1 e^{m_1}x + c_2 e^{m_2 x}$ is the complementary function.
+		\item Case 2 : Real, Multiple Roots.\\
+			Let $m$ be a real root of multiplicity $4$. Then $y = (c_1+c_2x+c_3x^2+c_4x^3) e^{m x}$ is the complementary function.
+		\item Case 3 : Complex, Conjugate Roots.\\
+			Let $m = \alpha \pm i \beta$. Then $y = e^{\alpha x} (c_1 \cos \beta x + c_2 \sin \beta x)$ is the complementary function.
+		\item Case 4 : Complex, Conjugate, Multiple Roots.\\
+			Let $\alpha \pm i \beta$ be conjugate roots of multiplicity $4$. Then $y = e^{\alpha x} ((c_1 + c_2 x + c_3 x^2 + c_4 x^3) \cos \beta x + (c_5 + c_6 x + c_7 x^2 + c_8 x^3) \sin \beta x)$ is the complementary function.
+		\item {\color{red} Case 5 : Conjugate Surds.\\
+			Let $m = \alpha \pm \sqrt{\beta}$. Then $y = e^{\alpha x}(c_1 \cosh \beta x + c_2 \sinh \beta x)$ is the complementary function. }\footnote{Why ?}
+	\end{enumerate}
+	\item Particular Integral $y_p$
+	\begin{enumerate}
+		\item Case 1 : $R(x) = e^{\alpha x}$.
+			$$ y_p = \begin{cases} \frac{e^{\alpha x}}{f(\alpha)} & f(\alpha) \ne 0 \\ \frac{1}{\phi(\alpha)} \frac{x^r}{r!} e^{\alpha x} & f(\alpha) = 0 \end{cases} $$
+		\item Case 2 : $R(x) = \sin x$.
+			$$ y_p = \begin{cases} \frac{1}{f(D)} \sin \alpha x & f(D) \ne 0, D^2 = -\alpha^2\\ \frac{x}{2} \int \sin \alpha x & f(D) = 0 \end{cases} $$
+		\item Case 3 : $R(x) = x^m$.
+			$$ y_p = \frac{1}{f(D)} x^m  \text{ where } (1-D)^{-n} = \sum_{r = 0}^\infty \binom{-n}{r} D^r $$
+		\item Case 4 : $R(x) = e^{\alpha x} v(x)$.
+			$$ y_p = e^{\alpha x} \frac{1}{f(D+\alpha)} v(x)$$
+	\end{enumerate}
+\item Cauchy-Euler Equations
+\begin{equation}
+	a_n x^n D^n y + a_{n-1} x^{n-1} D^{n-1} y + \dots + a_1 x Dy + a_0 y = R(x)
+\end{equation}
+		Put $x = e^t$. Then $t = \log x$, $x Dy = Dy$, $x^2 D^2 y = D(D-1)y$, \dots. 
+		The Cauchy-Euler equation reduces to a linear differential equation with constant coefficient.
+	\item Legendre`s Linear Differential Equation
+\begin{equation}
+	a_n (\alpha x + \beta)^n D^n y + a_{n-1} (\alpha x + \beta)^{n-1} D^{n-1} y + \dots + a_1 (\alpha x + \beta) Dy + a_0 y = R(x)
+\end{equation}
+		Put $\alpha x + \beta = e^t$. Then $t = \log (\alpha x + \beta)$, $(\alpha x + \beta) Dy = \alpha Dy$, $(\alpha x + \beta)^2 D^2y = \alpha^2 D(D-1)y$, \dots.
+		The Legendre`s linear differential equation reduces to a linear differential equation with constant coefficient.
+	\item Finding general solution from a fundamental solution.
+\end{enumerate}
