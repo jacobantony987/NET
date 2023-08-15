@@ -1,117 +1,63 @@
+%Elementary Set Theory
 \chapter{Basics}
 \section{Set Theory}
 \textbf{Set} is a collection of points which satisfies ZFC-axioms.
 And the points are the elements of $A$, $x \in A$.
 
-\begin{definition}
-	\textbf{Cardinality} $|A|$ is the number of elements of the set $A$.
-\end{definition}
-
-\begin{definition}
-	A set $B$ is a \textbf{subset} of a set $A$, $B \subset A$ if $x \in B \implies x \in A$.
-\end{definition}
-
-\begin{definition}
-	The \textbf{power set} $\mathcal{P}(A)$ of a set $A$ is the family of all subsets of $A$.
-\end{definition}
-
-\begin{definition}
-	Two sets $A,B$ are \textbf{equal}, $A = B$ if $A \subset B$ and $B \subset A$.
-\end{definition}
-
-\begin{definition}
-	The \textbf{union} of two sets $A,B$ is the set $A \cup B = \{ x : x \in A \text{ or } x \in B\}$.
-\end{definition}
-
-\begin{definition}
-	The \textbf{intersection} of two sets $A,B$ is the set $A \cap B = \{ x : x \in A \text{ and } x \in B\}$.
-\end{definition}
-
-\begin{definition}
-	The \textbf{complement} of a set $A$ with respect to a set $B$ is the set $A-B = \{ x \in A : x \notin B\}$.
-\end{definition}
-
-\begin{definition}
-	The \textbf{symmetric difference} of two sets $A,B$ is the set $A \Delta B = (A-B) \cup (B-A)$.
-\end{definition}
-
-\subsection{Relation}
-\begin{definition}
-	The cartesian \textbf{product} of $A$ and $B$, $A \times B = \{ (a,b) : a \in A,\ b \in B\}$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{relation} from $A$ to $B$ is a subset of $A \times B$.
-	And $xRy \implies (x,y) \in R \subset A \times B$.
-	A relation on $A$ is $R \subset A \times A$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{reflexive} relation $R$ on $A$ satisfies $xRx,\ \forall x \in A$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{symmetric} relation $R$ on $A$ satisfies $xRy \iff yRx$.
-\end{definition}
-
-\begin{definition}
-	An \textbf{antisymmetric} relation $R$ on $A$ satisfies $(x,y) \in R \implies (y,x) \notin R$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{transitive} relation $R$ on $A$ satisfies $xRy,\ yRz \implies xRz,\ \forall x,y,z \in A$.
-\end{definition}
-
-\begin{definition}
-	An \textbf{equivalence} relation $R$ on $A$ is a reflexive, symmetric, and trasitive relation.
-\end{definition}
-
-\begin{definition}
-	Let $x \in A$.
-	An \textbf{equivalence class} of a set $A$ containining $x$ is the subset $\hat{x} = \{ y \in A : xRy \}$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{partition} $\{\hat{x},\hat{y},\dots\}$ of $A$ is a family of subsets $\hat{x}$ of $A$ which satisfies
-	\begin{enumerate}
-		\item $x \in \hat{x},\ \forall x \in A$.
-		\item $\hat{x} \cap \hat{y} \iff \hat{x} = \hat{y}$.
-		\item $A = \cup \{ \hat{x} : x \in A\}$.
-	\end{enumerate}
-\end{definition}
-
-\begin{definition}
-	A \textbf{total} relation $R$ on $A$ satisfies either $xRy \text{ or } yRx,\ \forall x,y \in A,\ (x \ne y)$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{function} from $A$ to $B$ is relation which has a unique element $(a,b)$ for every $a \in A$.
-\end{definition}
-
-\begin{definition}
-	An \textbf{injection} $f : A \to B$ satisfies $f(x) = f(y) \implies x = y$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{surjection} $f : A \to B$ satisfies $y = f(x),\ \forall y \in B$.
-\end{definition}
-
-\begin{definition}
-	A \textbf{bijection} $f : A \to B$ is both injective and surjective.
-\end{definition}
-	There exists a bijection from the set of all equivalence relations on $A$ to the set of all partitions of $A$.
-
-\begin{definition}
-	A set $A$ is \textbf{finite} if there exists a natural number $N$ and a bijection $f : A \to \{1,2,\dots,N\}$.
-\end{definition}
-	$A$ is finite if and only if there does not exists a bijection from $A$ into any proper subset of $A$.
-
-\begin{definition}
-	A set $A$ is \textbf{countably infinite} if there exists a bijection $f : A \to \mathbb{N}$.
-\end{definition}
-
-\paragraph{}
 \begin{enumerate}
+	\item \textbf{Cardinality} $|A|$ is the number\footnote{We adopt Cantor`s notion of number of elements when the set is infinite.} of elements of the set $A$.
+	\item Let $n \in \mathbb{N}$, then there exists a finite set of cardinality $n$ given by $\mathbb{N}_n = \{ 1,2,\dots, n \}$.
+	\item A set $B$ is a \textbf{subset} of a set $A$, $B \subset A$ if $x \in B \implies x \in A$.
+	\item The \textbf{power set} $\mathcal{P}(A)$ of a set $A$ is the family of all subsets of $A$.
+	\item Two sets $A,B$ are \textbf{equal}, $A = B$ if $A \subset B$ and $B \subset A$.
+	\item Set Operations
+		\subitem \textbf{union} of two sets $A,B$ is the set $A \cup B = \{ x : x \in A \text{ or } x \in B\}$.
+		\subitem \textbf{intersection} of two sets $A,B$ is the set $A \cap B = \{ x : x \in A \text{ and } x \in B\}$.
+		\subitem \textbf{complement} of a set $A$ wrt a set $B$ is the set $A-B = \{ x \in A : x \notin B\}$.
+		\subitem \textbf{symmetric difference} of two sets $A,B$ is the set $A \Delta B = (A-B) \cup (B-A)$.
+		\subitem cartesian \textbf{product} of $A$ and $B$, $A \times B = \{ (a,b) : a \in A,\ b \in B\}$.
+	\item A \textbf{relation} from $A$ to $B$ is a subset of $A \times B$.
+	And $xRy \implies (x,y) \in R \subset A \times B$.
+	\item A relation on $A$ is $R \subset A \times A$.
+		\subitem \textbf{reflexive} relation $R$ on $A$ satisfies $xRx,\ \forall x \in A$.
+		\subitem \textbf{symmetric} relation $R$ on $A$ satisfies $xRy \iff yRx$.
+		\subitem \textbf{antisymmetric} relation $R$ on $A$ satisfies $(x,y) \in R \implies (y,x) \notin R$.
+		\subitem \textbf{transitive} relation $R$ on $A$ satisfies $xRy,\ yRz \implies xRz,\ \forall x,y,z \in A$.
+		\subitem \textbf{total} relation $R$ on $A$ satisfies either $xRy \text{ or } yRx,\ \forall x,y \in A,\ (x \ne y)$.  \item \textbf{equivalence} relation $R$ on $A$ is a reflexive, symmetric, and trasitive relation.
+		\subitem An \textbf{equivalence class} of a set $A$ containining $x$ is the subset $\hat{x} = \{ y \in A : xRy \}$ where the relation $R$ is an equivalence relation.
+	\item A \textbf{partition} $\{\hat{x},\hat{y},\dots\}$ of $A$ is a family of subsets $\hat{x}$ of $A$ which satisfies
+		\subitem $x \in \hat{x},\ \forall x \in A$.
+		\subitem $\hat{x} \cap \hat{y} \iff \hat{x} = \hat{y}$.
+		\subitem $A = \cup \{ \hat{x} : x \in A\}$.
+	\item A \textbf{function} from $A$ to $B$ is relation which has a unique element $(a,b),\ \forall a \in A$.
+		\subitem A function $f : A \to B$ is an \textbf{injection} if it satisfies $f(x) = f(y) \implies x = y$. 
+		\subitem A function $f : A \to B$ is a \textbf{surjection} if it satisfies $y = f(x),\ \forall y \in B$.
+	\item A function $f : A \to B$ is a \textbf{bijection} if $f$ is both injective and surjective.
+	Then $A,B$ are of the same cardinality $A \sim B$.
+		\subitem If $f : A \to B$ is an injection, then $\exists C \subset B$ such that $f : A \to C$ is a bijection.
+		Then $A \sim C \subset B \implies |A| \le |B|$.
+		If $A$ is uncountable, then $B$ is uncountable. If $B$ is countable, then $A$ is countable.
+		\subitem If $f : A \to B$ is an surjection, then $\exists C \subset A$ such that $f : C \to B$ is a bijection.
+		Then $B \sim C \subset A \implies |B| \le |A|$.
+		If $A$ is countable, then $B$ is countable, then $A$ is uncountable.
+		If $B$ is uncountable, then $A$ is uncountable.
+	\item \textcolor{blue}{There exists a bijection from the set of all equivalence relations on $A$ to the set of all partitions of $A$.}
+	\item A set $A$ is \textbf{finite} if there exists a natural number $n$ and a bijection $f : A \to \mathbb{N}_n$.
+	\item \textcolor{blue}{A set $A$ is finite if and only if there does not exist a bijection from $A$ into any proper subset of $A$. A set $A$ is infinite if $A$ has a proper subset $B$ and there exists a bijection $f : A \to B$.}
+	\item A set $A$ is \textbf{countably infinite} if there exists a bijection $f : A \to \mathbb{N}$. 
+		\subitem A subset of a countably infinite set is at most countably infinite.
+		\subitem If $A$ is uncountable and $B$ is countable, then $A-B$ is uncountable. 
+		\subitem Non-degenerate intervals are uncountable.
+	\item \textcolor{blue}{The finite cartesian product of countable sets are countable.}\\
+		Proof : cantor diagonalisation process and induction.
+	\item \textcolor{blue}{Countable union of countable sets is countable.}\\
+		Let $A_j = \{ a_{i,j} : (i,j) \in \mathbb{N} \times \mathbb{N} \}$ and $S = \displaystyle\bigcup_{j \in \mathbb{N}} A_j$. Then $S \sim \mathbb{N} \times \mathbb{N} \implies |S| = \aleph_0$.
+	\item \textbf{Continuum Hypothesis} : Let $\aleph_0,\aleph_1,\dots$ where $2^{\aleph_k} = \aleph_{k+1}$. Then there does not exists a set $A$ such that $\aleph_k < |A| < \aleph_{k+1}$.
+		\subitem For any set $A$, there does not exists a bijection from $A$ to power set of $\mathcal{P}(A)$.
+	\item $\aleph_0^{\aleph_0} = \aleph_1$, $ \aleph_0^n = \aleph_0$, and $n\aleph_0 = \aleph_0$.
+		\subitem Set of all polynomials of degree less than $n$ with rational coefficients is countable. That is, $S \sim \mathbb{Q}^n \implies |S| = \aleph_0$.
+		\subitem The set of all circles with rational radii and center with rational co-ordinates is countable. That is, $S \sim \mathbb{Q}^3 \implies |S| = \aleph_0$.
+		\subitem The collection of function, $F = \{ f : \mathbb{R} \to \mathbb{R} \}$ is uncountable. $|F| = |\mathbb{R}|^{|\mathbb{R}|} = \aleph_2$.
 	\item Let $f:X \to Y$, $g:Y \to X$ and $g \circ f = id_X$. Then $f \circ g$ is idempotent.
 \end{enumerate}
 

@@ -1,197 +1,314 @@
 \section{System of Equations}
-\subsection{Row reduced echelon matrix}
-\begin{definition}[equivalent]
-	Two system of equations are equivalent if they have the same solution space.
-	And, two matrices are equivalent if the respective systems of equations are equivalent.
+\subsection{Matrices}
+\begin{definition}
+	A \textbf{matrix} $A_{m \times n}$ over the field $F$ is a function $A : \mathbb{Z}_m \times \mathbb{Z}_n \to F$.
+\end{definition}
+	Then $A$ is an $m \times n$ matrix.
+	The entries of $A_{m \times n}$ are represented by $a_{i,j}$ where $a_{i,j} = A(i,j)$.
+	$M_n(F)$ is the set of all $n \times n$ matrices over the field $F$.
+
+\begin{definition}
+	Let $A$ be a matrix over the field $F$ and $k \in F$, then \textbf{scalar product}
+	$$kA : \mathbb{Z}_m \times \mathbb{Z}_n \to F,\ kA(i,j) = k \cdot A(i,j)$$
 \end{definition}
 
-\begin{definition}[row operations]
-	A row operation is a function $f : F^{n \times m} \to F^{n \times m}$ that preserves equivalence.
-	There are three elementary row operations,
-	\begin{enumerate}
-		\item multiplication of a row by a scalar
-		\item addition of a row to another
-		\item interchanging two rows
-	\end{enumerate}
+\begin{definition}
+	Two matrices $A,B$ are compatible for additon if they are of the same size.
+	The \textbf{sum} $A+B$ is the matrix $C$ of the same size with entries $c_{ij} = a_{ij} + b_{ij}$.
 \end{definition}
 
-\begin{definition}[elementary matrix]
-	Matrix corresponding to an elementary row operation.
+\begin{definition}
+	Two matrices $A,B$ are compatible for multiplication if the number of columns of the first matrix and the number of rows of the second matrix are the same.
+	The \textbf{product} $AB$ is the matrix $C$ with entries
+	$ c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}$.
 \end{definition}
-\begin{note}
-	Any row operation can be performed by the multiplication of a matrix which is a finite product of elementary matrices.
-\end{note}
-
-\begin{note}
-	Every matrix has a unique row reduced echelon form.
-	A matrix $A$ is invertible if and only if its row reduced echelon form is the identity matrix.
-\end{note}
-
-\begin{note}
-	Gauss Elimination method with augmented matrix to solve system of equations.
-\end{note}
-
-\section{Matrices}
-\begin{definition}[matrix]
-	A matrix $A_{m \times n}$ over the field $F$ is a function $A : \mathbb{Z}_m \times \mathbb{Z}_n \to F$.
+\begin{definition}
+	The \textbf{trace} of a square matrix is the sum of its diagonal entries.
+	$$ tr : M_n(F) \to F,\ tr(A) = \sum_{k=1}^n A(k,k) $$
+	$$tr(kA) = k\ tr(A),\ tr(A+B) = tr(A) + tr(B),\ tr(AB) = tr(BA)$$
 \end{definition}
 
-\begin{definition}[square]
-	A square matrix of order $n$ is matrix $A_{n \times n}$.
-	And $M_n(F)$ is the set of all square matrices of order $n$ over the field $F$. ie, $A_{n \times n} \in M_n(F)$.
+\begin{definition}
+	The \textbf{transpose} of a matrix $A_{m \times n}$ is the matrix $A'_{n \times m}$ where
+		$$A' : \mathbb{Z}_n \times \mathbb{Z}_m \to F,\ A'(i,j) = A(j,i)$$
+		$$(kA)'=kA',\ (A+B)'=A'+B',\ (AB)'=B'A'$$
 \end{definition}
 
-\begin{note}
-	The entries of $A_{m \times n}$ are represented by $a_{ij}$ where $a_{ij} = A(i,j)$.
-\end{note}
+\begin{definition}
+	The \textbf{conjugate transpose} of a matrix $A_{m \times n}$ is the matrix $\bar{A}'_{n \times m}$ where
+		$$\bar{A}' : \mathbb{Z}_n \times \mathbb{Z}_m \to F,\ \bar{A}'(i,j) = \overline{A(j,i)}$$
+\end{definition}
+	\textcolor{red}{$A^\ast = \bar{A}'$ is the \textbf{adjoint} (operator) $A : F^{n \times p} \to F^{m \times p}$ such that $\entity{AX,Y} = \entity{X,A^\ast Y}$.}
+	$$(kA)^\ast = \bar{k}A^\ast,\ (A+B)^\ast = A^\ast + B^\ast,\ (AB)^\ast = B^\ast A^\ast$$
 
-\begin{definition}[identity]
-	The identity matrix of order $n$, $I_{n \times n}$ is given by $I(i,j) = \delta_{i,j}$.
+\begin{definition}
+	A function $f : M_n(F) \to F$ is \textbf{$n$-linear} if $f$ is linear function of the $i$th row when other rows are fixed.
 \end{definition}
 
-\begin{definition}[diagonals]
-	The \textbf{diagonal} entries are $a_{ij}$ with $i=j$.
+\begin{definition}
+	A function $f : M_n(F) \to F$ is \textbf{alternating} if $f(A) = 0$ whenever two rows are equal and $f(A') = -f(A)$
+\end{definition}
+
+\begin{definition}
+	$A(i|j)$ is the \textbf{submatrix} obtained from the matrix $A$ by deleting $i$th row and $j$th column.
+\end{definition}
+\begin{definition}
+	The \textbf{determinant} of a square matrix $det : M_n(F) \to F$ is an $n$-linear, alternating function with $D(I) = 1$.
+\end{definition}
+
+\begin{definition}
+	Let $A \in M_n(F)$.
+	\textbf{Minor} of $a_{i,j}$ is the determinant of the submatrix $A(i|j)$.
+	\textbf{Cofactor} of $a_{i,j}$ is $(-1)^{i+j} m_{i,j}$.
+	Then the \textbf{recursive formula} for determinant is $\det(A) = \sum_{i} a_{ij} A_{i,j}$ where $A_{i,j}$ is the cofactor of $a_{i,j}$.
+\end{definition}
+\begin{definition}
+	The \textbf{adjunct} of $A_{n \times n}$ is $adj(A)_{n \times n}$ where
+		$$ adj(A) : \mathbb{Z}_{n} \times \mathbb{Z}_n \to F,\ adj(A)_{i,j} = (-1)^{i+j} det(A(i|j))$$
+\end{definition}
+\begin{definition}
+	The (principal) \textbf{diagonal} entries are $a_{ij}$ with $i=j$.
+	The \textbf{nonprincipal diagonal} entries are $a_{ij}$ with $i+j = n+1$.
 	The \textbf{superdiagonal} entries are $a_{ij}$ with $i=j+1$.
 	The \textbf{subdiagonal} entries are $a_{ij}$ with $i=j-1$.
 \end{definition}
-
-\begin{definition}[diagonal]
-	A diagonal matrix all its entries zero except for the diagonal entries.
+\begin{definition}
+	In a \textbf{diagonal matrix} all entries except diagonal entries are zero.
+\end{definition}
+\begin{definition}
+	In a \textbf{Jordan normal matrix} all entries except for diagonal and superdiagonal entries are zero and non-zero superdiagonal entries are $1$.
 \end{definition}
 
-\begin{definition}[Jordan normal]
-	A Jordan normal matrix has all entries zero except for diagonal and superdiagonal entries.
-	All its non-zero superdiagonal entries are $1$.
-\end{definition}
-
-\begin{definition}[submatrix]
-	$A(i|j)$ is the submatrix obtained from the matrix $A$ by deleting $i$th row and $j$th column.
-\end{definition}
-
-\begin{definition}[normal]
-	A complex matrix $A$ is normal if it commutes with its conjugate transpose. ie, $AA^\ast = A^\ast A$.
-\end{definition}
-
-\subsection{Operations}
-\begin{definition}[trace]
-	The trace of a square matrix is the sum of its diagonal entries.
-	\begin{equation}
-		tr : M_n(F) \to F,\ tr(A) = \sum_{k=1}^n A(k,k)
-	\end{equation}
-\end{definition}
-
-\begin{definition}[$n$-linear]
-	A function $f : M_n(F) \to F$ is $n$-linear if$f$ is linear function of the $i$th row when other rows are fixed.
-\end{definition}
-
-\begin{definition}[alternating]
-	A function $f : M_n(F) \to F$ is alernating if
-	\begin{enumerate}
-		\item $f(A) = 0$  if two rows are equal.
-		\item $f(A') = -f(A)$
-	\end{enumerate}
-\end{definition}
-
-\begin{definition}[determinant]
-	The determinant of a square matrix $det : M_n(F) \to F$ is an $n$-linear, alternating function with $D(I) = 1$.
-\end{definition}
-\begin{note}
-	Matrix $A$ with $det(A) = 0$ is singular.
-\end{note}
-
-\begin{definition}[scalar multiplication]
-	Let $k \in F$ and $A_{m \times n}$ over the field $F$.
-	The scalar product $k \cdot A_{m \times n}$ is $kA$ given by $kA(i,j) = k \cdot A(i,j)$.
-\end{definition}
-
-\begin{definition}[transposition]
-	The \textbf{transpose} of a matrix $A_{m \times n}$ is the matrix $A'_{n \times m}$ given by $A' : n \times m \to F,\ A'(i,j) = A(j,i)$.
-\end{definition}
-
-\begin{definition}[complex conjugation]
-	The \textbf{complex conjugate} of a matrix $A_{m \times n}$ is the matrix $\bar{A}_{n \times m}$ given by $\bar{A} : n \times m \to F,\ \bar{A}(i,j) = \overline{A(j,i)}$.
-\end{definition}
-\begin{note}
-	Conjugates and Complex Conjugate are different notions.
-\end{note}
-
-\begin{definition}[addition]
-	Two matrices $A,B$ are compatible for additon if they are of the same size.
-	The sum of two matrices $A,B$ is the matrix $C$ of the same size with entries $c_{ij} = a_{ij} + b_{ij}$.
-\end{definition}
-
-\begin{definition}[mulitplication]
-	Two matrices $A,B$ are compatible for multiplication if the number of columns of the first matrix and the number of rows of the second matrix are the same.
-	The product of two matrices $A_{m \times n},B_{n \times p}$ is the matrix $C_{m \times p}$ with entries
-	$$ c_{ij} = \sum_{k=1}^n a_{ik}b_{kj} $$
-\end{definition}
-\begin{note}
-	Matrix multiplication is associative and non-commutative.
-	Every non-singular matrix has a multiplicative inverse.
-\end{note}
-
-\subsection{Types}
-\begin{definition}[idempotent]
-	A idempotent matrix $A$ is a square matrix $A_{n \times n}$ which satisfies $A^2 = A$.
-\end{definition}
-
-\begin{definition}[involutary]
-	A involutary matrix $A$ is a square matrix $A_{n \times n}$ which satisfies $A^2 = I$.
-\end{definition}
-
-\begin{definition}[scalar]
-	A scalar matrix $A$ is a square matrix $A_{n \times n}$ which satisfies $a_{ij} = k \cdot \delta_{i,j}$. ie, $A_{n \times n} = k \cdot I_{n \times n}$
-\end{definition}
-
-\begin{definition}[nilpotent]
-	A square matrix is nilpotent of index $p$ if $A^p = 0$ and $A^k \ne 0,\ \forall k < p$.
-\end{definition}
-
-\begin{definition}[periodic]
-	A square matrix is nilpotent of period $p$ if $A^p = I$ and $A^k \ne I,\ \forall k < p$.
-\end{definition}
-
-\begin{definition}[symmetric]
-	A symmetric matrix $A_{n \times n}$ satisfies $a_{ij} = a_{ji}$. ie, $A' = A$.
-	A skew-symmetric matrix satisfies $a_{ij} = -a_{ji}$. ie, $A' = -A$.
-\end{definition}
-
-\begin{definition}[hermitian]
-	A hermitian matrix $A_{n \times n}$ satisfies $\overline{a_{ij}} = {a_{ji}}$. ie, $A^\ast = A,\ A^\ast = \bar{A}'$.
-	A skew-hermitian matrix satisfies $\overline{a_{ij}} = -a_{ji}$. ie, $A^\ast = -A$.
-\end{definition}
-
-\begin{note}
-	Every matrix $A$ has a decomposition $A=P+Q$ where $P = \frac{A+A'}{2}$ is symmetric and $Q = \frac{A-A'}{2}$ is skew-symmetric.
-	And $A$ has a decomposition $A = P + Q$ where $P = \frac{A+A^\ast}{2}$ is hermitian and $Q = \frac{A-A^\ast}{2}$ is skew-hermitian.
-\end{note}
-
-\begin{definition}[orthogonal]
-	An orthogonal matrix $A$ satisfies $A \in M_n(\mathbb{R})$ and $AA' = I$.
-\end{definition}
-
-\begin{definition}[unitary]
-	A unitary matrix $A$ satisfies $A \in M_n(\mathbb{C})$ and $AA^\ast = I$.
-\end{definition}
-
-\subsection{Important Notions}
-\par
-Let $A_{m \times n} \in \mathbb{R}^{m \times n}$.
+\paragraph{Equivalent Matrices}
 \begin{enumerate}
-	\item $tr(AA') = 0 \iff A = 0$.
+	\item Two system of equations are \textbf{equivalent} if they have the same solution space.
+	\item Two matrices are \textbf{equivalent} if the respective systems of equations are equivalent.
+	\item A \textbf{row operation} is a function $f : F^{n \times m} \to F^{n \times m}$ that preserves equivalence.
+	There are three elementary row operations,
+		\subitem multiplication of a row by a scalar
+		\subitem addition of a row to another
+		\subitem interchanging two rows
+	\item \textbf{Elementary matrix} is the matrix corresponding to an elementary row operation.
+	\item Any row operation can be performed by the multiplication of a matrix which is a finite product of elementary matrices.
+		\subitem Equivalent matrices have same rank.
+%	\item \textbf{Gauss elimination} method with augmented matrix to solve system of equations.
 \end{enumerate}
 
-\par
-	\begin{enumerate}
-		\item Let $D$ be a diagonal matrix.
-			Then $AD = DA \iff A$ is a block diagonal matrix.
-	\end{enumerate}
+\paragraph{Types of Matrices}
+\begin{enumerate}
+	\item A \textbf{square} matrix of order $n$ is matrix $A_{n \times n}$.
+	\item Matrix $A$ with $det(A) = 0$ is \textbf{singular}.
+	\item A \textbf{unit} matrix $J_n$ has all its entires $1$.
+		\subitem Characteristic polynomial $(x-n)x^{n-1}$. And minimal polynomial $(x-n)x$.
+	\item The \textbf{identity} matrix of order $n$, $I_{n \times n}$ where $I : \mathbb{Z}_n \times \mathbb{Z}_n \to F,\ I(i,j) = \delta_{i,j}$
+	\item Matrix $A$ is a \textbf{scalar} matrix if $A = kI$ where $k \in F$.
+	\item Matrix $A$ is \textbf{idempotent} if $A^2 = A$.
+	\item Matrix $A$ is \textbf{involutary} if $A^2 = I$.
+	\item Matrix $A$ is \textbf{nilpotent} of index $p$ if $A^p = 0$ and $A^k \ne 0,\ \forall k < p$.
+	\item Matrix $A$ is \textbf{periodic} with period $p$ if $A^p = I$ and $A^k \ne I,\ \forall k < p$.
+	\item Matrix $A$ is \textbf{symmetric} if $A'=A$.
+	\item Matrix $A$ is \textbf{skew-symmetric} if $A'=-A$.
+	\item Matrix $A$ is \textbf{hermitian} if $A^\ast = A$.
+	\item Matrix $A$ is \textbf{skew-hermitian} if $A^\ast = -A$.
+	\item Matrix $A$ is \textbf{orthogonal} if $AA' = I$.
+	\item Matrix $A$ is \textbf{unitary} if $AA^\ast = I$.
+	\item \textcolor{red}{A complex matrix $A$ is \textbf{normal} if it commutes with its conjugate transpose.}
+\end{enumerate}
 
-\subsection{Invariants}
+\subsection*{Important Notions}
+\begin{enumerate}
+	\item If every column sum of $A$ is $a$ and every column sum of $B$ is $b$, then every column sum of $AB$ is $ab$.
+	\item If every row(column) sum of $A$ is $a$, then every row(column) sum of $A^n$ is $a^n$.
+	\item Matrix multiplication is associative and non-commutative.
+	\item Every non-singular matrix has a multiplicative inverse.
+	\item Let $D$ be a diagonal matrix.
+	Then $AD = DA \iff A$ is a block diagonal matrix.
+	\item The diagonal entries of $AA'$ are the sum of square of respective row of $A$.
+		\subitem $tr(AA') = 0 \iff A = 0$.
+\end{enumerate}
+
+\paragraph{Idempotent matrices $A^2 = A$}
+\begin{enumerate}
+	\item If $A$ is idempotent, then $A',\bar{A},A^\ast$ are idempotent.
+	\item If $A^2 = nA$, then $\frac{1}{n}A$ is idempotent.
+		\subitem Let $J$ be the unit matrix of order $n$, then $J^2 = nJ$.
+	$$\begin{bmatrix}\frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \end{bmatrix} \quad \begin{bmatrix}\frac{1}{3} & \frac{1}{3} & \frac{1}{3} \\ \frac{1}{3} & \frac{1}{3} & \frac{1}{3} \\ \frac{1}{3} & \frac{1}{3} & \frac{1}{3} \end{bmatrix} \quad \dots $$
+	\item $A,B$ are idempotent and commutes, then $AB$ is idempotent.
+	\item $A$ is idempotent iff $A$ commutes with $(A-I)$.  $$A^2 = A \iff A(A-I)= 0 = (A-I)A$$
+	\item $A$ is idempotent iff $I-A$ is idempotent.
+		$$A^2 = A \iff A^2-A = 0 \iff (I-A)^2=I-A$$
+	\item If $AB=A,\ BA=B$, then $A,B$ are idempotent.
+		$$ A = AB = ABA = A^2 \text{ and } B = BA = BAB = B^2 $$
+	\item Suppose $A,B$ are idempotent. $A+B$ is idempotent iff $AB=BA=0$.
+		$$ (A+B)^2 = A+B \iff AB+BA = 0 $$
+		$$ AB+BA = 0 \implies AB + ABA = 0 \implies 2ABA = 0 \implies AB = BA = 0$$
+	\item If $A^2 = A$, then $(sI+tA)^n = s^nI + [(s+t)^n-s^n]A$.
+		\subitem $ A = \begin{bmatrix} 2 & 3 \\ 3 & 2 \end{bmatrix} = (-1)I+6B $ where $B$ is idempotent.
+\end{enumerate}
+
+\paragraph{Involutary matrices, $A^2=I$}
+\begin{enumerate}
+	\item A diagonal matrix is involutary if the diagonal entires are $\pm 1$.
+		\subitem There are $2^n$ involutary, diagonal matrix of order $n$.
+	\item Transpose of diagonal matrix with nonzero entries $a_{i,i} = 1/a_{j,j}$ where $i+j = n+1$ are involutary.
+		$$\begin{bmatrix}0 & 0 & \dots & 0 & a \\ 0 & 0 & \dots & b & 0 \\ \vdots & \vdots & \iddots & \vdots & \vdots \\ 0 & \frac{1}{b} & \dots & 0 & 0 \\ \frac{1}{a} & 0 & \dots & 0 & 0 \end{bmatrix}$$
+	\item If $A^2 = I$, then $(sI+tA)^n = \left[\frac{(s+t)^n+(s-t)^n}{2}\right]I + \left[\frac{(s+t)^n-(s-t)^n}{2}\right]A$.
+	\item Let $A,B$ be involutary. $AB$ is involutary iff $A,B$ commutes.
+		$$ (AB)^2 = I \iff AB = BA $$
+	\item \textcolor{blue}{If $A,B,A+B$ are involutary, then $(AB)^3 = I$.}
+		$$(A+B)^2 = I \implies AB+BA+I = 0 \overset{AX-XB}{\implies} ABA-BAB = 0 \overset{ABAX}{\iff} (AB)^3=I $$
+	\item \textcolor{blue}{Let $A,B,AB$ be involutary. $A+B$ is involutary iff $B=A^{-1}$.}
+		$$ (AB)^3 = (AB)^2 = I \iff AB = BA = I  \iff B = A^{-1} $$
+\end{enumerate}
+
+\paragraph{Nilpotent matrices, $A^k=0$}
+\begin{enumerate}
+	\item If $A$ is nilpotent, then $A',\bar{A},A^\ast$ are nilpotent.
+	\item Strictly upper triangular matrices of order $n$ are nilpotent with index $\le n$.
+	\item If $A,B$ are nilpotent and $A,B$ commutes, then $A+B,AB$ are nilpotent.
+		\subitem By binomial theorem, $index(A+B) \le index(A) + index(B) -1$.
+		\subitem $index(AB) \le \min\{ index(A),index(B) \}$.
+	\item If $A$ is nilpotent with index $m$, then $A^k$ is nilpotent with index $\lceil \frac{m}{k} \rceil$.
+	\item If $AB$ is nilpotent, then $BA$ is nilpotent.
+		\subitem $index(AB)-1 \le index(BA) \le index(AB)+1$.
+		\subitem If $index(AB) = m$, then $index(BA) = m-1,m, \text{ or } m+1$.
+	\item If $A$ is nilpotent with index $m$, then $(sI+tA)^n = \sum_{r=0}^{m-1}\binom{n}{r} s^{n-r}t^rA^r$.
+\end{enumerate}
+
+\paragraph{Orthogonal matrices $AA'=I$}
+\begin{enumerate}
+	\item If $A,B$ are orthogonal, then $AB$ is orthogonal.
+	\item A diagonal matrix is orthogonal if the diagonal entires are $\pm 1$.
+		\subitem Diagonal matrices are orthogonal iff involutary.
+	\item Sum of squares of each row is $1$. Sum of products of two distinct rows is zero.
+\end{enumerate}
+
+\paragraph{Unitary matrices $AA^\ast=I$}
+\begin{enumerate}
+	\item If $A$ is unitary, then $A^n$ is unitary.
+	\item If $A,B$ are unitary, then $AB$ is unitary.
+	\item Sum of squares of absolute value of elements in each row is $1$. Sum of products of elements of one row with conjugate of respective elements of another rows is zero.
+\end{enumerate}
+
+\paragraph{Symmetric/skew symmetric matrices $A=\pm A'$}
+\begin{enumerate}
+	\item If $A,B$ are symmetric, then $kA,A+B,A^m,P'AP$ are symmetric where $P \in M_n(F)$.
+	\item If $A,B$ are skew symmetric, then $kA,A+B,A^n,P'AP$ are skew symmetric.
+	\item If $A,B$ are symmetric and $A,B$ commutes, then $AB$ is symmetric.
+	\item If $A,B$ are skew symmetric and $A,B$ commutes, then $AB$ is symmetric.
+	\item If $A,B$ are symmetric and $A,B$ anticommutes, then $AB$ is skew symmetric.
+	\item If $A,B$ are skew symmetric and $A,B$ anticommutes, then $AB$ is skew symmetric.
+	\item $AA'$ is always symmetric.
+	\item $A+A'$ is symmetric, $A-A'$ is skew symmetric.
+		\subitem Every matrix $A$ has a decomposition $A = \frac{A+A'}{2} + \frac{A-A'}{2}$.
+\end{enumerate}
+
+\paragraph{Hermitian/skew Hermitian matrices $A = \pm A^\ast$}
+\begin{enumerate}
+	\item $(kA)^\ast = \bar{k}A^\ast,\ (A+B)^\ast = A^\ast + B^\ast,\ (AB)^\ast = B^\ast A^\ast,\ (A^{-1})^\ast = (A^\ast)^{-1}$.
+		\subitem $(kA)' = kA',\ (A+B)' = A'+B',\ (AB)' = B'A'$.
+		\subitem $\overline{kA} = \bar{k} \bar{A},\ \overline{A+B} = \bar{A} + \bar{B},\ \overline{AB} = \bar{A}\bar{B}$.
+	\item $A+A^\ast$ is Hermitian and $A-A^\ast$ is skew Hermitian.
+		\subitem Every square matrix $A$ has a decomposition $A = \frac{A+A^\ast}{2} + \frac{A-A^\ast}{2}$.
+	\item If $A,B$ are hermitian, then $AB-BA$ is skew-hermtian and $ABA$ is hermitian.
+		\subitem If $A$ is hermitian, then $v^\ast A v$ is real where $v \in M_{n \times 1}(\mathbb{C})$.
+	\item If $A$ is normal, then $AA^\ast$ is hermitian.
+	\item Any hermitian matrix can be diagonalized by a unitary matrix.
+		The diagonal matrix of a hermitian matrix has only real entries.
+		Eigen values of hermitian matrices are real.
+		\subitem The determinant,trace of hermtian matrices are real.
+\end{enumerate}
+\paragraph{Determinant $D(A) = \det(A) = |A|$}
+\begin{enumerate}
+	\item $\begin{vmatrix}1 & x & x^2 \\ 1 & y & y^2 \\ 1 & z & z^2 \end{vmatrix} = (x-y)(y-z)(z-x)$.
+		\subitem Determinant of Vandermonde matrix, $det(V(x_1,x_2,\dots,x_r)) = \prod_{i < j} (x_j-x_i)$
+		\subitem $\begin{vmatrix}ax^2+bx+c & dx+ex^2 & fx^2 \\ ay^2+by+c & dy+ey^2 & fy^2 \\ az^2+bz+c & dz+ez^2 & fz^2 \end{vmatrix} = adf(x-y)(y-z)(z-x)$.
+	\item $|A'| = |A|,\ |\bar{A}|=\overline{|A|},\ |A^\ast| = |A|^\ast$
+	\item $|kA| = k^n|A|,\ |AB| = |A|\ |B|,\ |A^m| = |A|^m$
+	\item $\begin{bmatrix} A & B \\ 0 & C \end{bmatrix} = \begin{bmatrix} I & 0 \\ 0 & C \end{bmatrix} \begin{bmatrix} A & B \\ 0 & I \end{bmatrix}$ where $A,B,C$ are matrices.
+	\subitem $\begin{vmatrix} A & B \\ 0 & C \end{vmatrix} = |A|\ |C|$ since $\begin{vmatrix} A & B \\ 0 & I \end{vmatrix} = |A|$ and $\begin{vmatrix} I & 0 \\ 0 & C \end{vmatrix} = |C|$.
+	\item $\begin{bmatrix} A & B & C \\ 0 & D & E \\ 0 & 0 & F \end{bmatrix} = \begin{bmatrix} I & 0 & 0 \\ 0 & I & 0 \\ 0 & 0 & F \end{bmatrix}\begin{bmatrix} I & 0 & 0 \\ 0 & D & E \\ 0 & 0 & I \end{bmatrix} \begin{bmatrix} A & B & C \\ 0 & I & 0 \\ 0 & 0 & I \end{bmatrix}$
+	\item $\begin{vmatrix} aI_n & bI_n \\ cI_n & dI_n \end{vmatrix} = \begin{vmatrix} aI_n & bI_n \\ 0 & \frac{ad-bc}{a}I_n \end{vmatrix} = (ad-bc)^n$.
+		\item $\begin{vmatrix} A & B \\ B & A \end{vmatrix} = \begin{vmatrix} A+B & B \\ A+B & A \end{vmatrix} = \begin{vmatrix} A+B & A \\ 0 & A-B \end{vmatrix} = |A+B|\ |A-B|$.
+	\item Determinant of involutary matrices is $\pm 1$.
+	\item Determinant of nilpotent matrices is $0$.
+	\item Determinant of orthogonal matrices is $\pm 1$.
+	\item Determinant of unitary matrices is $e^{i\theta}$.
+	\item Determinant of skew symmetric matrices of odd order is $0$.
+	\item Determinant of Hermitian matrices is real.
+	\item Determinant of skew Hermitian matrices of even(odd) order is purely real(imaginary).
+\end{enumerate}
+
+\paragraph{Inverse of a matrix}
+\begin{enumerate}
+	\item If $det(A) \ne 0$, then $A^{-1} = det(A)^{-1} adj(A)$.
+		\subitem $A\ adj(A) = |A|$.
+	\item $(A^{-1})' = (A')^{-1},\ \overline{(A^{-1})} = \left(\bar{A}\right)^{-1},\ (A^\ast)^{-1} = (A^{-1})^\ast$.
+	\item Product of invertible matrices is invertible.
+		\subitem If $A,B,sA+tB$ are invertible, then $sB^{-1}+tA^{-1}$ is invertible.
+		$$ A^{-1}(sA+tB)B^{-1} = sB^{-1}+tA^{-1} $$
+	\item $\begin{bmatrix} 0 & 0 & P \\ Q & 0 & 0 \\ 0 & R & 0 \end{bmatrix}^{-1} = \begin{bmatrix} 0 & Q^{-1} & 0 \\ 0 & 0 & R^{-1} \\ P^{-1} & 0 & 0 \end{bmatrix}$.
+	\item The inverse of invertible symmetric, skew symmetric, Hermitian, and skew Hermitian matrices preserve their nature.
+	\item $adj^2(A) = |A|^{n-2}A$.
+		\subitem $adj(A)\ adj^2(A) = |adj(A)|I = |A|^{n-1}I$.
+		\subitem $A\ adj(A)\ adj^2(A) = |A|^{n-1} A \implies |A|\ adj^2(A) = |A|^{n-1} A$.
+	\item $|adj(A)| = |A|^{n-1}$ since $|A|\ |adj(A)| = |A|^n$
+		\subitem $(kA) adj(kA) = |kA|I \implies |adj(kA)| = k^{n-1}|A|^{n-1}$
+	\item $|adj^k(A)| = |A|^{(n-1)^k}$.
+		\subitem $|adj(adj(A))| = |adj(A)|^{n-1} = (|A|^{n-1})^{n-1} = |A|^{(n-1)^2}$
+\end{enumerate}
+
+\paragraph{Rank of a matrix}
+\begin{enumerate}
+	\item If $A$ is non-singular, then rank of $A$, $\rho(A)$ is the order of $A$.
+		\subitem $\rho(A) = \rho(A') = \rho(A^\ast) = \rho(\bar{A})$.
+		\subitem If $A$ is a matrix over $\mathbb{R}$, $\rho(A) = \rho(AA') = \rho(AA^\ast)$.
+	\item If $A$ is singular, then $\rho(A)$ is the order of the largest non-singular submatrix.
+		\subitem If $\rho(A) = r$, then every submatrix of order $r+1$ are singular.
+	\item Rank-Nullity Theorem - If $A_{m \times n}$, then $\rho(A) + Nullity(A) = \# Columns = n$.
+		\subitem Row(Column) rank is the number of linearly independent rows(columns).
+		\subitem Row(Column) nullity is the number of linearly dependent rows(columns).
+	\item $|\rho(A)-\rho(B)| \le \rho(A+B) \le \rho(A)+\rho(B)$.
+	\item $\rho(A)+\rho(B)-n \le \rho(AB) \le \min\{ \rho(A),\rho(B) \}$.
+		\subitem $\rho(A) \ge \rho(A^2) \ge \rho(A^3) \ge \dots$.
+		\subitem $\rho(A^k) \ge k\ \rho(A) - (k-1)n$.
+	\item Special Cases
+		\subitem If $A$ is nilpotent of index $k$, then $\rho(A) \le \frac{(k-1)n}{k}$.
+		\subitem If $\rho(A+B) = n$ and $\rho(AB) = 0$, then $\rho(A) + \rho(B) = n$.
+		\subitem If $A$ is idempotent, then $\rho(A) = tr(A)$.
+		\subitem If $A$ is idempotent, then $\rho(A) + \rho(A-I) = n$.
+		\subitem If $A$ is involutary, then $\rho(A+I)+\rho(A-I) = n$.
+	\item Rank of Adjunct matrix $adj(A)$
+		\subitem $\rho(A) = n \iff \rho(adj(A)) = n$.
+		\subitem $\rho(A) \le n-2 \implies adj(A) = 0 \implies \rho(adj(A)) = 0$
+		\subitem $\rho(A) = n-1 \iff \rho(adj(A)) = 1$.
+	\item If $A = \begin{bmatrix} n-1 & -1 & \dots & -1 \\ -1 & n-1 & \dots & -1 \\ \vdots & \vdots & \ddots & \vdots \\ -1 & - 1 & \dots & n-1 \end{bmatrix}$, then $\rho(A) = n-1$.
+		\subitem $A = n(I - B)$ where $B = \frac{1}{n}J$, $B^2 = B$ and $\rho(B) = 1$. $\rho(B) + \rho(B-I) = n$.
+\end{enumerate}
+
+\subsection{}
+\begin{definition}
+	The leading nonzero entry of each row is called \textbf{pivot}.
+\end{definition}
+\begin{definition}
+	A matrix is of \textbf{row reduced form} if pivots are $1$ and pivots are only nonzero values in its column.
+\end{definition}
+\begin{definition}
+	A matrix has \textbf{(row) echelon form} if zero rows are at the bottom and pivot occur on the right of pivots of the rows above.
+\end{definition}
+\begin{enumerate}
+	\item Every matrix has a unique \textbf{row reduced echelon form}.
+	\item A matrix $A$ is \textbf{invertible} if and only if its row reduced echelon form is the identity matrix.
+\end{enumerate}
+\paragraph{Vector Space Invariants}
 \begin{definition}[conjugation]
 	Two square matrices $A,B$ are \textbf{conjugates} if there exists an invertible matrix $P$ such that $A = PBP^{-1}$.
 \end{definition}
 
-\begin{theorem}
-	If $A_{m \times n}$, then $Rank(A) + Nullity(A) = n$
-\end{theorem}
+\begin{definition}
+	Raleigh quotient $R(M,x) = \frac{x'Mx}{x'x}$.
+\end{definition}
+\begin{enumerate}	
+	\item Raleigh quotient attains minimum(maximum) at the smallest(largest) eigen value.
+	\item The range of Raleigh quotient is the spectrum. 
+\end{enumerate}	
