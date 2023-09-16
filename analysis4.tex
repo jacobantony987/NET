@@ -1,5 +1,25 @@
-\section{Limit Inferior/Superior of Functions}
-\begin{definition}[metric]
-\[ \limsup_{x \to a} f = \lim_{\varepsilon \to 0} \sup_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} = \inf_{\varepsilon > 0} \sup_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} \]
-\[ \liminf_{x \to a} f = \lim_{\varepsilon \to 0} \inf_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} = \sup_{\varepsilon > 0} \inf_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} \]
-\end{definition}
+\section{Sequence of Functions}
+\begin{enumerate}
+	\item Sequence of functions are pointwise convergent if for each $x_0 \in X$, the sequence $f_n(x_0)$ converges to $f(x_0)$.
+	\begin{eqnarray}
+		\text{(metric)} & \forall x \in X,\ \forall \varepsilon > 0,\ \exists N_{x,\varepsilon} \in \mathbb{N},\ \forall n > N_{x,\varepsilon},\ d(f_n(x),f(x)) < \varepsilon \\
+		\text{(norm)} & \forall x \in X,\ \forall \varepsilon > 0,\ \exists N_{x,\varepsilon} \in \mathbb{N},\ \forall n > N_{x,\varepsilon},\  \|f_n(x),f(x)\| < \varepsilon\\
+	\text{(nbd)} & \forall x \in X,\ \forall U \in \mathcal{N}_{f(x)},\ \exists N_{x,U} \in \mathbb{N},\ \forall n > N_{x,U},\  f_n(x) \in U
+	\end{eqnarray}
+	\item Sequence of functions are uniformly convergent  if for each $x \in X$, all the sequences $f_n(x)$ converges to $f(x)$ uniformly.
+	\begin{eqnarray}
+	\text{(metric)} & \forall \varepsilon > 0,\ \exists N_{\varepsilon} \in \mathbb{N},\ \forall x \in X,\ \forall n > N_{\varepsilon},\ d(f_n(x),f(x)) < \varepsilon \\
+	\text{(norm)} & \forall \varepsilon > 0,\ \exists N_{\varepsilon} \in \mathbb{N},\ \forall x \in X,\ \forall n > N_{\varepsilon},\  \|f_n(x),f(x)\| < \varepsilon
+		%\text{(nbd)} & \exists N_\varepsilon \in \mathbb{N},\ \forall U \in \mathcal{N}_{f(x)},\ \forall n > N_{x,U},\  f_n(x) \in U %I am not sure about this ?!
+	\end{eqnarray}
+	\item A sequence of functions are pointwise bounded if for each $x_0 \in X$, the sequence $f_n(x_0)$ is bounded.
+		$$ \forall x \in X,\ \exists M_x \in \mathbb{R},\ |f_n(x)| < M_x $$
+	\item A sequence of functions are uniformly bounded if they have a uniform bound.
+		$$ \exists M \in \mathbb{R},\ \forall x \in X, |f_n(x)| < M $$
+\end{enumerate}
+
+%\section{}
+%\begin{enumerate}
+%	\item
+%\end{enumerate}
+

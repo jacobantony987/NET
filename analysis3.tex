@@ -1,56 +1,225 @@
-\section{Limit of a function}
-\begin{definition}[limit]
-	If $f(x_n) \to L$ as $x_n \to a$, then $\displaystyle \lim_{x \to a} f(x) = L$.
-\end{definition}
+\section{Functions}
+\begin{enumerate}
+	\item If $f(x_n) \to L$ as $x_n \to a$, then $\displaystyle \lim_{x \to a} f(x) = L$.
+	\item Criteria for Continuity
+		\subitem Sequential Criteria : $f$ is continuous at $x_0$ if $f(x_n)$ should converge to $f(x_0)$ for every sequence $\sequence{x_n}$ converging to $x_0$.
+		$$ \lim_{x \to x_0} f(x) = f(\lim_{x \to x_0} x) = f(x_0)$$
+		\subitem Neighbourhood Criteria : A function is continuous at $x_0$ if every neighbourhood of $f(x_0)$ contains the image of a neighbourhood of $x_0$.
+		$$ \forall \varepsilon > 0,\ \exists \delta > 0,\ \forall x \in (x_0 - \delta,x_0+\delta),\ f(x) \in (f(x_0)-\varepsilon,f(x_0)+\varepsilon)$$
+	\item Types of Discontinuity
+		\subitem First Kind : Removable Discontinuity $f(x+) = f(x-) \ne f(x)$.
+		\subitem Second Kind : Jump Discontinuity $f(x+) \ne f(x-)$
+		\subitem Third Kind : Essential Discontinuity\footnote{Classification of essential discontinuties is the work of John Klippert, 1989} $f(x+)$ or $f(x-)$ does not exist.
+	\item For a function $f$, every discontinuity except possible essential discontinuity of first kind(where both limits do not exist) are countable.
+	\item If $f,g$ are continuous functions from $A$ to $\mathbb{R}$. Suppose $c \in A$. Then \begin{enumerate*} \item $f+g$ \item $f-g$ \item $fg$ \item $bf$ \item $f/g$ provided $g(x) \ne 0,\ \forall x \in A$ \end{enumerate*} are continuous at $c$.
+	\item $f \circ g$ continuous $\nimplies f,g$ continuous.
+\end{enumerate}
 
-\begin{definition}[continuity]
-	A function $f : X \to Y$ is continuous at $a \in X$, if $\displaystyle \lim_{x \to a} f(x) = f(\lim_{x \to a} x) = f(a)$.
-\end{definition}
+\subsection{Properties of Continuity}
+\begin{enumerate}
+	\item The set of discontinuities is an $F_\sigma$ set and the points where continuous is a $G_\delta$ set.\footnote{In a metrix space $X$, the locus of continuity of $f : X \to \mathbb{R}$ is a countable union of open balls.}
+	\item Froda's theorem : The set of discontinuities of a monontone function is countable.
+	\subitem Discontinuities of a monotone function are jump discontinuities.
+	\item Lebesgue-Vitali theorem : A bounded function $f$ is Riemann integrable on $I=[a,b]$ if and only if the set of discontinuities has zero measure.\footnote{A bounded function is Riemann integrable if and only if the essential discontinuity of first kind has Lebesgue measure zero.}
+	\subitem Dirichlet function, $\chi_\mathbb{Q}$ is discontinuous everywhere. The disconuities are essential discontinuities of first kind.
+	\subitem Characteristic function of Cantor set, $\chi_C$ is Riemann integrable, since $\mu(C)=0$.
+	\subitem By Baire's Category theorem, there does not exists a function which continuous exactly on $\mathbb{Q}$.
+	\item Continuous image of a compact set is compact.
+	\subitem Continuous function on a bounded interval is bounded. ??
+	\subitem Continuous image of a closed interval is closed.
+	\item Location of root theorem : If $f$ is continuous on $[a,b]$ and $f(a),f(b)$ are of different sign, then there exists $c \in (a,b)$ such that $f(c) = 0$.
+	\item Intermediate Value theorem : If $f$ is continuous on $[a,b]$ and $f(a) \ne f(b)$, then $f$ assumes every value between $f(a)$ and $f(b)$.
+	\subitem Converse : If $f$ is $1-1$ and satisfies intermediate value property, then $f$ is continuous.
+\end{enumerate}
 
-\begin{theorem}
-	Limit is algebraic.
-\end{theorem}
-	Suppose $\displaystyle \lim_{x \to a} f(x),\ \lim_{x \to a} g(x)$ exists, then
-\begin{eqnarray}
-	\lim_{x \to a} cf(x) = c\lim_{x \to a} f(x) \\
-	\lim_{x \to a} f(x) \pm g(x) = \lim_{x \to a} f(x) \pm \lim_{x \to a}g(x) \\
-	\lim_{x \to a} f(x)g(x) = \lim_{x \to a}f(x) \ \lim_{x \to a}g(x) \\
-	\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\displaystyle \lim_{x \to a}f(x)}{\displaystyle \lim_{x \to a}g(x)} \\
-	\lim_{x \to a} f(x)^{g(x)} = \lim_{x \to a}f(x)^{\displaystyle \lim_{x \to a}g(x)}
-\end{eqnarray}
+\paragraph{Problems}
+\begin{enumerate}
+	\item Constant, Identity Functions are continuous.
+	\item Check continuity of $x\sin 1/x$ at $x =0$
+	\begin{proof}[Solution]
+		$$ \lim_{x \to 0} -x \le \lim_{x \to 0} \frac{\sin \frac{1}{x}}{\frac{1}{x}} \le \lim_{x \to 0} x $$
+	\end{proof}
+	\item $f(x) = 1/x$ is not continuous at $0$.
+	\item Signum Function is continuous only at $0$.
+		$$ sgn(x) = \begin{cases} -1 & x < 0 \\ 0 & x = 0 \\ 1 & x>1 \end{cases} $$
+	\item There exists a function which is continuous only at $a$.
+		$$f(x) = \begin{cases} x-a & x \in \mathbb{Q} \\ 0 & x \in \mathbb{Q}^c \end{cases} $$
+	\subitem There exists function which is continuous only at a finite number of points.
+		$$f(x) = \begin{cases} (x-a_1)(x-a_2)\dots(x-a_n) & x \in \mathbb{Q} \\ 0 & x \in \mathbb{Q}^c \end{cases} $$
+	\item There exists a function which is discontinuous only at finite number of points. (Jump discontinuities) 
+		$$ f(x) = \frac{1}{(x-a_1)(x-a_2)\dots(x-a_n)} $$
+	\item Thomae's Function is continuous on $\mathbb{Q}^c$ and discontinuous on $\mathbb{Q}$. The discontinuities are removable.
+		$$ f : \mathbb{R} \to \mathbb{R},\ f(x) = \begin{cases} 0 & x \in Q^c \\ \frac{1}{q} & x = \frac{p}{q} \in \mathbb{Q} \end{cases} $$
+	\subitem There exists Function continuous only on $\mathbb{Z},\mathbb{N}$. 
+\end{enumerate}
 
-\begin{remark}[exceptions]
-	\[ \frac{0}{0}, \frac{\pm \infty}{\pm \infty},\ 0 \pm \infty,\ \infty - \infty,\ 0^0,\ \infty^0,\ 1^{\pm\infty} \]
-\end{remark}
+\section{Fixed Points}
+\begin{enumerate}
+	\item Let $f : A \to B$. Then $x$ is fixed point of $f$ if $f(x) = x$.
+\end{enumerate}
 
-\begin{theorem}[L'Hospital/Bernouli]
-	\[ \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} \]
-\end{theorem}
+\subsection{Properties of Fixed points}
+\begin{enumerate}
+	\item A continuous function on closed interval to itself will have a fixed point.
+		\subitem Continuous function on a compact set to a subset of it.
+\end{enumerate}
+
+\paragraph{Problems}
+\begin{enumerate}
+	\item Find fixed points of $f(x) =2x$ ? $x = 0$.
+	\item Find fixed points of $f : (0,1) \to (\frac{1}{2}, 1)$ where $f(x) = \frac{x+1}{2}$ ? No fixed points.
+\end{enumerate}
+
+\section{Differentiability}
+\begin{enumerate}
+	\item Let $f : I \to \mathbb{R}$ where $I$ is an interval. Then $f$ is differentiable at $c \in I$ if
+		$$ \forall \varepsilon > 0,\ \exists \delta > 0,\ |x-c| < \delta \implies \left| \frac{f(x)-f(c)}{x-c} \right| < \varepsilon $$
+		$$ f^\prime(c) = \lim_{x \to c} \frac{f(x)-f(c)}{x-c} $$
+		$$ \lim_{h \to 0} \frac{f(c+h)-f(c)}{h} = \lim_{h \to 0} \frac{f(c)-f(c-h)}{h} = \lim_{h \to 0} \frac{f(c+h)-f(c-h)}{2h} $$
+	\item Local extrema(minima/maxima) is a point $x_0$ such that $f(x_0) \le f(x)$ or $f(x_0) \ge f(x)$ for every $x$ in a neighbhoourhood of $x_0$.
+	\item Absolute/Global extrema is a point $x_0$ such that $f(x_0) \ge f(x)$ or $f(x_0) \le f(x)$ for every $x$ in its domain.
+	\item A function $f$ is convex if $f^{\prime\prime}(x) > 0,\ \forall x \in I$. And concave if $f^{\prime\prime}(x) < 0,\ \forall x \in I$. If $f^{\prime\prime}(x) = 0$, then $x$ is a point of inflection.
+	\item A function $f$ has derivative zero at $x_0$, then $x_0$ is a point of extrema.
+	\item Every differentiable function is continuous. But, there exists non-differentiable continuous functions. 
+		\subitem Weierstrass monster function is continuous, but nowhere differentiable.
+	\item A function $f$ is increasing if $f(x)\le f(y)$ whenever $x<y$. And decreasing if $f(x) \ge f(y)$ whenever $x<y$. Function $f$ is monotonic if it is either increasing or decreasing. Function $f$ is strictly monotone (increasing/decreasing) if the inequality is strict.
+\end{enumerate}
+\subsection{Properties of Derivatives}
+\begin{enumerate}
+	\item
+\end{enumerate}
+
+\paragraph{Problems}
+\begin{enumerate}
+	\item Check differentiability of $f(x) = x^2 \sin 1/x$ at $x = 0$ ?
+	\begin{proof}[Solution]
+		Diferentiable and $f^\prime(0) = 0$ since $x\sin 1/x \to 0$.
+	\end{proof}
+\end{enumerate}
+
+\section{Uniform Continuity}
+\begin{enumerate}
+	\item A function $f : X \to \mathbb{R}$ is uniformly continuous if 
+		$$ \forall \varepsilon > 0,\ \exists \delta > 0,\ \forall x_0 \in X,\ |x-x_0|<\delta \implies |f(x)-f(x_0)| < \varepsilon $$
+		$$ \forall \varepsilon > 0,\ \exists \delta > 0,\ |x_1-x_2| < \delta \implies |f(x_1)-f(x_2)| < \varepsilon $$
+	\item A function $f : X \to \mathbb{R}$ is Lipschitz if 
+		$$ \exists k > 0,\ \forall x,y \in X,\ |f(x)-f(y)| \le k|x-y|$$
+\end{enumerate}
+
+\subsection{Properties of Uniform Continuity \& Tests}
+\begin{enumerate}
+	\item Every uniformly continuous function is continuous.
+	\item If a function $f$ is uniformly continuous on $X$, then it is uniformly continuous on every subset of $X$.
+	\item A function $f : X \to \mathbb{R}$ is not uniformly continuous if there exists two sequences $x_n,y_n$ such that $x_n-y_n \to 0 \nimplies |f(x_n)-f(y_n)| \to 0$.
+	\item A continuous function $f : [a,b] \to \mathbb{R}$ is uniformly continuous if both $\displaystyle \lim_{x \to a+} f(x)$ and $\displaystyle \lim_{x \to b-} f(x)$ exists.
+		\subitem $f : [a,\infty]$ is continuous and $\displaystyle \lim_{x\to \infty} f(x)$ exists, then $f$ is uniformly continuous.
+		\subitem $f : [-\infty,b]$ is continuous and $\displaystyle \lim_{x \to -\infty} f(x)$ exists, then $f$ is uniformly continuous.
+		\subitem $f : [-\infty,\infty]$ is continuous and $\displaystyle \lim_{x \to \infty} f(x), \lim_{x \to -\infty} f(x)$ exists, then $f$ is uniformly continuous.
+	\item Continuous function on a compact set is uniformly continuous.
+	\item Lipschitz functions are uniformly continuous.
+		$$ \text{ Lipschitz } \subsetneq \text{ Uniformly Continuous } \subsetneq \text{ Continuous } $$
+	\subitem Function $f$ is Lipschitz if and only if $f$ is differentiable and derivative is bounded.
+	\item Continuous periodic functions are uniformly continuous.
+\end{enumerate}
+
+\paragraph{Problems}
+\begin{enumerate}
+	\item Check whether $f(x) = \sin x$ is uniformly continuous ?
+	\begin{proof}[Solution]
+		$$ |\sin x_1 - \sin x_2| = \left|2\cos\left(\frac{x_1+x_2}{2}\right)\sin\left(\frac{x_1-x_2}{2}\right)\right| \le 2\sin(\delta/2) \le \delta $$
+	\end{proof}
+	\item Check whether $f(x) = \frac{1}{x}$ is uniformly continuous on $(0,\infty)$ ?
+	\begin{proof}[Solution]
+		As $x_0 \to 0$, $|f(x)-f(x_0)| \to \infty$.
+		$0$ is a bad point for $f$ as it has a suddent variation there. Since $0$ is a limit point of its domain the function is not uniformly continuous.\\
+
+		Alternately, $f(x) = \frac{1}{x}$ is Lipschitz if $\frac{1}{xy}$ is bounded since $|\frac{1}{x}-\frac{1}{y}| = | \frac{y-x}{xy} | \le |\frac{1}{xy}| |x-y|$. That is, $f$ is Lipschitz if $x,y$ are bounded away from zero. Therefore, $f(x) = \frac{1}{x}$ is Uniformly continuous if the domain of $f$ is bounded away from zero.\\
+
+		When domain of $f$ is bounded away from origin, both the end point limits exists and $f(x)=\frac{1}{x}$ is continuous in its domain. Therefore, $f$ is uniformly continuous.
+
+	\end{proof}
+	\item Check whether $f(x) = x^2$ is uniformly continuous on $(0,\infty)$ ?
+	\begin{proof}[Solution]
+		Bad points are $\pm \infty$ and they are limit points of $f$. Thus, $f$ is not uniformly continuous on any unbounded subset of $\mathbb{R}$.\\
+
+		Alternately, consider sequences $\sqrt{n+1}, \sqrt{n}$. Now $\sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1}+\sqrt{n}} \to 0$. However, $|n+1-n| = 1 \to 1$.\\
+
+		When the domain of $f(x)=x^2$ is bounded, then both end point limits exists and $f(x)$ is continuous everywhere. Therefore $f(x)=x^2$ is uniformly continuous on every bounded set.
+	\end{proof}
+	\item Check whether $f(x) = \sqrt{x}$ is Lipschitz on $[0,1]$ ?
+	\begin{proof}[Solution]
+		Consider $x = 1/n^2$ and $y = 0$. Then $|f(x)-f(y)| = |1/n| \le c|x-y| = c/n^2$ which is not possible.
+		Therefore, $f(x) = \sqrt{x}$ is not Lipschitz. However, being a continuous function on a compact interval, $f$ is uniformly continuous.
+	\end{proof}
+	\item Function $f(x) = \sin x$ is differentiable and derivative is bounded, therefore uniformly continuous.
+	\item Function $f(x) = \sin x^2$ is differentiable and derivative is unbounded, therefore, $\sin x^2$ is not Lipschitz.\\
+
+	$\pm \infty$ are bad points of $f(x) = \sin x^2$. Thus, $f$ is uniformly continuous if and only if it is defined on a bounded set.\\
+
+	Consider $\sqrt{2n\pi+\frac{1}{n}}, \sqrt{2n\pi+\frac{\pi}{2}}$. Then $x_n - y_n \to 0$, but $|f(x_n) - f(y_n)| \to 1 = 0$. Therefore, $f$ is not uniformly continuous.
+	\item $f(x) = x\sin x$ is not uniformly continuous.
+		Consider $(2n\pi+\frac{1}{n}), (2n\pi)$. Then $x_n - y_n \to 0$, but $|f(x_n) - f(y_n)| = |2n\pi\sin (1/n) + \frac{1}{n} \sin (1/n)| \to 1 = 0$.
+
+	\item $f(x) = \sin x^3, x^2 \sin x$ is uniformly continuous on bounded sets.
+	\item $f(x) = \sin (1/x)$ is uniformly uniformly continuous on sets bounded away from zero.
+	\item $f(x) = x \sin (1/x)$ is uniformly uniformly continuous on $\mathbb{R}$ as both end point limits exists.
+\end{enumerate}
+
+\subsection{Properties of Limit of a Function}
+\begin{enumerate}
+	\item Limit is algebraic.
+		Suppose $\displaystyle \lim_{x \to a} f(x),\ \lim_{x \to a} g(x)$ exists, then
+	\begin{align}
+		\lim_{x \to a} cf(x) & = c\lim_{x \to a} f(x) \\
+		\lim_{x \to a} f(x) \pm g(x)  & = \lim_{x \to a} f(x) \pm \lim_{x \to a}g(x) \\
+		\lim_{x \to a} f(x)g(x) & = \lim_{x \to a}f(x) \ \lim_{x \to a}g(x) \\
+		\lim_{x \to a} \frac{f(x)}{g(x)} & = \frac{\displaystyle \lim_{x \to a}f(x)}{\displaystyle \lim_{x \to a}g(x)} \\
+		\lim_{x \to a} f(x)^{g(x)} & = \lim_{x \to a}f(x)^{\displaystyle \lim_{x \to a}g(x)}
+	\end{align}
+		with a few exceptions, where $ \frac{0}{0}, \frac{\pm \infty}{\pm \infty},\ 0 \pm \infty,\ \infty - \infty,\ 0^0,\ \infty^0,\ 1^{\pm\infty} $.
+\end{enumerate}
+
+\section{Functions of Bounded Variation}
+\begin{enumerate}
+	\item A function $f$ is of bounded variable on $[a,b]$ if the sum of variations is bounded for any partition of $[a,b]$.
+	\item Total variation of $f$ on $[a,b]$ is the supremum of bounded variations.
+		$$ V_f(a,b) = \sup_{P \in \mathscr{P}[a,b]} \!\!\! V(P,f) \text{ where } V(P,f) = \!\!\!\!\!\! \sum_{(x_{i-1},x_i) \in P}\!\!\!\!\!\! |f(x_i) - f(x_{i-1})| $$
+\end{enumerate}
+
+\subsection{Properties of Bounded Variation}
+\begin{enumerate}
+	\item Monotonic function $f$ has $V_f(a,b) = |f(b)-f(a)|$.
+		\subitem If $f(x) = \sin x$, then $V_f(a,b) = \sum |\sin x_i - \sin x_{i-1}| \le \sum |x_i - x_{i-1}| = b-a$.
+\end{enumerate}
+
+\paragraph{Problems}
+\begin{enumerate}
+	\item
+\end{enumerate}
+%83019 78727 Minitek
 
 %example problems for each exceptions above can be found at
 %http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/SandS/lHopital/index.html
-
-\begin{remark}[application]
-	\[ \lim_{x \to 0} (2+x)^\frac{1}{x} = \lim_{x \to 0} e^{\frac{1}{x} \log (2+x)} = e^{\displaystyle \lim_{x \to 0} \frac{\log(2+x)}{x}} = e^{\displaystyle \lim_{x \to 0} \frac{1}{2+x}} = \sqrt{e} \]
-\end{remark}
-
-\paragraph{Squeeze theorem}
+\subsection{Properties of Limit}
+\begin{enumerate}
+	\item L'Hospital/Bernouli Theorem
+	\[ \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} \]
+	\item \[ \lim_{x \to 0} (2+x)^\frac{1}{x} = \lim_{x \to 0} e^{\frac{1}{x} \log (2+x)} = e^{\displaystyle \lim_{x \to 0} \frac{\log(2+x)}{x}} = e^{\displaystyle \lim_{x \to 0} \frac{1}{2+x}} = \sqrt{e} \]
+	\item Squeeze Theorem :
 	Suppose $f(x) \le g(x) \le h(x)$ for each $x$ in an open interval containing $a$ (except $a$).
 	If $\displaystyle \lim_{x \to a} f(x) = \lim_{x \to a} h(x) = L$,  then
 	\begin{equation}
 		\lim_{x \to a} g(x) = L
 		\label{equ:lim_squeeze}
 	\end{equation}
-
-\begin{theorem}[chain rule]
+	\item Chain Rule :
 	Suppose $\displaystyle \lim_{x \to a} g(x) = b$ and $f$ is continuous at $b$, then
 	\begin{equation}
 		\lim_{x \to a} f(g(x)) = f(\lim_{x \to a} g(x)) = f(b) = c
 	\end{equation}
-\end{theorem}
-
-\begin{remark}
-	The existence of limit $\displaystyle \lim_{y \to b} f(y) = c$ does not imply $f(b) = c$.
-	If $g$ assumes value $b$ in some neighbourhood of $a$, then
-	\[ \lim_{x \to a} g(x) = b,\ \lim_{y \to b} f(x) = c \nimplies \lim_{x \to a} f \circ g(x) = c \]
-\end{remark}
+\end{enumerate}
+\section{Limit Superior/Inferior of a Function} What is this ?
+\begin{enumerate}
+	\item \[ \limsup_{x \to a} f = \lim_{\varepsilon \to 0} \sup_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} = \inf_{\varepsilon > 0} \sup_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} \]
+	\[ \liminf_{x \to a} f = \lim_{\varepsilon \to 0} \inf_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} = \sup_{\varepsilon > 0} \inf_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} \]
+\end{enumerate}

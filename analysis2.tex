@@ -1,26 +1,19 @@
 \section{Limit Superior/Inferior}
-\begin{definition}
-	\[ \limsup_{n \to \infty} x_n = \inf_{n \ge 0} \sup_{m \ge n} x_n \]
-\end{definition}
-
-\begin{definition}
-	\[ \liminf_{n \to \infty} x_n = \sup_{n \ge 0} \inf_{m \ge n} x_n \]
-\end{definition}
-
-\begin{remark}
-	$\liminf x_n  = I,\limsup x_n = S$ are the bounds for cluster points of $x_n$.
+\begin{enumerate}
+	\item $\displaystyle \limsup_{n \to \infty} x_n = \inf_{n \ge 0} \sup_{m \ge n} x_n $
+	\item $ \displaystyle \liminf_{n \to \infty} x_n = \sup_{n \ge 0} \inf_{m \ge n} x_n $
+	\item $\liminf x_n  = I,\limsup x_n = S$ are the bounds for cluster points of $x_n$.
 	Thus, there are at most finitely many terms outside $(I-\varepsilon,S+\varepsilon)$.
 	However, $[I,S]$ may not contain any term of $x_n$.
 	For example, $x_n = (-1)^n (1+\frac{1}{n})$.
-\end{remark}
+\end{enumerate}
 
 \subsection{Properties of limit superior/inferior}
-\begin{eqnarray*}
-	& \inf x_n \le \liminf x_n \le \limsup x_n \le \sup x_n \\
-	& \liminf a_n + \liminf b_n \le \liminf (a_n+b_n) \le \limsup (a_n + b_n) \le \limsup a_n + \limsup b_n  \\
-	& \liminf a_n \liminf b_n \le \liminf (a_n b_n) \le \limsup (a_n b_n) \le \limsup a_n \limsup b_n  
-\end{eqnarray*}
+\begin{enumerate}
+	\item $\inf x_n \le \liminf x_n \le \limsup x_n \le \sup x_n $
+	\item $ \liminf a_n + \liminf b_n \le \liminf (a_n+b_n) \le \limsup (a_n + b_n) \le \limsup a_n + \limsup b_n $ 
+	\item $ \liminf a_n \liminf b_n \le \liminf (a_n b_n) \le \limsup (a_n b_n) \le \limsup a_n \limsup b_n  $
+	\item Stolz-Cesaro Therorem
+		\[ \liminf_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \le \liminf_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \]
+\end{enumerate}
 
-\begin{theorem}[Stolz-Cesaro]
-	\[ \liminf_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \le \liminf_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \]
-\end{theorem}

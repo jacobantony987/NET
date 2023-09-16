@@ -1,0 +1,174 @@
+\section{Partial Differential Equation}
+\begin{enumerate}
+	\item \textbf{Partial differential equations} contains one or more partial derivatives. Usually variable $z$ is dependent on two indpendent variables $x,y$.
+		$$ \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y} = 0$$
+	\item Partial differential equations must contain two independent variables.
+	\item \textbf{Order} is the highest order of the derivative occuring in the equation.
+		$$ x\frac{\partial z}{\partial x} + y \frac{\partial z}{\partial y} = z,\quad order = 1$$
+		$$ \frac{\partial ^2z}{\partial x^2} + 3\frac{\partial^2 z}{\partial x \partial y} + \frac{\partial^2 z}{\partial y^2} = 0, \quad order = 2$$
+	\item Standard Notations: (better not to use these letters for other purposes)
+		$$ \frac{\partial z}{\partial x} = p,\quad \frac{\partial z}{\partial y} = q,\quad \frac{\partial^2 z}{\partial x^2} = r,\quad \frac{\partial^2 z}{\partial x \partial y} = s,\quad \frac{\partial^2 z}{\partial y^2} = t$$
+		$$ pz+qy = z,\ r+3s+t = 0$$
+	\item $$ \frac{\partial \phi(\psi(x,y,z))}{\partial x} = \phi'(\psi(x,y,z))\ \frac{\partial \psi(x,y,z)}{\partial x} $$
+	\item A \textbf{first order} partial differential equation has only the first order partial derivatives, say $p,q$. A PDE is \textbf{linear} if its does not contain product of partial derivatives.
+\end{enumerate}
+\subsection{Formation of Partial Differential Equations}
+\begin{enumerate}
+	\item Elimination of arbitrary constants.\\
+		Differential wrt $x,y$ and eliminate arbitrary constants.
+	\item Elimination of arbitrary functions.\\
+		If the equation contains only one arbitrary constant(function), then differentiate it wrt $x,y$. Otherwise find higher order derivatives to eliminate arbirary function.
+\end{enumerate}
+
+\subsection{Exercise}
+\begin{enumerate}
+	\item $z = ax+by+ab \implies p = a, q=b \implies z = pz+qz+pq$
+	\item $z = (x+a)(y+b) \implies p = (y+b),q = (x+a) \implies z = pq$
+	\item $az+b = a^2x + y \implies ap = a^2,aq=1 \implies pq = 1$
+	\item $(x-h)^2 + (y-k)^2 + z^2 = c^2$ where $c$ is a fixed constant, say $c = 5$.\\
+		$\implies 2zp + 2(x-h) = 0, 2zq + 2(y-k) = 0 \implies z^2(p^2 + q^2 + 1) = c^2$.
+	\hrule
+\item $lx+my+nz = \phi(x^2+y^2+z^2)$ 
+\begin{align*}
+	& l+np = (2x+2zp)\phi'(x^2+y^2+z^2),\\
+	& m+nq  = (2y+2zq)\phi'(x^2+y^2+z^2) \\
+	\implies & (l+np)(y+zq)  = (m+nq)(x+zp) \\
+	\implies & (ly-mx)+(ny-mz)p + (lz-nx)q + (nz-nz)pq = 0
+\end{align*}
+\item $z = y^2 + 2\phi(\frac{1}{x} + \log y)$ 
+\begin{align*}
+	& p = 2\phi'(\frac{1}{x}+\log y) \frac{-1}{x^2},\\
+	& q = 2y + 2\phi'(\frac{1}{x} + \log y) \frac{1}{y}\\
+	\implies & \frac{p}{q-2y} = \frac{-y}{x^2}\\
+	\implies & px^2+qy-2y^2 = 0
+\end{align*}
+\item $z = \phi(x+iy)+\psi(x-iy)$ (two functions expect second order PDE)
+\begin{align*}
+	& p = \phi'(x+iy) + \psi'(x-iy)\\
+	& q = i\phi'(x+iy) -i \psi'(x-iy)\\
+	& r = \phi^{(2)}(x+iy) + \psi^{(2)}(x-iy) \\
+	& s = i\phi^{(2)}(x+iy) -i \psi^{(2)}(x-iy) \\
+	& t = -\phi^{(2)}(x+iy) -\psi^{(2)}(x-iy)\\
+	\implies & r+t = 0
+\end{align*}
+\end{enumerate}
+
+\subsection{Solving Pfaffian}
+\begin{enumerate}
+	\item Grouping Method : Convert into variable separable form.
+	\item Multiplier Method : $P'P+Q'Q+R'R = 0 \implies \int P'dx + Q'dy + R'dz = 0$.
+\end{enumerate}
+
+\subsection{Solving Partial Differential Equations}
+\begin{enumerate}
+	\item Lagrange`s Equation - Linear PDE
+	\begin{equation}
+		Pp + Qq = R
+	\end{equation}
+		where $P,Q,R$ are functions of $x,y,z$.
+	\begin{enumerate}
+		\item Lagrange`s Equation : $Pp + Qq = R$
+		\item Auxilary Equation : $\frac{dx}{P} = \frac{dy}{Q} = \frac{dz}{R}$
+		\item Solve and find two solutions : $U(x,y,z) = c_1, V(x,y,z) = c_2$.
+		\item General Solution : $\phi(U,V) = 0$ or $U = \phi(V)$ where $\phi$ is an arbitrary function.
+	\end{enumerate}
+
+	\item Charpit`s Equation - Non-Linear PDEFirst Order Partial Differential Equations\\
+\end{enumerate}
+
+\subsection{Exercise}
+\begin{enumerate}
+	\item $px + qy = 3z$
+	\begin{align*}
+		& \frac{dx}{x} = \frac{dy}{y} = \frac{dz}{3z}\\
+		& \frac{dx}{x} = \frac{dy}{y} \implies \log x = \log y + \log c \implies x/y = c_1 \\
+		& \frac{dx}{x} = \frac{dz}{3z} \implies 3\log y = \log z + \log c \implies y^3/z = c_2
+	\end{align*}
+		General Solution : $\phi(x/y,y^3/z) = 0$.
+	\item $2p + 3q = 1$.
+		General Solution : $\phi(3x-2y,x-2z) = 0$.
+	\item $p+q = z$.
+		General Solution : $\phi(x-y,ze^{-x}) = 0$.
+	\item $3p+4q = 2$.
+		General Solution : $\phi(2x-3z,y-2z) = 0$.
+	\item $yq - xp = z$.
+		\begin{align*}
+			& \frac{dx}{-x} = \frac{dy}{y} = \frac{dz}{z} \\
+			& \frac{dx}{x} = \frac{-dy}{y} \implies \log x = -\log y + c \implies xy = c_1 \\
+			& \frac{dx}{x} = \frac{dz}{z} \implies \log x = \log z + c \implies x/z = c_2
+		\end{align*}
+		General Solution : $\phi(xy,x/z) = 0$.
+	\item $x^2p + y^2q = z^2$.
+		General Solution : $\phi(\frac{1}{x}-\frac{1}{y},\frac{1}{x}-\frac{1}{z}) = 0$.
+		\hrule
+	\item $zp + yq = x$.
+	\begin{align*}
+		& \frac{dx}{z} = \frac{dy}{y} = \frac{dz}{x} \\
+		& \frac{dx}{z} = \frac{dz}{x} \implies xdx = zdz \implies x^2/2 = z^2/2 +c \implies x^2-z^2 = c_1\\
+		& \frac{dx+dz}{x+z} = \frac{dy}{y} \implies \log(x+z) = \log(y)+c \implies (x+z)/y = c_2
+	\end{align*}
+		General Solution : $\phi(x^2-z^2,(x+z)/y) = 0$.
+	\item $\frac{y^2z}{x}p + xzq = y^2$
+		\begin{align*}
+			& \frac{xdx}{y^2z} = \frac{dy}{xz} = \frac{dz}{y^2} \\
+			& \frac{xdx}{y^2z} = \frac{dz}{y^2} \implies xdx = zdz \implies x^2/2 = z^2/2 + c \implies x^2-z^2 = c_1 \\
+			& \frac{xdx}{y^2z} = \frac{dy}{xz} \implies x^2dx = y^2dy \implies x^3/3 = y^3/3 + c \implies x^3-y^3 = c_2
+		\end{align*}
+		General Solution : $\phi(x^2-z^2,x^3-y^3) = 0$.
+	\item $a(p+q) = z$
+		General Solution : $\phi(x-y, ze^\frac{-x}{a}) = 0$.
+	\item $\tan x p + \tan y q = \tan z$ 
+		(hint : $\int \frac{dx}{\tan x} = \int \frac{du}{u} = \log \sin x$.)
+		General Solution : $\phi\left(\frac{\sin x }{\sin y},\frac{\sin x}{\sin z}\right) = 0$.
+		\hrule
+	\item $zp = -x$
+		(hint : $dy/0 \implies y = c_1$).
+		General Solution : $\phi(y,x^2+z^2) = 0$.
+		\hrule
+	\item $y^2p - xyq = x(z-2y)$
+		\begin{align*}
+			& \frac{dx}{y^2} = \frac{dy}{-xy} = \frac{dz}{x(z-2y)} \\
+			& \frac{dy}{-y} = \frac{dz}{z-2y} \\
+		\end{align*}
+		General Solution : $\phi(xy,-)= 0$.
+	\item $(x^2+2yx)p - xyq = xz$.
+		General Solution : $\phi(yz,-) = 0$.
+		\hrule
+	\item $(y^2+z^2-x^2)p - 2xyq + 2zx = 0$
+		\begin{align*}
+			& \frac{dx}{y^2+z^2-x^2} = \frac{dy}{-2xy} = \frac{dz}{-2zx} \\
+			& \frac{dy}{y} = \frac{dz}{z} \\
+			& \log y = \log z + c \\
+			& y/z = c_1 \\
+			& \frac{2xdx+2ydy+2zdz}{-2x(x^2+y^2+z^2)} = \frac{dy}{-2xy} \\
+			& \frac{d(x^2+y^2+z^2)}{x^2+y^2+z^2} = \frac{dy}{y} \\
+			& \log (x^2+y^2+z^2) = \log y + c \\
+			& (x^2+y^2+z^2)/y = c_2
+		\end{align*}
+		General Solution : $\phi(y/z,(x^2+y^2+z^2)/y) = 0$.
+	\item $xu_x + yu_y = u$.
+		\begin{align*}
+			& \frac{dx}{x} = \frac{dy}{y} = \frac{du}{u}
+		\end{align*}
+		General Solution : $\phi(x/y,x/z) = 0$.
+	\item $(x^2-yz)p + (y^2 - zx)q = z^2-xy$
+		\begin{align*}
+			& \frac{dx}{x^2-yz} = \frac{dy}{y^2-zx} = \frac{dz}{z^2-xy} \\
+			& \frac{dx-dy}{(x-y)(x+y+z)} = \frac{dy-dz}{(y-z)(y+z+x)}\\
+			& \frac{d(x-y)}{x-y} = \frac{d(y-z)}{y-z} \\
+			& \log (x-y) - \log (y-z) + c\\
+			& (x-y)/(y-z) = c_1
+			\intertext{Similarly,}
+			& (x-z)/(y-z) = c_2
+		\end{align*}
+		General Solution : $\phi\left(\frac{x-y}{y-z},\frac{x-z}{y-z}\right) = 0$.
+	\item $(y+z)p + (z+x)q = (x+y)$
+		\begin{align*}
+			& \frac{dx}{y+z} = \frac{dy}{z+x} = \frac{dz}{x+y} \\
+			& \frac{dx-dy}{y-x} = \frac{dx-dz}{z-x} \\
+			& \frac{d(x-y)}{x-y} = \frac{d(x-z)}{x-z} \\
+			& \log (x-y) = \log (x-z) + c \\
+			& (x-y)/(x-z) = c_1
+		\end{align*}
+		General Solution : $\phi\left(\frac{x-y}{x-z}, \frac{x-y}{y-z}\right) = 0$.
+\end{enumerate}

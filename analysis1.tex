@@ -78,6 +78,9 @@
 		That is, $x_n \to x \implies \ln{x_n} \to \ln{x}, \quad (x_n > 0)$.
 	\item Square root function is continuous.
 		That is, $x_n \to x \implies \sqrt{x_n} \to \sqrt{x}, \quad (x_n > 0)$.
+\end{enumerate}
+\subsection{Properties of Convergence \& Test for Convergence}
+\begin{enumerate}
 	\item Properties of Convergent Sequences,
 		\subitem $x_n \to x \implies kx_n \to kx$.
 		\subitem $x_n \to x,\ y_n \to y \implies x_n \pm y_n \to x \pm y$.
@@ -119,14 +122,22 @@
 		\[ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^\infty f(k/n) = \int_0^1 f(x)\ dx \]
 \end{enumerate}
 
-\section*{Problems}
+\paragraph{Problems}
 \begin{enumerate}
-	\item $\frac{(n+1)!}{(n+1)^{n+1}} \frac{n^n}{n!} \to \frac{1}{e} \implies \left(\frac{n!}{n^n}\right)^\frac{1}{n} = \frac{\sqrt[n]{n!}}{n} \to \frac{1}{e}$
+	\item Show that $\displaystyle \lim_{n \to \infty} \left( \frac{n!}{n^n} \right)^\frac{1}{n} = \frac{1}{e}$ 
+		\begin{proof}[Solution] (Hint : $n$th root indicates Cauchy's second theorem)
+			$$ \frac{a_{n+1}}{a_n} = \frac{(n+1)!}{(n+1)^{n+1}} \frac{n^n}{n!} \to \frac{1}{e} \implies a_n^\frac{1}{n} = \left(\frac{n!}{n^n}\right)^\frac{1}{n} = \frac{\sqrt[n]{n!}}{n} \to \frac{1}{e} $$
+		\end{proof}
 \end{enumerate}
 
 \section{Series}
 \begin{enumerate}
 	\item A \textbf{series} $\sum a_n$ is a sequence of the form $\sequence{b_n}$ where $b_n = \sum_{k=1}^n a_n$, the sequence of partial sums. If the sequence of partial sums converges to $s$, then the \textbf{sum} of the series $\sum a_n = s$. If the sequence of partial sums diverges, the series also diverges.
+	\item A series $\sum a_n$ is \textbf{absolutely convergent} if $\sum |a_n|$ converges. In the case of series, absolute convergence implies convergence. A sequence which is convergent, but not absolutely convergent is \textbf{conditionally convergent}.
+\end{enumerate}
+
+\subsection{Properties of Series \& Test for Convergence}
+\begin{enumerate}
 	\item $n$th term test : If $\sum a_n$ converges, then $a_n \to 0$. And if $a_n \not\to 0$ then $\sum a_n$ diverges.
 	\item Suppose $\sum a_n, \sum b_n$ converges, then $\sum a_n+b_n$, $\sum \alpha a_n$ converges.
 		\begin{enumerate}
@@ -145,12 +156,29 @@
 	\item Cauchy's $n$th root test : If $a_n > 0$ and $a^\frac{1}{n} \to l$.\\
 		If $l < 1$, then $\sum a_n$ converges. If $l > 1$, then $\sum a_n$ diverges. If $l = 1$, test fails.
 	\item \textcolor{blue}{Condensation test : Suppose sequence $a_n$ is decreasing and positive.\\
-		Then $\sum a_n$ and $\sum 2^na_n$ behaves similar. \textcolor{red}{Tailor-made for logarithmic functions.}}
+		Then $\sum a_n$ and $\sum 2^na_{2^n}$ behaves similar. \textcolor{red}{Tailor-made for logarithmic functions.}}
 	\item \textcolor{blue}{Rabee`s test : Suppose $a_n > 0$ and $n\left(\frac{a_n}{a_{n+1}} -1 \right) \to l$.\\
 		If $l < 1$, then $\sum a_n$ converges. If $l > 1$, then $\sum a_n$ diverges. If $l = 1$, test fails.}
 	\item \textcolor{blue}{Logarithmic test : Suppose $a_n > 0$ and $n\log (a/a_{n+1}) \to l$.\\
 		If $l > 1$, then $\sum a_n$ converges. If $l <1$, then $\sum a_n$ diverges.}
 	\item \textcolor{blue}{Lebinitz test : Suppose sequence $a_n$ is decreasing and converges to zero. ($a_n \downarrow_0$)\\
 		Then the \textbf{alternating series} $\sum (-1)^n a_n$ converges.}
-	\item A series $\sum a_n$ is \textbf{absolutely convergent} if $\sum |a_n|$ converges. In the case of series, absolute convergence implies convergence. A sequence which is convergent, but not absolutely convergent is \textbf{conditionally convergent}.
+\end{enumerate}
+
+\paragraph{Problems}
+\begin{enumerate}
+	\item Show that $\sum \frac{1}{\log n} \to +\infty$ 
+	\begin{proof}[Solution]
+		Presence of logarithm indicates applicability of Condensation Test, and $a_n$ is positive and decreasing $a_n \downarrow_0$
+		$$ \sum \frac{1}{\log n}, \sum \frac{2^n}{\log 2^n} \text{ behaves alike } $$
+		$$ \log 2 \sum \frac{2^n}{n} \text{ diverges by comparison test } 0 \le \frac{1}{n} \le \frac{2^n}{n} $$
+	\end{proof}
+	\item \textcolor{blue}{Show that $\sum \frac{1}{n\log n} \to +\infty$ !!}
+	\begin{proof}[Solution]
+		My trick : Power Series Test $\sum \frac{1}{n^{1+\epsilon}}$ converges. But, my trick failed.\\
+		By condensation test,
+		$$ \sum \frac{1}{n\log n}, \sum \frac{2^n}{2^n \log 2^n} = \frac{1}{\log 2} \sum \frac{1}{n} \text{ behaves alike} $$
+	\end{proof}
+	\item Show that $\sum \frac{1}{n \log \log n}$ diverges.
+		$$ 0 \le \frac{1}{n \log n} \le \frac{1}{n \log \log n} \le \frac{1}{n \log \log \dots \log n} $$
 \end{enumerate}
