@@ -1,5 +1,5 @@
 \section{System of Equations}
-\subsection{Matrices}
+\section{Matrices}
 \begin{definition}
 	A \textbf{matrix} $A_{m \times n}$ over the field $F$ is a function $A : \mathbb{Z}_m \times \mathbb{Z}_n \to F$.
 \end{definition}
@@ -79,7 +79,7 @@
 	In a \textbf{Jordan normal matrix} all entries except for diagonal and superdiagonal entries are zero and non-zero superdiagonal entries are $1$.
 \end{definition}
 
-\paragraph{Equivalent Matrices}
+\section{Equivalent Matrices}
 \begin{enumerate}
 	\item Two system of equations are \textbf{equivalent} if they have the same solution space.
 	\item Two matrices are \textbf{equivalent} if the respective systems of equations are equivalent.
@@ -94,7 +94,7 @@
 %	\item \textbf{Gauss elimination} method with augmented matrix to solve system of equations.
 \end{enumerate}
 
-\paragraph{Types of Matrices}
+\section{Types of Matrices}
 \begin{enumerate}
 	\item A \textbf{square} matrix of order $n$ is matrix $A_{n \times n}$.
 	\item Matrix $A$ with $det(A) = 0$ is \textbf{singular}.
@@ -115,7 +115,7 @@
 	\item \textcolor{red}{A complex matrix $A$ is \textbf{normal} if it commutes with its conjugate transpose.}
 \end{enumerate}
 
-\subsection*{Important Notions}
+\section{Properties of Matrices}
 \begin{enumerate}
 	\item If every column sum of $A$ is $a$ and every column sum of $B$ is $b$, then every column sum of $AB$ is $ab$.
 	\item If every row(column) sum of $A$ is $a$, then every row(column) sum of $A^n$ is $a^n$.
@@ -127,7 +127,7 @@
 		\subitem $tr(AA') = 0 \iff A = 0$.
 \end{enumerate}
 
-\paragraph{Idempotent matrices $A^2 = A$}
+\section{Idempotent matrices $A^2 = A$}
 \begin{enumerate}
 	\item If $A$ is idempotent, then $A',\bar{A},A^\ast$ are idempotent.
 	\item If $A^2 = nA$, then $\frac{1}{n}A$ is idempotent.
@@ -146,7 +146,7 @@
 		\subitem $ A = \begin{bmatrix} 2 & 3 \\ 3 & 2 \end{bmatrix} = (-1)I+6B $ where $B$ is idempotent.
 \end{enumerate}
 
-\paragraph{Involutary matrices, $A^2=I$}
+\section{Involutary matrices, $A^2=I$}
 \begin{enumerate}
 	\item A diagonal matrix is involutary if the diagonal entires are $\pm 1$.
 		\subitem There are $2^n$ involutary, diagonal matrix of order $n$.
@@ -161,7 +161,7 @@
 		$$ (AB)^3 = (AB)^2 = I \iff AB = BA = I  \iff B = A^{-1} $$
 \end{enumerate}
 
-\paragraph{Nilpotent matrices, $A^k=0$}
+\section{Nilpotent matrices, $A^k=0$}
 \begin{enumerate}
 	\item If $A$ is nilpotent, then $A',\bar{A},A^\ast$ are nilpotent.
 	\item Strictly upper triangular matrices of order $n$ are nilpotent with index $\le n$.
@@ -175,7 +175,7 @@
 	\item If $A$ is nilpotent with index $m$, then $(sI+tA)^n = \sum_{r=0}^{m-1}\binom{n}{r} s^{n-r}t^rA^r$.
 \end{enumerate}
 
-\paragraph{Orthogonal matrices $AA'=I$}
+\section{Orthogonal matrices $AA'=I$}
 \begin{enumerate}
 	\item If $A,B$ are orthogonal, then $AB$ is orthogonal.
 	\item A diagonal matrix is orthogonal if the diagonal entires are $\pm 1$.
@@ -183,14 +183,14 @@
 	\item Sum of squares of each row is $1$. Sum of products of two distinct rows is zero.
 \end{enumerate}
 
-\paragraph{Unitary matrices $AA^\ast=I$}
+\section{Unitary matrices $AA^\ast=I$}
 \begin{enumerate}
 	\item If $A$ is unitary, then $A^n$ is unitary.
 	\item If $A,B$ are unitary, then $AB$ is unitary.
 	\item Sum of squares of absolute value of elements in each row is $1$. Sum of products of elements of one row with conjugate of respective elements of another rows is zero.
 \end{enumerate}
 
-\paragraph{Symmetric/skew symmetric matrices $A=\pm A'$}
+\section{Symmetric/skew symmetric matrices $A=\pm A'$}
 \begin{enumerate}
 	\item If $A,B$ are symmetric, then $kA,A+B,A^m,P'AP$ are symmetric where $P \in M_n(F)$.
 	\item If $A,B$ are skew symmetric, then $kA,A+B,A^n,P'AP$ are skew symmetric.
@@ -203,7 +203,7 @@
 		\subitem Every matrix $A$ has a decomposition $A = \frac{A+A'}{2} + \frac{A-A'}{2}$.
 \end{enumerate}
 
-\paragraph{Hermitian/skew Hermitian matrices $A = \pm A^\ast$}
+\section{Hermitian/skew Hermitian matrices $A = \pm A^\ast$}
 \begin{enumerate}
 	\item $(kA)^\ast = \bar{k}A^\ast,\ (A+B)^\ast = A^\ast + B^\ast,\ (AB)^\ast = B^\ast A^\ast,\ (A^{-1})^\ast = (A^\ast)^{-1}$.
 		\subitem $(kA)' = kA',\ (A+B)' = A'+B',\ (AB)' = B'A'$.
@@ -218,7 +218,7 @@
 		Eigen values of hermitian matrices are real.
 		\subitem The determinant,trace of hermtian matrices are real.
 \end{enumerate}
-\paragraph{Determinant $D(A) = \det(A) = |A|$}
+\section{Determinant $D(A) = \det(A) = |A|$}
 \begin{enumerate}
 	\item $\begin{vmatrix}1 & x & x^2 \\ 1 & y & y^2 \\ 1 & z & z^2 \end{vmatrix} = (x-y)(y-z)(z-x)$.
 		\subitem Determinant of Vandermonde matrix, $det(V(x_1,x_2,\dots,x_r)) = \prod_{i < j} (x_j-x_i)$
@@ -239,7 +239,7 @@
 	\item Determinant of skew Hermitian matrices of even(odd) order is purely real(imaginary).
 \end{enumerate}
 
-\paragraph{Inverse of a matrix}
+\section{Inverse of a matrix}
 \begin{enumerate}
 	\item If $det(A) \ne 0$, then $A^{-1} = det(A)^{-1} adj(A)$.
 		\subitem $A\ adj(A) = |A|$.
@@ -258,7 +258,7 @@
 		\subitem $|adj(adj(A))| = |adj(A)|^{n-1} = (|A|^{n-1})^{n-1} = |A|^{(n-1)^2}$
 \end{enumerate}
 
-\paragraph{Rank of a matrix}
+\section{Rank of a matrix}
 \begin{enumerate}
 	\item If $A$ is non-singular, then rank of $A$, $\rho(A)$ is the order of $A$.
 		\subitem $\rho(A) = \rho(A') = \rho(A^\ast) = \rho(\bar{A})$.
@@ -286,7 +286,7 @@
 		\subitem $A = n(I - B)$ where $B = \frac{1}{n}J$, $B^2 = B$ and $\rho(B) = 1$. $\rho(B) + \rho(B-I) = n$.
 \end{enumerate}
 
-\subsection{}
+\section{}
 \begin{definition}
 	The leading nonzero entry of each row is called \textbf{pivot}.
 \end{definition}
@@ -300,7 +300,7 @@
 	\item Every matrix has a unique \textbf{row reduced echelon form}.
 	\item A matrix $A$ is \textbf{invertible} if and only if its row reduced echelon form is the identity matrix.
 \end{enumerate}
-\paragraph{Vector Space Invariants}
+\section{Vector Space Invariants}
 \begin{definition}[conjugation]
 	Two square matrices $A,B$ are \textbf{conjugates} if there exists an invertible matrix $P$ such that $A = PBP^{-1}$.
 \end{definition}

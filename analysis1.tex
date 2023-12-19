@@ -67,6 +67,7 @@
 		\subitem In $\mathbb{R}$, sequence is convergent if and only if Cauchy.
 		\subitem $\mathbb{R}^n,\mathbb{C}^n,l^2,C[a,b]$ are complete.
 		\subitem Sequence space $l^p$ is complete if and only if $p=2$.
+	\item The limit of an monotonic sequence occurs at infinity.
 	\item A sequence $\sequence{x_n}$ is \textbf{monotonically increasing} if $\forall n \in \mathbb{N},\ a_{n+1} \ge a_n$.
 		\subitem \textcolor{blue}{Every sequence has a monotone subsequence.}
 		\subitem \textcolor{blue}{Every monotonically increasing(decreasing) sequence which is bounded above(below) is convergent. And the limit is its supremum(infimum).}
@@ -79,7 +80,7 @@
 	\item Square root function is continuous.
 		That is, $x_n \to x \implies \sqrt{x_n} \to \sqrt{x}, \quad (x_n > 0)$.
 \end{enumerate}
-\subsection{Properties of Convergence \& Test for Convergence}
+\section{Properties of Convergence \& Test for Convergence}
 \begin{enumerate}
 	\item Properties of Convergent Sequences,
 		\subitem $x_n \to x \implies kx_n \to kx$.
@@ -122,7 +123,7 @@
 		\[ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^\infty f(k/n) = \int_0^1 f(x)\ dx \]
 \end{enumerate}
 
-\paragraph{Problems}
+\section{Exercise}
 \begin{enumerate}
 	\item Show that $\displaystyle \lim_{n \to \infty} \left( \frac{n!}{n^n} \right)^\frac{1}{n} = \frac{1}{e}$ 
 		\begin{proof}[Solution] (Hint : $n$th root indicates Cauchy's second theorem)
@@ -136,7 +137,7 @@
 	\item A series $\sum a_n$ is \textbf{absolutely convergent} if $\sum |a_n|$ converges. In the case of series, absolute convergence implies convergence. A sequence which is convergent, but not absolutely convergent is \textbf{conditionally convergent}.
 \end{enumerate}
 
-\subsection{Properties of Series \& Test for Convergence}
+\section{Properties of Series \& Test for Convergence}
 \begin{enumerate}
 	\item $n$th term test : If $\sum a_n$ converges, then $a_n \to 0$. And if $a_n \not\to 0$ then $\sum a_n$ diverges.
 	\item Suppose $\sum a_n, \sum b_n$ converges, then $\sum a_n+b_n$, $\sum \alpha a_n$ converges.
@@ -165,7 +166,7 @@
 		Then the \textbf{alternating series} $\sum (-1)^n a_n$ converges.}
 \end{enumerate}
 
-\paragraph{Problems}
+\section{Exercise}
 \begin{enumerate}
 	\item Show that $\sum \frac{1}{\log n} \to +\infty$ 
 	\begin{proof}[Solution]
@@ -181,4 +182,6 @@
 	\end{proof}
 	\item Show that $\sum \frac{1}{n \log \log n}$ diverges.
 		$$ 0 \le \frac{1}{n \log n} \le \frac{1}{n \log \log n} \le \frac{1}{n \log \log \dots \log n} $$
+	\item Show that $\sum \frac{1}{n^{\log n}}$ is convergent.
+	$$\frac{1}{n^{\log n}} < \frac{1}{n^2}, \forall n > e^2 \approx 7.3$$
 \end{enumerate}

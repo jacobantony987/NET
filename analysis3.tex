@@ -15,7 +15,7 @@
 	\item $f \circ g$ continuous $\nimplies f,g$ continuous.
 \end{enumerate}
 
-\subsection{Properties of Continuity}
+\section{Properties of Continuity}
 \begin{enumerate}
 	\item The set of discontinuities is an $F_\sigma$ set and the points where continuous is a $G_\delta$ set.\footnote{In a metrix space $X$, the locus of continuity of $f : X \to \mathbb{R}$ is a countable union of open balls.}
 	\item Froda's theorem : The set of discontinuities of a monontone function is countable.
@@ -32,7 +32,7 @@
 	\subitem Converse : If $f$ is $1-1$ and satisfies intermediate value property, then $f$ is continuous.
 \end{enumerate}
 
-\paragraph{Problems}
+\section{Exercise}
 \begin{enumerate}
 	\item Constant, Identity Functions are continuous.
 	\item Check continuity of $x\sin 1/x$ at $x =0$
@@ -58,13 +58,13 @@
 	\item Let $f : A \to B$. Then $x$ is fixed point of $f$ if $f(x) = x$.
 \end{enumerate}
 
-\subsection{Properties of Fixed points}
+\section{Properties of Fixed points}
 \begin{enumerate}
 	\item A continuous function on closed interval to itself will have a fixed point.
 		\subitem Continuous function on a compact set to a subset of it.
 \end{enumerate}
 
-\paragraph{Problems}
+\section{Exercise}
 \begin{enumerate}
 	\item Find fixed points of $f(x) =2x$ ? $x = 0$.
 	\item Find fixed points of $f : (0,1) \to (\frac{1}{2}, 1)$ where $f(x) = \frac{x+1}{2}$ ? No fixed points.
@@ -84,17 +84,21 @@
 		\subitem Weierstrass monster function is continuous, but nowhere differentiable.
 	\item A function $f$ is increasing if $f(x)\le f(y)$ whenever $x<y$. And decreasing if $f(x) \ge f(y)$ whenever $x<y$. Function $f$ is monotonic if it is either increasing or decreasing. Function $f$ is strictly monotone (increasing/decreasing) if the inequality is strict.
 \end{enumerate}
-\subsection{Properties of Derivatives}
+\section{Properties of Derivatives}
 \begin{enumerate}
 	\item
 \end{enumerate}
 
-\paragraph{Problems}
+\section{Exercise}
 \begin{enumerate}
 	\item Check differentiability of $f(x) = x^2 \sin 1/x$ at $x = 0$ ?
 	\begin{proof}[Solution]
 		Diferentiable and $f^\prime(0) = 0$ since $x\sin 1/x \to 0$.
 	\end{proof}
+	\item 
+	\subitem $|x-10|^2$ is differentiable everywhere.
+	\subitem $\sin (x-3)$ is not differentiable at $x = 3$.
+	\item If $f^{\prime\prime} > 0,\ f(0) = 0, f'(0) < 0$, then $f$ has a positive solution.
 \end{enumerate}
 
 \section{Uniform Continuity}
@@ -104,25 +108,30 @@
 		$$ \forall \varepsilon > 0,\ \exists \delta > 0,\ |x_1-x_2| < \delta \implies |f(x_1)-f(x_2)| < \varepsilon $$
 	\item A function $f : X \to \mathbb{R}$ is Lipschitz if 
 		$$ \exists k > 0,\ \forall x,y \in X,\ |f(x)-f(y)| \le k|x-y|$$
+	\item A function $f : X \to \mathbb{R}$ satisfies Holder's condition if $|f(x)-f(y)| \le k|x-y|^\alpha,\ k,\alpha > 0$.
 \end{enumerate}
 
-\subsection{Properties of Uniform Continuity \& Tests}
+\section{Properties of Uniform Continuity \& Tests}
 \begin{enumerate}
-	\item Every uniformly continuous function is continuous.
+	\item Uniformly continuous functions are continuous.
 	\item If a function $f$ is uniformly continuous on $X$, then it is uniformly continuous on every subset of $X$.
 	\item A function $f : X \to \mathbb{R}$ is not uniformly continuous if there exists two sequences $x_n,y_n$ such that $x_n-y_n \to 0 \nimplies |f(x_n)-f(y_n)| \to 0$.
-	\item A continuous function $f : [a,b] \to \mathbb{R}$ is uniformly continuous if both $\displaystyle \lim_{x \to a+} f(x)$ and $\displaystyle \lim_{x \to b-} f(x)$ exists.
-		\subitem $f : [a,\infty]$ is continuous and $\displaystyle \lim_{x\to \infty} f(x)$ exists, then $f$ is uniformly continuous.
-		\subitem $f : [-\infty,b]$ is continuous and $\displaystyle \lim_{x \to -\infty} f(x)$ exists, then $f$ is uniformly continuous.
-		\subitem $f : [-\infty,\infty]$ is continuous and $\displaystyle \lim_{x \to \infty} f(x), \lim_{x \to -\infty} f(x)$ exists, then $f$ is uniformly continuous.
 	\item Continuous function on a compact set is uniformly continuous.
+		\subitem $f$ is continuous on an interval and endpoint limits exists, then is $f$ is uniformly continuous
+%	\subitem $f$ is continuous on $[a,b]$ and $\displaystyle \lim_{x \to a+} f(x)$ \& $\displaystyle \lim_{x \to b-} f(x)$, then $f$ is uniformly continuous.
+%	\subitem $f$ is continuous on $[a,\infty]$ and $\displaystyle \lim_{x\to \infty} f(x)$ exists, then $f$ is uniformly continuous.
+%	\subitem $f$ is continuous on $(-\infty,b]$ and $\displaystyle \lim_{x \to -\infty} f(x)$ exists, then $f$ is uniformly continuous.
+%	\subitem $f : [-\infty,\infty]$ is continuous and $\displaystyle \lim_{x \to \infty} f(x), \lim_{x \to -\infty} f(x)$ exists, then $f$ is uniformly continuous.
+	\item $\alpha$-H\"older continuous functions are uniformly continuous. 
+	\subitem If $\alpha > 1$, then constant function. 
+	\subitem If $\alpha = 1$, then Lipschitz continuous.
 	\item Lipschitz functions are uniformly continuous.
-		$$ \text{ Lipschitz } \subsetneq \text{ Uniformly Continuous } \subsetneq \text{ Continuous } $$
+	$$\text{Analytic} \subsetneq \text{Lipschitz} \subsetneq\text{$\alpha$-H\"older} \subsetneq \text{Uniformly Continuous} \subsetneq \text{Continuous}$$
 	\subitem Function $f$ is Lipschitz if and only if $f$ is differentiable and derivative is bounded.
 	\item Continuous periodic functions are uniformly continuous.
 \end{enumerate}
 
-\paragraph{Problems}
+\section{Exercise}
 \begin{enumerate}
 	\item Check whether $f(x) = \sin x$ is uniformly continuous ?
 	\begin{proof}[Solution]
@@ -136,7 +145,6 @@
 		Alternately, $f(x) = \frac{1}{x}$ is Lipschitz if $\frac{1}{xy}$ is bounded since $|\frac{1}{x}-\frac{1}{y}| = | \frac{y-x}{xy} | \le |\frac{1}{xy}| |x-y|$. That is, $f$ is Lipschitz if $x,y$ are bounded away from zero. Therefore, $f(x) = \frac{1}{x}$ is Uniformly continuous if the domain of $f$ is bounded away from zero.\\
 
 		When domain of $f$ is bounded away from origin, both the end point limits exists and $f(x)=\frac{1}{x}$ is continuous in its domain. Therefore, $f$ is uniformly continuous.
-
 	\end{proof}
 	\item Check whether $f(x) = x^2$ is uniformly continuous on $(0,\infty)$ ?
 	\begin{proof}[Solution]
@@ -163,9 +171,16 @@
 	\item $f(x) = \sin x^3, x^2 \sin x$ is uniformly continuous on bounded sets.
 	\item $f(x) = \sin (1/x)$ is uniformly uniformly continuous on sets bounded away from zero.
 	\item $f(x) = x \sin (1/x)$ is uniformly uniformly continuous on $\mathbb{R}$ as both end point limits exists.
+	\item $f(x) = x^2$ is differentiable but not H\"older continuous on $\mathbb{R}$.\\
+		$f(x) = |x|$ is H\"older continuous but not differentiable.
+	\item $f(x)$ is a polynomial of degree $4$ and $f(0) = 0$, $f'(0) = 0$, $f(-1) = 0$ and $f(1) = 1$. Characterise $f^{\prime\prime\prime}(x)$ ?\\
+		Let $f(x) = a + bx + cx^2 + dx^3 + ex^4$. $f(0) = 0 \implies a = 0$. Then $f'(x) = b + 2cx + 3dx^2 + 4ex^3$. $f'(0) = 0 \implies b = 0$. Now $f(x) = cx^2 + dx^3 + ex^4$. $f(-1) = c - d + e = 0$ and $f(1) = c+d+e = 1$. Thus, $d = 0.5$ and $e = 0.5-c$. Thus, $f(x) = cx^2 +0.5x^3 + (0.5-c)x^4$. $f^{\prime\prime\prime}(x) = 3 + 24(0.5-c)x$. $f^{\prime\prime\prime}(0) = 3$.
+	\item $f(x) = \frac{1}{\sqrt{x}}$ is uniformly continuous of $[r,\infty)$. As $\lim_{x \to \infty} f(x) = 0$ exists.
+	\item $f : \mathbb{Q} \to \mathbb{R}$, $f(0) = 0$, $f(r) = \frac{p}{10^q}$. Characterise $f$ ? (injective,surjective)\\
+		There does not exists a surjection between two sets of different cardinality. And $f$ is not injective since $f(\frac{1}{2}) = f(\frac{10}{3}) = 0.01$.
 \end{enumerate}
 
-\subsection{Properties of Limit of a Function}
+\section{Properties of Limit of a Function}
 \begin{enumerate}
 	\item Limit is algebraic.
 		Suppose $\displaystyle \lim_{x \to a} f(x),\ \lim_{x \to a} g(x)$ exists, then
@@ -186,21 +201,34 @@
 		$$ V_f(a,b) = \sup_{P \in \mathscr{P}[a,b]} \!\!\! V(P,f) \text{ where } V(P,f) = \!\!\!\!\!\! \sum_{(x_{i-1},x_i) \in P}\!\!\!\!\!\! |f(x_i) - f(x_{i-1})| $$
 \end{enumerate}
 
-\subsection{Properties of Bounded Variation}
+\section{Properties of Bounded Variation}
 \begin{enumerate}
-	\item Monotonic function $f$ has $V_f(a,b) = |f(b)-f(a)|$.
+	\item Functions of bounded variation on $[a,b]$ are bounded on $[a,b]$.
+	\item Monotonic function $f$ are of bounded variation with total variation 
+		$$ V_f(a,b) = |f(b)-f(a)| $$
 		\subitem If $f(x) = \sin x$, then $V_f(a,b) = \sum |\sin x_i - \sin x_{i-1}| \le \sum |x_i - x_{i-1}| = b-a$.
+	\item Continuous functions on $[a,b]$ and Functions of bounded variation on $[a,b]$ are non-comparable.
+	\item Lipschitz functions are of bounded variation on $[a,b]$.
+		\subitem Function $f$ is differentiable and derivative is bounded on $[a,b]$, then $f$ has bounded variation on $[a,b]$.
+	\item If $f$ has bounded variation on $[a,b]$, then $|f|$ has bounded variation on $[a,b]$.
+	\item Function $f$ have bounded variation if and only if $f$ is difference of two increasing functions.
+	\item If an increasing function $f$ have bounded variation on $[a,b]$, then it is sum of two increasing functions.
+	\begin{proof}[Solution]
+		$$ f = g-h \implies g = f+h $$
+	\end{proof}
 \end{enumerate}
 
-\paragraph{Problems}
+\section{Exercise}
 \begin{enumerate}
-	\item
+	\item Monotonic function on a bounded interval is not necessarily have bounded variation. For example, $f(x) = \frac{1}{x}$ on $(0,1)$ have unbounded variation.
+	\item If $f$ is monotonic non-decreasing function. Then $g(x) = e^{-f(x)}$ is not necessarily bounded as $x \to -\infty$, $g \to \infty$.
+	%Does there exists a monotonic functions which does not have one of the limits at an interior point.
 \end{enumerate}
 %83019 78727 Minitek
 
 %example problems for each exceptions above can be found at
 %http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/SandS/lHopital/index.html
-\subsection{Properties of Limit}
+\section{Properties of Limit}
 \begin{enumerate}
 	\item L'Hospital/Bernouli Theorem
 	\[ \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} \]
@@ -218,6 +246,19 @@
 		\lim_{x \to a} f(g(x)) = f(\lim_{x \to a} g(x)) = f(b) = c
 	\end{equation}
 \end{enumerate}
+
+\section{Limit of a Set}
+\begin{definition}
+	\[ \liminf X = \inf \{ \text{limit points} \} \]
+	\[ \limsup X = \sup \{ \text{limit points} \} \]
+\end{definition}
+
+\section{Sequence of Sets}
+\begin{definition}
+	\[ \liminf X_n = \bigcup_{n = 1}^\infty \bigcap_{m = n}^\infty X_n \]
+	\[ \limsup X_n = \bigcap_{n = 1}^\infty \bigcup_{m = n}^\infty X_n \]
+\end{definition}
+
 \section{Limit Superior/Inferior of a Function} What is this ?
 \begin{enumerate}
 	\item \[ \limsup_{x \to a} f = \lim_{\varepsilon \to 0} \sup_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} = \inf_{\varepsilon > 0} \sup_{x \in B(a,\varepsilon)^\ast} \{ f(x) \} \]

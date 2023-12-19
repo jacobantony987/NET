@@ -12,7 +12,8 @@
 	\item $$ \frac{\partial \phi(\psi(x,y,z))}{\partial x} = \phi'(\psi(x,y,z))\ \frac{\partial \psi(x,y,z)}{\partial x} $$
 	\item A \textbf{first order} partial differential equation has only the first order partial derivatives, say $p,q$. A PDE is \textbf{linear} if its does not contain product of partial derivatives.
 \end{enumerate}
-\subsection{Formation of Partial Differential Equations}
+
+\section{Formation of Partial Differential Equations}
 \begin{enumerate}
 	\item Elimination of arbitrary constants.\\
 		Differential wrt $x,y$ and eliminate arbitrary constants.
@@ -20,7 +21,7 @@
 		If the equation contains only one arbitrary constant(function), then differentiate it wrt $x,y$. Otherwise find higher order derivatives to eliminate arbirary function.
 \end{enumerate}
 
-\subsection{Exercise}
+\section{Exercise}
 \begin{enumerate}
 	\item $z = ax+by+ab \implies p = a, q=b \implies z = pz+qz+pq$
 	\item $z = (x+a)(y+b) \implies p = (y+b),q = (x+a) \implies z = pq$
@@ -53,13 +54,13 @@
 \end{align*}
 \end{enumerate}
 
-\subsection{Solving Pfaffian}
+\section{Solving Pfaffian}
 \begin{enumerate}
 	\item Grouping Method : Convert into variable separable form.
 	\item Multiplier Method : $P'P+Q'Q+R'R = 0 \implies \int P'dx + Q'dy + R'dz = 0$.
 \end{enumerate}
 
-\subsection{Solving Partial Differential Equations}
+\section{Solving Partial Differential Equations}
 \begin{enumerate}
 	\item Lagrange`s Equation - Linear PDE
 	\begin{equation}
@@ -73,10 +74,16 @@
 		\item General Solution : $\phi(U,V) = 0$ or $U = \phi(V)$ where $\phi$ is an arbitrary function.
 	\end{enumerate}
 
-	\item Charpit`s Equation - Non-Linear PDEFirst Order Partial Differential Equations\\
+	\item Charpit`s Equation - Non-Linear PDE First Order Partial Differential Equations\\
+	\begin{equation}\frac{dx}{f_p} = \frac{dy}{f_q} = \frac{dz}{pf_p + qf_q} = \frac{dp}{-(f_x + pf_z)} = \frac{dq}{-(f_y+qf_z)}\end{equation}
+	\begin{enumerate}
+		\item Select to proper fractions so that the resulting integral is the simplest relation involving at least $p$ or $q$.
+		\item Solve the simplest relation along with the given equation to determine $p,q$.
+		\item Substitute $p,q$ in the equation $dz = pdx + qdy$ and solve.
+\end{enumerate}
 \end{enumerate}
 
-\subsection{Exercise}
+\section{Exercise}
 \begin{enumerate}
 	\item $px + qy = 3z$
 	\begin{align*}
@@ -172,3 +179,149 @@
 		\end{align*}
 		General Solution : $\phi\left(\frac{x-y}{x-z}, \frac{x-y}{y-z}\right) = 0$.
 \end{enumerate}
+
+\section{Solutions of a PDE}
+Consider liner PDE \begin{equation} f(x,y,z,p,q) = 0 \end{equation}
+\begin{enumerate}
+	\item Complete Solution :
+		A two parameter family \begin{equation}z = \psi(x,y,z,a,b) \end{equation}
+	\item General Solution :
+		A two parameter family \begin{equation}z = \psi(x,y,z,a(x,y),\phi(a)((x,y))) \end{equation} obtained from $f(x,y,z,a, \phi(a)) = 0$ and $\partial f/\partial a = 0$.
+	\item Particular Solution :
+		The particular solution is a curve in the two parameter family of complete solution satisfying certain conditions.
+	\item Singular Solution : A solution \begin{equation}\phi(x,y,z) = 0\end{equation} obtained from complete solution by eliminating $a,b$ using $\partial \psi/\partial a = 0$ and $\partial \psi/\partial b = 0$ Or by eliminating $p,q$ using $\partial f/\partial p = 0$ and $\partial f/\partial q = 0$ in the Linear PDE.
+\end{enumerate}
+		
+\section{Applications of PDE}
+\begin{enumerate}
+	\item The particular solution satisfying a relation  $b = \phi(a)$, is obtained by differentiating $z= f(x,y,z,a,\phi(a)) = 0$ wrt $a$ partially($x,y,z$ are indepedent of $a$) and substituting the value of $a$. This particular solution is the \textbf{envelope of the subfamily} $z = \eta(x,y,z,a,b)$ where $b=\phi(a)$.
+\end{enumerate}
+\section{Exercise}
+\begin{enumerate}
+	\item Singular solution of $z = px + qy + p^2 + q^2$ is $z = -(x^2+y^2)/4$ obtained by substituting $p = -x/2$ and $q = -y/2$ since $\partial z/\partial p = x + 2p = 0$ and $\partial z/\partial q = y + 2q = 0$.
+	\item $(x-a)^2 + (y-b)^2 + z^2 = 1$ is the complete integral of $z^2(p^2+q^2+1) = 1$. \\
+	The envelope\footnote{An envelope is the curve which is tangent to every curve in the family at some point. The points of tangency together form the whole envelope.} of the subfamily $b = 2a$ is  the particular integral $(y-2x)^2+5z^2 = 5$.\\
+	And $z = \pm 1$ are singular solutions of $z^2(p^2+q^2+1) = 1$.
+\end{enumerate}
+
+\section{Classification of First Order PDE}
+Let $Pp + Qq = R$ with initial conditions $x = x_0(t)$, $y = y_0(t)$ and $z = z_0(t)$ has
+\begin{enumerate}
+	\item \textbf{unique solution} if $$\frac{P(x_0,y_0,z_0)}{dx_0/dt} \ne \frac{Q(x_0,y_0,z_0)}{dy_0/dt}$$
+	\item \textbf{infinitely many solution} if $$\frac{P(x_0,y_0,z_0)}{dx_0/dt} = \frac{Q(x_0,y_0,z_0)}{dy_0/dt} = \frac{R(x_0,y_0,z_0)}{dz_0/dt}$$
+	\item \textbf{no solution} if $$R \ne 0 \qquad \text{and}\qquad \frac{P(x_0,y_0,z_0)}{dx_0/dt} = \frac{Q(x_0,y_0,z_0)}{dy_0/dt} \ne \frac{R(x_0,y_0,z_0)}{dz_0/dt}$$
+\end{enumerate}
+\section{Exercise}
+\begin{enumerate}
+	\item The Cauchy problem $yp-xq = 0$, $x_0(t) = \cos t$, $y_0(t) = \sin t$ and $z_0(t) = 1$ has infinitely many solution.
+\end{enumerate}
+
+\section{Non Linear PDE}
+\section{Exercise}
+\begin{enumerate}
+	\item Find complete integral of $z = px + qy + p^2 + q^2$ ?\\ $f(x,y,z,p,q) = z - px - qy - p^2 - q^2 = 0$.
+	$$\frac{dx}{-x-2p} = \frac{dy}{-y-2q} = \frac{dz}{p(-x-2p) + q(-y-2q)} = \frac{dp}{-(-p+p)} = \frac{dq}{-(-q+q)}$$
+	Thus, $p = a$ and $q = b$. $dz = adx + bdy$.$z = ax + by + c$.
+\item Find complete integral of $q = 3p^2$ ?\\ $f(x,y,z,p,q) = q-3p^2 = 0$.
+	$$\frac{dx}{-6p} = \frac{dy}{1} = \frac{dz}{p(-6p)+q} = \frac{dp}{-(0+q0)} = \frac{dq}{-(0+q0)}$$
+	Thus, $p = a$ and $q = b$. Then $dz = adx + bdy$. Therefore, $z = ax + by + c$.
+\item Find complete integral of $zpq = p+q$ ?\\ $f(x,y,z,p,q) = zpq - p - q = 0$.
+	$$\frac{dx}{zq - 1} = \frac{dy}{zp - 1} = \frac{dz}{p(zq-1)+q(zp-1)} = \frac{dp}{-(0+p(pq))} = \frac{dq}{-(0+q(pq))}$$
+		$p = cq$ and $zpq = p + q$. $q = \frac{c + 1}{cz}$ and $p = \frac{c+1}{z}$. $zdz = \frac{c+1}{c} (cdx + dy)$.\\ $cz^2 = 2(c+1)(cx + y + d)$.
+	\item Find the complete integral of $p^2 - y^2q = y^2 - x^2$ ?\\ $f(x,y,z,p,q) = p^2 - y^2q - y^2 + x^2 = 0$
+	$$\frac{dx}{2p} = \frac{dy}{-y^2} = \frac{dz}{p(2p)+q(-y^2)} = \frac{dp}{-(2x+p(0))} = \frac{dq}{-(-2y+q(0))}$$
+	$p = \sqrt{c^2-x^2}, q = c^2y^{-2}-1$. $dz = \sqrt{c^2-x^2} dx + (c^2y^{-2} -1)dy$.
+		$$z = \frac{x}{2} \sqrt{c^2 - x^2} + \frac{c^2}{2} \sin^{-1} \frac{x}{c} - \frac{c^2}{y} - y + d$$
+	\item Find complete integral of $z^2(p^2z^2+q^2) = 1$ ?\\
+	$f(x,y,z,p,q) = z^2(p^2z^2+q^2)-1 = 0$
+		$$\frac{dx}{2pz^4} = \frac{dy}{2qz^2} = \frac{dz}{4p^2z^3+2zq^2} = \frac{dp}{-p(4p^2z^3+2zq^2)} = \frac{dq}{-q(4p^2z^3+2zq^2)}$$
+		$p = qc$. $q^2 = \frac{1}{z^2(c^2z^2+1)}$. $z\sqrt{c^2z^2+1}dz = c dx + dy$
+		$$(c^2z^2+1)^3  = 9c^4(cx + y + d)^2$$
+	\item Find complete integral of $px + qy = pq$ ?\\
+	$f(x,y,z,p,q) = px + qy - pq = 0$.
+		$$\frac{dx}{x-q} = \frac{dy}{y-p} = \frac{dz}{p(x-q)+q(y-p)} = \frac{dp}{-(p+p(0))} = \frac{dq}{-(q+q(0))}$$
+		$p = qc$, $q = (cx+y)/c$. $p = cx+y$. $cdz = (cx+y)(cdx + dy) = udu$
+		$$2cz = (cx+y)^2 + d$$
+\end{enumerate}
+
+\section{Special Forms of Charpit's Equation}
+\begin{enumerate}
+	\item $f(p,q) = 0$ \\
+	Substitute $p = a$ and $q = b$, obtain $b = \phi(a)$ from $f(a,b) = 0$. Then complete integral is $z = ax + \phi(a)y + c$.
+	\item Clairut's Equation : $z = px + qy + f(p,q)$. Then complete integral is $z = ax + by + f(a,b)$.
+	\item $f(x,p) = g(y,q)$\\
+	Write $f(x,p) = g(y,q) = a$. Obtain $p = \phi(x,a)$ and $q = \psi(y,a)$. Then integrate $z = pdx + qdy$ to find the complete integral.
+	\item $f(p,q,z) = 0$ \\
+	Substitute $u = x+ay$ and $p = dz/du$ and $q = adz/du$ in $f(p,q,z) = 0$ and solve.
+\end{enumerate}
+
+\section{Exercise}
+\begin{enumerate}
+	\item Find complete integral of $pq = 1$ ?
+	$z = ax + y/a + c$.
+	\item Find complete integral of $p^2 + q^2 = n^2$ ?\\
+	$a^2 + b^2 = n^2$  $b = \pm \sqrt{n^2-a^2}$
+	$z = ax \pm \sqrt{n^2-a^2}y + c$.
+	\item Find complete integral of $q = e^{-p/a}$ ?
+	$z = \alpha x + e^{-\alpha/a} y + c$.
+	\item Find complete integral of $p^2 - q^2 = \lambda$ ?
+	$z = ax \pm \sqrt{a^2-\lambda}y + c$.
+	\item Find complete integral of $pq = k$ ?
+	$z = ax + ky/a + c$.
+	\item Find complete integral of $\sqrt{p} + \sqrt{q} = 1$ ?
+	$z = ax + (1-\sqrt{a})^2y + c$.
+	\item Find complete integral of $p^2 + q^2 = npq$ ?
+	$z = ax + a(n \pm \sqrt{n^2-4})y/2 + c$.
+	\item Find complete integral of $q = 3p^2$ ?
+	$z = ax + 3a^2y + c$.
+	\item Find complete integral of $p^3q^3 = 1$ ?
+	$z = ax + \omega y/a + c$.\\
+	\hrule
+	\item Find complete integral of $z = px + qy -2\sqrt{pq}$ ? $z = ax + by - 2\sqrt{ab}$.
+	\item Find complete integral of $z = px + qy + \log(pq)$ ? $z = ax + by + \log(ab)$.
+	\item Find complete integral of $z = px + qy + p/q$ ? $z = ax + by + a/b$.
+	\item Find complete integral of $z = px + qy + p^2 + pq + q^2$ ? $z = ax + by + a^2 + ab + b^2$.
+	\item Find complete integral of $z = px + qy + p^2 + q^2$ ? $z = ax + by + a^2 + b^2$.\\
+	\hrule
+	\item Find complete integral of $\sqrt{p} + \sqrt{q} = 2x$ ?
+	$\sqrt{p}-2x = -\sqrt{q} = a$.
+	$p = (a+2x)^2$, $q = a^2$.
+	integrate $dz = (a+2x)^2 dx + a^2 dy$.
+	$z = (a+2x)^3/6 + a^2y + b$.
+	\item Find complete integral of $yp = 2xy+\log q$ ?
+	$p = 2x +\frac{1}{y}\log q$. $p-2x = \frac{1}{y}\log q = a$.
+	integrate $dz = (a+2x)dx + e^{ay}dy$.
+	$z = (a+2x)^2/4 + \frac{e^{ay}}{a} + b$.
+	\item Find complete integral of $q = 2yp^2$ ?
+	$q/2y = p^2 = a$.
+	integrate $dz = \pm \sqrt{a} dx + 2ay dy$.
+	$z = \pm \sqrt{a}x + ay^2 + b$.
+	\item Find complete integral of $x^2p^2 = yq^2$ ?
+	$x^2p^2 = yq^2 = a^2$.
+	integrate $dz = a \frac{dx}{x} + a \frac{dy}{\sqrt{y}}$.
+	$z = a\log x + 2a\sqrt{y} + b$.\\
+	\hrule
+	\item Find complete integral of $9(p^2z + q^2) = 4$ ?
+	$u = x+ay$, $p = dz/du$, $q = a dz/du$.
+	$(\frac{dz}{du})^2 z + (a \frac{dz}{du})^2 = 4/9$.
+	$(\frac{dz}{du})^2 (z + a^2) = 4/9$.
+	$(\frac{dz}{du}) = \pm 2/3\sqrt{z+a^2}$.
+	$3\sqrt{z+a^2}dz = \pm 2du$.
+	$(z+a^2)^\frac{3}{2} = \pm u + c$.
+	$(z+a^2)^3 = \pm (x+ay+c)^2$.
+	\item Find complete integral of $p^2 = qz$ ?
+	$u = x+ay$, $p = dz/du$, $q = a dz/du$.
+	$(\frac{dz}{du})^2 = az \frac{dz}{du}$.
+	$\frac{dz}{du} = az$.
+	$\frac{dz}{z} = adu$.
+	$\log z = au + \log c$.
+	$z = ce^{x+ay}$.
+	\item Find complete integral of $p(1+q^2) = q(z-\alpha)$ ?
+	$u = x+ay$, $p = dz/du$, $q = a dz/du$.
+	$\frac{dz}{du} (1 + (a\frac{dz}{du})^2) = a \frac{dz}{du} (z - \alpha)$.
+	$\frac{dz}{du} = \pm \sqrt{a(z-\alpha)-1}/a$.
+	$\pm \frac{adz}{\sqrt{a(z-\alpha)-1}} = du$.
+	$2\sqrt{a(z-\alpha)-1} = u + c$.
+	$4(a(z-\alpha)-1)  = (x+ay+c)^2$.
+\end{enumerate}
+

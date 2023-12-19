@@ -1,0 +1,55 @@
+\section{Homogeneous Linear PDE}
+
+\begin{definition}
+An $n$th order homogeneous linear PDE is of the form
+$$A_0 \frac{\partial^n z}{\partial x^n} + A_1 \frac{\partial^n z}{\partial x^{n-1} \partial y} + \dots + A_n \frac{\partial^n z}{\partial y^n} = f(x,y)$$
+Put $D = \frac{\partial z}{\partial x}$ and $D' = \frac{\partial z}{\partial y}$, then $A_0D^n + A_1D^{n-1}D' + \dots + A_n (D')^n = f(x,y)$. We may write $F(D,D') = f(x,y)$.
+\end{definition}
+
+\section{Solving Homogeneous Linear PDE}
+	%Solution consists of complementary part and particular integral.
+\section{Finding Complementary Solution}
+\begin{enumerate}
+	\item $F(D,D') = 0$.
+	\item Put $D = m$ and $D' =1$.
+	\item Solve $F(m,1) = 0$.
+	\item Distinct roots : $m_1,m_2,\dots,m_n$.
+	$$C.F. = \phi_1(y+m_1x) + \phi_2(y+m_2x) + \dots + \phi_n(y+m_nx)$$
+	%\item Distinct Rational Roots : $\frac{a_1}{b_1}, \frac{a_2}{b_2},\dots,\frac{a_n}{b_n}$.
+	%$$C.F. = \phi_1(b_1y+a_1x) + \phi_2(b_2y+a_2x) + \dots + \phi_n(b_ny+a_nx)$$
+	%\item Roots are $\frac{-a_1}{b_1},\frac{-a_2}{b_2},\dots,\frac{-a_n}{b_n}$.
+	%$$C.F. = \phi_1(b_1y-a_1x) + \phi_2(b_2y-a_2x) + \dots + \phi_n(b_ny-a_nx)$$
+	\item Root of multiplicity $n$: $m,m,\dots,m$.
+	$$C.F. = \phi_1(y+mx) + x\phi_2(y+mx) + \dots + x^{n-1}\phi_n(y+mx)$$
+\end{enumerate}
+\section{Exercise}
+\begin{enumerate}
+	\item Solve $(D^2-2DD' - 3(D')^2)z = 0$ ?\\
+	$m^2 - 2m - 3 = 0$, $m = -1,3$.
+	$CF = \phi_1(y-x) + \phi_2(y+3x)$.
+	\item Solve $(D^2 -3DD' + 2(D')^2)z = 0$ ?\\
+	$m^2 - 3m + 2 = 0$, $m = 1,2$.
+	$CF = \phi_1(y+2x) + \phi_2(y+x)$.
+	\item Solve $(D^3-6D^2D' + 11D(D')^2 - 6(D')^3)z = 0$ ?\\
+	$m^3 - 6m^2 + 11m - 6 = 0$, $m = 1, 2, 3$.
+	$CF = \phi_1(y+x) + \phi_2(y+2x) + \phi_3(y+3x)$.
+	\item Solve  $(D^3 - 4D^2D' + 4D(D')^2)z = 0$ ?\\
+	$m^3 - 4m^2 + 4m = 0$. $m = 0, 2,2$.
+	$CF = \phi_1(y) + \phi_2(y+2x) + x\phi_3(y+2x)$.
+	\item Solve $(D^3-3D^2D'+3D(D')^2 - (D')^3)z = 0$ ?\\
+	$m^3 - 3m^2 + 3m -1 = 0$, $m = 1,1,1$.
+	$CF = \phi_1(y+x) + x\phi_2(y+x) + x^2\phi_3(y+x)$.
+	\item Solve $(D^4-(D')^4)z = 0$ ? \\
+	$m^4 - 1 = 0$, $m = 1,-1,i,-i$.
+	$CF = \phi_1(y+x) + \phi_2(y-x) + \phi_3(y+ix) + \phi(4(y-ix)$.
+	\item Solve $(D^2 - 40DD' + 16(D')^2)z = 0$ ? \\
+	$m^2 - 40m + 16 = 0$, $m = 4/5, 4/5$.
+	$CF = \phi_1(5y+4x) + x\phi_2(5y+4x)$.
+\end{enumerate}.
+
+\section{Finding Particular Integarl}
+\begin{enumerate}
+	\item $f(x,y) = p(x,y)$\\
+	Particular Integral $y_p = 1/F(D,D') f(x,y)$.
+	\item
+\end{enumerate}

@@ -18,8 +18,81 @@
 		$$ \exists M \in \mathbb{R},\ \forall x \in X, |f_n(x)| < M $$
 \end{enumerate}
 
-%\section{}
-%\begin{enumerate}
-%	\item
-%\end{enumerate}
+\section{Properties of Uniform Convergence}
+		Let $f_n,g_n$ converges uniformly. Then
+\begin{enumerate}
+	\item Subsequences of uniformly convergent sequence inherit uniform convergence.
+	\item Uniform convergence is linear.
+	$$f_n \pm g_n \underset{U}\to f \pm g \qquad kf_n \underset{U}{\to} kf$$
+	\item Uniform convergence preserves continuity.
+	$$\lim_{t \to x} \lim_{n \to \infty} f_n(t) = \lim_{n \to \infty} \lim_{t \to x} f_n(t)$$
+\item The converse is not true. However, suppose a sequence continuous functions $f_n(x)$ on a compact set $K$ converges to a continuous limit function $f$. If \textcolor{red}{$f_n(x) \ge f_{n+1}(x)$}, then the convergence is uniform on $K$.%Rudin 7.13
+	\item If both $f,g$ are bounded, then $f_ng_n \underset{U}{\to} fg$.
+	\item If $f_n \underset{U}{\to} f$ and $f$ is bounded away from zero. Then $\frac{1}{f_n} \underset{U}{\to} \frac{1}{f}$.
+	\item Uniform convergence preserves boundedness.
+	%\item Composition of uniformly convergent sequences is uniformly convergent. $f_n \circ g_n \underset{U}{\to} f \circ g$ ?
+	\item Let $\alpha$ be monotonically increasing on $[a,b]$. Let $\mathscr{R}(\alpha)$ be the family of functions which are Reimann-Stieljes integrable with respect to $\alpha$ on $[a,b]$.
+	$$f_n \in \mathscr{R}(\alpha)[a,b], f_n \underset{U}{\to} f \implies f \in \mathscr{R}(\alpha)[a,b]$$
+	\item Let $\sequence{f_n(x)}$ be a sequence of functions on $[a,b]$ which are differentiable on $[a,b]$ and $\exists x_0 \in [a,b],\ f_n(x_0) \to f(x_0)$.
+	$$f_n' \underset{U}{\to} f \implies f_n \underset{U}{\to} f$$
+\end{enumerate}
+
+\section{Tests for Uniform Convergence of Sequence of Functions}
+\begin{enumerate}
+	\item Suppose $\sequence{f_n}$ converges pointwise to $f(x)$. Let $M_n = \sup_{x \in E} |f_n(x) - f(x)|$. Then 
+		$$M_n \to 0 \iff f_n \underset{U}{\to} f \text{ on } E$$
+	\item The uniform limit of continuous functions is continuous.
+	\item Dini's Theorem : If limit of sequence of monotone, continuous functions is continuous, then the convergence is uniform.\\
+	Dini's theorem gives the sufficient condition for converse of the above.
+	\item Weierstrass Approximation Theorem : If $f$ is continuous on $[a,b]$, then there exists a sequence of functions\footnote{It also suggest the existence of a dense set of nice functions which are sufficient to approximate any continuous function $f$.} $f_n$ which converges to $f$ uniformly.
+\end{enumerate}
+
+\section{Excise}
+\begin{enumerate}
+	\item $f_n(x) = x^n \underset{U}{\to} 0 \quad \forall x \in (-1,1)$.\\
+	The convergence is not uniform on any neighbourhood of $\pm 1$ as the limit function $f$ is not continuous at $\pm 1$.
+	\item $f_n(x) = \frac{x}{x+n} \underset{U}{\to} 0,\forall x \in [0,a]$ since
+	$$M_n = \sup_x |f_n(x) - f(x)| = \sup_x \left|\frac{x}{x+n}\right| \le \sup_x \frac{x}{n} \to 0$$
+	\item $f_n(x) = \frac{nx}{1+nx} \to 1 \quad \forall x > 0$
+	\item $f_n(x) = \frac{nx}{1+n^2x^2} \underset{U}{\to} 0 \quad \forall x \in [a,\infty)$ 
+	$$M_n = \sup_x |f_n(x) - f(x)| = \sup_x \left|\frac{nx}{1+n^2x^2} - 0\right| \le \sup_x \frac{1}{nx} \to 0$$
+	It does not converge uniformly on $(0,a]$ as $M_n \not\to 0$.
+	$$M_n = \sup_x |\frac{nx}{1+n^2x^2}| \ge \frac{1}{2}$$
+	\item $f_n(x) = \frac{x^n}{1+x^n} \underset{U}{\to} 1$ if $x \in \mathbb{R} - (-1,1)$.
+	$$M_n = \sup_x \left|\frac{x^n}{1+x^n} - 1\right| = \sup_x \left|\frac{1}{1+x^n}\right| \le \sup_x \frac{1}{x^n}$$
+	\item $f_n(x) = \frac{x^n}{1+x^n} \underset{U}{\to} 0$ if $x \in (-1,1)$.
+		$$M_n = \sup_x \left|\frac{x^n}{1+x^n} - 0\right| = \sup_x \left|\frac{x^n}{1+x^n}\right| \le \sup_x x^n \to 0$$
+	This sequence is not uniformly convergent on any neighbourhood of $\pm 1$ as the limit function is discontinuous at $\pm 1$.
+	\item $f_n(x) = x^n(1-x) \underset{U}{\to} 0$ if $x \in (0,1)$ since $f_n(x)$ are continuous, $f_n$ is monotone and $f$ is continuous.
+	\item $f_n(x) = \frac{1}{1+(nx-1)^2} \to $.
+	\item $f_n(x) = \frac{x}{x+n} \underset{U}{\to} 0$ if $x \in [a,\infty)$.
+	\item $f_n(x) = e^{-nx} \underset{U}{\to} 0$ if $x \in [a,\infty)$.
+\end{enumerate}
+
+\section{Series of Functions}
+\begin{definition}
+	A series $\sum f_n$ of function $f_n$ on $E$ converges if the sequence of partial sums converges for every $x \in E$.
+\end{definition}
+
+\begin{definition}
+	Series of functions is pointwise/uniformly convergent if the respective sequence of partial sums is pointwise/uniformly convergent.
+\end{definition}
+
+\section{Properties of Uniform Convergence of Series of Functions}
+\begin{enumerate}
+	\item Suppose $\sum_{n=1}^\infty f_n(x) = f(x)$ uniformly on $[a,b]$. Then
+	$$\int_a^b \sum_{n=1}^\infty f_n(x)\ d\alpha(x) = \sum_{n=1}^\infty \int_a^b f_n(x)\ d\alpha(x)$$
+\end{enumerate}
+
+\section{Test for Convergence of Series of Functions}
+\begin{enumerate}
+	\item Weierstrass M Test : Let $M_n$ be a convergent sequence such that $\forall x \in E,\ |f_n(x)| \le M_n$. T
+	Then $\sum f_n$ is converges uniformly on $E$.
+\end{enumerate}
+
+\section{Exerise}
+\begin{enumerate}
+	\item If $f_n(x) = \frac{nx}{1+n^2x^2} - \frac{(n-1)x}{1+(n-1)^2x^2}$.
+	Then $\sum f_n \to 0$.
+\end{enumerate}
 
