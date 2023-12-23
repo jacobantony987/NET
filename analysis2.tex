@@ -1,3 +1,144 @@
+\chapter{Sequences and Series}
+\section{Sequences}
+\begin{enumerate}
+	\item A \textbf{sequence} $x_n$ in a set $X$ is a function $x : \mathbb{N} \to X$ where $x_n = x(n)$.
+	\item A \textbf{subsequence} $x_{n_k}$ of a sequence $x_n$ is a function $x \circ n$ where $n : \mathbb{N}\to \mathbb{N},\ n_k = n(k)$ is a strictly increasing sequence.
+	\item A sequence $\sequence{x_n}$ is \textbf{convergent} if there exists $x \in \mathbb{R},\ \forall \varepsilon > 0,\ \exists N \in \mathbb{N}$ such that $\forall n > N, |x_n-x| < \varepsilon$.
+	 Then $x$ is a \textbf{limit} of the sequence $\sequence{x_n}$ and $x_n \to x$.
+	\item If space $X$ is $T_2$, then limit of convergent sequence in $X$ is unique.
+		\subitem \textcolor{blue}{In $\mathbb{R}$, limit of a convergent sequence is unique.}
+	\item \textcolor{blue}{A sequence $\sequence{x_n}$ converges if and only if every subsequence $\sequence{x_{n_k}}$ converges.}
+	\item A sequence $\sequence{x_n}$ is \textbf{bounded} if $|x_n| \le k$.
+		\subitem \textcolor{blue}{Every convergent sequence is bounded.}
+		\subitem \textbf{Bolzano-Weierstrass Theorem} : Every bounded sequence has a convergent subsequence.
+	\item A point $x$ is a \textbf{limit point}(cluster point) of the sequence $\sequence{x_n}$ if every neighbourhood of $x$ contains infinitely many terms of the sequence.
+		\subitem \textcolor{blue}{$x$ is a limit point of $\sequence{x_n}$ if and only if it has a subsequence converging to $x$.}
+		\subitem \textcolor{blue}{Every convergent sequence has a unique limit point.}
+		\subitem \textcolor{blue}{A bounded sequence with unique limit point is convergent.}
+	\item A sequence $x_n$ is \textbf{Cauchy} if $\forall \varepsilon > 0,\ \exists N \in \mathbb{N}$ such that $\forall n,m >N,\ |x_n-x_m| < \varepsilon$.
+		\subitem \textcolor{blue}{Every Cauchy sequence is bounded.}
+	\item A space is \textbf{complete} if every Cauchy sequence in it converges.
+		\subitem In $\mathbb{R}$, sequence is convergent if and only if Cauchy.
+		\subitem $\mathbb{R}^n,\mathbb{C}^n,l^2,C[a,b]$ are complete.
+		\subitem Sequence space $l^p$ is complete if and only if $p=2$.
+	\item The limit of an monotonic sequence occurs at infinity.
+	\item A sequence $\sequence{x_n}$ is \textbf{monotonically increasing} if $\forall n \in \mathbb{N},\ a_{n+1} \ge a_n$.
+		\subitem \textcolor{blue}{Every sequence has a monotone subsequence.}
+		\subitem \textcolor{blue}{Every monotonically increasing(decreasing) sequence which is bounded above(below) is convergent. And the limit is its supremum(infimum).}
+	\item A sequence $\sequence{x_n}$ is \textbf{contractive} if there exists $c \in (0,1)$ such that $|a_{n+2}-a_{n+1}| \le c|a_{n+1}-a_n|$ for sufficiently large values of $n$.
+		\subitem \textcolor{blue}{Every contractive sequence is Cauchy.}
+	\item $\forall x \in \mathbb{R}$, there exist a rational sequence and an irrational sequence converging to $x$.
+		$\left[ \frac{10^n x_n}{10^n} \right] \to x$ and $ x_n + \frac{\sqrt{2}}{n} \to x$.
+	\item Logarithm function is continuous.
+		That is, $x_n \to x \implies \ln{x_n} \to \ln{x}, \quad (x_n > 0)$.
+	\item Square root function is continuous.
+		That is, $x_n \to x \implies \sqrt{x_n} \to \sqrt{x}, \quad (x_n > 0)$.
+\end{enumerate}
+\section{Properties of Convergence \& Test for Convergence}
+\begin{enumerate}
+	\item Properties of Convergent Sequences,
+		\subitem $x_n \to x \implies kx_n \to kx$.
+		\subitem $x_n \to x,\ y_n \to y \implies x_n \pm y_n \to x \pm y$.
+		\subitem $x_n \to x,\ y_n \to y \implies x_n y_n \to xy$
+		\subitem $x_n \to x,\ y_n \to y,\ y_n \ne 0,\ y \ne 0 \implies x_n/y_n \to x/y$ 
+	\item $x_n \to x,\ y_n \to y,\ x_n \le y_n \implies x \le y$
+		\subitem $x_n \to x, x_n \le k \implies x \le k$.
+	\item \textcolor{blue}{\textbf{Squeeze theorem} : $x_n \le y_n \le z_n,\ x_n \to l,\ z_n \to l \implies y_n \to l$.}
+	\item \textcolor{blue}{Every convergent sequence is absolute convergent.}
+	\subitem $|x_n| \to |x| \nimplies x_n \to x$.
+	\subitem $x_n \to 0 \iff |x_n| \to 0$.
+	\item $x_ny_n \to xy, \ x_n \to x \nimplies y_n \to y$
+	\item $x_n \to \pm \infty \implies x_{n_k} \to \pm \infty$.
+	\item Tests for non-convergence,
+		\subitem Unbounded sequences are non-convergent.
+		\subitem If sequence has two convergent subsequence with distinct limits.
+		\subitem If it has a non-convergent subsequence.
+	\item A few popular convergent sequences,
+		\subitem $x^n \to 0$ where $(|x| < 1)$.
+		\subitem $\frac{1}{n^p} \to 0$ provided $p > 0$.
+		\subitem $p^\frac{1}{n} \to 1$ provided $p > 0$.
+		\subitem $n^\frac{1}{n} \to 1$.
+		\subitem \textcolor{blue}{$(1+\frac{1}{n})^n \to e$.}
+	\item $(1+\frac{2}{n})^n \to e^2$\\
+		Let $x_n = (1+\frac{2}{n})^n$. Suppose sequence $\sequence{x_n}$ converges, then subsequence $\sequence{x_{2n}}$ converges to the same limit and $x_{2n} = \left((1+\frac{1}{n})^n\right)^2 \to e^2$.
+	\item A sequence $\sequence{x_n}$ is \textbf{Cesaro summable} if the sequence of arithmetic means is convergent.
+\item \textcolor{blue}{\textbf{Cauchy`s First Theorem on Limits} : Every convergent sequence is Cesaro summable and has the same limit.} That is, $x_n \to x \implies \frac{x_1+x_2+\dots+x_n}{n} \to x$.
+	\subitem Let sequence $\sequence{p_n}$ be a sequence of positive real numbers with $\frac{1}{p_1+p_2+\dots+p_n} \to 0$. Then sequence of weighted arithmetic means also converges to the same limit.\\ That is, $x_n \to x \implies \frac{p_1x_1 + p_2x_2 + \dots + p_nx_n}{p_1+p_2+\dots+p_n} \to x$.
+		\subitem The sequence of geometric means also converges to the same limit.\\ That is, $x_n \to x \implies (x_1x_2\dots x_n)^\frac{1}{n} \to x$ provided $x_n \ge 0$.
+	\item \textcolor{blue}{\textbf{Cauchy`s Second Theorem} : $ \frac{x_{n+1}}{x_n} \to l \implies x_n^\frac{1}{n} \to l$.}
+		\subitem D'Alembert`s \textbf{Ratio Test} : Suppose \textcolor{red}{$x_n > 0$} and let $\frac{x_{n+1}}{x_n} \to l$.
+		If $l < 1,\ x_n \to 0$. If $l > 1,\ x_n \to +\infty$. If $l = 1$, test fails.
+		\subitem Cauchy`s \textbf{Root test} : Suppose $x_n \ge 0$ and let $ (x_n)^{\frac{1}{n}} \to l$.
+		If $l < 1,\ x_n \to 0$. If $l > 1,\ x_n \to +\infty$. If $l = 1$, test fails.
+	\item \textcolor{blue}{\textbf{Cesaro`s theorem} : The Cauchy product of two convergent sequences is Cesaro summable.} That is, $x_n \to x,\ y_n \to y \implies \frac{x_1y_n + x_2y_{n-1} + \dots + x_ny_1}{n} \to xy$.
+	\item \textbf{Stolz-Cesaro Theorem} : $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} \to l \implies \frac{x_n}{y_n} \to l$ provided \textcolor{red}{$\sequence{y_n}$ is strictly monotone and diverges to $\pm \infty$.}
+		\subitem $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} \to l \implies \frac{x_n}{y_n} \to l \implies \frac{x_1+x_2+\dots+x_n}{y_1+y_2+\dots+y_n} \to l$ provided \textcolor{red}{$\sequence{y_n}$ is strictly increasing to $+\infty$.}\footnote{Why the corollary of Stolz-Cesaro theorem is not applicable when $y_n$ is strictly monotone and diverges to $\pm \infty$.}
+	\item \textbf{Riemann Sum}
+		\[ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^\infty f(k/n) = \int_0^1 f(x)\ dx \]
+\end{enumerate}
+
+\section*{Exercise}
+\begin{enumerate}
+	\item Show that $\displaystyle \lim_{n \to \infty} \left( \frac{n!}{n^n} \right)^\frac{1}{n} = \frac{1}{e}$ 
+		\begin{proof}[Solution] (Hint : $n$th root indicates Cauchy's second theorem)
+			$$ \frac{a_{n+1}}{a_n} = \frac{(n+1)!}{(n+1)^{n+1}} \frac{n^n}{n!} \to \frac{1}{e} \implies a_n^\frac{1}{n} = \left(\frac{n!}{n^n}\right)^\frac{1}{n} = \frac{\sqrt[n]{n!}}{n} \to \frac{1}{e} $$
+		\end{proof}
+\end{enumerate}
+
+\section{Series}
+\begin{enumerate}
+	\item A \textbf{series} $\sum a_n$ is a sequence of the form $\sequence{b_n}$ where $b_n = \sum_{k=1}^n a_n$, the sequence of partial sums. If the sequence of partial sums converges to $s$, then the \textbf{sum} of the series $\sum a_n = s$. If the sequence of partial sums diverges, the series also diverges.
+	\item A series $\sum a_n$ is \textbf{absolutely convergent} if $\sum |a_n|$ converges. In the case of series, absolute convergence implies convergence. A sequence which is convergent, but not absolutely convergent is \textbf{conditionally convergent}.
+\end{enumerate}
+
+\section{Properties of Series \& Test for Convergence}
+\begin{enumerate}
+	\item $n$th term test : If $\sum a_n$ converges, then $a_n \to 0$. And if $a_n \not\to 0$ then $\sum a_n$ diverges.
+	\item Suppose $\sum a_n, \sum b_n$ converges, then $\sum a_n+b_n$, $\sum \alpha a_n$ converges.
+		\begin{enumerate}
+			\item Abel`s test : if $\sum a_n$ is monotonic and $\sum a_n,\sum b_n$ converges, then $\sum a_nb_n$ converges
+			\item Dirichlet`s test : if $\sum a_n$ is decreasing \& converges and sequence of partial sums of $\sum b_n$ is bounded, then $\sum a_nb_n$ converges.
+		\end{enumerate}
+	\item Power Series test : $\sum 1/n^p$ converges if $p>1$ and diverges if $p \le 1$.
+	\item Geometric Series test : $\sum a^n$ converges if $|a| < 1$ and diverges if $|a| \ge 1$.
+	\item Ratio test : Let $a_n > 0$ \footnote{The condition $a_n > 0$ can be relaxed a bit, to eventually positive as eventuality is all that matters.} and $a_{n+1}/a_n \to l$.\\
+		If $l<1$, $\sum a_n$ converges. If $l>1$, $\sum a_n$ diverges. If $l = 1$, test fails.
+	\item Comparison test : Suppose $0 \le a_n \le b_n$.\\
+		If $\sum b_n$ converges, then $\sum a_n$ converges. If $\sum a_n$ diverges, then $\sum b_n$ diverges.
+	\item { \color{red}Limit Comparison Test : Suppose $a_n > 0$ and $b_n > 0$\footnote{In this case, eventuality is not sufficient.} and $a_n/b_n \to l$.\\
+		If $l = 0$ and $\sum b_n$ converges, then $\sum a_n$ converges.
+		If $l \ne 0$, then both behaves alike.}
+	\item Cauchy's $n$th root test : If $a_n > 0$ and $a^\frac{1}{n} \to l$.\\
+		If $l < 1$, then $\sum a_n$ converges. If $l > 1$, then $\sum a_n$ diverges. If $l = 1$, test fails.
+	\item \textcolor{blue}{Condensation test : Suppose sequence $a_n$ is decreasing and positive.\\
+		Then $\sum a_n$ and $\sum 2^na_{2^n}$ behaves similar. \textcolor{red}{Tailor-made for logarithmic functions.}}
+	\item \textcolor{blue}{Rabee`s test : Suppose $a_n > 0$ and $n\left(\frac{a_n}{a_{n+1}} -1 \right) \to l$.\\
+		If $l < 1$, then $\sum a_n$ converges. If $l > 1$, then $\sum a_n$ diverges. If $l = 1$, test fails.}
+	\item \textcolor{blue}{Logarithmic test : Suppose $a_n > 0$ and $n\log (a/a_{n+1}) \to l$.\\
+		If $l > 1$, then $\sum a_n$ converges. If $l <1$, then $\sum a_n$ diverges.}
+	\item \textcolor{blue}{Lebinitz test : Suppose sequence $a_n$ is decreasing and converges to zero. ($a_n \downarrow_0$)\\
+		Then the \textbf{alternating series} $\sum (-1)^n a_n$ converges.}
+\end{enumerate}
+
+\section*{Exercise}
+\begin{enumerate}
+	\item Show that $\sum \frac{1}{\log n} \to +\infty$ 
+	\begin{proof}[Solution]
+		Presence of logarithm indicates applicability of Condensation Test, and $a_n$ is positive and decreasing $a_n \downarrow_0$
+		$$ \sum \frac{1}{\log n}, \sum \frac{2^n}{\log 2^n} \text{ behaves alike } $$
+		$$ \log 2 \sum \frac{2^n}{n} \text{ diverges by comparison test } 0 \le \frac{1}{n} \le \frac{2^n}{n} $$
+	\end{proof}
+	\item \textcolor{blue}{Show that $\sum \frac{1}{n\log n} \to +\infty$ !!}
+	\begin{proof}[Solution]
+		My trick : Power Series Test $\sum \frac{1}{n^{1+\epsilon}}$ converges. But, my trick failed.\\
+		By condensation test,
+		$$ \sum \frac{1}{n\log n}, \sum \frac{2^n}{2^n \log 2^n} = \frac{1}{\log 2} \sum \frac{1}{n} \text{ behaves alike} $$
+	\end{proof}
+	\item Show that $\sum \frac{1}{n \log \log n}$ diverges.
+		$$ 0 \le \frac{1}{n \log n} \le \frac{1}{n \log \log n} \le \frac{1}{n \log \log \dots \log n} $$
+	\item Show that $\sum \frac{1}{n^{\log n}}$ is convergent.
+	$$\frac{1}{n^{\log n}} < \frac{1}{n^2}, \forall n > e^2 \approx 7.3$$
+\end{enumerate}
 \section{Limit Superior/Inferior}
 \begin{enumerate}
 	\item $\displaystyle \limsup_{n \to \infty} x_n = \inf_{n \ge 0} \sup_{m \ge n} x_n $
@@ -15,5 +156,9 @@
 	\item $ \liminf a_n \liminf b_n \le \liminf (a_n b_n) \le \limsup (a_n b_n) \le \limsup a_n \limsup b_n  $
 	\item Stolz-Cesaro Therorem
 		\[ \liminf_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \le \liminf_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \]
+\end{enumerate}
+
+\begin{enumerate}
+	\item $S = \{ p_n - p_{n-1} : p_n \in \mathscr{P} \}$ Then $\sup S = \infty$, $\inf S = 1$, $\liminf S \ge 2$ and $\limsup S = \infty$.
 \end{enumerate}
 

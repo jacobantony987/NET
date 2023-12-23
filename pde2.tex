@@ -1,5 +1,4 @@
-\section{Homogeneous Linear PDE}
-
+\chapter{Higher Order Partial Differential Equations}
 \begin{definition}
 An $n$th order homogeneous linear PDE is of the form
 $$A_0 \frac{\partial^n z}{\partial x^n} + A_1 \frac{\partial^n z}{\partial x^{n-1} \partial y} + \dots + A_n \frac{\partial^n z}{\partial y^n} = f(x,y)$$
@@ -22,7 +21,7 @@ Put $D = \frac{\partial z}{\partial x}$ and $D' = \frac{\partial z}{\partial y}$
 	\item Root of multiplicity $n$: $m,m,\dots,m$.
 	$$C.F. = \phi_1(y+mx) + x\phi_2(y+mx) + \dots + x^{n-1}\phi_n(y+mx)$$
 \end{enumerate}
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Solve $(D^2-2DD' - 3(D')^2)z = 0$ ?\\
 	$m^2 - 2m - 3 = 0$, $m = -1,3$.
@@ -51,5 +50,19 @@ Put $D = \frac{\partial z}{\partial x}$ and $D' = \frac{\partial z}{\partial y}$
 \begin{enumerate}
 	\item $f(x,y) = p(x,y)$\\
 	Particular Integral $y_p = 1/F(D,D') f(x,y)$.
+		$$(1+x)^n = \sum_r \binom{n}{r} x^r \text{ where } \binom{n}{r} = \frac{|n \times (n-1) \times \dots \times (n-r+1)|}{1 \times 2 \times \dots \times r}$$
+		$\binom{-2}{4} = \frac{|-2 \times -3 \times -4 \times -5|}{1 \times 2 \times 3 \times 4} = 5$.
 	\item
 \end{enumerate}
+
+\section*{Exercise}
+\begin{enumerate}
+	\item Solve $(D^2 - 2DD' +(D')^2z = 12xy$ ?\\
+		$m^2 -2m + 1 = 0$, $m = 1,1$.
+		$CF = \phi_1(y+x) + x\phi_2(y+x)$.
+		\begin{align*} y_p & = \frac{1}{(D-D')^2} 12xy = \frac{1}{D^2(1-\frac{D'}{D})^2} 12xy \\ 
+		&= \frac{1}{D^2} (1+2\frac{D'}{D}+3\frac{D'}{D}+\dots) 12xy \\ 
+		&= \frac{1}{D^2}12xy + \frac{2}{D^3} 12x = 2x^3y + x^4 \end{align*}
+		since $D' = \frac{\partial }{\partial y}$ and $1/D = \int dx$.
+		General Solution : $z = \phi_1(y+x) + x\phi_2(y+x) + x^4 + 2x^3y$.
+\end{enumerate}	

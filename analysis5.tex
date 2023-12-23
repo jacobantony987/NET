@@ -1,11 +1,4 @@
-\def\upint{\mathchoice%
-    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
-    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
-    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
-    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
-  \int}
-\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
-\section{Integration}
+\chapter{Integration}
 \begin{definition}
 	A function $f$ is Riemann integrable $f \in \mathscr{R}(a,b)$ iff $U(P,f) = L(P,f)$ where upper Riemann sum, $U(P,f) = \sum_P \max f(x)(x_i-x_{i-1})$ and lower Riemann sum, $L(P,f) = \sum_P \min f(x)(x_i-x_{i-1})$ . And $\upint_a^b f(x) = \inf_P U(P,f)$ and $\lowint_a^b f(x)\ dx = \sup_P L(P,f)$.
 \end{definition}
@@ -18,7 +11,7 @@
 	\item If $f \in \mathscr{R}(a,b)$ and $f(x) = g(x)$ for all except finitely many points in $[a,b]$, then $g \in \mathscr{R}(a,b)$.
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item $$\sum_{k=0}^{n-1} \sin (\alpha+k\beta) = \frac{\sin (\alpha + \frac{n-1}{2}\beta) \sin \frac{n\beta}{2}}{\sin \frac{\beta}{2}}$$
 	\item $$\sum_{k=0}^{n-1} \cos (\alpha+k\beta) = \frac{\cos (\alpha + \frac{n-1}{2}\beta) \sin \frac{n\beta}{2}}{\sin \frac{\beta}{2}}$$

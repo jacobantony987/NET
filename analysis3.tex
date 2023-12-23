@@ -1,4 +1,4 @@
-\section{Functions}
+\chapter{Real Functions}
 \begin{enumerate}
 	\item If $f(x_n) \to L$ as $x_n \to a$, then $\displaystyle \lim_{x \to a} f(x) = L$.
 	\item Criteria for Continuity
@@ -32,7 +32,7 @@
 	\subitem Converse : If $f$ is $1-1$ and satisfies intermediate value property, then $f$ is continuous.
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Constant, Identity Functions are continuous.
 	\item Check continuity of $x\sin 1/x$ at $x =0$
@@ -64,7 +64,7 @@
 		\subitem Continuous function on a compact set to a subset of it.
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Find fixed points of $f(x) =2x$ ? $x = 0$.
 	\item Find fixed points of $f : (0,1) \to (\frac{1}{2}, 1)$ where $f(x) = \frac{x+1}{2}$ ? No fixed points.
@@ -84,12 +84,13 @@
 		\subitem Weierstrass monster function is continuous, but nowhere differentiable.
 	\item A function $f$ is increasing if $f(x)\le f(y)$ whenever $x<y$. And decreasing if $f(x) \ge f(y)$ whenever $x<y$. Function $f$ is monotonic if it is either increasing or decreasing. Function $f$ is strictly monotone (increasing/decreasing) if the inequality is strict.
 \end{enumerate}
+
 \section{Properties of Derivatives}
 \begin{enumerate}
 	\item
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Check differentiability of $f(x) = x^2 \sin 1/x$ at $x = 0$ ?
 	\begin{proof}[Solution]
@@ -131,7 +132,7 @@
 	\item Continuous periodic functions are uniformly continuous.
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Check whether $f(x) = \sin x$ is uniformly continuous ?
 	\begin{proof}[Solution]
@@ -194,6 +195,12 @@
 		with a few exceptions, where $ \frac{0}{0}, \frac{\pm \infty}{\pm \infty},\ 0 \pm \infty,\ \infty - \infty,\ 0^0,\ \infty^0,\ 1^{\pm\infty} $.
 \end{enumerate}
 
+\section*{Exercise}
+\begin{enumerate}
+	\item Let $f$ be a strictly increasing function on $[0.5,2]$. Let $g(x) = f(x) +f(1/x)$. Then there exists functions $f$ such that $U(P,g) = L(P,g)$, ie, $g$ is constant function,  say $f(x) = x-\frac{1}{x} \implies g = 0$. If $g$ is nonconstant, say $f(x) = x \implies g(x) = x + \frac{1}{x}$. Then $U(P,g) > L(P,g)$ for some partition $P$ of $[0.5,2]$. We know that, $\forall P \in \mathscr{P}[0.5,2],\ U(P,g) \ge L(P,g)$
+	\item Let $f_n(x) = \frac{1}{2nx+1}$ and $g_n(x) = \frac{x}{2nx+1}$.
+\end{enumerate}
+
 \section{Functions of Bounded Variation}
 \begin{enumerate}
 	\item A function $f$ is of bounded variable on $[a,b]$ if the sum of variations is bounded for any partition of $[a,b]$.
@@ -218,13 +225,12 @@
 	\end{proof}
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Monotonic function on a bounded interval is not necessarily have bounded variation. For example, $f(x) = \frac{1}{x}$ on $(0,1)$ have unbounded variation.
 	\item If $f$ is monotonic non-decreasing function. Then $g(x) = e^{-f(x)}$ is not necessarily bounded as $x \to -\infty$, $g \to \infty$.
 	%Does there exists a monotonic functions which does not have one of the limits at an interior point.
 \end{enumerate}
-%83019 78727 Minitek
 
 %example problems for each exceptions above can be found at
 %http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/SandS/lHopital/index.html

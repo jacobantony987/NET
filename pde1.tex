@@ -1,4 +1,4 @@
-\section{Partial Differential Equation}
+\chapter{Partial Differential Equation}
 \begin{enumerate}
 	\item \textbf{Partial differential equations} contains one or more partial derivatives. Usually variable $z$ is dependent on two indpendent variables $x,y$.
 		$$ \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y} = 0$$
@@ -21,7 +21,7 @@
 		If the equation contains only one arbitrary constant(function), then differentiate it wrt $x,y$. Otherwise find higher order derivatives to eliminate arbirary function.
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item $z = ax+by+ab \implies p = a, q=b \implies z = pz+qz+pq$
 	\item $z = (x+a)(y+b) \implies p = (y+b),q = (x+a) \implies z = pq$
@@ -83,7 +83,7 @@
 \end{enumerate}
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item $px + qy = 3z$
 	\begin{align*}
@@ -196,7 +196,7 @@ Consider liner PDE \begin{equation} f(x,y,z,p,q) = 0 \end{equation}
 \begin{enumerate}
 	\item The particular solution satisfying a relation  $b = \phi(a)$, is obtained by differentiating $z= f(x,y,z,a,\phi(a)) = 0$ wrt $a$ partially($x,y,z$ are indepedent of $a$) and substituting the value of $a$. This particular solution is the \textbf{envelope of the subfamily} $z = \eta(x,y,z,a,b)$ where $b=\phi(a)$.
 \end{enumerate}
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Singular solution of $z = px + qy + p^2 + q^2$ is $z = -(x^2+y^2)/4$ obtained by substituting $p = -x/2$ and $q = -y/2$ since $\partial z/\partial p = x + 2p = 0$ and $\partial z/\partial q = y + 2q = 0$.
 	\item $(x-a)^2 + (y-b)^2 + z^2 = 1$ is the complete integral of $z^2(p^2+q^2+1) = 1$. \\
@@ -211,13 +211,13 @@ Let $Pp + Qq = R$ with initial conditions $x = x_0(t)$, $y = y_0(t)$ and $z = z_
 	\item \textbf{infinitely many solution} if $$\frac{P(x_0,y_0,z_0)}{dx_0/dt} = \frac{Q(x_0,y_0,z_0)}{dy_0/dt} = \frac{R(x_0,y_0,z_0)}{dz_0/dt}$$
 	\item \textbf{no solution} if $$R \ne 0 \qquad \text{and}\qquad \frac{P(x_0,y_0,z_0)}{dx_0/dt} = \frac{Q(x_0,y_0,z_0)}{dy_0/dt} \ne \frac{R(x_0,y_0,z_0)}{dz_0/dt}$$
 \end{enumerate}
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item The Cauchy problem $yp-xq = 0$, $x_0(t) = \cos t$, $y_0(t) = \sin t$ and $z_0(t) = 1$ has infinitely many solution.
 \end{enumerate}
 
 \section{Non Linear PDE}
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Find complete integral of $z = px + qy + p^2 + q^2$ ?\\ $f(x,y,z,p,q) = z - px - qy - p^2 - q^2 = 0$.
 	$$\frac{dx}{-x-2p} = \frac{dy}{-y-2q} = \frac{dz}{p(-x-2p) + q(-y-2q)} = \frac{dp}{-(-p+p)} = \frac{dq}{-(-q+q)}$$
@@ -255,7 +255,7 @@ Let $Pp + Qq = R$ with initial conditions $x = x_0(t)$, $y = y_0(t)$ and $z = z_
 	Substitute $u = x+ay$ and $p = dz/du$ and $q = adz/du$ in $f(p,q,z) = 0$ and solve.
 \end{enumerate}
 
-\section{Exercise}
+\section*{Exercise}
 \begin{enumerate}
 	\item Find complete integral of $pq = 1$ ?
 	$z = ax + y/a + c$.
