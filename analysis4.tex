@@ -1,4 +1,5 @@
 \chapter{Sequence of Functions}
+\section{Uniform Convergence}
 \begin{enumerate}
 	\item Sequence of functions are pointwise convergent if for each $x_0 \in X$, the sequence $f_n(x_0)$ converges to $f(x_0)$.
 	\begin{eqnarray}
@@ -18,7 +19,7 @@
 		$$ \exists M \in \mathbb{R},\ \forall x \in X, |f_n(x)| < M $$
 \end{enumerate}
 
-\section{Properties of Uniform Convergence}
+\subsection{Properties of Uniform Convergence}
 		Let $f_n,g_n$ converges uniformly. Then
 \begin{enumerate}
 	\item Subsequences of uniformly convergent sequence inherit uniform convergence.
@@ -35,20 +36,22 @@
 	$$f_n \in \mathscr{R}(\alpha)[a,b], f_n \underset{U}{\to} f \implies f \in \mathscr{R}(\alpha)[a,b]$$
 	\item Let $\sequence{f_n(x)}$ be a sequence of functions on $[a,b]$ which are differentiable on $[a,b]$ and $\exists x_0 \in [a,b],\ f_n(x_0) \to f(x_0)$.
 	$$f_n' \underset{U}{\to} f \implies f_n \underset{U}{\to} f$$
-\item $\sum U_n(x) f_n(x)$ converges uniformly on $[a,b]$ if sequence $\sequence{f_n}$ is +ve, monotonically decreasing, converges to $0$ uniformly on $[a,b]$ and $\forall m \in \mathbb{N},\ \exists k > 0,\ \sum_{n=1}^m U_n(x) < k$.
+\item \textcolor{red}{$\sum U_n(x) f_n(x)$ converges uniformly on $[a,b]$ if sequence $\sequence{f_n}$ is +ve, monotonically decreasing, converges to $0$ uniformly on $[a,b]$ and $\forall m \in \mathbb{N},\ \exists k > 0,\ \sum_{n=1}^m U_n(x) < k$.}
 \end{enumerate}
 
-\section{Tests for Uniform Convergence of Sequence of Functions}
+\subsection{Tests for Uniform Convergence of Sequence of Functions}
 \begin{enumerate}
 	\item Suppose $\sequence{f_n}$ converges pointwise to $f(x)$. Let $M_n = \sup_{x \in E} |f_n(x) - f(x)|$. Then 
 		$$M_n \to 0 \iff f_n \underset{U}{\to} f \text{ on } E$$
+	\item Let $x_n \to x$ and $M_n = |f_n(x_n) - f(x_n)|$.
+	$$\forall x_n \to x,\ M_n \to 0 \iff f_n \underset{U}{\to} f$$
 	\item The uniform limit of continuous functions is continuous.
-	\item Dini's Theorem : If limit of sequence of monotone, continuous functions is continuous, then the convergence is uniform.\\
+	\item Dini's Theorem : If limit of sequence of monotone continuous functions is continuous, then the convergence is uniform.\\
 	Dini's theorem gives the sufficient condition for converse of the above.
 	\item Weierstrass Approximation Theorem : If $f$ is continuous on $[a,b]$, then there exists a sequence of functions\footnote{It also suggest the existence of a dense set of nice functions which are sufficient to approximate any continuous function $f$.} $f_n$ which converges to $f$ uniformly.
 \end{enumerate}
 
-\section*{Exercise}
+\subsubsection*{Exercise}
 \begin{enumerate}
 	\item $f_n(x) = x^n \underset{U}{\to} 0 \quad \forall x \in (-1,1)$.\\
 	The convergence is not uniform on any neighbourhood of $\pm 1$ as the limit function $f$ is not continuous at $\pm 1$.
@@ -68,6 +71,13 @@
 	\item $f_n(x) = \frac{1}{1+(nx-1)^2} \to $.
 	\item $f_n(x) = \frac{x}{x+n} \underset{U}{\to} 0$ if $x \in [a,\infty)$.
 	\item $f_n(x) = e^{-nx} \underset{U}{\to} 0$ if $x \in [a,\infty)$.
+	\item $f_n(x) = \frac{1}{n^2+x^2}$ on $[\frac{1}{2},1]$ is monotonically decreasing and $f_n \underset{U}{\to} 0$.
+	\item $g_n(x) = \sin^2(x + \frac{1}{n})$ and $f_n(x) = \int_0^x g_n(t)\ dt$. Then $$f_n(x) = \int (1 - 2\cos 2(t + \frac{1}{n}))\ dt = \frac{x}{2} - \frac{\sin 2(x+\frac{1}{n})}{4} - \frac{\sin \frac{2}{n}}{2}$$ 
+		Clearly, $f_n(x) \to \frac{x}{2} - \frac{\sin 2x}{4}$. It is enough to show that $|\sin (x+\frac{1}{n}) - \sin x| \to 0$.
+		$$\sin (x+1/n) - \sin x = \sin x \cos (1/n) + \sin (1/n) \cos x - \sin x = \sin x (\cos (1/n) - 1) + \sin (1/n) \cos x \to 0$$
+		Thus $f_n \underset{U}{\to} f$ on $[0,\infty)$. What about $(-\infty,0)$ ? %Q45 Real Mathematics
+	\item \textcolor{red}{$f_n(x) = b_nx + c_nx^2 \underset{U}{\to} 0$ iff both $b_n$ and $c_n$ are eventually zero.}\\ %Q48 Real Mathematics
+		Take $b_n = \frac{1}{n^2}$ and $c_n = 0$. Then $f_n \to 0$ but, $|f_n(x_n) - 0(x_n)| = 1$ when $x_n = n^2$. Thus, $f_n \underset{U}{\not \to} 0$. Therefore, $\sum |b_n| < \infty$ and $\sum |c_n| < \infty$ is not sufficient.
 \end{enumerate}
 
 \section{Series of Functions}
@@ -79,21 +89,29 @@
 	Series of functions is pointwise/uniformly convergent if the respective sequence of partial sums is pointwise/uniformly convergent.
 \end{definition}
 
-\section{Properties of Uniform Convergence of Series of Functions}
+\subsection{Properties of Uniform Convergence of Series of Functions}
 \begin{enumerate}
 	\item Suppose $\sum_{n=1}^\infty f_n(x) = f(x)$ uniformly on $[a,b]$. Then
 	$$\int_a^b \sum_{n=1}^\infty f_n(x)\ d\alpha(x) = \sum_{n=1}^\infty \int_a^b f_n(x)\ d\alpha(x)$$
 \end{enumerate}
 
-\section{Test for Convergence of Series of Functions}
+\subsection{Test for Convergence of Series of Functions}
 \begin{enumerate}
 	\item Weierstrass M Test : Let $M_n$ be a convergent sequence such that $\forall x \in E,\ |f_n(x)| \le M_n$. T
 	Then $\sum f_n$ is converges uniformly on $E$.
 \end{enumerate}
 
-\section*{Exerise}
+\subsubsection*{Exerise}
 \begin{enumerate}
 	\item If $f_n(x) = \frac{nx}{1+n^2x^2} - \frac{(n-1)x}{1+(n-1)^2x^2}$.
 	Then $\sum f_n \to 0$.
+	\item Which of the following are uniformly convergent on $(\pi,\pi)$ ?\\ %Q41 Real Mathematics
+	$$\sum \frac{e^{-n|x|}}{n^3} \qquad \sum \frac{\sin nx}{n^5} \qquad \sum \left(\frac{x}{n}\right)^n \qquad \sum \left(\frac{1}{(x+\pi)n}\right)^n$$
+	$$\left|\frac{e^{-nx}}{n^3}\right| < \frac{1}{n^3} \qquad \left|\frac{\sin nx}{n^5}\right| < \frac{1}{n^5}$$
+%	$$\left|\frac{x^n}{n^n}\right| < \frac{1}{n^2}, \forall n \ge 6$$ %Is what I had in my mind !
+		$$M_n = \frac{\pi^n}{n^n} \text{ By Ratio Test : } \lim_{n \to \infty} \frac{M_{n+1}}{M_n} = \frac{\pi}{n(1+1/n)} \to 0 < 1 \implies \sum M_n \text{ converges.}$$
+	Finding an upper bound $M_n$ for the given $f_n(x)$ is very hard. So we try to relay on convergence of a related sequence.
+		Let $x_n = -\pi + 1/n$. We have $f_n(x) \to 0(x)$. And $M_n = |f_n(x_n) - f(x_n)| \to 1 \ne 0$.
+	$$f_n \underset{U}{\not\to} 0 \implies \sum f_n  \text{ does not converges uniformly.}$$
 \end{enumerate}
 

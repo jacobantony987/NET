@@ -21,6 +21,7 @@
 	The \textbf{product} $AB$ is the matrix $C$ with entries
 	$ c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}$.
 \end{definition}
+
 \begin{definition}
 	The \textbf{trace} of a square matrix is the sum of its diagonal entries.
 	$$ tr : M_n(F) \to F,\ tr(A) = \sum_{k=1}^n A(k,k) $$
@@ -74,6 +75,7 @@
 \begin{definition}
 	In a \textbf{diagonal matrix} all entries except diagonal entries are zero.
 \end{definition}
+%Rectangular diagonal matrix $A$ with $a_{ij} \ne 0 \iff i = j$. And rectangular triangular matrix with entries below or above the diagonal from upper left corner.(\citeauthor){charu}
 \begin{definition}
 	In a \textbf{Jordan normal matrix} all entries except for diagonal and superdiagonal entries are zero and non-zero superdiagonal entries are $1$.
 \end{definition}
@@ -114,9 +116,18 @@
 	\item \textcolor{red}{A complex matrix $A$ is \textbf{normal} if it commutes with its conjugate transpose.}
 \end{enumerate}
 
-\section{Properties of Matrices}
+\subsubsection{Properties of Matrices}
 \begin{enumerate}
-	\item If every column sum of $A$ is $a$ and every column sum of $B$ is $b$, then every column sum of $AB$ is $ab$.
+	\item Polynomials of matrices will commute(\citeauthor{charu}). %$p(A)q(A) = p\cdot q(A),\ \forall p,q \in R[x]$ where $R$ is a ring.
+	\item Fractional and negative powers of $A$ commutes with $A$(\citeauthor{charu}).
+	\item If $A$ has left inverse $B$, then $A$ has right inverse which is also $B$(\citeauthor{charu}).%Let $\exists C : CA = I$ I don't like ?
+	\item If $A$ has an inverse, then it is unique.(\citeauthor{charu})
+	\item The rows and columns of $AB$ corresponds to rows of $A$ and columns of $B$.
+	\item If column sums of $A$ are zero, then column sums of $AB$ are also zero.
+	\item If $A,B$ are symmetric, then $AB$ is symmetric iff $AB = BA$. %AB = (AB)' = B'A' = BA
+	\item Sum and product of upper triangular matrices are upper triangular.(\citeauthor{charu})
+	\item Polynomials and inverses of triangular matrices matrices are triangular matrices of same type. Same is true about block diagonal matrices.(\citeauthor{charu})
+	\item If every column sum of $A$ is $a$ and every column\footnote{Check whether row or column} sum of $B$ is $b$, then every column sum of $AB$ is $ab$.
 	\item If every row(column) sum of $A$ is $a$, then every row(column) sum of $A^n$ is $a^n$.
 	\item Matrix multiplication is associative and non-commutative.
 	\item Every non-singular matrix has a multiplicative inverse.
@@ -126,7 +137,7 @@
 		\subitem $tr(AA') = 0 \iff A = 0$.
 \end{enumerate}
 
-\section{Idempotent matrices $A^2 = A$}
+\subsection{Idempotent matrices $A^2 = A$}
 \begin{enumerate}
 	\item If $A$ is idempotent, then $A',\bar{A},A^\ast$ are idempotent.
 	\item If $A^2 = nA$, then $\frac{1}{n}A$ is idempotent.
@@ -145,7 +156,7 @@
 		\subitem $ A = \begin{bmatrix} 2 & 3 \\ 3 & 2 \end{bmatrix} = (-1)I+6B $ where $B$ is idempotent.
 \end{enumerate}
 
-\section{Involutary matrices, $A^2=I$}
+\subsection{Involutary matrices, $A^2=I$}
 \begin{enumerate}
 	\item A diagonal matrix is involutary if the diagonal entires are $\pm 1$.
 		\subitem There are $2^n$ involutary, diagonal matrix of order $n$.
@@ -160,7 +171,7 @@
 		$$ (AB)^3 = (AB)^2 = I \iff AB = BA = I  \iff B = A^{-1} $$
 \end{enumerate}
 
-\section{Nilpotent matrices, $A^k=0$}
+\subsection{Nilpotent matrices, $A^k=0$}
 \begin{enumerate}
 	\item If $A$ is nilpotent, then $A',\bar{A},A^\ast$ are nilpotent.
 	\item Strictly upper triangular matrices of order $n$ are nilpotent with index $\le n$.
@@ -174,7 +185,7 @@
 	\item If $A$ is nilpotent with index $m$, then $(sI+tA)^n = \sum_{r=0}^{m-1}\binom{n}{r} s^{n-r}t^rA^r$.
 \end{enumerate}
 
-\section{Orthogonal matrices $AA'=I$}
+\subsection{Orthogonal matrices $AA'=I$}
 \begin{enumerate}
 	\item If $A,B$ are orthogonal, then $AB$ is orthogonal.
 	\item A diagonal matrix is orthogonal if the diagonal entires are $\pm 1$.
@@ -182,14 +193,14 @@
 	\item Sum of squares of each row is $1$. Sum of products of two distinct rows is zero.
 \end{enumerate}
 
-\section{Unitary matrices $AA^\ast=I$}
+\subsection{Unitary matrices $AA^\ast=I$}
 \begin{enumerate}
 	\item If $A$ is unitary, then $A^n$ is unitary.
 	\item If $A,B$ are unitary, then $AB$ is unitary.
 	\item Sum of squares of absolute value of elements in each row is $1$. Sum of products of elements of one row with conjugate of respective elements of another rows is zero.
 \end{enumerate}
 
-\section{Symmetric/skew symmetric matrices $A=\pm A'$}
+\subsection{Symmetric/skew symmetric matrices $A=\pm A'$}
 \begin{enumerate}
 	\item If $A,B$ are symmetric, then $kA,A+B,A^m,P'AP$ are symmetric where $P \in M_n(F)$.
 	\item If $A,B$ are skew symmetric, then $kA,A+B,A^n,P'AP$ are skew symmetric.
@@ -202,7 +213,7 @@
 		\subitem Every matrix $A$ has a decomposition $A = \frac{A+A'}{2} + \frac{A-A'}{2}$.
 \end{enumerate}
 
-\section{Hermitian/skew Hermitian matrices $A = \pm A^\ast$}
+\subsection{Hermitian/skew Hermitian matrices $A = \pm A^\ast$}
 \begin{enumerate}
 	\item $(kA)^\ast = \bar{k}A^\ast,\ (A+B)^\ast = A^\ast + B^\ast,\ (AB)^\ast = B^\ast A^\ast,\ (A^{-1})^\ast = (A^\ast)^{-1}$.
 		\subitem $(kA)' = kA',\ (A+B)' = A'+B',\ (AB)' = B'A'$.
@@ -217,7 +228,8 @@
 		Eigen values of hermitian matrices are real.
 		\subitem The determinant,trace of hermtian matrices are real.
 \end{enumerate}
-\section{Determinant $D(A) = \det(A) = |A|$}
+
+\section{Determinant}% $D(A) = \det(A) = |A|$
 \begin{enumerate}
 	\item $\begin{vmatrix}1 & x & x^2 \\ 1 & y & y^2 \\ 1 & z & z^2 \end{vmatrix} = (x-y)(y-z)(z-x)$.
 		\subitem Determinant of Vandermonde matrix, $det(V(x_1,x_2,\dots,x_r)) = \prod_{i < j} (x_j-x_i)$
@@ -238,7 +250,7 @@
 	\item Determinant of skew Hermitian matrices of even(odd) order is purely real(imaginary).
 \end{enumerate}
 
-\section{Inverse of a matrix}
+\subsection{Inverse of a matrix}
 \begin{enumerate}
 	\item If $det(A) \ne 0$, then $A^{-1} = det(A)^{-1} adj(A)$.
 		\subitem $A\ adj(A) = |A|$.
@@ -261,12 +273,16 @@
 \begin{enumerate}
 	\item If $A$ is non-singular, then rank of $A$, $\rho(A)$ is the order of $A$.
 		\subitem $\rho(A) = \rho(A') = \rho(A^\ast) = \rho(\bar{A})$.
+		\subitem $\rho(A) = \rho(AA') = \rho(A'A)$(\citeauthor{charu})
 		\subitem If $A$ is a matrix over $\mathbb{R}$, $\rho(A) = \rho(AA') = \rho(AA^\ast)$.
 	\item If $A$ is singular, then $\rho(A)$ is the order of the largest non-singular submatrix.
 		\subitem If $\rho(A) = r$, then every submatrix of order $r+1$ are singular.
 	\item Rank-Nullity Theorem - If $A_{m \times n}$, then $\rho(A) + Nullity(A) = \# Columns = n$.
 		\subitem Row(Column) rank is the number of linearly independent rows(columns).
 		\subitem Row(Column) nullity is the number of linearly dependent rows(columns).
+	\item Effect of operations on rank(\citeauthor{charu})
+		\subitem $|\rho(A)-\rho(B)| \le \rho(A+B) \le \rho(A)+\rho(B)$
+		\subitem $\rho(A)+\rho(B)-d \le \rho(AB) \le \min\{ \rho(A),\rho(B) \}$
 	\item $|\rho(A)-\rho(B)| \le \rho(A+B) \le \rho(A)+\rho(B)$.
 	\item $\rho(A)+\rho(B)-n \le \rho(AB) \le \min\{ \rho(A),\rho(B) \}$.
 		\subitem $\rho(A) \ge \rho(A^2) \ge \rho(A^3) \ge \dots$.
@@ -298,6 +314,7 @@
 	\item Every matrix has a unique \textbf{row reduced echelon form}.
 	\item A matrix $A$ is \textbf{invertible} if and only if its row reduced echelon form is the identity matrix.
 \end{enumerate}
+
 \section{Vector Space Invariants}
 \begin{definition}[conjugation]
 	Two square matrices $A,B$ are \textbf{conjugates} if there exists an invertible matrix $P$ such that $A = PBP^{-1}$.
@@ -308,5 +325,5 @@
 \end{definition}
 \begin{enumerate}	
 	\item Raleigh quotient attains minimum(maximum) at the smallest(largest) eigen value.
-	\item The range of Raleigh quotient is the spectrum. 
+	\item The range of Raleigh quotient is the spectrum.
 \end{enumerate}	

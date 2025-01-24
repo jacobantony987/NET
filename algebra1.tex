@@ -1,9 +1,10 @@
 \chapter{Number Theory}
+\section{Integers}
 \begin{lemma}[Euclid]
 	Let $p$ be a prime. If $p$ divides $ab$, then either $p$ divides $a$ or $p$ divides $b$.
 \end{lemma}
 
-\section{Greatest Common Divisor}
+\subsection{Greatest Common Divisor}
 \begin{enumerate}
 	\item B\'ezout`s Identity : If $\gcd(n,m)= d$, then $\exists s,t \in \mathbb{Z}$ such that $d = sn+tm$.
 	\item Euclid`s Division Algorithm : If $b > 0$, then $\forall a \in \mathbb{Z}$, $\exists q \in \mathbb{Z}$ and $\exists r \in \mathbb{Z}$ such that $a = qb+r$ where $0 \le r < b$.
@@ -25,7 +26,7 @@
 	\item Linear congruence equation $ax \cong b \pmod{n}$ has a solution if $\gcd(a,n)$ divides $b$.
 \end{enumerate}
 
-\section{Euler`s phi function}
+\subsection{Euler`s phi function}
 	The function $\phi : \mathbb{N} \to \mathbb{N}$ is defined as $\phi(n) = $ the cardinality of the set $\{k \in \mathbb{N} : k \le n,\ \gcd(n,k)=1\}$.
 
 	\begin{enumerate}
@@ -75,7 +76,8 @@ Number $341$ is the smallest pseudoprime for base $2$.
 	Let $f$ be multiplicative.
 	Then $f$ is completely multiplicative iff $f^{-1} = \mu f$.
 \end{theorem}
-\section{Arithmetical Functions and their Dirichlet products}
+
+\subsection{Arithmetical Functions and their Dirichlet products}
 \begin{enumerate}
 	\item \textbf{Identity function}, $I(n) = \left[\frac{1}{n}\right]$ vanishes everywhere except at $n = 1$, $I(1) = 1$.
 	Clearly, $I$ is completely multiplicative.
@@ -111,7 +113,7 @@ Number $341$ is the smallest pseudoprime for base $2$.
 	$$ \omega(2^n3^m) = 2,\ \Omega(2^n 3^m)=n+m,\ \nu_2(2^n3^m)=n$$
 	$$\nu_p(n!) = \left[\frac{n}{p}\right] + \left[\frac{n}{p^2}\right] + \dots$$
 \end{enumerate}
-\section{Strange Functions}
+\subsubsection{Strange Functions}
 \begin{enumerate}
 	\item $\sin : \mathbb{N} \to [-1,1]$ is an injection since $\sin (x) = \sin (y) \implies 2\pi | (x-y)$.
 \end{enumerate}

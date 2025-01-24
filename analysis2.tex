@@ -33,8 +33,10 @@
 		That is, $x_n \to x \implies \ln{x_n} \to \ln{x}, \quad (x_n > 0)$.
 	\item Square root function is continuous.
 		That is, $x_n \to x \implies \sqrt{x_n} \to \sqrt{x}, \quad (x_n > 0)$.
+	\item Measure of rate of Growth, Big Oh Function
+	$$ f(n) = O(g(n)) \iff \lim_{n \to \infty} \frac{f(n)}{g(n)} = \infty $$
 \end{enumerate}
-\section{Properties of Convergence \& Test for Convergence}
+\subsection{Properties of Convergence \& Test for Convergence}
 \begin{enumerate}
 	\item Properties of Convergent Sequences,
 		\subitem $x_n \to x \implies kx_n \to kx$.
@@ -55,34 +57,51 @@
 		\subitem If it has a non-convergent subsequence.
 	\item A few popular convergent sequences,
 		\subitem $x^n \to 0$ where $(|x| < 1)$.
-		\subitem $\frac{1}{n^p} \to 0$ provided $p > 0$.
+		\subitem $n^{-p} \to 0$ provided $p > 0$.
 		\subitem $p^\frac{1}{n} \to 1$ provided $p > 0$.
 		\subitem $n^\frac{1}{n} \to 1$.
 		\subitem \textcolor{blue}{$(1+\frac{1}{n})^n \to e$.}
 	\item $(1+\frac{2}{n})^n \to e^2$\\
 		Let $x_n = (1+\frac{2}{n})^n$. Suppose sequence $\sequence{x_n}$ converges, then subsequence $\sequence{x_{2n}}$ converges to the same limit and $x_{2n} = \left((1+\frac{1}{n})^n\right)^2 \to e^2$.
 	\item A sequence $\sequence{x_n}$ is \textbf{Cesaro summable} if the sequence of arithmetic means is convergent.
-\item \textcolor{blue}{\textbf{Cauchy`s First Theorem on Limits} : Every convergent sequence is Cesaro summable and has the same limit.} That is, $x_n \to x \implies \frac{x_1+x_2+\dots+x_n}{n} \to x$.
-	\subitem Let sequence $\sequence{p_n}$ be a sequence of positive real numbers with $\frac{1}{p_1+p_2+\dots+p_n} \to 0$. Then sequence of weighted arithmetic means also converges to the same limit.\\ That is, $x_n \to x \implies \frac{p_1x_1 + p_2x_2 + \dots + p_nx_n}{p_1+p_2+\dots+p_n} \to x$.
+\item \textcolor{blue}{\textbf{Cauchy's First Theorem on Limits} : Every convergent sequence is Cesaro summable and has the same limit.} That is, $x_n \to x \implies \frac{x_1+x_2+\dots+x_n}{n} \to x$.
+		\subitem Let sequence $\sequence{p_n}$ be a sequence of positive real numbers with $\frac{1}{p_1+p_2+\dots+p_n} \to 0$. Then sequence of weighted arithmetic means also converges to the same limit.\\ That is, $x_n \to x \implies \frac{p_1x_1 + p_2x_2 + \dots + p_nx_n}{p_1+p_2+\dots+p_n} \to x$.
 		\subitem The sequence of geometric means also converges to the same limit.\\ That is, $x_n \to x \implies (x_1x_2\dots x_n)^\frac{1}{n} \to x$ provided $x_n \ge 0$.
-	\item \textcolor{blue}{\textbf{Cauchy`s Second Theorem} : $ \frac{x_{n+1}}{x_n} \to l \implies x_n^\frac{1}{n} \to l$.}
-		\subitem D'Alembert`s \textbf{Ratio Test} : Suppose \textcolor{red}{$x_n > 0$} and let $\frac{x_{n+1}}{x_n} \to l$.
-		If $l < 1,\ x_n \to 0$. If $l > 1,\ x_n \to +\infty$. If $l = 1$, test fails.
-		\subitem Cauchy`s \textbf{Root test} : Suppose $x_n \ge 0$ and let $ (x_n)^{\frac{1}{n}} \to l$.
-		If $l < 1,\ x_n \to 0$. If $l > 1,\ x_n \to +\infty$. If $l = 1$, test fails.
-	\item \textcolor{blue}{\textbf{Cesaro`s theorem} : The Cauchy product of two convergent sequences is Cesaro summable.} That is, $x_n \to x,\ y_n \to y \implies \frac{x_1y_n + x_2y_{n-1} + \dots + x_ny_1}{n} \to xy$.
+	\item \textcolor{blue}{\textbf{Cauchy's Second Theorem} : $ \frac{x_{n+1}}{x_n} \to l \implies x_n^\frac{1}{n} \to l$.}
+	\item D'Alembert's \textbf{Ratio Test} : Suppose \textcolor{red}{$x_n > 0$} and let $\frac{x_{n+1}}{x_n} \to l$.
+		\subitem If $l < 1,\ x_n \to 0$.
+		\subitem If $l > 1,\ x_n \to +\infty$.(diverges)
+		\subitem If $l = 1$, test fails.
+	\item Cauchy's \textbf{Root test} : Suppose $x_n \ge 0$ and let $ (x_n)^{\frac{1}{n}} \to l$.
+		\subitem If $l < 1,\ x_n \to 0$.
+		\subitem If $l > 1,\ x_n \to +\infty$. (diverges)
+		\subitem If $l = 1$, test fails.
+	\item \textcolor{blue}{\textbf{Cesaro's theorem} : The Cauchy product of two convergent sequences is Cesaro summable.} That is, $x_n \to x,\ y_n \to y \implies \frac{x_1y_n + x_2y_{n-1} + \dots + x_ny_1}{n} \to xy$.
 	\item \textbf{Stolz-Cesaro Theorem} : $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} \to l \implies \frac{x_n}{y_n} \to l$ provided \textcolor{red}{$\sequence{y_n}$ is strictly monotone and diverges to $\pm \infty$.}
 		\subitem $\frac{x_n-x_{n-1}}{y_n-y_{n-1}} \to l \implies \frac{x_n}{y_n} \to l \implies \frac{x_1+x_2+\dots+x_n}{y_1+y_2+\dots+y_n} \to l$ provided \textcolor{red}{$\sequence{y_n}$ is strictly increasing to $+\infty$.}\footnote{Why the corollary of Stolz-Cesaro theorem is not applicable when $y_n$ is strictly monotone and diverges to $\pm \infty$.}
 	\item \textbf{Riemann Sum}
-		\[ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^\infty f(k/n) = \int_0^1 f(x)\ dx \]
+		\[ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^n f(k/n) = \int_0^1 f(x)\ dx \]
 \end{enumerate}
 
-\section*{Exercise}
+\subsubsection*{Exercise} %sequence
 \begin{enumerate}
 	\item Show that $\displaystyle \lim_{n \to \infty} \left( \frac{n!}{n^n} \right)^\frac{1}{n} = \frac{1}{e}$ 
 		\begin{proof}[Solution] (Hint : $n$th root indicates Cauchy's second theorem)
 			$$ \frac{a_{n+1}}{a_n} = \frac{(n+1)!}{(n+1)^{n+1}} \frac{n^n}{n!} \to \frac{1}{e} \implies a_n^\frac{1}{n} = \left(\frac{n!}{n^n}\right)^\frac{1}{n} = \frac{\sqrt[n]{n!}}{n} \to \frac{1}{e} $$
 		\end{proof}
+	\item Find supremum and infimum of $A = \{ t \sin \frac{1}{t} : t \in (0,2/\pi) \}$ ?\footnote{https://math.stackexchange.com/q/3020365e}
+	\begin{proof}[Solution]
+		The function $f(t) =  t \sin 1/t$ has derivative $\sin 1/t - 1/t \cos 1/t$ which vanishes for $\tan x = x$.
+		The global minimum of $f$ is $-0.217$ at $t \approx \pm 0.2225$ near $\frac{2}{3\pi} \approx 0.2122$ and has a local maximum $0.128$ at $t \approx \pm 0.129$ near $\frac{2}{5\pi} \approx 0.1273$. And $f \to 1$ as $t \to \pm \infty$.
+		$$-1 \le \sin (1/t) \le 1 \implies -2/3\pi \le t \sin(1/t) \le 2/\pi \quad (\text{is a mistake})$$
+	\end{proof}
+		\subitem $t = \pm \frac{2}{5\pi}$ is local extrema $\pm 0.0509$ for $t^2 \sin (1/t)$.
+	\item $a(n) = \frac{2^n}{10^{100}}$, $b(n) = 10^{100}\log n$, $c(n) = \frac{n^2}{10^{10}}$. Then $a(n) >> c(n) >> b(n)$ since $\frac{a_n}{c_n} \to \infty$, $\frac{c_n}{b_n} \to \infty$, $\frac{c_n}{a_n} \to 0$ and $\frac{b_n}{c_n} \to 0$.
+	\item \textcolor{green}{Let $A = \{ n \in \mathbb{N} : n = 2^a3^b \}$. Then $A$ is countable. Show that $$\sum_A \frac{1}{n} \times \sum_A \frac{1}{2^n} \times  \sum_A \frac{1}{3^n} = \frac{2}{1} \frac{3}{2} = 3 \qquad ??$$}
+	\item \textcolor{green}{Let $x_n = \int_0^1 \frac{1}{(1+t)^n}\ dt$. Then $\forall n \in \mathbb{N}, \exists x_n > 0$ and $x_n \to 0$ and $x_n^{\frac{1}{n}} \to 1$.}
+	\item Let $X = \{ \sequence{x_n} : x_n \in \{0,1\}, n \in \mathbb{N} \}$ and $Y = \{ \sequence{x_n} \in X : \text{ it has atmost finitely many $1$'s} \}$. Then $X$ is uncountable and $Y$ is finite.
+	\item $f_n(x) = (-x)^n$ on $[0,1]$. Then it has pointwise convergent subsequences. There is no pointwise convergence as $\sequence{f_n(1)}$ has two cluster points $1$ and $-1$.
+	\item Let $S_n = \sum_{k=1}^n \frac{1}{k}$. Then $\sum \frac{1}{n} \to \infty$ and $S_n$ is unbounded. And $S_{2^n} \ge \frac{n}{2}$ and the Cesaro sum $\frac{S_n}{n} \to 0$ as $\frac{1}{n} \to 0$.
 \end{enumerate}
 
 \section{Series}
@@ -91,54 +110,96 @@
 	\item A series $\sum a_n$ is \textbf{absolutely convergent} if $\sum |a_n|$ converges. In the case of series, absolute convergence implies convergence. A sequence which is convergent, but not absolutely convergent is \textbf{conditionally convergent}.
 \end{enumerate}
 
-\section{Properties of Series \& Test for Convergence}
+\subsection{Properties of Series \& Test for Convergence}
 \begin{enumerate}
-	\item $n$th term test : If $\sum a_n$ converges, then $a_n \to 0$. And if $a_n \not\to 0$ then $\sum a_n$ diverges.
+	\item $n$th term Test
+		\subitem If series $\sum a_n$ converges, then sequence $a_n \to 0$. 
+		\subitem If sequence $a_n \not\to 0$ then series $\sum a_n$ diverges.
 	\item Suppose $\sum a_n, \sum b_n$ converges, then $\sum a_n+b_n$, $\sum \alpha a_n$ converges.
-		\begin{enumerate}
-			\item Abel`s test : if $\sum a_n$ is monotonic and $\sum a_n,\sum b_n$ converges, then $\sum a_nb_n$ converges
-			\item Dirichlet`s test : if $\sum a_n$ is decreasing \& converges and sequence of partial sums of $\sum b_n$ is bounded, then $\sum a_nb_n$ converges.
+	\item Power Series Test : 
+		\subitem $\sum n^{-p}$ converges if $p>1$ and
+
+		\subitem $\sum n^{-p}$ diverges if $p \le 1$.
+		\subitem $\sum \frac{1}{n^2} = \frac{\pi^2}{6}$
+	\item Geometric Series Test :
+		\subitem $\sum r^n$ converges if $|r| < 1$ and 
+		\subitem $\sum r^n$ diverges if $|r| \ge 1$.
+	\item Comparison Test : Suppose $0 \le a_n \le b_n$.
+		\subitem If $\sum b_n$ converges, then $\sum a_n$ converges. 
+		\subitem If $\sum a_n$ diverges, then $\sum b_n$ diverges.
+	\item Ratio Test : Let $a_n > 0$ and $a_{n+1}/a_n \to l$.
+		\subitem If $l<1$, $\sum a_n$ converges.
+		\subitem If $l>1$, $\sum a_n$ diverges.
+
+		\subitem If $l = 1$, test fails.
+	\begin{proof}
+		$|a_{N+1}| < |a_N|l$, $|a_{N+2}| < |a_N|l^2$ \dots $|a_{N+k}| < |a_N|l^k$.
+		$$\sum_{n = N}^\infty a_n < a_N \sum_{n=0}^\infty l^n = \frac{a_N}{1-l} \implies \sum a_n < \infty$$
+	\end{proof}
+	\item Cauchy's Root Test : If $a_n > 0$ and $a^\frac{1}{n} \to l$.
+		\subitem If $l < 1$, then $\sum a_n$ converges.
+		\subitem If $l > 1$, then $\sum a_n$ diverges.
+		\subitem If $l = 1$, test fails.
+	\begin{proof}
+		$|a_n|^\frac{1}{n} \to \rho < 1 \implies \exists r \in \mathbb{R},\ \rho < r < 1$.
+		$$ \sum_{n = N}^\infty  a_n < \sum_{n=1}^\infty r^n = \frac{1}{1-r} \implies \sum a_n < \infty$$
+		$|a_n|^\frac{1}{n} \to \rho > 1 \implies \exists r \in \mathbb{R},\ \rho > r > 1$.
+		$$ \sum_{n = N}^\infty a_n > \sum_{n=1}^\infty r^n = \infty \implies \sum a_n = \infty $$
+	\end{proof}
+	\item Root Test is stronger than Ratio Test.
+	\item { \color{red}Limit Comparison Test : Suppose $a_n > 0$, $b_n > 0$ and $a_n/b_n \to l$.
+		\subitem If $l = 0$ and $\sum b_n$ converges, then $\sum a_n$ converges.
+		\subitem If $0 < l < \infty$, then both behaves alike.}
+	\item Interesting Properties\footnote{From Sarah`s Paper}
+	\begin{enumerate}
+		\item Suppose $\sum a_n$ converges, $a_n > 0$ and $t_k = \sum_{n = k}^\infty a_n$.\\ Then $\sum \frac{a_n}{t_n}$ diverges and $\sum \frac{a_n}{\sqrt{t_n}}$ converges.%Source : Sarah
+		\item Suppose $\sum a_n$ diverges, $a_n > 0$ and $\sequence{s_n}$ be the sequence of partial sums.\\ Then $\sum \frac{a_n}{s_n}$ diverges and $\sum \frac{a_n}{s_n^2}$ converges. %Source : Sarah
+		\item Suppose $\sequence{\sqrt{n} \cdot a_n}$ converges to a positive number.\\ Then $\sum \frac{a_n}{n}$ converges and $\sum a_n$ diverges. %Source : Sarah
+		\begin{proof}
+			$0 < a_n < \frac{M}{\sqrt{n}} \implies \frac{a_n}{n} < \frac{M}{n^\frac{3}{2}}$.
+			$$ \sum \frac{a_n}{n} < M \sum \frac{1}{n^\frac{3}{2}} < \infty $$
+			There exists $N \in \mathbb{N}$ such that $0 < m < \sqrt{n} \cdot a_n,\ \forall n > N$. Thus, $\frac{m}{n} < a_n$.
+			$$ m \sum \frac{1}{n} < \sum a_n \implies \sum a_n = \infty $$
+		\end{proof}
 		\end{enumerate}
-	\item Power Series test : $\sum 1/n^p$ converges if $p>1$ and diverges if $p \le 1$.
-	\item Geometric Series test : $\sum a^n$ converges if $|a| < 1$ and diverges if $|a| \ge 1$.
-	\item Ratio test : Let $a_n > 0$ \footnote{The condition $a_n > 0$ can be relaxed a bit, to eventually positive as eventuality is all that matters.} and $a_{n+1}/a_n \to l$.\\
-		If $l<1$, $\sum a_n$ converges. If $l>1$, $\sum a_n$ diverges. If $l = 1$, test fails.
-	\item Comparison test : Suppose $0 \le a_n \le b_n$.\\
-		If $\sum b_n$ converges, then $\sum a_n$ converges. If $\sum a_n$ diverges, then $\sum b_n$ diverges.
-	\item { \color{red}Limit Comparison Test : Suppose $a_n > 0$ and $b_n > 0$\footnote{In this case, eventuality is not sufficient.} and $a_n/b_n \to l$.\\
-		If $l = 0$ and $\sum b_n$ converges, then $\sum a_n$ converges.
-		If $l \ne 0$, then both behaves alike.}
-	\item Cauchy's $n$th root test : If $a_n > 0$ and $a^\frac{1}{n} \to l$.\\
-		If $l < 1$, then $\sum a_n$ converges. If $l > 1$, then $\sum a_n$ diverges. If $l = 1$, test fails.
-	\item \textcolor{blue}{Condensation test : Suppose sequence $a_n$ is decreasing and positive.\\
-		Then $\sum a_n$ and $\sum 2^na_{2^n}$ behaves similar. \textcolor{red}{Tailor-made for logarithmic functions.}}
-	\item \textcolor{blue}{Rabee`s test : Suppose $a_n > 0$ and $n\left(\frac{a_n}{a_{n+1}} -1 \right) \to l$.\\
+	\item \textcolor{blue}{Cauchy Integral Test : $\sum_N^\infty f(n)$ converges if and only if $\int_N^\infty f(x)\ dx < \infty$.}
+	\item \textcolor{blue}{Condensation test : Suppose sequence $a_n$ is decreasing and positive.
+	Then $\sum a_n$ and $\sum 2^na_{2^n}$ behaves similar.
+	And $\sum a_n \le \sum 2^n a_{2^n} \le 2 \sum a_n$.\\
+	\textcolor{red}{Tailor-made for logarithmic functions.}}
+	\item \textcolor{blue}{Rabee's test : Suppose $a_n > 0$ and $n\left(\frac{a_n}{a_{n+1}} -1 \right) \to l$.\\
 		If $l < 1$, then $\sum a_n$ converges. If $l > 1$, then $\sum a_n$ diverges. If $l = 1$, test fails.}
-	\item \textcolor{blue}{Logarithmic test : Suppose $a_n > 0$ and $n\log (a/a_{n+1}) \to l$.\\
+	\item \textcolor{blue}{Kummer's Test : Let $a_n > 0$, $b_n > 0$ and $b_n \frac{a_n}{a_{n+1}} - b_{n+1} \to l$. %Source : Sarah
+		\subitem If $l > 0$, then $\sum a_n$ converges. 
+		\subitem If $l < 0$ and $\sum \frac{1}{b_n}$ diverges then $\sum a_n$ diverges.}
+	\item Kummer's Test is a generalization. %Source : Sarah
+	\textcolor{red}{Useful for parity factorials.}
+		\subitem $b_n = 1$ gives ratio test.
+		\subitem $b_n = n$ gives Rabee's test.
+		\subitem $b_n = n\ln(n)$ gives Bertrand's test.
+	\item \textcolor{blue}{Bertrand's test. %Source : Sarah
+		Let $a_n >0$ and $\displaystyle \ln n\left( n (\frac{a_n}{a_{n+1}}-1)-1\right) \to l$. Then
+		\subitem If $l>1$, $\sum a_n$ converges.
+		\subitem If $l<1$, $\sum a_n$ diverges.
+		\subitem If $l = 1$ test fails.}
+	\item \textcolor{blue}{Logarithmic test : Suppose $a_n > 0$ and $n\log (a_n/a_{n+1}) \to l$.\\
 		If $l > 1$, then $\sum a_n$ converges. If $l <1$, then $\sum a_n$ diverges.}
+	\item Gauss Test : Suppose $\displaystyle \frac{a_n}{a_{n+1}} = \lambda + \displaystyle \frac{\mu}{n} + b_n$ where $\sum b_n$ is absolutely convergent.
+		\subitem $\lambda > 1$ then $\sum a_n$ is convergent
+		\subitem $\lambda < 1$ then $\sum a_n$ is divergent
+		\subitem $\lambda = 1$ and $\mu > 1$ then $\sum a_n$ is convergent
+		\subitem $\lambda = 1$ and $\mu \le 1$ then $\sum a_n$ is divergent.
+	\item \textcolor{blue}{Abel's Test : Suppose $\sequence{a_n}$ is monotonic and bounded and $\sum b_n$ converges. Then $\sum a_n \cdot b_n$ converges.}
+	\item \textcolor{blue}{Dirichlet's Test : Suppose $\sequence{a_n}$ is decreasing \& converges to zero and sequence of partial sums of $\sum b_n$ is bounded. Then $\sum a_n \cdot b_n$ converges.}
 	\item \textcolor{blue}{Lebinitz test : Suppose sequence $a_n$ is decreasing and converges to zero. ($a_n \downarrow_0$)\\
 		Then the \textbf{alternating series} $\sum (-1)^n a_n$ converges.}
 \end{enumerate}
-
-\section*{Exercise}
+\subsubsection*{Exercises} %Sum of Series
 \begin{enumerate}
-	\item Show that $\sum \frac{1}{\log n} \to +\infty$ 
-	\begin{proof}[Solution]
-		Presence of logarithm indicates applicability of Condensation Test, and $a_n$ is positive and decreasing $a_n \downarrow_0$
-		$$ \sum \frac{1}{\log n}, \sum \frac{2^n}{\log 2^n} \text{ behaves alike } $$
-		$$ \log 2 \sum \frac{2^n}{n} \text{ diverges by comparison test } 0 \le \frac{1}{n} \le \frac{2^n}{n} $$
-	\end{proof}
-	\item \textcolor{blue}{Show that $\sum \frac{1}{n\log n} \to +\infty$ !!}
-	\begin{proof}[Solution]
-		My trick : Power Series Test $\sum \frac{1}{n^{1+\epsilon}}$ converges. But, my trick failed.\\
-		By condensation test,
-		$$ \sum \frac{1}{n\log n}, \sum \frac{2^n}{2^n \log 2^n} = \frac{1}{\log 2} \sum \frac{1}{n} \text{ behaves alike} $$
-	\end{proof}
-	\item Show that $\sum \frac{1}{n \log \log n}$ diverges.
-		$$ 0 \le \frac{1}{n \log n} \le \frac{1}{n \log \log n} \le \frac{1}{n \log \log \dots \log n} $$
-	\item Show that $\sum \frac{1}{n^{\log n}}$ is convergent.
-	$$\frac{1}{n^{\log n}} < \frac{1}{n^2}, \forall n > e^2 \approx 7.3$$
+	\item $\sum \frac{n^4+3n^2+10n+10}{2^n(n^4+4)}$
 \end{enumerate}
+
+
 \section{Limit Superior/Inferior}
 \begin{enumerate}
 	\item $\displaystyle \limsup_{n \to \infty} x_n = \inf_{n \ge 0} \sup_{m \ge n} x_n $
@@ -149,7 +210,7 @@
 	For example, $x_n = (-1)^n (1+\frac{1}{n})$.
 \end{enumerate}
 
-\section{Properties of limit superior/inferior}
+\subsection{Properties of limit superior/inferior}
 \begin{enumerate}
 	\item $\inf x_n \le \liminf x_n \le \limsup x_n \le \sup x_n $
 	\item $ \liminf a_n + \liminf b_n \le \liminf (a_n+b_n) \le \limsup (a_n + b_n) \le \limsup a_n + \limsup b_n $ 
@@ -158,7 +219,27 @@
 		\[ \liminf_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \le \liminf_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_n}{b_n} \le \limsup_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} \]
 \end{enumerate}
 
+\subsubsection*{Exercises} %limsup and liminf
 \begin{enumerate}
 	\item $S = \{ p_n - p_{n-1} : p_n \in \mathscr{P} \}$ Then $\sup S = \infty$, $\inf S = 1$, $\liminf S \ge 2$ and $\limsup S = \infty$.
 \end{enumerate}
 
+\section{Series Expansions and Convergence}
+\begin{enumerate}
+	\item Taylor Series Expansion\\
+		Let $f : I \to \mathbb{R}$ is a \textbf{real analytic} function if for any $x \in I$ there exists $r>0$ and real sequence $\sequence{a_n}$ in $\mathbb{R}$ such that $$ f(x) = \sum_{n = 0}^\infty a_n (x-x_0)^n,\ |x-x_0|<r $$ where $a_n = \frac{f^{(n)}(x_0)}{n!}$, $r < R$ and $\frac{1}{R} = \limsup |a_n|^\frac{1}{n}$
+		\subitem If $\sum a_n(x-x_0)^n \ne f(x)$, then $f$ is \textbf{non-analytic}.
+	\item Maclaurin Series Expansion : $x_0 = 0$.
+		$$ f(x) = \sum_{n = 0}^\infty a_n x^n,\ |x|<r $$ where $a_n = \frac{f^{(n)}(0)}{n!}$, $r < R$ and $\frac{1}{R} = \limsup |a_n|^\frac{1}{n}$
+	\item $\sum_{n = 0}^\infty x^n = \frac{1}{1-x},\ \forall x \in (-1,1)$
+	\item $\sum_{n = 0}^\infty  \frac{x^n}{n!} = e^x,\ \forall x \in \mathbb{R}$
+		\subitem $\sum_{n = 0}^\infty -1^n \frac{x^{2n}}{(2n)!} = \cos x,\ \forall x \in \mathbb{R}\ \because e^{ix} = \cos x + i \sin x \implies Re(e^{ix}) = \cos x$. ?\footnote{$e^z$ is defined ?}
+		\subitem $\sum_{n = 0}^\infty -1^n \frac{x^{2n+1}}{(2n+1)!} = \sin x,\ \forall x \in \mathbb{R}$
+		\subitem $\sum_{n=0}^\infty \frac{1}{n!} = e$
+		\subitem $\sum_{n=0}^\infty -1^n\frac{1}{n!} = 1/e$
+	\item $\sum_{n=0}^\infty \frac{x^n}{n} = -\ln(1-x),\ \forall x \in (-1,1]$
+	\item $\sum_{n=0}^\infty -1^n\frac{x^{2n+1}}{(2n+1)!} = \tan^{-1}(x)$
+		\subitem $\sum_{n = 0}^\infty \frac{x^{2n}}{(2n)!} = \cosh x,\ \forall x \in \mathbb{R}$
+		\subitem $\sum_{n = 0}^\infty \frac{x^{2n+1}}{(2n+1)!} = \sinh x,\ \forall x \in \mathbb{R}$
+		\subitem $\sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!} = \tanh^{-1}(x)$
+\end{enumerate}

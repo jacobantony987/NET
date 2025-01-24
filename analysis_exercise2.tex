@@ -1,0 +1,122 @@
+\chapter{Sequence and Series}
+\section{Convergence Test}
+\section{Finding Limit}
+\subsection{Sandwich Theorem}
+$$ a_n \le b_n \le c_n,\ a_n \to l,\ c_n \to l \implies b_n \to l $$
+
+\subsection*{Exercises}
+\begin{enumerate}
+	\item $\cos n e^{-n} \to 0$
+		$$ -\frac{1}{e^n} \le \frac{\cos n}{e^n} \le \frac{1}{e^n} \implies 0 \le l \le 0 \implies l = 0 $$
+\end{enumerate}
+\subsection{L'Hospital Rule}
+ $$ \frac{0}{0},\ \frac{\infty}{\infty},\ 0\cdot\infty,\ \infty-\infty,\ 0^0,\ 1^\infty,\ \infty^0,\quad \frac{f(x)}{g(x)} \to \frac{f'(x)}{g'(x)} $$
+\subsection*{Exercises}
+\begin{enumerate}
+	\item $ne^{-n} \to 0$  
+		$$ \lim_{n \to \infty} \frac{n}{e^n} \quad \left(\frac{\infty}{\infty}\right)= \lim_{n \to \infty} \frac{1}{e^n} = 0 $$
+\end{enumerate}
+
+\subsection{Continuity of Logarithm}
+
+\subsection*{Exercises}
+\begin{enumerate}
+	\item $\sqrt[n]{n} \to 1$
+		$$ \ln n^\frac{1}{n} = \frac{\ln n}{n} \to 0 \implies \sqrt[n]{n} \to e^0 = 1 $$
+\end{enumerate}
+
+\subsection{Bounded, Monotonic Sequence}
+
+\subsection*{Exercises}
+\begin{enumerate}
+	\item $\frac{n2^n}{3^n} \to 0$
+		$$ \frac{a_{n+1}}{a_n} \to \frac{2}{3} \implies a_n \to 0 $$
+\end{enumerate}
+
+\subsection{Sequence with Recursive Definition}
+	Suppose $a_n \to l$. Then $a_{n+1} \to l$.
+
+\subsection*{Exercises}
+\begin{enumerate}
+	\item $a_1 = 1$, $a_{n+1} = \frac{1}{2} \left(a_n + \frac{4}{a_n}\right) \implies a_n \to 2$
+
+		$$ l = \frac{1}{2}\left(l+\frac{4}{l}\right) \implies l^2-4 = 0 \implies l = \pm 2 \implies l = 2 \quad (\because a_n > 0) $$
+\end{enumerate}
+
+\section{Real Series}
+
+\subsection*{Exercises}
+\begin{enumerate}
+	\item $\sum \frac{9}{n(n+3)}$
+
+		By Telescopic Sum,
+		$$ \frac{9}{n(n+3)} = 3\left( \frac{1}{n} - \frac{1}{n+3}\right) \implies \sum_{n=1}^\infty \frac{9}{n(n+3)} = 3\left( 1 + \frac{1}{2} + \frac{1}{3}\right) = \frac{11}{2} $$
+	\item $\displaystyle \sum_{n=2}^\infty \frac{n^4+3n^2+10n+10}{2^n(n^4+4)}$
+		$$ \frac{n^4+3n^2+10n+10}{2^n(n^4+4)} = \frac{1}{2^n} \left(1 - \frac{1}{(n+1)^2+1} + \frac{4}{(n-1)^2+1} \right)$$
+		Let $a_n = \frac{1}{(n+1)^2+1}$. Then
+		$$ \sum \frac{n^4+3n^2+10n+10}{2^n(n^4+4)} = \sum \frac{1}{2^{n+1}} - \sum a_{n+2} + \sum a_n = \frac{1}{2} + a_2 + a_3 = \frac{1}{2} + \frac{1}{10} + \frac{1}{17}  $$
+	\item $\sum \frac{4}{n(\ln n)^3}$
+		Converges by Integral test
+	\item $\sum \frac{\sqrt{1+\frac{1}{n}}}{n^2}$
+		Converges by p-Series Comparison
+	\item $\sum \frac{\sin n - 2}{n^2}$
+		Converges by p-Series Comparison
+	\item $\sum \frac{n^4+2n-1}{n^5+3n^2-20}$
+		Diverges by Limit Comparison Test (hint : $\sum \frac{1}{n}$)
+	\item $\sum \frac{e^{1+\frac{1}{n}}}{n^3}$
+		Converges by p-Series Comparison	
+	\item $\sum \left(\frac{4n}{5n+1}\right)^n$
+		Converges by Root Test
+	\item $\sum n^3e^{-n}$
+		Converges by Ratio Test
+	\item $\sum \frac{4^n}{(n!)^2}$
+	\item $\sum \frac{1}{\log n}$
+	\begin{proof}
+		Presence of logarithm indicates applicability of Condensation Test, and $a_n$ is positive and decreasing $a_n \downarrow_0$
+		$$ \sum \frac{1}{\log n}, \sum \frac{2^n}{\log 2^n} \text{ behaves alike }$$
+		$$ \log 2 \sum \frac{2^n}{n} \text{ diverges by comparison test } \quad \left( \because 0 \le \frac{1}{n} \le \frac{2^n}{n} \right) $$
+	\end{proof}
+	\item $\sum \frac{1}{n\log n}$
+	\begin{proof}
+		%My trick : Power Series Test $\sum \frac{1}{n^{1+\epsilon}}$ converges. But, my trick failed.\\
+		By condensation test,
+		$$ \sum \frac{1}{n\log n}, \sum \frac{2^n}{2^n \log 2^n} = \frac{1}{\log 2} \sum \frac{1}{n} \text{ behaves alike} \implies \sum \frac{1}{\log n} = \infty$$
+	\end{proof}
+	\item $\sum \frac{1}{n \log \log n}$
+	\begin{proof}
+		$$ 0 \le \frac{1}{n \log n} \le \frac{1}{n \log \log n} \le \frac{1}{n \log \log \dots \log n} $$
+	\end{proof}
+	\item $\sum \frac{1}{n^{\log n}}$
+	\begin{proof}
+	$$\frac{1}{n^{\log n}} < \frac{1}{n^2}, \forall n > e^2 \approx 7.3$$
+	\end{proof}
+\end{enumerate}
+
+\subsection{Real Alternating Series}
+\begin{enumerate}
+	\item $\sum -1^n \frac{4}{3^n}$
+		$$ \sum 4 \left(-\frac{1}{3}\right)^n = 4 \sum \left(-\frac{1}{3}\right)^n = -\frac{4}{3} \lim_{n \to \infty} \frac{1-(-\frac{1}{3})^n}{1-(-\frac{1}{3})} = -\frac{4}{3} \times \frac{1}{\frac{4}{3}} = -1 $$
+	\item $\sum -1^n \frac{4^n}{(2n+1)!}$
+		Converges absolutely by Ratio Test
+	\item $\sum -1^n n^{-\frac{1}{2}}$
+		Converges conditionally by divergent p-Series Test and Alternating Series Test.
+	\item $\sum -1^n n^\frac{1}{n}$
+		Diverges by $n$th term Test.
+	\item Find $x$ for which $\sum -1^n \frac{x^n}{n4^n}$ converges
+		$$ \frac{a_{n+1}}{a_n} = \frac{xn}{4(n+1)} < 1 \implies x < 4 $$
+		By ratio test, it converges absolutely when $x < 4$. When $-4<x<4$, it converges. When $x > 4$ or $x < -4$, it diverges. When $|x|=4$, the test fails.
+		When $x = 4$, $\sum -1^n \frac{1}{n}$ converges by alternating series test.
+		When $x = -4$, $\sum \frac{1}{n}$ diverges.
+
+		\textbf{Answer :} $x \in (-4,4]$.
+	\item Find $x$ for which  $\displaystyle \sum_{n=1}^\infty -1^n \frac{\displaystyle \prod_{k=1}^n 3k-2}{n!} x^n$ converges.
+
+		\textbf{Answer :} $x \in \left[-\frac{1}{3},\frac{1}{3}\right)$.
+\end{enumerate}
+
+\section*{}
+\begin{enumerate*}[label = Source \arabic*]
+	\item Minnesota State University\footnote{Math 262 Exam 4, Minnesota State University, Moorhead}\\
+	\item Sarah Fix\footnote{Sarah Fix, Advanced Tests for Convergence. May 8, 2019.(Kummer`s Test)}
+\end{enumerate*}
+

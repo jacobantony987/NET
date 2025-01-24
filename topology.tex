@@ -1,30 +1,21 @@
 \chapter{Topology}
-\begin{definition}[distance function]
-	A distance function $d : X \times X \to \mathbb{R}^+$ on a set $X$ is a function which satisfies
+\section{Metric Spaces}
+\begin{enumerate}
+	\item A distance function $d : X \times X \to \mathbb{R}^+$ on a set $X$ is a function which satisfies
 	\begin{enumerate}
 		\item $d(x,y) \ge 0,\qquad \forall x,y \in X$
 		\item $d(x,y) = 0 \iff x=y$
 		\item $d(x,y) = d(y,x)$
 		\item $d(x,y) \le d(x,z) + d(z,y), \qquad x,y,z \in X$
 	\end{enumerate}
-\end{definition}
-
-\section{Convergence}
-\begin{definition}[metric]
-	A sequence $x_n$ converges to $x$ if there exists $N \in \mathbb{N}$ such that $\forall n > N,\ d(x_n,x) < \varepsilon$.
-\begin{equation}
-	\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n > N,\ d(x_n,x) < \varepsilon
-\end{equation}
-\end{definition}
-
-\section{Cauchy Criterion}
-\begin{definition}[metric]
-	A sequence $x_n$ is Cauchy if there exists $N \in \mathbb{N}$ such that $\forall n,m > N,\ d(x_n,x_m) < \varepsilon$.
-\end{definition}
+	\item A sequence $x_n$ in a metric space $\entity{X,d}$ \textbf{converges} to $x \in X$ if there exists $N \in \mathbb{N}$ such that $\forall n > N,\ d(x_n,x) < \varepsilon$.
+	$$ \forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n > N,\ d(x_n,x) < \varepsilon $$
+\item A sequence $x_n$ in $\entity{X,d}$ is \textbf{Cauchy} if there exists $N \in \mathbb{N}$ such that $\forall n,m > N,\ d(x_n,x_m) < \varepsilon$.
+\end{enumerate}
 
 \section{Topological Space}
-\begin{definition}[topological space]
-	A topological space $\entity{X,\mathcal{T}}$ where $\mathcal{T} \subset \mathcal{P}(X)$ satisfies
+\begin{enumerate}
+	\item A topological space $\entity{X,\mathcal{T}}$ where $\mathcal{T} \subset \mathcal{P}(X)$ satisfies
 	\begin{enumerate}
 		\item $\phi,X \in \mathcal{T}$.
 		\item $\mathcal{T}$ is closed under finite intersections.
@@ -33,79 +24,34 @@
 	Let $G \in \mathcal{T}$.
 	Then $G$ is an open set in $\entity{X,\mathcal{T}}$.
 	And $X-G$ is a closed set.
-\end{definition}
-
-\begin{definition}[clopen]
-	A clopen set is both open and closed.
-\end{definition}
-
-\begin{definition}[dense]
-	A dense set $A$ intersects every non-trivial open set in $\entity{X,\mathcal{T}}$.
-\end{definition}
-\begin{note}
-	A dense set has no proper closure.
-	If $A$ is dense in $X$, then $\bar{A} = X$.
-	If $A$ is dense in $X$ and $x \in X$, then every neighbourhood of $x$ has an element of $A$.
-\end{note}
-
-\begin{definition}[neighbourhood]
-	A \textbf{neighbourhood} $N$ of a point $x \in X$ contains an open set containing $x$.
-	Then $x$ is an \textbf{interior point} of $N$.
-\end{definition}
-\begin{definition}[neighbourhood system]
-	The \textbf{neighbourhood system} of $x$, $\mathcal{N}_x$ is the family of all neighbourhoods of $x$.
-\end{definition}
-\begin{definition}[interior]
-	The set of all interior points of $N$ is the \textbf{interior} of $N$, $N^\circ$.
-\end{definition}
-\begin{definition}[exterior]
-	The interior of $X-N$ is the \textbf{exterior} of $N$.
-\end{definition}
-\begin{definition}[boundary]
-	The \textbf{boundary} of $N$, $\partial N$ is the set of all points which are neither in its interior or exterior.
-\end{definition}
-
-\begin{definition}[derived set]
-	A \textbf{limit point} $x$ of a set $A$ has every deleted neighbourhood $N-\{x\}$ intersecting $A$.
-	The \textbf{derived set} $A'$ is the set of all limit points of $A$.
-\end{definition}
-
-\begin{note}
-	A point $x$ is a limit point of $A$ if and onoy if there exists a non-eventual sequence in $A$ converging to $x$.
-\end{note}
-
-\begin{definition}[closure]
-	The closure of $A$, $\bar{A} = A \cup A'$.
-\end{definition}
-
-\begin{note}
-	The closure of $A$, $\bar{A}$ is the smallest closed set containing $A$.
-	If $A$ is closed, then $\bar{A} \subset A$.
-	If $C$ is closed and $A \subset C$, then $\bar{A} \subset C$.
-\end{note}
-
-\section{Convergence}
-\begin{definition}[neighbourhood]
-	A sequence $\sequence{x_n}$ \textbf{converges} to $x$ if any neighbourhood $N$ of $x$ contains all except finitely many $x_n$'s.
+	\item A \textbf{clopen} set is both open and closed.
+	\item A \textbf{dense} set $A$ intersects every non-trivial open set in $\entity{X,\mathcal{T}}$.
+		\subitem A dense set has no proper closure.
+		\subitem If $A$ is dense in $X$, then $\bar{A} = X$.
+		\subitem If $A$ is dense in $X$ and $x \in X$, then every neighbourhood of $x$ has an element of $A$.
+	\item A \textbf{neighbourhood} $N$ of a point $x \in X$ contains an open set containing $x$.
+		\subitem Then $x$ is an \textbf{interior point} of $N$.
+	\item The \textbf{neighbourhood system} of $x$, $\mathcal{N}_x$ is the family of all neighbourhoods of $x$.
+	\item The set of all interior points of $N$ is the \textbf{interior} of $N$, $N^\circ$.
+	\item The interior of $X-N$ is the \textbf{exterior} of $N$.
+	\item The \textbf{boundary} of $N$, $\partial N$ is the set of all points which are neither in its interior or exterior.
+	\item A \textbf{limit point} $x$ of a set $A$ has every deleted neighbourhood $N-\{x\}$ intersecting $A$.
+	\item The \textbf{derived set} $A'$ is the set of all limit points of $A$.
+	$$A' = \{ x \in X : \forall N \in \mathcal{N}_x, N-\{x\} \cap A \ne \phi \}$$
+	\item A point $x$ is a limit point of $A$ if and onoy if there exists a non-eventual sequence in $A$ converging to $x$.
+	\item The closure of $A$, $\bar{A} = A \cup A'$.
+		\subitem The closure of $A$, $\bar{A}$ is the smallest closed set containing $A$.
+		\subitem If $A$ is closed, then $\bar{A} \subset A$.
+		\subitem If $C$ is closed and $A \subset C$, then $\bar{A} \subset C$.
+	\item A sequence $\sequence{x_n}$ \textbf{converges} to $x$ if any neighbourhood $N$ of $x$ contains all except finitely many $x_n$'s.
 	Then $x$ is a \textbf{limit} of sequence $\sequence{x_n}$.
-\end{definition}
-\begin{note}
-	Let $x_n \to x$ in $\entity{X,\mathcal{T}}$.
+	\item Let $x_n \to x$ in $\entity{X,\mathcal{T}}$.
 	Then $x_n$ is eventually in every neighbourhood of $x$.
-	\begin{equation}
-		\forall U \in \mathcal{N}_x,\ \exists N \in \mathbb{N},\ \forall n > N,\ x_n \in U
-	\end{equation}
-\end{note}
-
-\begin{note}
-	Sequences $\sequence{\frac{1}{n}}$, $\sequence{\frac{1}{2^n}}$ are eventually in every neighbourhood of $0$.
-\end{note}
-
-
-\section{Properties of a Convex Polyhedron}
-\begin{definition}[Euler Characteristic]
-	$\chi = V - E + F$
-\end{definition}
-\begin{remark}
-	Every convex polyhedron has Euler characteristic, $\chi = 2$.
-\end{remark}
+	$$ \forall U \in \mathcal{N}_x,\ \exists N \in \mathbb{N},\ \forall n > N,\ x_n \in U $$
+	\subitem Sequences $\sequence{\frac{1}{n}}$, $\sequence{\frac{1}{2^n}}$ are eventually in every neighbourhood of $0$.
+	\item Every function on $\mathbb{N}$ is continuous as the induced topology on $\mathbb{N}$ is discrete.
+	\item \textbf{Brouwer Fixed Point Theorem} : Every continuous function from a nonempty compact subset $K$ of a Euclidean space to $K$ itself has a fixed point.
+		\subitem \textbf{Schauder Fixed Point Theorem} : Every continuous function from a nonempty compact subset $K$ of a Banach space to $K$ itself has a fixed point.
+	\item Euler Characteristic : $\chi = V - E + F$
+		\subitem Every convex polyhedron has Euler characteristic, $\chi = 2$.
+\end{enumerate}

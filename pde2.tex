@@ -1,13 +1,15 @@
 \chapter{Higher Order Partial Differential Equations}
+
+\section{Homogenous Linear Partial Differential Equations}
 \begin{definition}
 An $n$th order homogeneous linear PDE is of the form
 $$A_0 \frac{\partial^n z}{\partial x^n} + A_1 \frac{\partial^n z}{\partial x^{n-1} \partial y} + \dots + A_n \frac{\partial^n z}{\partial y^n} = f(x,y)$$
 Put $D = \frac{\partial z}{\partial x}$ and $D' = \frac{\partial z}{\partial y}$, then $A_0D^n + A_1D^{n-1}D' + \dots + A_n (D')^n = f(x,y)$. We may write $F(D,D') = f(x,y)$.
 \end{definition}
 
-\section{Solving Homogeneous Linear PDE}
 	%Solution consists of complementary part and particular integral.
-\section{Finding Complementary Solution}
+
+\subsection{Finding Complementary Solution}
 \begin{enumerate}
 	\item $F(D,D') = 0$.
 	\item Put $D = m$ and $D' =1$.
@@ -21,7 +23,8 @@ Put $D = \frac{\partial z}{\partial x}$ and $D' = \frac{\partial z}{\partial y}$
 	\item Root of multiplicity $n$: $m,m,\dots,m$.
 	$$C.F. = \phi_1(y+mx) + x\phi_2(y+mx) + \dots + x^{n-1}\phi_n(y+mx)$$
 \end{enumerate}
-\section*{Exercise}
+
+\subsubsection*{Exercise} %Complementary Function
 \begin{enumerate}
 	\item Solve $(D^2-2DD' - 3(D')^2)z = 0$ ?\\
 	$m^2 - 2m - 3 = 0$, $m = -1,3$.
@@ -46,23 +49,83 @@ Put $D = \frac{\partial z}{\partial x}$ and $D' = \frac{\partial z}{\partial y}$
 	$CF = \phi_1(5y+4x) + x\phi_2(5y+4x)$.
 \end{enumerate}.
 
-\section{Finding Particular Integarl}
+\section{Non Homogenous Linear Partial Differential Equations}
+\subsection{Finding Particular Integarl}
 \begin{enumerate}
 	\item $f(x,y) = p(x,y)$\\
-	Particular Integral $y_p = 1/F(D,D') f(x,y)$.
+	Particular Integral, $$z_p = 1/F(D,D') f(x,y)$$
 		$$(1+x)^n = \sum_r \binom{n}{r} x^r \text{ where } \binom{n}{r} = \frac{|n \times (n-1) \times \dots \times (n-r+1)|}{1 \times 2 \times \dots \times r}$$
 		$\binom{-2}{4} = \frac{|-2 \times -3 \times -4 \times -5|}{1 \times 2 \times 3 \times 4} = 5$.
-	\item
+	\item $f(x,y) = \phi(ax+by)$, $F(a,b) \ne 0$, $F(D,D')$ is homogenous of degree $n$ \\
+		Particular Integral, $$z_p = 1/F(a,b) \underset{n}{\int \dots \int} f(v)\ dv \text{ where } v = ax + by$$
+	\item $f(x,y) = \phi(ax+by)$, $F(a,b) = 0$ and $F(D,D')$ is homogenous with degree $n$\\
+		Particular Integarl, $$z_p = \frac{1}{(bD-aD')^n} \phi(ax+by) = \frac{x^n}{n! b^n} \phi(ax+by)$$
 \end{enumerate}
 
-\section*{Exercise}
+\subsubsection*{Exercise} %Particular Integral
 \begin{enumerate}
-	\item Solve $(D^2 - 2DD' +(D')^2z = 12xy$ ?\\
-		$m^2 -2m + 1 = 0$, $m = 1,1$.
-		$CF = \phi_1(y+x) + x\phi_2(y+x)$.
-		\begin{align*} y_p & = \frac{1}{(D-D')^2} 12xy = \frac{1}{D^2(1-\frac{D'}{D})^2} 12xy \\ 
+\item Solve $(D^2 - 2DD' +D'^2)z = 12xy$ ?\\
+	$m^2 -2m + 1 = 0$, $m = 1,1$.
+	$CF = \phi_1(y+x) + x\phi_2(y+x)$.
+	\begin{align*}
+		z_p & = \frac{1}{(D-D')^2} 12xy = \frac{1}{D^2(1-\frac{D'}{D})^2} 12xy \\ 
 		&= \frac{1}{D^2} (1+2\frac{D'}{D}+3\frac{D'}{D}+\dots) 12xy \\ 
-		&= \frac{1}{D^2}12xy + \frac{2}{D^3} 12x = 2x^3y + x^4 \end{align*}
-		since $D' = \frac{\partial }{\partial y}$ and $1/D = \int dx$.
-		General Solution : $z = \phi_1(y+x) + x\phi_2(y+x) + x^4 + 2x^3y$.
+		&= \frac{1}{D^2}12xy + \frac{2}{D^3} 12x 
+		= 2x^3y + x^4
+	\end{align*}
+	since $D' = \frac{\partial }{\partial y}$ and 
+		$1/D = \int dx$.
+	General Solution : 
+	$z = \phi_1(y+x) + x\phi_2(y+x) + x^4 + 2x^3y$.
+\item Solve $(D^2- 6DD' + 9D'^2)z = 12x^2 + 36xy$ ?\\
+	$m^2 - 6m + 9 = 0$, $m = 3,3$.
+	$CF = \phi_1(y+3x) + x\phi_2(y+3x)$.\\
+	\begin{align*}
+		z_p & = \frac{1}{D^2 - 6DD' + 9D'^2} 12x^2+36xy\\
+		& = \frac{1}{D^2}\left(1-\frac{3D'}{D}\right)^{-2} 12x^2 + 36xy\\
+		& = \frac{1}{D^2} \left(1+\frac{6D'}{D} + \frac{27D'^2}{D^2}\right) 12x^2+36xy\\
+		& = \frac{1}{D^2} \left( 12x^2 + 36xy + 18x^2 \right)
+		= \frac{5x^4}{2} + 6x^3y 
+	\end{align*}
+	General Solution :
+	$z = \phi_1(y+3x) + x\phi_2(y+3x) + \frac{5x^4}{2} + 6x^3y$.
+\item Solve $(2D^2 - 5DD' + 2D'^2)z = 24(y-x)$ ?\\
+	$2m^2 - 5m + 2 = 0$, $m = 1/2,2$.
+	$CF = \phi_1(2y+x) + \phi_2(y+2x)$.\\
+	\begin{align*}
+		z_p & = \frac{1}{2D^2}\left(1 - \frac{D'}{2D}\right)^{-1} 24(y-x) \\
+		& = \frac{1}{2D^2} (1 - \frac{D'}{D} + \frac{D'^2}{D^2}) 24(y-x)
+		= \frac{1}{2D^2} (24y - 24x - 24x) 
+		= 12x^2y - 8x^3
+	\end{align*}
+	General Solution :
+	$z = \phi_1(2y+x) + \phi_2(y+2x) - 8x^3 + 12x^2y$.
+\item Solve $(D^2 + (a+b)DD' + abD'^2)z = xy$ ?\\
+\item Solve $(D^2 - DD')z = xy$ ?\\
+\item Solve $(D^2 - 2DD' - 15D'^2)z = 12xy$ ?\\
+\item Solve $(D^2 + 3DD' + 2D'^2)z = 2x + 3y$ ?\\
+	\hrule
+\item Solve $(D^2 - 2DD' +D'2)z = \sin (2x+3y)$ ?\\
+	$m^2 - 2m + 1 = 0$, $m = 1,1$.
+	$CF = \phi_1(y+x) + x\phi_2(y+x)$.\\
+	$F(D,D') = D^2 - 2DD' + D'^2$ and $F(2,3) = 4 - 12 + 9 = 1 \ne 0$.
+	\begin{align*}
+		z_p &= \iint \sin v\ dv = \int -\cos v + c = -\sin v + cv \\
+		&= -\sin(2x + 3y) + c(2x+3y) 
+	\end{align*}
+	General Solution :
+		$z = \phi_1(y+x) + x\phi_2(y+x) - \sin(2x+3y) + c(2x+3y)$.
+	\item Solve $(D^2 - 2DD' + D'^2)z = e^{x+2y}$ ?\\
+	$m^2 - 2m + 1 = 0$, $m = 1,1$.
+	$CF = \phi_1(y+x) + x\phi_2(y+x)$.\\
+	$F(D,D') = e^{x+2y}$, $F(1,2) = 1-4+4 = 1 \ne 0$.
+	\begin{align*}
+		z_p &= \iint e^v\ dv = \int e^v + c = e^v + cv \\
+		& = e^{x+2y} + c(x+2y)
+	\end{align*}
+	General Solution :
+	$z = \phi_1(y+x) + x\phi_2(y+x) + e^{x+2y} + c(x+2y)$.
+\item Solve $(D^2 + 3DD' + 2D'^2)z = e^{x+y}$ ?\\
 \end{enumerate}	
+
+
